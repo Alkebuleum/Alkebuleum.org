@@ -51,7 +51,7 @@ const Footer = () => {
                         <Link href="https://Instagram.com/Alkebuleum" target="_blank" underline="none" className="socialLink">
                             <Instagram />
                         </Link>
-                        <Link href="https://discord.gg/vmUY6mXG" underline="none" target="_blank" className="socialLink">
+                        <Link href="https://discord.gg/hY6JRtVJ" underline="none" target="_blank" className="socialLink">
                             <FaDiscord style={{ fontSize: "larger" }} />
                         </Link>
                         <Link href="https://t.me/alkebuleum" underline="none" target="_blank" className="socialLink">

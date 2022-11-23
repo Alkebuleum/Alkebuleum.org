@@ -17,8 +17,8 @@ export default function Home() {
             <HeroSection />
             <FeaturesSection />
             <WhyUsSection />
-            {/* <HowToSection />
-            <TokenomicsSection /> */}
+            <HowToSection />
+            <TokenomicsSection />
             <RoadmapSection />
             <FaqSection />
             <TeamSection />

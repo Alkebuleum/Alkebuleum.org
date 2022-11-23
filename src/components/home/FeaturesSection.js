@@ -91,7 +91,7 @@ const Timer = (props) => {
 
     return (
         <>
-            <Countdown date={1669849200000} renderer={renderer} />
+            <Countdown date={1671848580000} renderer={renderer} />
         </>
     );
 };
@@ -124,29 +124,27 @@ const FeaturesSection = () => {
                     <Card sx={{ minWidth: 275, maxWidth: 600, mx: "auto", bgcolor: "#b29874", color: "#363636", py: 3 }}>
                         <CardContent sx={{ textAlign: "center" }}>
                             <Box sx={{ fontWeight: "bold", mb: 3, typography: { sm: "h4", xs: "h5" } }} component="div">
-                                TOKEN SALE ENDS IN
+                                WHITEPAPER OUT IN
                             </Box>
 
                             <Timer />
 
                             <Box sx={{ width: "80%", mx: "auto", mt: "30px" }}>
-                                <BorderLinearProgress variant="determinate" value={1669849200000 - Date.now()>0?(Date.now() - 1658282327218)/(1669849200000 - 1658282327218)*100:100} />
+                                <BorderLinearProgress variant="determinate" value={1671848580000 - Date.now()>0?(Date.now() - 1658282327218)/(1671848580000 - 1658282327218)*100:100} />
                             </Box>
                             <Box>
-                                <Button component="a" target="_blank" href="/buytoken"  sx={{ color: "white", bgcolor: "#6d8d6e", mt: 3, px: 3 }}>Buy More AKE</Button>
+                              {/*   <Button component="a" target="_blank" href="/buytoken"  sx={{ color: "white", bgcolor: "#6d8d6e", mt: 3, px: 3 }}>Buy More AKE</Button> */}
                             </Box>
                         </CardContent>
                     </Card>
                 </Grid>
                 <Grid item xs={12} md={6} sx={{ px: 4 }}>
                     <Box sx={{ color: "#363636", typography: { sm: "h4", xs: "h5" }, mb: 2, fontWeight: "bold !important" }}>
-                        Download token whitepaper{" "}
+                        Download whitepaper (Dec 23rd){" "}
                     </Box>
 
                     <Typography variant="body" color="#363636" component="div">
-                        Considering the growing interest of public towards the crypto currencies and their rising popularity, this template has got
-                        all the chances to become a successful internet enterprise for mining hardware manufacturer or new cryptocurrency project.
-                        Especially if you’re already looking for a solution for a website that would accept charges of different currencies.
+                    Africa, the home of humanity, once prosperous with abundance of human and natural resources, caved in to the change of time and have resolved to a dreadful marginalization in the economy of the world. Poverty, disease, illiteracy, insecurity and injustices are among the list of woes that the continent and its people, both home and in the diaspora are faced with today. This white paper table some of the major root causes; such as Poor Governance, spiraling Corruptions, tribal and clique bias among others that contribute to the regression of continent’s economy and propose a Smart Pan-African Economy solution built on the current advances of Web3 and blockchain technologies that could positively shift the global Pan-African Community future by introducing transparency in governance and economic systems, eliminating corruption and social biases.
                     </Typography>
 
                     <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>

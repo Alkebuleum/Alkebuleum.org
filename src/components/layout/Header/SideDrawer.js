@@ -15,7 +15,8 @@ const drawerWidth = 220;
 const SideDrawer = ({ onClose, open, window, handleClickContracts }) => {
     const router = useLocation();
     const container = window !== undefined ? () => window().document.body : undefined;
-    const menuArr = [{name:"Home",link:"#"},{name:"About ICO",link:"#"},{name:"Roadmap",link:"#roadmapsection"},{name:"Team & Partners",link:"#teamsection"},{name:"Token",link:"#featuressection"},{name:"Faq",link:"#faqsection"},{name:"News",link:"#"}];
+    //const menuArr = [{name:"Home",link:"#"},{name:"About ICO",link:"#"},{name:"Roadmap",link:"#roadmapsection"},{name:"Team & Partners",link:"#teamsection"},{name:"Token",link:"#featuressection"},{name:"Faq",link:"#faqsection"},{name:"News",link:"#"}];
+    const menuArr = [{name:"Home",link:"#"},{name:"Roadmap",link:"#roadmapsection"},{name:"Token",link:"#featuressection"},{name:"Faq",link:"#faqsection"},{name:"News",link:"#"}];
 
     const handleClickContractsItem = () => {
         onClose();
