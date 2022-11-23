@@ -33,9 +33,9 @@ const Footer = () => {
                     <Box sx={{ display: "flex", mb: 1 }}>
                         <LocationOn sx={{ color: "#6d8d6e", mr: 1 }} /> decentralized
                     </Box>
-                    <Box sx={{ display: "flex", mb: 1 }}>
+                   {/**  <Box sx={{ display: "flex", mb: 1 }}>
                         <LocalPhone sx={{ color: "#6d8d6e", mr: 1 }} /> 512 710 9124
-                    </Box>
+                    </Box>*/}
                     <Box sx={{ display: "flex", mb: 1 }}>
                         <Email sx={{ color: "#6d8d6e", mr: 1 }} /> info@alkebuleum.org
                     </Box>

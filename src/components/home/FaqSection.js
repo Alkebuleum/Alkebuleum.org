@@ -47,34 +47,31 @@ const FaqSection = () => {
 
             <Accordion expanded={expanded === "panel1"} onChange={handleChange("panel1")}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                    <Typography>Collapsible Group Item #1</Typography>
+                    <Typography>How can we buy the Alkecoin ($AKE) </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+                        The Alkecoin ($AKE) will be available for sale during the first Initial Coin Offering (ICO). The specific date for the ICO is yet to be determine but will done sometime in 2023 on this website. We recommend you join our wait list to be the first to be notified when the coin is available for purchase. Click this link <a href="https://pluralsight.com"><u>Join Waiting List</u></a>  to join the waiting list
                     </Typography>
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === "panel2"} onChange={handleChange("panel2")}>
                 <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-                    <Typography>Collapsible Group Item #2</Typography>
+                    <Typography>How can we be part of this</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+                        To be a member of the decentralized autonomous organization that is supporting and developing the Alkebuleum blockchain and its ecosystem, click on this link <a href="https://forms.gle/RBoYCnCuf1BpRf9b9"><u>Request Membership</u></a> and fill up the membership proposal. The DAO will review your proposal and will vote to accept your membership.
                     </Typography>
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === "panel3"} onChange={handleChange("panel3")}>
                 <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-                    <Typography>Collapsible Group Item #3</Typography>
+                    <Typography>Is this secure and regulated</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+                        The Alkebuleum blockchain was put into motion by the Alkebuleum Foundation which is a United State regulated Non-Profit organization. The organization has set a premise of full compliance with local and international laws. This gives the blockchain a reputation of trust for the community. As related to Security, please read the Whitepaper which discribe some the strategic security measure the blockchain will have in place to protect its community and its assets.
                     </Typography>
                 </AccordionDetails>
             </Accordion>
