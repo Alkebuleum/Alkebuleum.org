@@ -97,7 +97,7 @@ const Timer = (props) => {
 };
 const Square = ({ language }) => {
     return (
-        <Link href="/vue-js.pdf" target="_blank" underline="none" download>
+        <Link href="/AlkbuleumWhitepaperSoon.pdf" target="_blank" underline="none" download>
             <Box
                 sx={{
                     border: "solid 3px #b0946e",

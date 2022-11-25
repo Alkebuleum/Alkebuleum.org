@@ -51,7 +51,7 @@ const FaqSection = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        The Alkecoin ($AKE) will be available for sale during the first Initial Coin Offering (ICO). The specific date for the ICO is yet to be determine but will done sometime in 2023 on this website. We recommend you join our wait list to be the first to be notified when the coin is available for purchase. Click this link <a href="https://pluralsight.com"><u>Join Waiting List</u></a>  to join the waiting list
+                        The Alkecoin ($AKE) will be available for sale during the Initial Coin Offering (ICO). The specific date for the ICO is yet to be determine so we recommend you join our wait-list to be notified when the ICO is about to start. Click this link <a href="https://pluralsight.com"><u>Join Waiting List</u></a>  to join the waiting list
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -71,7 +71,7 @@ const FaqSection = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        The Alkebuleum blockchain was put into motion by the Alkebuleum Foundation which is a United State regulated Non-Profit organization. The organization has set a premise of full compliance with local and international laws. This gives the blockchain a reputation of trust for the community. As related to Security, please read the Whitepaper which discribe some the strategic security measure the blockchain will have in place to protect its community and its assets.
+                        The Alkebuleum blockchain was put into motion by the Alkebuleum Foundation; a United State regulated Non-Profit organization. The organization has set a premise of full compliance with local and international laws. This gives the blockchain a reputation of trust for the community. To understand more about the security, please read the Whitepaper which discribe some the strategic security measure the blockchain will have in place to protect the users and its assets.
                     </Typography>
                 </AccordionDetails>
             </Accordion>

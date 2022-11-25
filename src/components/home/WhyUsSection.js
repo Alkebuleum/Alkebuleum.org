@@ -13,19 +13,19 @@ const WhyUsSection = () => {
                     <Box sx={{ color: "#363636", typography: { sm: "h4", xs: "h5" }, mb: 2, fontWeight: "bold !important" }}>Why Alkebuleum </Box>
 
                     <Typography variant="body" color="#363636" component="div">
-                        Alkebuleum is an impact driven blockchain, highly secure and regulation compliant. It is being built to tackle institutional coruption, lack of accountability, resource mis-managment and others. Unlike others, Alkebuleum is being customized to operate in Africa, disrupting the existing financial market by instroducing the fastest and lowest to zero(0) fees for financial transactions and money transfer.
+                        Alkebuleum is an impact driven blockchain, highly secure and regulatory compliant. It is being built to tackle institutional coruption, resource mis-managment and facilate commerce.
                     </Typography>
                     <Box sx={{ mb:2 }}></Box>
                     <Box sx={{ color: "#363636", typography: { sm: "h6", xs: "h5" }, mb: 1, fontWeight: "bold" }}>Social Impact + Economic Growth </Box>
 
                     <Typography variant="body" color="#363636" component="div">
-                        The project is attracting volunteers, Developers, valitadaors, ativiates, and people with a common interest of making impact over profit. The impact the blockchain will have will parellelly improve the economic situation of people who are affected by it.
+                        Unlike others, Alkbebuleum is built to address economic constraints in Africa and it diaspora. It is not a traditional blockchain that charges fee base on computation consumption of a transaction but rather based on the sociatal benefit value; a transaction thats considered to have greater value of solving sociatal problem could have little to zero(0) transaction fees. With these economic constraints absent the economic situation of the people will improve greatly.
                     </Typography>
                     <Box sx={{ mb:2 }}></Box>
                     <Box sx={{ color: "#363636", typography: { sm: "h6", xs: "h5" }, mb: 1, fontWeight: "bold" }}>Security + compliance </Box>
 
                     <Typography variant="body" color="#363636" component="div">
-                        Benefit from the latest blockchain security verification standards with end to end authentication that enables superior data integrity. Build to accommodate varying compliance and regulatory frameworks globally.
+                        Alkebuleum comes with the latest blockchain security verification standards with end to end authentication that enables superior data integrity. Build to accommodate varying compliance and regulatory frameworks globally.
                     </Typography>
                   
                     <Box>
