@@ -9,7 +9,6 @@ import Email from "@mui/icons-material/Email";
 import Twitter from "@mui/icons-material/Twitter";
 import Facebook from "@mui/icons-material/Facebook";
 import Instagram from "@mui/icons-material/Instagram";
-import Reddit from "@mui/icons-material/Reddit";
 import Telegram from "@mui/icons-material/Telegram";
 import { FaDiscord } from "react-icons/fa";
 

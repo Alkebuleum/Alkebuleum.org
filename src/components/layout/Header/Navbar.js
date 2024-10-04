@@ -1,20 +1,11 @@
-import { useState, Fragment } from "react";
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { Fragment } from "react";
 import Stack from "@mui/material/Stack";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Badge from "@mui/material/Badge";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Button from "@mui/material/Button";
 
 //const Navbar = ({mainLinks, presaleLink, bridgeLink, moreMenuLinks, comingSoonLink, handleClickContracts}) => {
-const Navbar = (props) => {
-    const [anchorMoreEl, setAnchorMoreEl] = useState(null);
-    const menuArr = [{ name: "Home", link: "#" }, { name: "Use", link: "#featuressection" }, { name: "Build", link: "#buildonalkebuleum" }, { name: "Faq", link: "#faqsection" }];
+const Navbar = () => {
 
-    const handleCloseMoreMenu = () => {
-        setAnchorMoreEl(null);
-    };
+    const menuArr = [{ name: "Home", link: "#" }, { name: "Use", link: "#featuressection" }, { name: "Build", link: "#buildonalkebuleum" }, { name: "Faq", link: "#faqsection" }];
 
     return (
         <Fragment>

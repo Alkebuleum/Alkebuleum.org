@@ -44,7 +44,7 @@ const WhyUsSection = () => {
                             color="textSecondary"
                             sx={{ mb: 4, lineHeight: 1.7, textAlign: { xs: "center", sm: "left" } }}
                         >
-                            Alkebuleum is designed to bring real-world solutions to pressing challenges. Whether you're looking for a secure, low-cost platform to build your decentralized applications or seeking to transact with minimal fees, Alkebuleum is here for you.
+                            Alkebuleum is designed to bring real-world solutions to pressing challenges. Whether you&apos;re looking for a secure, low-cost platform to build your decentralized applications or seeking to transact with minimal fees, Alkebuleum is here for you.
                         </Typography>
 
                         {/* Sub-heading for Low Fees */}
@@ -76,7 +76,7 @@ const WhyUsSection = () => {
                             color="textSecondary"
                             sx={{ mb: 4, lineHeight: 1.7, textAlign: { xs: "center", sm: "left" } }}
                         >
-                            At Alkebuleum, control rests in the hands of the community. This means no single entity has power over the network. Whether you're launching a project or engaging in peer-to-peer transactions, you're guaranteed complete autonomy and security.
+                            At Alkebuleum, control rests in the hands of the community. This means no single entity has power over the network. Whether you&apos;re launching a project or engaging in peer-to-peer transactions, you&apos;re guaranteed complete autonomy and security.
                         </Typography>
 
                         {/* Sub-heading for Unparalleled Security */}

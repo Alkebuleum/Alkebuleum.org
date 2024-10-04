@@ -73,7 +73,7 @@ const BuildOnAlkebuleum = () => {
               color="textSecondary"
               sx={{ mb: 4, lineHeight: 1.7, textAlign: { xs: "center", sm: "left" } }}
             >
-              Alkebuleum is fully compatible with the Ethereum Virtual Machine (EVM), which means any code written for Ethereum can be used directly on Alkebuleum. Whether you're developing decentralized applications (dApps), smart contracts, or anything else for Ethereum, you can use the same tools, frameworks, and resources to build on Alkebuleum.
+              Alkebuleum is fully compatible with the Ethereum Virtual Machine (EVM), which means any code written for Ethereum can be used directly on Alkebuleum. Whether you&apos;re developing decentralized applications (dApps), smart contracts, or anything else for Ethereum, you can use the same tools, frameworks, and resources to build on Alkebuleum.
             </Typography>
 
             <Typography
@@ -81,7 +81,7 @@ const BuildOnAlkebuleum = () => {
               color="textSecondary"
               sx={{ mb: 4, lineHeight: 1.7, textAlign: { xs: "center", sm: "left" } }}
             >
-              The only differences you'll need to keep in mind is that Alkebuleum's network ID is 223724, and the RPC URL is <strong>https://node.alkebuleum.com</strong>. Ensure you're connected to Alkebuleum when deploying.
+              The only differences you&apos;ll need to keep in mind is that Alkebuleum&apos;s network ID is 223724, and the RPC URL is <strong>https://node.alkebuleum.com</strong>. Ensure you&apos;re connected to Alkebuleum when deploying.
             </Typography>
 
             {/* Call-to-Action Buttons */}
@@ -100,7 +100,7 @@ const BuildOnAlkebuleum = () => {
                   },
                 }}
               >
-                Developers's Portal
+                Developers&apos;s Portal
               </Button>
 
               <Button
@@ -146,7 +146,7 @@ const BuildOnAlkebuleum = () => {
           </Typography>
 
           <Typography variant="body1" color="textSecondary" sx={{ mb: 3 }}>
-            Before proceeding to Ethereum's website, please ensure that you are aware that Alkebuleum is fully compatible with Ethereum but uses its own network ID and RPC URL.
+            Before proceeding to Ethereum&apos;s website, please ensure that you are aware that Alkebuleum is fully compatible with Ethereum but uses its own network ID and RPC URL.
           </Typography>
 
           <Typography variant="body1" color="textSecondary" sx={{ mb: 2 }}>
@@ -156,7 +156,7 @@ const BuildOnAlkebuleum = () => {
           </Typography>
 
           <Typography variant="body2" color="textSecondary" sx={{ mb: 3 }}>
-            After you've practiced and learned using Ethereum Resources, you can deploy your dApps on Alkebuleum.
+            After you&apos;ve practiced and learned using Ethereum Resources, you can deploy your dApps on Alkebuleum.
           </Typography>
 
           <Button
