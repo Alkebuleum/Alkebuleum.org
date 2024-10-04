@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Alkebuleum.org/static/css/main.4ba2d5da.css",
+    "main.js": "/Alkebuleum.org/static/js/main.beaba9dc.js",
+    "static/js/453.821a8db0.chunk.js": "/Alkebuleum.org/static/js/453.821a8db0.chunk.js",
+    "static/media/developerCover.png": "/Alkebuleum.org/static/media/developerCover.4a546d1d892ec62c75a6.png",
+    "static/media/openbookArt.png": "/Alkebuleum.org/static/media/openbookArt.748e17d3e0a9ef3ff9b3.png",
+    "index.html": "/Alkebuleum.org/index.html",
+    "main.4ba2d5da.css.map": "/Alkebuleum.org/static/css/main.4ba2d5da.css.map",
+    "main.beaba9dc.js.map": "/Alkebuleum.org/static/js/main.beaba9dc.js.map",
+    "453.821a8db0.chunk.js.map": "/Alkebuleum.org/static/js/453.821a8db0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4ba2d5da.css",
+    "static/js/main.beaba9dc.js"
+  ]
+}
