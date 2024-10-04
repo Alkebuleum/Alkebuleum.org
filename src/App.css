@@ -1,7 +1,7 @@
 html,
 body {
   scroll-behavior: smooth;
-  background-color: #e6be9a;
+  background-color: "white";
 }
 
 p {
@@ -12,7 +12,8 @@ p {
   margin-inline-end: 0px;
 }
 
-a, a:hover {
+a,
+a:hover {
   color: inherit;
   text-decoration: none;
 }
@@ -63,6 +64,7 @@ input[type=number] {
     transform: translate(0, 20px);
     -webkit-transform: translate(0, 20px);
   }
+
   100% {
     opacity: 1;
     transform: translate(0, 0);
@@ -79,21 +81,24 @@ input[type=number] {
   animation: pulse 2s infinite;
   border: 3px solid rgba(255, 255, 255, .7);
 }
-.timeElement{
+
+.timeElement {
   color: #363636;
   width: 50px;
   height: 50px;
   background-color: white;
   border-radius: 3px;
-  margin-left:10px;
-  margin-right:10px;
+  margin-left: 10px;
+  margin-right: 10px;
   font-size: 30px;
   font-weight: bold;
 }
-.bigger{
+
+.bigger {
   width: 60px;
 }
-.socialLink{
+
+.socialLink {
   color: #363636 !important;
   background-color: white !important;
   margin-right: 8px !important;
@@ -104,14 +109,17 @@ input[type=number] {
   justify-content: center !important;
   align-items: center !important;
 }
+
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(220, 53, 69, 1);
   }
+
   70% {
-    box-shadow: 0 0 0 calc(16*1px*1) rgba(220, 53, 69,0);
+    box-shadow: 0 0 0 calc(16*1px*1) rgba(220, 53, 69, 0);
   }
+
   100% {
-    box-shadow: 0 0 0 0 rgba(220, 53, 69,0);
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
   }
 }

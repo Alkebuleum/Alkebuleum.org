@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 //const Navbar = ({mainLinks, presaleLink, bridgeLink, moreMenuLinks, comingSoonLink, handleClickContracts}) => {
 const Navbar = (props) => {
     const [anchorMoreEl, setAnchorMoreEl] = useState(null);
-    const menuArr = [{name:"Home",link:"#"},{name:"About ICO",link:"#"},{name:"Roadmap",link:"#roadmapsection"},{name:"Team & Partners",link:"#teamsection"},{name:"Token",link:"#featuressection"},{name:"Faq",link:"#faqsection"},{name:"News",link:"#"}];
+    const menuArr = [{ name: "Home", link: "#" }, { name: "Use", link: "#featuressection" }, { name: "Build", link: "#buildonalkebuleum" }, { name: "Faq", link: "#faqsection" }];
 
     const handleCloseMoreMenu = () => {
         setAnchorMoreEl(null);

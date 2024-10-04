@@ -1,162 +1,223 @@
+import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import { Card, CardContent, Button,Link } from "@mui/material";
-import Countdown from "react-countdown";
-import { bgcolor } from "@mui/system";
-import { styled } from "@mui/material/styles";
-import DownloadOutlined from "@mui/icons-material/DownloadOutlined";
-import LinearProgress, { linearProgressClasses } from "@mui/material/LinearProgress";
-const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-    height: 10,
-    borderRadius: 5,
-    [`&.${linearProgressClasses.colorPrimary}`]: {
-        backgroundColor: theme.palette.grey[theme.palette.mode === "light" ? 200 : 800],
-    },
-    [`& .${linearProgressClasses.bar}`]: {
-        borderRadius: 5,
-        backgroundColor: theme.palette.mode === "light" ? "#6d8d6e" : "#308fe8",
-    },
-}));
+import { Button, Container, Drawer } from "@mui/material";
+import openbookArt from "../../images/openbookArt.png"; // Importing your image
 
-const Timer = (props) => {
-    const renderer = ({ days, hours, minutes, seconds, completed }) => {
-        if (completed) {
-            // if (props.time > 0) window.location.reload();
-            return (
-                <div style={{ display: "flex", justifyContent: "center" }}>
-                    <div>
-                        <div className="timeElement bigger">000</div>
-                        <div>days</div>
-                    </div>
-                    <div>
-                        <div className="timeElement">00</div>
-                        <div>hours</div>
-                    </div>
-                    <div>
-                        <div className="timeElement">00</div>
-                        <div>minutes</div>
-                    </div>
-                    <div>
-                        <div className="timeElement">00</div>
-                        <div>seconds</div>
-                    </div>
-                </div>
-            );
-        } else {
-            return (
-                <div style={{ display: "flex", justifyContent: "center" }}>
-                    <div>
-                        <div className="timeElement bigger">{("00" + days).slice(-3)}</div>
-                        <div>days</div>
-                    </div>
-                    <div>
-                        <div className="timeElement">{("0" + hours).slice(-2)}</div>
-                        <div>hours</div>
-                    </div>
-                    <div>
-                        <div className="timeElement">{("0" + minutes).slice(-2)}</div>
-                        <div>minutes</div>
-                    </div>
-                    <div>
-                        <div className="timeElement">{("0" + seconds).slice(-2)}</div>
-                        <div>seconds</div>
-                    </div>
-                </div>
-            );
-        }
+const FeaturesSection = () => {
+    const [isDrawerOpen, setDrawerOpen] = useState(false);
+
+    // Function to toggle the drawer
+    const toggleDrawer = (open) => () => {
+        setDrawerOpen(open);
     };
-    if (props.time === 0)
-        return (
-            <div style={{ display: "flex", justifyContent: "center" }}>
-                <div>
-                    <div className="timeElement bigger">000</div>
-                    <div>days</div>
-                </div>
-                <div>
-                    <div className="timeElement">00</div>
-                    <div>hours</div>
-                </div>
-                <div>
-                    <div className="timeElement">00</div>
-                    <div>minutes</div>
-                </div>
-                <div>
-                    <div className="timeElement">00</div>
-                    <div>seconds</div>
-                </div>
-            </div>
-        );
+
+    // Example list of use cases with titles and descriptions
+    const useCases = [
+        {
+            title: "DAO Governance",
+            description: "Manage decentralized autonomous organizations with transparent governance systems."
+        },
+        {
+            title: "Project Management",
+            description: "Coordinate projects securely, ensuring transparency and accountability."
+        },
+        {
+            title: "Decentralized Voting",
+            description: "Enable secure and decentralized voting on proposals and key decisions."
+        },
+        {
+            title: "Resource Allocation",
+            description: "Track and allocate resources effectively within a decentralized system."
+        },
+        {
+            title: "Community Collaboration",
+            description: "Create a collaborative environment for communities to work together on projects."
+        },
+        {
+            title: "Secure Contracts",
+            description: "Draft and enforce contracts securely using blockchain technology."
+        },
+        {
+            title: "Real-time Auditing",
+            description: "Allow for real-time auditing of finances and project activities."
+        },
+        {
+            title: "Group Coordination",
+            description: "Coordinate group efforts efficiently with decentralized tools and transparency."
+        }
+    ];
 
     return (
-        <>
-            <Countdown date={1669849200000} renderer={renderer} />
-        </>
-    );
-};
-const Square = ({ language }) => {
-    return (
-        <Link href="/vue-js.pdf" target="_blank" underline="none" download>
-            <Box
+        <Box sx={{ py: 10, bgcolor: "white", position: "relative" }} id="featuressection">
+
+
+            <Container maxWidth="lg">
+                <Grid container spacing={5} alignItems="center" justifyContent="center">
+                    {/* Left Side: Image Section */}
+                    <Grid item xs={12} md={6}>
+                        <Box
+                            component="img"
+                            src={openbookArt}
+                            alt="Openbook Art"
+                            sx={{
+                                width: "80%",  // Reduced the width to 80%
+                                height: "auto",
+                                borderRadius: "8px",
+                                mx: "auto",
+                            }}
+                        />
+                    </Grid>
+
+                    {/* Right Side: Text and Call-to-Action Section */}
+                    <Grid item xs={12} md={6}>
+
+                        {/* Tag above the title */}
+                        <Box
+                            sx={{
+                                backgroundColor: "rgba(208, 233, 239, 0.5)", // Variation of #D0E9EF with transparency
+                                color: "#7BA6AC", // Dark grey for text contrast
+                                px: 3,
+                                py: 1,
+                                borderRadius: "20px",
+                                fontSize: "14px",
+                                textTransform: "uppercase",
+                                mb: 2,  // Add margin below the tag
+                                display: "inline-block", // Make the tag size match text length
+                            }}
+                        >
+                            Use Case
+                        </Box>
+
+                        {/* Section Title */}
+                        <Typography
+                            variant="h4"
+                            component="h2"
+                            sx={{ fontWeight: "bold", mb: 3, textAlign: "left" }}
+                        >
+                            Create Decentralized Autonomous Organizations on Alkebuleum with Openbook
+                        </Typography>
+
+                        {/* Description */}
+                        <Typography
+                            variant="body1"
+                            color="textSecondary"
+                            sx={{ mb: 4, textAlign: "left", lineHeight: 1.7 }}
+                        >
+                            Openbook is a decentralized collaboration platform built on the Alkebuleum blockchain. It allows groups, organizations, and communities to create secure, decentralized workspaces where they can manage projects, communicate, and build together. Openbook leverages blockchain technology to ensure transparency and security, making it the ideal tool for decentralized governance and project management.
+                        </Typography>
+
+                        {/* Call-to-Action Buttons */}
+                        <Box sx={{ textAlign: "left", display: 'flex', gap: 2 }}>
+                            <Button
+                                component="a"
+                                href="https://openbookdapp.com" // Replace with actual signup link
+                                variant="contained"
+                                sx={{
+                                    backgroundColor: "#A97855",
+                                    color: "white",
+                                    padding: "10px 24px",
+                                    fontSize: "16px",
+                                    borderRadius: "8px",
+                                    "&:hover": {
+                                        backgroundColor: "#f9d0ba",
+                                        color: "#333", // Change text color on hover
+                                    },
+                                }}
+                            >
+                                Get Started
+                            </Button>
+
+                            <Button
+                                variant="outlined"
+                                onClick={toggleDrawer(true)} // Open the bottom sheet
+                                sx={{
+                                    borderColor: "#A97855",
+                                    color: "#A97855",
+                                    padding: "10px 24px",
+                                    fontSize: "16px",
+                                    borderRadius: "8px",
+                                    "&:hover": {
+                                        backgroundColor: "#f9d0ba",
+                                        borderColor: "#f9d0ba",
+                                        color: "#333", // Change text color on hover
+                                    },
+                                }}
+                            >
+                                More Use Cases
+                            </Button>
+                        </Box>
+                    </Grid>
+                </Grid>
+            </Container>
+
+            {/* Bottom Sheet (Drawer) for displaying use cases */}
+            <Drawer
+                anchor="bottom"
+                open={isDrawerOpen}
+                onClose={toggleDrawer(false)}
                 sx={{
-                    border: "solid 3px #b0946e",
-                    color: "#6d8d6e",
-                    mx: { sm: 2, xs: 1 },
-                    p: 3,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
+                    ".MuiDrawer-paper": {
+                        borderTopLeftRadius: "16px",
+                        borderTopRightRadius: "16px",
+                        padding: 3,
+                        backgroundColor: "#fff", // White background for minimalistic look
+                    }
                 }}
             >
-                    <DownloadOutlined fontSize="large" />
-                    {language}
-
-            </Box>
-        </Link>
-    );
-};
-const FeaturesSection = () => {
-    return (
-        <Box sx={{ py: 7, border: "none", bgcolor: "white" }} id="featuressection">
-            <Grid container spacing={4} sx={{ width: "100%", mx: 0 }}>
-                <Grid item xs={12} md={6} sx={{ px: 3 }}>
-                    <Card sx={{ minWidth: 275, maxWidth: 600, mx: "auto", bgcolor: "#b29874", color: "#363636", py: 3 }}>
-                        <CardContent sx={{ textAlign: "center" }}>
-                            <Box sx={{ fontWeight: "bold", mb: 3, typography: { sm: "h4", xs: "h5" } }} component="div">
-                                TOKEN SALE ENDS IN
-                            </Box>
-
-                            <Timer />
-
-                            <Box sx={{ width: "80%", mx: "auto", mt: "30px" }}>
-                                <BorderLinearProgress variant="determinate" value={1669849200000 - Date.now()>0?(Date.now() - 1658282327218)/(1669849200000 - 1658282327218)*100:100} />
-                            </Box>
-                            <Box>
-                                <Button component="a" target="_blank" href="/buytoken"  sx={{ color: "white", bgcolor: "#6d8d6e", mt: 3, px: 3 }}>Buy More AKE</Button>
-                            </Box>
-                        </CardContent>
-                    </Card>
-                </Grid>
-                <Grid item xs={12} md={6} sx={{ px: 4 }}>
-                    <Box sx={{ color: "#363636", typography: { sm: "h4", xs: "h5" }, mb: 2, fontWeight: "bold !important" }}>
-                        Download token whitepaper{" "}
-                    </Box>
-
-                    <Typography variant="body" color="#363636" component="div">
-                        Considering the growing interest of public towards the crypto currencies and their rising popularity, this template has got
-                        all the chances to become a successful internet enterprise for mining hardware manufacturer or new cryptocurrency project.
-                        Especially if you’re already looking for a solution for a website that would accept charges of different currencies.
+                <Box
+                    sx={{
+                        width: "100%",
+                        padding: 3,
+                        maxHeight: "50vh", // Limit the height of the drawer
+                        overflow: "auto", // Enable scrolling if the content exceeds the height
+                    }}
+                >
+                    <Typography
+                        variant="h6"
+                        component="div"
+                        sx={{
+                            mb: 2,
+                            color: "#A97855", // Branding color for the title
+                            textAlign: "center",
+                            fontWeight: "bold"
+                        }}
+                    >
+                        Use Cases
                     </Typography>
 
-                    <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
-                        {/* <Button sx={{ color: "white", bgcolor: "#6d8d6e", mt: 3, px: 3 }}>Buy More AKE</Button> */}
-                        <Square language="English" />
-                        <Square language="French" />
-                        <Square language="Swahili" />
-                    </Box>
-                </Grid>
-            </Grid>
+                    <Grid container spacing={2}>
+                        {useCases.map((useCase, index) => (
+                            <Grid item xs={12} sm={6} key={index}>
+                                <Box
+                                    sx={{
+                                        padding: 2,
+                                        backgroundColor: "#f9f9f9", // Light background for use case box
+                                        borderRadius: "8px",
+                                        textAlign: "left",
+                                        border: "1px solid #A97855", // Border matching branding color
+                                        color: "#333", // Text color
+                                        "&:hover": {
+                                            backgroundColor: "#f1f1f1", // Subtle hover effect
+                                        }
+                                    }}
+                                >
+                                    <Typography
+                                        variant="h6"
+                                        sx={{ fontWeight: "bold", color: "#A97855" }}
+                                    >
+                                        {useCase.title}
+                                    </Typography>
+                                    <Typography variant="body2" sx={{ mt: 1, color: "#666" }}>
+                                        {useCase.description}
+                                    </Typography>
+                                </Box>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Box>
+            </Drawer>
         </Box>
     );
 };

@@ -22,7 +22,7 @@ const MainNavigation = () => {
                 color="inherit"
                 enableColorOnDark
                 elevation={0}
-                sx={{ backgroundImage: "linear-gradient(to right, #b79472 , #f9d0ba)", backdropFilter: "blur(20px)" }}
+                sx={{ backgroundImage: "linear-gradient(to right, #b79472,#f9d0ba ,#D0E9EF,#D0E9EF, #f9d0ba, #b79472)", backdropFilter: "blur(20px)" }}
             >
                 <Toolbar>
                     <Box sx={{ marginRight: "auto" }}>
