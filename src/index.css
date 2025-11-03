@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Delicate float for background blobs */
+@keyframes floatSlow {
+  0% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-6px) translateX(4px) scale(1.02); }
+  100% { transform: translateY(0) translateX(0) scale(1); }
+}
+.blob {
+  animation: floatSlow 9s ease-in-out infinite;
+  will-change: transform, filter;
+}
