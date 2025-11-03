@@ -1,5 +1,5 @@
 import { Box, Container, Typography, Link } from "@mui/material";
-import Seo from "../components/seo/seo";
+import Seo from "../components/seo/Seo";
 
 export default function Terms() {
     return (

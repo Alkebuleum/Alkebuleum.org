@@ -14,7 +14,7 @@ import {
     Button,
 } from "@mui/material";
 import { DownloadOutlined } from "@mui/icons-material";
-import Seo from "../components/seo/seo";
+import Seo from "../components/seo/Seo";
 
 const BLUE = "#0E4F6E";
 const SAND = "#CBB294";

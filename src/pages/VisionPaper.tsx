@@ -12,7 +12,7 @@ import {
     ListItemButton,
 } from "@mui/material";
 import DownloadOutlined from "@mui/icons-material/DownloadOutlined";
-import Seo from "../components/seo/seo";
+import Seo from "../components/seo/Seo";
 
 const BLUE = "#0E4F6E";
 

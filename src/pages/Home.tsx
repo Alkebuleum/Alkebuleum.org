@@ -6,7 +6,7 @@ import JoinSection from "../components/home/JoinSection";
 import BuildOnAlkebuleum from "../components/home/BuildOnAlkebuleum";
 import InsightsSection from "../components/home/InsightsSection";
 import Footer from "../components/layout/Footer";
-import Seo from "../components/seo/seo";
+import Seo from "../components/seo/Seo";
 
 export default function Home() {
     return (
