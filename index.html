@@ -19,6 +19,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alkebuleum</title>
+
+  <script>
+    (function () {
+      // If GitHub Pages sent us here with ?p=/route, rewrite the URL before React mounts
+      var params = new URLSearchParams(window.location.search);
+      var p = params.get("p");
+      if (p) {
+        window.history.replaceState(null, "", p);
+      }
+    })();
+  </script>
+
 </head>
 
 <body class="bg-white">
