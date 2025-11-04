@@ -1,31 +1,128 @@
-import { Drawer, Box, Stack, Link as MLink } from "@mui/material";
-import { Link } from "react-router-dom";
+// src/components/layout/SideDrawer.tsx
+import * as React from "react";
+import {
+  Drawer,
+  Box,
+  List,
+  ListItemButton,
+  ListItemText,
+  Divider,
+  Button,
+} from "@mui/material";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 
-export default function SideDrawer({
-  open,
-  onClose,
-}: {
+type Props = {
   open: boolean;
   onClose: () => void;
-}) {
-  const linkSx = {
-    color: "text.primary",
-    fontWeight: 700,
-    fontSize: "1.125rem",
-    "&:hover": { color: "primary.main" },
-    textDecoration: "none",
-  } as const;
+};
+
+const BLUE = "#0E4F6E";
+
+export default function SideDrawer({ open, onClose }: Props) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Smoothly go to a section on the home page from any route
+  const goToSection = async (sectionId?: "roadmap" | "join") => {
+    // If we aren't already on the home route, go there first
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Wait a tick for the home DOM to mount, then scroll
+      setTimeout(() => {
+        if (sectionId) {
+          document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 150);
+    } else {
+      if (sectionId) {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    onClose();
+  };
 
   return (
-    <Drawer anchor="left" open={open} onClose={onClose}>
-      <Box sx={{ width: 280, p: 3 }} role="presentation" onClick={onClose}>
-        <Stack spacing={2.5}>
-          <MLink component={Link} to="/" sx={linkSx}>Home</MLink>
-          <MLink component={Link} to="/#identity" sx={linkSx}>Identity</MLink>
-          <MLink component={Link} to="/#governance" sx={linkSx}>Governance</MLink>
-          <MLink component={Link} to="/#finance" sx={linkSx}>Finance</MLink>
-          <MLink component={Link} to="/#community" sx={linkSx}>Community</MLink>
-        </Stack>
+    <Drawer
+      anchor="right"
+      open={open}
+      onClose={onClose}
+      PaperProps={{
+        sx: {
+          width: 300,
+          borderTopLeftRadius: 2,
+          borderBottomLeftRadius: 2,
+        },
+      }}
+    >
+      <Box role="presentation" sx={{ p: 1 }}>
+        <List>
+          {/* Home */}
+          <ListItemButton
+            component={RouterLink}
+            to="/"
+            onClick={onClose}
+          >
+            <ListItemText
+              primary="Home"
+              primaryTypographyProps={{ fontWeight: 700 }}
+            />
+          </ListItemButton>
+
+          {/* Roadmap (scroll to #roadmap on home) */}
+          <ListItemButton onClick={() => goToSection("roadmap")}>
+            <ListItemText
+              primary="Roadmap"
+              primaryTypographyProps={{ fontWeight: 700 }}
+            />
+          </ListItemButton>
+
+          {/* Community (scroll to #join on home) */}
+          <ListItemButton onClick={() => goToSection("join")}>
+            <ListItemText
+              primary="Community"
+              primaryTypographyProps={{ fontWeight: 700 }}
+            />
+          </ListItemButton>
+
+          {/* Contact (mailto) */}
+          <ListItemButton
+            component="a"
+            href="mailto:info@alkebuleum.org"
+            onClick={onClose}
+          >
+            <ListItemText
+              primary="Contact"
+              primaryTypographyProps={{ fontWeight: 700 }}
+            />
+          </ListItemButton>
+        </List>
+
+        <Divider sx={{ my: 1.5 }} />
+
+        {/* Persistent Join CTA (same as desktop tone) */}
+        <Box sx={{ px: 2, pb: 2 }}>
+          <Button
+            fullWidth
+            href="https://chat.whatsapp.com/E90CmkC0n2J1SUV2PgCaTJ"
+            target="_blank"
+            startIcon={<WhatsAppIcon />}
+            variant="outlined"
+            sx={{
+              fontWeight: 800,
+              borderRadius: 2,
+              borderColor: BLUE,
+              color: BLUE,
+              "&:hover": {
+                borderColor: BLUE,
+                backgroundColor: "rgba(14,79,110,0.06)",
+              },
+            }}
+            onClick={onClose}
+          >
+            Join
+          </Button>
+        </Box>
       </Box>
     </Drawer>
   );

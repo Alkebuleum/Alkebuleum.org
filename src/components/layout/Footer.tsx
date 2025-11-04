@@ -11,6 +11,9 @@ import Twitter from "@mui/icons-material/Twitter";
 import Facebook from "@mui/icons-material/Facebook";
 import Instagram from "@mui/icons-material/Instagram";
 import Telegram from "@mui/icons-material/Telegram";
+import { Link as RouterLink, LinkProps as RouterLinkProps } from "react-router-dom";
+import MuiLink, { LinkProps as MuiLinkProps } from "@mui/material/Link";
+
 
 
 const BLUE = "#0E4F6E";
@@ -70,9 +73,11 @@ const Footer: React.FC = () => {
                         <InfoRow icon={<Email sx={{ color: BRONZE }} />} text="info@alkebuleum.org" />
 
                         <Box sx={{ mt: 2 }}>
-                            <FooterMeta href="/terms">Terms</FooterMeta>
-                            <FooterMeta href="/privacy">Privacy</FooterMeta>
+                            <FooterMeta to="/terms">Terms</FooterMeta>
+                            <FooterMeta to="/privacy">Privacy</FooterMeta>
                         </Box>
+
+
                     </Grid>
 
                     {/* Socials */}
@@ -138,20 +143,33 @@ const FooterLink: React.FC<React.ComponentProps<typeof Link>> = ({ children, ...
     </Link>
 );
 
-const FooterMeta: React.FC<React.ComponentProps<typeof Link>> = ({ children, ...props }) => (
-    <Link
-        {...props}
-        underline="none"
-        sx={{
-            mr: 2,
-            fontSize: 13,
-            color: "text.secondary",
-            "&:hover": { color: BLUE, textDecoration: "underline" },
-        }}
-    >
-        {children}
-    </Link>
-);
+type FooterMetaProps =
+    | ({ to: RouterLinkProps["to"]; href?: never } & Omit<MuiLinkProps, "href" | "component">)
+    | ({ href: string; to?: never } & Omit<MuiLinkProps, "component">);
+
+export function FooterMeta(props: FooterMetaProps) {
+    const { to, href, sx, ...rest } = props as any;
+
+    const baseSx = {
+        color: "text.secondary",
+        fontWeight: 600,
+        mx: 1,
+        "&:hover": { color: "primary.main" },
+        ...sx,
+    };
+
+    if (to) {
+        // Internal route
+        return (
+            <MuiLink component={RouterLink} to={to} underline="hover" sx={baseSx} {...rest} />
+        );
+    }
+
+    // External link
+    return (
+        <MuiLink href={href} underline="hover" sx={baseSx} {...rest} />
+    );
+}
 
 const SocialIcon: React.FC<{ href: string; label: string; hover: string; children: React.ReactNode }> = ({
     href,

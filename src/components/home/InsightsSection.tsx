@@ -13,6 +13,8 @@ import {
 } from "@mui/material";
 import DownloadOutlined from "@mui/icons-material/DownloadOutlined";
 import ArticleIcon from "@mui/icons-material/Article";
+import { Link as RouterLink } from "react-router-dom";
+
 
 // Images
 import frontpageAfricaImg from "../../images/media-frontpageafrica.png";
@@ -161,7 +163,8 @@ const InsightsSection: React.FC = () => {
 
                             <Box sx={{ p: 2, pt: 0, display: "flex", gap: 1.5, flexWrap: "wrap" }}>
                                 <Button
-                                    href="/whitepaper"
+                                    component={RouterLink}
+                                    to="/whitepaper"
                                     variant="contained"
                                     onClick={() => track("whitepaper_read_online")}
                                     sx={{
@@ -173,6 +176,7 @@ const InsightsSection: React.FC = () => {
                                 >
                                     Read Online
                                 </Button>
+
                                 <Button
                                     href="/AlkebuleumWhitepaper.pdf"
                                     target="_blank"
@@ -232,7 +236,8 @@ const InsightsSection: React.FC = () => {
 
                             <Box sx={{ p: 2, pt: 0, display: "flex", gap: 1.5, flexWrap: "wrap" }}>
                                 <Button
-                                    href="/vision"
+                                    component={RouterLink}
+                                    to="/vision"
                                     variant="contained"
                                     onClick={() => track("visionpaper_read_online")}
                                     sx={{
@@ -244,6 +249,7 @@ const InsightsSection: React.FC = () => {
                                 >
                                     Read Online
                                 </Button>
+
                                 <Button
                                     href="/AlkebuleumVisionpaper.pdf"
                                     target="_blank"
