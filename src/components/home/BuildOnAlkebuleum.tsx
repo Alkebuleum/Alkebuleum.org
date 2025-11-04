@@ -108,29 +108,9 @@ ping();`;
                         />
                     </Grid>
 
-                    {/* Right: Content */}
-                    <Grid item xs={12} md={7}>
-                        <Stack
-                            spacing={1.75}
-                            alignItems="flex-start"
-                            sx={{ textAlign: "left", mb: { xs: 1, md: 0 } }}
-                        >
-                            {/* <Chip
-                                label="Developers"
-                                sx={{
-                                    fontWeight: 700,
-                                    fontSize: { xs: 13, md: 14 },
-                                    px: 1.5,
-                                    py: 0.25,
-                                    letterSpacing: "0.2px",
-                                    bgcolor: "rgba(203,178,148,0.28)", // sand tint
-                                    color: BLUE,
-                                    border: "1px solid rgba(14,79,110,0.18)",
-                                    borderRadius: "6px",
-                                    textTransform: "uppercase",
-                                    boxShadow: "0 1px 2px rgba(0,0,0,0.04)",
-                                }}
-                            /> */}
+                    {/* Right: Content (fix: allow shrink with minWidth:0) */}
+                    <Grid item xs={12} md={7} sx={{ minWidth: 0 }}>
+                        <Stack spacing={1.75} alignItems="flex-start" sx={{ textAlign: "left", mb: { xs: 1, md: 0 } }}>
                             <Chip
                                 label="Developers"
                                 sx={{
@@ -143,8 +123,7 @@ ping();`;
                                     borderRadius: "8px",
                                     color: "#0E4F6E",
                                     border: "1px solid rgba(14,79,110,0.3)",
-                                    background:
-                                        "linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(203,178,148,0.15) 100%)",
+                                    background: "linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(203,178,148,0.15) 100%)",
                                     backdropFilter: "blur(6px)",
                                     boxShadow: "inset 0 1px 1px rgba(255,255,255,0.3)",
                                 }}
@@ -157,7 +136,7 @@ ping();`;
                                     color: "#0F172A",
                                     letterSpacing: "-0.25px",
                                     lineHeight: 1.3,
-                                    maxWidth: 680, // slightly narrower than center headers
+                                    maxWidth: 680,
                                 }}
                             >
                                 Build on Alkebuleum
@@ -172,8 +151,8 @@ ping();`;
                                     maxWidth: 720,
                                 }}
                             >
-                                Alkebuleum is <b>EVM-compatible</b>. Bring your Solidity, your tools, and your flow.
-                                Point your RPC to Alkebuleum and deploy with zero friction.
+                                Alkebuleum is <b>EVM-compatible</b>. Bring your Solidity, your tools, and your flow. Point your RPC to
+                                Alkebuleum and deploy with zero friction.
                             </Typography>
 
                             {/* Value bullets */}
@@ -240,7 +219,8 @@ ping();`;
                                             RPC URL
                                         </Typography>
                                         <Stack direction="row" alignItems="center" spacing={1}>
-                                            <Typography variant="body2" sx={{ color: "#0F172A" }}>
+                                            {/* fix: allow long URL to wrap on mobile */}
+                                            <Typography variant="body2" sx={{ color: "#0F172A", wordBreak: "break-all" }}>
                                                 {RPC_URL}
                                             </Typography>
                                             <IconButton size="small" onClick={() => copy(RPC_URL, "RPC URL")}>
@@ -295,7 +275,12 @@ ping();`;
                                         p: 2,
                                         borderRadius: 2,
                                         overflowX: "auto",
-                                        fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+                                        maxWidth: "100%",            // fix: prevent horizontal stretching
+                                        whiteSpace: "pre",           // fix: keep monospace flow without wrapping
+                                        wordBreak: "normal",         // fix: don't break words inside code
+                                        WebkitOverflowScrolling: "touch", // smoother mobile scroll
+                                        fontFamily:
+                                            "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
                                         fontSize: 13,
                                         lineHeight: 1.6,
                                         border: "1px solid rgba(14,79,110,0.12)",
@@ -332,8 +317,8 @@ ping();`;
                     </Typography>
 
                     <Typography variant="body1" color="text.secondary" sx={{ mb: 2.25 }}>
-                        Alkebuleum is fully <b>EVM-compatible</b> but uses its own network parameters.
-                        Confirm you’re connected to Alkebuleum before deploying.
+                        Alkebuleum is fully <b>EVM-compatible</b> but uses its own network parameters. Confirm you’re connected to
+                        Alkebuleum before deploying.
                     </Typography>
 
                     <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
