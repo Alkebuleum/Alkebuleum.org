@@ -73,8 +73,10 @@ const Footer: React.FC = () => {
                         <InfoRow icon={<Email sx={{ color: BRONZE }} />} text="info@alkebuleum.org" />
 
                         <Box sx={{ mt: 2 }}>
+
                             <FooterMeta to="/terms">Terms</FooterMeta>
                             <FooterMeta to="/privacy">Privacy</FooterMeta>
+                            <FooterMeta to="/assets">Assets</FooterMeta>
                         </Box>
 
 

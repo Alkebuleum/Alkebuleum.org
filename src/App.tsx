@@ -9,6 +9,7 @@ import Privacy from "./pages/Privacy";
 import Whitepaper from "./pages/Whitepaper";
 import VisionPaper from "./pages/VisionPaper";
 import Home from "./pages/Home";
+import Assets from "./pages/Assets";
 
 function App() {
   return (
@@ -53,6 +54,15 @@ function App() {
           element={
             <>
               <VisionPaper />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/assets"
+          element={
+            <>
+              <Assets />
               <Footer />
             </>
           }
