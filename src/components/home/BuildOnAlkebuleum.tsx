@@ -23,13 +23,14 @@ import LinkIcon from "@mui/icons-material/Link";
 import StorageIcon from "@mui/icons-material/Storage";
 import coverImage from "../../images/developerCover.png";
 
-// Brand tokens (keep in sync with theme)
 const BLUE = "#0E4F6E";
 const SAND = "#CBB294";
 const BRONZE = "#A97855";
 
-// Network details (use what you shared; change here if needed)
-const CHAIN_ID = 237422; // You mentioned 223724 in your previous copy
+// shared width cap for Network Settings + Code tabs
+const PANEL_MAX = 720;
+
+const CHAIN_ID = 237422;
 const RPC_URL = "https://rpc.alkebuleum.com";
 
 const BuildOnAlkebuleum: React.FC = () => {
@@ -89,7 +90,14 @@ async function ping() {
 ping();`;
 
     return (
-        <Box id="buildonalkebuleum" sx={{ py: { xs: 8, md: 10 }, bgcolor: "#fff" }}>
+        <Box
+            id="buildonalkebuleum"
+            sx={{
+                py: { xs: 8, md: 10 },
+                bgcolor: "#fff",
+                overflowX: "hidden",
+            }}
+        >
             <Container maxWidth="lg">
                 <Grid container spacing={{ xs: 5, md: 6 }} alignItems="center" justifyContent="center">
                     {/* Left: Visual */}
@@ -108,9 +116,9 @@ ping();`;
                         />
                     </Grid>
 
-                    {/* Right: Content (fix: allow shrink with minWidth:0) */}
+                    {/* Right: Content */}
                     <Grid item xs={12} md={7} sx={{ minWidth: 0 }}>
-                        <Stack spacing={1.75} alignItems="flex-start" sx={{ textAlign: "left", mb: { xs: 1, md: 0 } }}>
+                        <Stack spacing={1.75} alignItems="flex-start" sx={{ textAlign: "left", mb: { xs: 1, md: 0 }, minWidth: 0 }}>
                             <Chip
                                 label="Developers"
                                 sx={{
@@ -123,7 +131,8 @@ ping();`;
                                     borderRadius: "8px",
                                     color: "#0E4F6E",
                                     border: "1px solid rgba(14,79,110,0.3)",
-                                    background: "linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(203,178,148,0.15) 100%)",
+                                    background:
+                                        "linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(203,178,148,0.15) 100%)",
                                     backdropFilter: "blur(6px)",
                                     boxShadow: "inset 0 1px 1px rgba(255,255,255,0.3)",
                                 }}
@@ -198,7 +207,7 @@ ping();`;
                                 </Button>
                             </Stack>
 
-                            {/* Network card + copy */}
+                            {/* Network card (width-capped) */}
                             <Paper
                                 elevation={0}
                                 sx={{
@@ -207,6 +216,9 @@ ping();`;
                                     borderRadius: 3,
                                     border: "1px solid rgba(14,79,110,0.12)",
                                     background: "linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.90) 100%)",
+                                    width: "100%",
+                                    maxWidth: { xs: "100%", md: PANEL_MAX },
+                                    minWidth: 0,
                                 }}
                             >
                                 <Typography variant="subtitle2" sx={{ fontWeight: 800, color: "#0F172A", mb: 1 }}>
@@ -214,12 +226,11 @@ ping();`;
                                 </Typography>
 
                                 <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-                                    <Box sx={{ flex: 1 }}>
+                                    <Box sx={{ flex: 1, minWidth: 0 }}>
                                         <Typography variant="caption" sx={{ color: "text.secondary" }}>
                                             RPC URL
                                         </Typography>
-                                        <Stack direction="row" alignItems="center" spacing={1}>
-                                            {/* fix: allow long URL to wrap on mobile */}
+                                        <Stack direction="row" alignItems="center" spacing={1} sx={{ minWidth: 0 }}>
                                             <Typography variant="body2" sx={{ color: "#0F172A", wordBreak: "break-all" }}>
                                                 {RPC_URL}
                                             </Typography>
@@ -245,7 +256,7 @@ ping();`;
                                 </Stack>
                             </Paper>
 
-                            {/* Code tabs */}
+                            {/* Code tabs (same width cap as Network card) */}
                             <Paper
                                 elevation={0}
                                 sx={{
@@ -253,6 +264,9 @@ ping();`;
                                     borderRadius: 3,
                                     border: "1px solid rgba(14,79,110,0.12)",
                                     background: "#fff",
+                                    width: "100%",
+                                    maxWidth: { xs: "100%", md: PANEL_MAX },
+                                    minWidth: 0,
                                 }}
                             >
                                 <Tabs
@@ -274,11 +288,14 @@ ping();`;
                                         mt: 1.5,
                                         p: 2,
                                         borderRadius: 2,
+                                        display: "block",
+                                        width: "100%",
+                                        maxWidth: "100%",
                                         overflowX: "auto",
-                                        maxWidth: "100%",            // fix: prevent horizontal stretching
-                                        whiteSpace: "pre",           // fix: keep monospace flow without wrapping
-                                        wordBreak: "normal",         // fix: don't break words inside code
-                                        WebkitOverflowScrolling: "touch", // smoother mobile scroll
+                                        WebkitOverflowScrolling: "touch",
+                                        contain: "inline-size",
+                                        whiteSpace: "pre",
+                                        wordBreak: "normal",
                                         fontFamily:
                                             "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
                                         fontSize: 13,
@@ -296,7 +313,6 @@ ping();`;
                 </Grid>
             </Container>
 
-            {/* Bottom Drawer (kept from your flow, now styled) */}
             <Drawer
                 anchor="bottom"
                 open={isDrawerOpen}
@@ -348,7 +364,6 @@ ping();`;
                 </Box>
             </Drawer>
 
-            {/* Copy feedback */}
             <Snackbar
                 open={snack.open}
                 autoHideDuration={2000}
