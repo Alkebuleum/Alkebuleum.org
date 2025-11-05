@@ -201,6 +201,68 @@ const InsightsSection: React.FC = () => {
                             </Box>
                         </Card>
                     </Grid>
+                    {/* Alkecoin Tokenomics Paper */}
+                    <Grid item xs={12} md={4}>
+                        <Card
+                            sx={{
+                                height: "100%",
+                                borderRadius: 3,
+                                border: "1px solid rgba(14,79,110,0.12)",
+                                overflow: "hidden",
+                                display: "flex",
+                                flexDirection: "column",
+                            }}
+                        >
+                            <CardContent sx={{ flexGrow: 1 }}>
+                                <Typography variant="overline" sx={{ color: "text.secondary" }}>
+                                    Tokenomics · v1.0
+                                </Typography>
+                                <Typography variant="h6" fontWeight={800} color="#0F172A" mb={1}>
+                                    Alkecoin Tokenomics Paper
+                                </Typography>
+                                <Stack component="ul" sx={{ pl: 2.3, m: 0 }} spacing={0.5}>
+                                    <Typography component="li" variant="body2" color="text.secondary">
+                                        Transparent allocation and inflation control
+                                    </Typography>
+                                    <Typography component="li" variant="body2" color="text.secondary">
+                                        Utility-first design — AKE for gas, not speculation
+                                    </Typography>
+                                    <Typography component="li" variant="body2" color="text.secondary">
+                                        DAO-governed sponsorship and burn mechanisms
+                                    </Typography>
+                                </Stack>
+                            </CardContent>
+
+                            <Box sx={{ p: 2, pt: 0, display: "flex", gap: 1.5, flexWrap: "wrap" }}>
+                                <Button
+                                    href="/AlkecoinTokenomicsPaper.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    download
+                                    variant="outlined"
+                                    startIcon={<DownloadOutlined />}
+                                    onClick={() =>
+                                        track("tokenomics_download_pdf", {
+                                            link: "/AlkecoinTokenomicsPaper.pdf",
+                                        })
+                                    }
+                                    sx={{
+                                        borderRadius: 2,
+                                        fontWeight: 700,
+                                        borderColor: BLUE,
+                                        color: BLUE,
+                                        "&:hover": {
+                                            backgroundColor: "rgba(14,79,110,0.06)",
+                                            borderColor: BLUE,
+                                        },
+                                    }}
+                                >
+                                    Download PDF
+                                </Button>
+                            </Box>
+                        </Card>
+                    </Grid>
+
 
                     {/* Vision Paper */}
                     <Grid item xs={12} md={4}>
