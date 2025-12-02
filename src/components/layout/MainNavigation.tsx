@@ -6,7 +6,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import Navbar from "./Navbar";
 import SideDrawer from "./SideDrawer";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import TelegramIcon from "@mui/icons-material/Telegram";
 
 const BLUE = "#0E4F6E";
 
@@ -57,10 +57,10 @@ const MainNavigation: React.FC = () => {
 
             {/* Desktop Join */}
             <Button
-              href="https://chat.whatsapp.com/E90CmkC0n2J1SUV2PgCaTJ"
+              href="https://t.me/alkebuleum"   // 👈 Telegram group link
               target="_blank"
               variant="outlined"
-              startIcon={<WhatsAppIcon sx={{ fontSize: 20 }} />}
+              startIcon={<TelegramIcon sx={{ fontSize: 20 }} />}
               sx={{
                 display: { xs: "none", md: "inline-flex" },
                 ml: 1,
@@ -75,8 +75,9 @@ const MainNavigation: React.FC = () => {
                 },
               }}
             >
-              Join
+              Join Telegram
             </Button>
+
           </Box>
         </Toolbar>
       </AppBar>

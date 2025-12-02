@@ -22,5 +22,5 @@ npm run preview
 
 ## to push to Git
 git add -A
-git commit -m "add file: Alkecoin Tokenomics Paper" 
+git commit -m "add file: Alkecoin Tokenomics Paper v3" 
 git push origin main

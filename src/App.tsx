@@ -10,15 +10,28 @@ import Whitepaper from "./pages/Whitepaper";
 import VisionPaper from "./pages/VisionPaper";
 import Home from "./pages/Home";
 import Assets from "./pages/Assets";
+import { Toolbar } from "@mui/material";
+import Apps from "./pages/Apps";
 
 function App() {
   return (
     <BrowserRouter>
       <AnalyticsRouterTracker />
       <MainNavigation />
+
       <Routes>
         {/* Home Page */}
         <Route path="/" element={<Home />} />
+
+        {/* Apps page */}
+        <Route
+          path="/apps"
+          element={
+            <>
+              <Apps />
+            </>
+          }
+        />
 
         {/* Legal Pages */}
         <Route

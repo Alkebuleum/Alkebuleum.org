@@ -7,6 +7,7 @@ import BuildOnAlkebuleum from "../components/home/BuildOnAlkebuleum";
 import InsightsSection from "../components/home/InsightsSection";
 import Footer from "../components/layout/Footer";
 import Seo from "../components/seo/Seo";
+import ActiveEventBanner from "../components/home/ActiveEventBanner";
 
 export default function Home() {
     return (
@@ -18,6 +19,7 @@ export default function Home() {
                 image="https://alkebuleum.org/og/hero.jpg"
                 canonical="https://alkebuleum.org/"
             />
+            <ActiveEventBanner />
             <HeroSection />
             <RoadmapSection />
             <JoinSection />

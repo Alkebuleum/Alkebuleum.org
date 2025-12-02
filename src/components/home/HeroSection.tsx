@@ -14,6 +14,7 @@ import TerminalIcon from "@mui/icons-material/Terminal";
 import { event as gaEvent } from "../../analytics/ga";
 import FingerprintOutlinedIcon from "@mui/icons-material/FingerprintOutlined";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import { useNavigate } from "react-router-dom";
 
 // If your image is actually in /public/back.PNG, use:  const HERO_URL = "/back.PNG";
 
@@ -34,6 +35,56 @@ function scrollToBuild() {
 const HeroSection: React.FC = () => {
   const [isDrawerOpen, setDrawerOpen] = useState<boolean>(false);
   const toggleDrawer = (open: boolean) => () => setDrawerOpen(open);
+  const navigate = useNavigate();
+
+  const quickActions = [
+    {
+      id: "create-account",
+      label: "Create account",
+      subtitle: "Set up your Alkebuleum identity.",
+      color: BLUE,
+      icon: <FingerprintOutlinedIcon fontSize="medium" />,
+      onClick: () => {
+        gaEvent("cta_click", { cta: "create_account", page: "home_quickactions" });
+        window.open("https://amvault.net", "_blank", "noopener,noreferrer");
+      },
+    },
+    {
+      id: "get-ake",
+      label: "Get AKE",
+      subtitle: "Be first to know when AKE launches.",
+      color: BRONZE,
+      icon: <AppRegistrationIcon fontSize="medium" />,
+      onClick: () => {
+        gaEvent("cta_click", { cta: "get_ake", page: "home_quickactions" });
+        setDrawerOpen(true); // open bottom drawer with details + form link
+      },
+    },
+    {
+      id: "explore-apps",
+      label: "Explore apps",
+      subtitle: "Governance, identity, finance tools.",
+      color: "#047857", // emerald accent
+      icon: <RocketLaunchIcon fontSize="medium" />,
+      onClick: () => {
+        gaEvent("cta_click", { cta: "explore_apps", page: "home_quickactions" });
+        navigate("/apps");
+      },
+    },
+
+    {
+      id: "start-building",
+      label: "Start building",
+      subtitle: "Spin up your first dApp.",
+      color: "#C026D3", // magenta accent
+      icon: <TerminalIcon fontSize="medium" />,
+      onClick: () => {
+        gaEvent("cta_click", { cta: "start_building", page: "home_quickactions" });
+        scrollToBuild();
+      },
+    },
+  ];
+
 
   return (
     <Box id="herosection" sx={{ bgcolor: "#fff" }}>
@@ -106,65 +157,100 @@ const HeroSection: React.FC = () => {
                 real-world challenges across governance, identity, finance, and transparency.
               </Typography>
 
-              {/* Outlined primary CTA (BLUE), with tasteful hover glow */}
-              <Stack direction={{ xs: "column", sm: "row" }} spacing={2} justifyContent="center">
-                {/* Create Account (Identity) */}
-                <Button
-                  href="https://amvault.net"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="outlined"
-                  startIcon={<FingerprintOutlinedIcon />}
-                  onClick={() => gaEvent("cta_click", { cta: "create_account", page: "home" })}
-                  sx={{
-                    borderColor: BLUE,
-                    color: BLUE,
-                    fontWeight: "bold",
-                    px: 4,
-                    py: 1.5,
-                    borderRadius: "12px",
-                    textTransform: "none",
-                    transition: "box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease",
-                    "&:hover": {
-                      backgroundColor: "rgba(14,79,110,0.08)",
-                      borderColor: BLUE,
-                      color: BLUE,
-                      boxShadow: "0 0 10px rgba(14,79,110,0.25)",
-                    },
-                    "&:active": { backgroundColor: "rgba(14,79,110,0.12)" },
-                    "&:focus-visible": { outline: `2px solid ${BRONZE}`, outlineOffset: "2px" },
-                  }}
-                >
-                  Create Account
-                </Button>
+              {/* Quick start actions (ethereum.org-style tiles) */}
+              <Grid
+                container
+                spacing={2.5}
+                sx={{ mt: { xs: 2.5, md: 3 } }}
+              >
+                {quickActions.map((action) => (
+                  <Grid item xs={6} sm={6} md={3} key={action.id}>
+                    <Box
+                      onClick={action.onClick}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          action.onClick();
+                        }
+                      }}
+                      sx={{
+                        height: "100%",
+                        borderRadius: 3,
+                        border: "1px solid rgba(15,23,42,0.06)",
+                        background:
+                          "radial-gradient(circle at 0% 0%, rgba(14,79,110,0.05) 0, transparent 55%)," +
+                          "radial-gradient(circle at 100% 100%, rgba(203,178,148,0.08) 0, rgba(255,255,255,0.85) 55%)",
+                        boxShadow: "0 10px 24px rgba(15,23,42,0.08)",
+                        px: 2.5,
+                        py: 2.25,
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        justifyContent: "flex-start",
+                        gap: 1.5,
+                        cursor: "pointer",
+                        transition:
+                          "transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background-color 160ms ease",
+                        "&:hover": {
+                          transform: "translateY(-3px)",
+                          boxShadow: "0 16px 36px rgba(15,23,42,0.16)",
+                          borderColor: "rgba(14,79,110,0.24)",
+                        },
+                        "&:focus-visible": {
+                          outline: `2px solid ${BLUE}`,
+                          outlineOffset: "3px",
+                        },
+                      }}
+                    >
+                      {/* Icon pill */}
+                      <Box
+                        sx={{
+                          width: 52,
+                          height: 52,
+                          borderRadius: 2,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          border: "1px solid rgba(148,163,184,0.35)",
+                          background:
+                            "radial-gradient(circle at 0% 0%, rgba(255,255,255,0.85) 0, rgba(248,250,252,0.9) 60%)",
+                          boxShadow: "0 8px 20px rgba(15,23,42,0.12)",
+                          color: action.color,
+                          mb: 0.5,
+                        }}
+                      >
+                        {action.icon}
+                      </Box>
 
-                {/* Build on Alkebuleum (Rocket) */}
-                <Button
-                  href="#buildonalkebuleum"
-                  variant="contained"
-                  startIcon={<RocketLaunchIcon />}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    gaEvent("cta_click", { cta: "build_on_alkebuleum", page: "home" });
-                    scrollToBuild();
-                  }}
-                  sx={{
-                    backgroundColor: BLUE,
-                    color: "#fff",
-                    fontWeight: "bold",
-                    px: 4,
-                    py: 1.5,
-                    borderRadius: "12px",
-                    textTransform: "none",
-                    transition: "box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease",
-                    "&:hover": { backgroundColor: "#0C3E56", boxShadow: "0 0 14px rgba(14,79,110,0.35)" },
-                    "&:active": { backgroundColor: "#093548" },
-                    "&:focus-visible": { outline: `2px solid ${SAND}`, outlineOffset: "2px" },
-                  }}
-                >
-                  Build on Alkebuleum
-                </Button>
-              </Stack>
+                      {/* Text */}
+                      <Box sx={{ textAlign: "left" }}>
+                        <Typography
+                          variant="subtitle1"
+                          sx={{
+                            fontWeight: 800,
+                            mb: 0.5,
+                            color: action.color,
+                          }}
+                        >
+                          {action.label}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: "#4B5563",
+                            lineHeight: 1.7,
+                          }}
+                        >
+                          {action.subtitle}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Grid>
+                ))}
+              </Grid>
+
 
 
             </Box>
@@ -187,20 +273,62 @@ const HeroSection: React.FC = () => {
         }}
       >
         <Box>
-          <Typography variant="h5" fontWeight="bold" sx={{ color: BRONZE }} mb={2}>
-            How to Get AKE Coin
+          <Typography
+            variant="h5"
+            fontWeight="bold"
+            sx={{ color: BRONZE }}
+            mb={1.5}
+          >
+            Get notified about AKE
+          </Typography>
+
+          <Typography variant="body1" color="textSecondary" mb={2}>
+            AKE is not available yet on public exchanges. We’re rolling it out
+            carefully with the community first.
           </Typography>
 
           <Typography variant="body1" color="textSecondary" mb={3}>
-            AKE is not for sale but can be earned through contributions to the ecosystem:
+            Be the first to know when AKE becomes available and where you can get it.
+            Join the early access list and share a few details so we can understand
+            where our community is based.
           </Typography>
 
-          <ul style={{ color: "#555", paddingLeft: "1.2rem", margin: 0 }}>
-            <li>Engage in governance or community programs</li>
-            <li>Contribute development or educational resources</li>
-            <li>Support ecosystem projects through donations</li>
-          </ul>
+          <Button
+            variant="contained"
+            size="large"
+            href="https://forms.gle/8kYHUWsN2DKWZo7S7" // 👈 replace with your real Google Form URL
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() =>
+              gaEvent("cta_click", { cta: "ake_waitlist_form", page: "home_quickactions" })
+            }
+            sx={{
+              mt: 1,
+              borderRadius: "999px",
+              px: 3.5,
+              py: 1.2,
+              backgroundColor: BLUE,
+              textTransform: "none",
+              fontWeight: 700,
+              "&:hover": {
+                backgroundColor: "#0C3E56",
+              },
+            }}
+          >
+            Join the AKE waitlist
+          </Button>
+
+          <Typography
+            variant="caption"
+            color="textSecondary"
+            sx={{ display: "block", mt: 1.5 }}
+          >
+            The form will ask for your name, email, and location so we can share
+            region-specific updates. We’ll only use this information for AKE
+            announcements.
+          </Typography>
         </Box>
+
       </Drawer>
     </Box>
   );

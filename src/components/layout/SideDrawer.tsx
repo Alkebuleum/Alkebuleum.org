@@ -9,7 +9,7 @@ import {
   Divider,
   Button,
 } from "@mui/material";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import TelegramIcon from "@mui/icons-material/Telegram";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 
 type Props = {
@@ -104,9 +104,9 @@ export default function SideDrawer({ open, onClose }: Props) {
         <Box sx={{ px: 2, pb: 2 }}>
           <Button
             fullWidth
-            href="https://chat.whatsapp.com/E90CmkC0n2J1SUV2PgCaTJ"
+            href="https://t.me/alkebuleum"
             target="_blank"
-            startIcon={<WhatsAppIcon />}
+            startIcon={<TelegramIcon />}
             variant="outlined"
             sx={{
               fontWeight: 800,
@@ -120,8 +120,9 @@ export default function SideDrawer({ open, onClose }: Props) {
             }}
             onClick={onClose}
           >
-            Join
+            Join Telegram
           </Button>
+
         </Box>
       </Box>
     </Drawer>

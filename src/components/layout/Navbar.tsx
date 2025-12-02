@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Stack, Link as MLink, IconButton, Button } from "@mui/material";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import TelegramIcon from "@mui/icons-material/Telegram";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -58,11 +58,11 @@ export default function Navbar({ onOpenMenu }: Props) {
         </IconButton>
 
         <Button
-          href="https://chat.whatsapp.com/E90CmkC0n2J1SUV2PgCaTJ"
+          href="https://t.me/alkebuleum"
           target="_blank"
           variant="outlined"
           size="small"
-          startIcon={<WhatsAppIcon sx={{ fontSize: 18 }} />}
+          startIcon={<TelegramIcon sx={{ fontSize: 18 }} />}
           sx={{
             fontWeight: 800,
             borderRadius: 2,
@@ -77,8 +77,9 @@ export default function Navbar({ onOpenMenu }: Props) {
             },
           }}
         >
-          Join
+          Join Telegram
         </Button>
+
       </Stack>
     </>
   );
