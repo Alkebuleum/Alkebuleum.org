@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ecosystem — Alkebuleum Blockchain</title>
+  <meta name="description" content="Explore the full Alkebuleum ecosystem: AIChain (identity), JollofSwap (DEX), AmVault (wallet SDK), and Nuru AI — all unified on the Alkebuleum blockchain." />
+  <meta name="keywords" content="Alkebuleum ecosystem, AIChain, JollofSwap, AmVault, Nuru AI, ALKE token, blockchain ecosystem" />
+  <link rel="canonical" href="https://alkebuleum.io/ecosystem.html" />
+  <meta property="og:title" content="Ecosystem — Alkebuleum" />
+  <meta property="og:description" content="One chain. Four applications. A complete decentralized ecosystem." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://alkebuleum.io/ecosystem.html" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Alkebuleum Ecosystem","url":"https://alkebuleum.io/ecosystem.html","isPartOf":{"@type":"WebSite","url":"https://alkebuleum.io"}}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;700;900&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --blue:#0E4F6E;--blue-l:#165f82;--blue-d:#093c55;
+      --sand:#CBB294;--sand-l:#dcc9ae;--sand-d:#a08e76;
+      --bronze:#A97855;--bronze-l:#c49270;--bronze-d:#7a5438;
+      --ivory:#FAFAF8;--ink:#0F172A;--ink-l:#1a2b42;
+      --bg:#0F172A;--card:#111c30;--card2:#152035;
+      --border:rgba(203,178,148,.14);--border-m:rgba(203,178,148,.28);--border-b:rgba(169,120,85,.55);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--ivory);font-family:'Cormorant Garamond',Georgia,serif;line-height:1.75;overflow-x:hidden;cursor:none}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%}
+
+    .cur{position:fixed;pointer-events:none;z-index:9999;top:0;left:0;will-change:transform}
+    .cur-r{width:38px;height:38px;border:1px solid rgba(203,178,148,.6);border-radius:50%;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s}
+    .cur-d{width:5px;height:5px;background:var(--sand);border-radius:50%;transform:translate(-50%,-50%)}
+
+    #bgc{position:fixed;inset:0;z-index:0;opacity:.17;pointer-events:none}
+
+    .wrap{max-width:1160px;margin:0 auto;padding:0 2rem}
+    section{position:relative;z-index:1}
+
+    .kente{height:5px;background:repeating-linear-gradient(90deg,var(--blue) 0,var(--blue) 18px,var(--bronze) 18px,var(--bronze) 36px,var(--sand) 36px,var(--sand) 54px,#2d6a52 54px,#2d6a52 72px,#7a4830 72px,#7a4830 90px,var(--sand) 90px,var(--sand) 108px,var(--blue) 108px,var(--blue) 126px);opacity:.7}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .35s}
+    .nav-kente{height:3px;background:repeating-linear-gradient(90deg,var(--blue) 0,var(--blue) 12px,var(--bronze) 12px,var(--bronze) 24px,var(--sand) 24px,var(--sand) 36px);opacity:0;transition:opacity .35s}
+    nav.sc .nav-kente{opacity:.75}
+    nav.sc .nav-body{background:rgba(15,23,42,.95);backdrop-filter:blur(22px);border-bottom:1px solid var(--border)}
+    .nav-body{padding:1.2rem 0;transition:all .35s}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:.85rem}
+    .logo-svg{width:34px;height:auto;flex-shrink:0}
+    .logo-wm{display:flex;flex-direction:column;line-height:1}
+    .logo-a{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:900;letter-spacing:.2em;color:var(--ivory)}
+    .logo-b{font-family:'Cinzel',serif;font-size:.6rem;font-weight:400;letter-spacing:.4em;color:var(--sand-d);margin-top:2px}
+    .nav-ul{display:flex;align-items:center;gap:2.5rem;list-style:none}
+    .nav-ul a{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sand-d);transition:color .2s}
+    .nav-ul a:hover,.nav-ul a.ac{color:var(--sand)}
+    .btn-nav{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;padding:.6rem 1.5rem;background:transparent;border:1px solid var(--border-b);color:var(--sand);transition:all .25s;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%)}
+    .btn-nav:hover{background:var(--bronze);border-color:var(--bronze);color:var(--ivory)}
+    .ham{display:none;flex-direction:column;gap:4px;cursor:pointer}
+    .ham span{width:24px;height:1px;background:var(--sand)}
+
+    /* PAGE HERO */
+    .ph{padding:11rem 2rem 6rem;text-align:center;position:relative;overflow:hidden}
+    .ph::after{content:'';position:absolute;bottom:0;left:0;right:0;height:5px;background:repeating-linear-gradient(90deg,var(--blue) 0,var(--blue) 18px,var(--bronze) 18px,var(--bronze) 36px,var(--sand) 36px,var(--sand) 54px,#2d6a52 54px,#2d6a52 72px);opacity:.7}
+    .ph-ov{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze);margin-bottom:1.5rem;opacity:0;animation:up .8s ease .3s forwards}
+    .ph-h1{font-family:'Cinzel',serif;font-size:clamp(2.2rem,5.5vw,4.2rem);font-weight:900;color:var(--ivory);margin-bottom:1.25rem;opacity:0;animation:up .8s ease .5s forwards;line-height:1.1}
+    .ph-h1 em{font-style:normal;color:var(--sand)}
+    .ph-sub{font-size:1.1rem;color:var(--sand-d);max-width:570px;margin:0 auto;font-style:italic;font-weight:300;opacity:0;animation:up .8s ease .7s forwards;line-height:1.85}
+
+    /* SECTION HELPERS */
+    .sl{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze);margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+    .sl::before{content:'';display:inline-block;width:20px;height:1px;background:var(--bronze)}
+    .st{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3.2vw,2.7rem);font-weight:700;color:var(--ivory);line-height:1.15;margin-bottom:1.25rem;letter-spacing:.02em}
+    .st em{font-style:normal;color:var(--sand)}
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    /* DIAGRAM SECTION */
+    .diag{padding:6rem 2rem}
+    .diag-head{text-align:center;max-width:600px;margin:0 auto 4rem}
+    .diag svg{max-width:100%;height:auto;display:block;margin:0 auto}
+
+    /* DEEP DIVE */
+    .dd{padding:2rem 2rem 6rem}
+    .app-sec{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center;padding:5rem 0;border-bottom:1px solid var(--border)}
+    .app-sec:last-child{border-bottom:none}
+    .app-sec.rev{direction:rtl}
+    .app-sec.rev>*{direction:ltr}
+
+    .app-badge{display:inline-flex;align-items:center;gap:.6rem;padding:.4rem 1rem;border:1px solid var(--ac,var(--bronze));margin-bottom:1.5rem}
+    .app-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--ac,var(--bronze))}
+    .app-badge span{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ac,var(--bronze))}
+
+    .app-n{font-family:'Cinzel',serif;font-size:clamp(1.9rem,3.5vw,2.9rem);font-weight:700;color:var(--ivory);margin-bottom:.5rem}
+    .app-tl{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ac,var(--bronze));font-style:italic;margin-bottom:1.5rem}
+    .app-d{color:var(--sand-d);margin-bottom:1.5rem;font-size:1.02rem;font-weight:300;line-height:1.85}
+    .app-ul{list-style:none;margin-bottom:2rem}
+    .app-ul li{display:flex;align-items:flex-start;gap:.75rem;padding:.7rem 0;border-bottom:1px solid rgba(203,178,148,.08);font-size:.92rem;color:var(--sand-d)}
+    .app-ul li::before{content:'◈';color:var(--ac,var(--bronze));flex-shrink:0;margin-top:.1rem;font-size:.75rem}
+    .app-btn{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;padding:.9rem 1.9rem;border:1px solid var(--ac,var(--bronze));color:var(--ac,var(--bronze));transition:all .3s;display:inline-block;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+    .app-btn:hover{background:var(--ac,var(--bronze));color:var(--ink)}
+
+    .app-vis{padding:2.5rem;background:var(--card);border:1px solid var(--border);position:relative;overflow:hidden;min-height:320px;display:flex;align-items:center;justify-content:center}
+    .app-vis::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ac,var(--bronze))}
+    .app-vis::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(203,178,148,.06) 0%,transparent 70%)}
+    .av-inner{text-align:center;position:relative;z-index:1}
+    .av-ico{font-size:5rem;line-height:1;margin-bottom:1.5rem;display:block}
+    .av-n{font-family:'Cinzel',serif;font-size:1.6rem;color:var(--ivory);margin-bottom:.4rem}
+    .av-status{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;padding:.4rem 1rem;border:1px solid var(--ac,var(--bronze));color:var(--ac,var(--bronze));display:inline-block;margin-top:.75rem}
+
+    /* CONNECTIONS */
+    .conn{padding:6rem 2rem;background:linear-gradient(180deg,transparent,rgba(14,79,110,.07),transparent);text-align:center}
+    .conn-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin:3rem 0;border:1px solid var(--border)}
+    .cc{padding:2rem 1.5rem;background:var(--card);text-align:center}
+    .cc-from{font-family:'Cinzel',serif;font-size:.88rem;font-weight:600;margin-bottom:.3rem}
+    .cc-via{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sand-d);margin-bottom:.6rem}
+    .cc-desc{font-size:.85rem;color:var(--sand-d);font-style:italic;line-height:1.65}
+
+    /* ALKE FLOW */
+    .flow{padding:6rem 2rem}
+    .fg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+    .fc{padding:2rem;background:var(--card);border:1px solid var(--border);text-align:center;position:relative}
+    .fc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--sand-d),transparent)}
+    .fn{font-family:'Cinzel',serif;font-size:2.8rem;color:var(--bronze);opacity:.28;line-height:1;margin-bottom:.75rem}
+    .ft2{font-family:'Cinzel',serif;font-size:.95rem;font-weight:600;color:var(--sand);margin-bottom:.5rem}
+    .fd{font-size:.88rem;color:var(--sand-d)}
+
+    /* CTA */
+    .cta-sec{padding:5rem 2rem;text-align:center;border-top:1px solid var(--border)}
+
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);position:relative;z-index:1}
+    .ft-bot{padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .ft-copy{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--sand-d)}
+    .ft-nav{display:flex;gap:2rem;list-style:none}
+    .ft-nav a{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sand-d);transition:color .2s}
+    .ft-nav a:hover{color:var(--sand)}
+    .ft-mark{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.3em;color:var(--bronze);opacity:.45}
+
+    /* ANIMATIONS */
+    @keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .app-sec{grid-template-columns:1fr;gap:2.5rem}
+      .app-sec.rev{direction:ltr}
+      .conn-g{grid-template-columns:1fr 1fr}
+      .fg{grid-template-columns:1fr}
+    }
+    @media(max-width:640px){
+      .nav-ul{display:none}
+      .btn-nav{display:none}
+      .ham{display:flex}
+      .nav-ul.open{display:flex;flex-direction:column;position:fixed;inset:0;background:var(--ink);align-items:center;justify-content:center;gap:2.5rem;z-index:999}
+      .nav-ul.open a{font-size:1rem}
+      .conn-g{grid-template-columns:1fr}
+      .ft-bot{flex-direction:column;text-align:center}
+      .ft-nav{justify-content:center;flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cur" id="cR"><div class="cur-r"></div></div>
+  <div class="cur" id="cD"><div class="cur-d"></div></div>
+  <canvas id="bgc"></canvas>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-kente"></div>
+    <div class="nav-body">
+      <div class="wrap nav-inner">
+        <a href="index.html" class="logo">
+          <svg class="logo-svg" viewBox="0 0 60 105" fill="none">
+            <path d="M30 3 L55 44 L30 102 L5 44 Z" fill="none" stroke="#CBB294" stroke-width="1.8"/>
+            <path d="M30 3 L30 102" stroke="#CBB294" stroke-width="1.1"/>
+            <path d="M30 3 L55 44 L30 30 Z" fill="#CBB294" opacity=".55"/>
+            <path d="M30 3 L5 44 L30 30 Z" fill="#CBB294" opacity=".35"/>
+            <path d="M5 44 L18 36 L30 44 L42 36 L55 44" fill="none" stroke="#A97855" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M10 49 L20 42 L30 49 L40 42 L50 49" fill="none" stroke="#A97855" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M30 102 L8 51 L52 51 Z" fill="#A97855" opacity=".4"/>
+          </svg>
+          <div class="logo-wm"><span class="logo-a">ALKE</span><span class="logo-b">BULEUM</span></div>
+        </a>
+        <ul class="nav-ul" id="nul">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#alke">Token</a></li>
+          <li><a href="ecosystem.html" class="ac">Ecosystem</a></li>
+        </ul>
+        <a href="index.html#waitlist" class="btn-nav">Join Waitlist</a>
+        <div class="ham" id="ham" onclick="document.getElementById('nul').classList.toggle('open')">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="ph">
+    <p class="ph-ov">The Alkebuleum Network</p>
+    <h1 class="ph-h1">One Chain. <em>Four Applications.</em><br>A Complete World.</h1>
+    <p class="ph-sub">Every application in the Alkebuleum ecosystem is purpose-built to work together — sharing identity, liquidity, tooling, and intelligence on a single sovereign chain.</p>
+  </section>
+
+  <!-- ARCHITECTURE DIAGRAM -->
+  <section class="diag">
+    <div class="wrap">
+      <div class="diag-head reveal">
+        <p class="sl" style="justify-content:center">Architecture Overview</p>
+        <h2 class="st" style="text-align:center">How the <em>Ecosystem</em> Connects</h2>
+        <p style="color:var(--sand-d);font-style:italic;font-size:1.05rem;margin-top:.5rem;font-weight:300;text-align:center">Alkebuleum is the root. Every protocol draws from the same chain, identity, and token.</p>
+      </div>
+
+      <div class="reveal">
+        <svg viewBox="0 0 920 540" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:860px;margin:0 auto;display:block">
+          <defs>
+            <radialGradient id="cg" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#0E4F6E" stop-opacity=".35"/>
+              <stop offset="100%" stop-color="#0F172A" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="blg" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#0E4F6E" stop-opacity=".15"/>
+              <stop offset="100%" stop-color="transparent"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Center glow -->
+          <ellipse cx="460" cy="270" rx="130" ry="130" fill="url(#cg)"/>
+
+          <!-- Orbit rings -->
+          <circle cx="460" cy="270" r="120" stroke="#CBB294" stroke-width=".5" stroke-dasharray="6 5" opacity=".2"/>
+          <circle cx="460" cy="270" r="175" stroke="#CBB294" stroke-width=".4" stroke-dasharray="3 7" opacity=".12"/>
+          <circle cx="460" cy="270" r="90"  stroke="#A97855" stroke-width=".5" opacity=".18"/>
+
+          <!-- Center: Alkebuleum -->
+          <circle cx="460" cy="270" r="68" fill="#111c30" stroke="#CBB294" stroke-width="1.2"/>
+          <circle cx="460" cy="270" r="54" fill="none" stroke="#A97855" stroke-width=".6" stroke-dasharray="4 3" opacity=".5"/>
+          <!-- Spear logo at center -->
+          <path d="M460 218 L478 258 L460 312 L442 258 Z" fill="none" stroke="#CBB294" stroke-width="1.2"/>
+          <path d="M460 218 L460 312" stroke="#CBB294" stroke-width=".7"/>
+          <path d="M442 258 L451 251 L460 258 L469 251 L478 258" fill="none" stroke="#A97855" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M460 218 L478 258 L460 245 Z" fill="#CBB294" opacity=".4"/>
+          <path d="M460 218 L442 258 L460 245 Z" fill="#CBB294" opacity=".25"/>
+          <text x="460" y="296" text-anchor="middle" font-family="Cinzel, serif" font-size="7.5" fill="#CBB294" letter-spacing="2" font-weight="600">ALKEBULEUM</text>
+          <text x="460" y="308" text-anchor="middle" font-family="DM Mono, monospace" font-size="5.5" fill="#A97855" letter-spacing="1.5">EVM CHAIN</text>
+
+          <!-- Connector lines (dashed, brand colors) -->
+          <!-- Top: AIChain -->
+          <line x1="460" y1="202" x2="460" y2="148" stroke="#1a9db5" stroke-width="1" stroke-dasharray="5 4" opacity=".8"/>
+          <!-- Bottom: JollofSwap -->
+          <line x1="460" y1="338" x2="460" y2="392" stroke="#A97855" stroke-width="1" stroke-dasharray="5 4" opacity=".8"/>
+          <!-- Left: AmVault -->
+          <line x1="392" y1="270" x2="258" y2="270" stroke="#CBB294" stroke-width="1" stroke-dasharray="5 4" opacity=".8"/>
+          <!-- Right: Nuru AI -->
+          <line x1="528" y1="270" x2="662" y2="270" stroke="#4a9e6e" stroke-width="1" stroke-dasharray="5 4" opacity=".8"/>
+
+          <!-- ALKE labels on connectors -->
+          <text x="460" y="178" text-anchor="middle" font-family="DM Mono, monospace" font-size="6" fill="#A97855" opacity=".7">ALKE GAS</text>
+          <text x="460" y="372" text-anchor="middle" font-family="DM Mono, monospace" font-size="6" fill="#A97855" opacity=".7">ALKE PAIRS</text>
+          <text x="320" y="264" text-anchor="middle" font-family="DM Mono, monospace" font-size="6" fill="#A97855" opacity=".7">ALKE AUTH</text>
+          <text x="596" y="264" text-anchor="middle" font-family="DM Mono, monospace" font-size="6" fill="#A97855" opacity=".7">ALKE DATA</text>
+
+          <!-- AIChain box -->
+          <rect x="370" y="62" width="180" height="68" fill="#0e1c2e" stroke="#1a9db5" stroke-width="1.2"/>
+          <rect x="370" y="62" width="180" height="3" fill="#1a9db5"/>
+          <text x="460" y="94" text-anchor="middle" font-family="Cinzel, serif" font-size="13" font-weight="700" fill="#1a9db5">AIChain</text>
+          <text x="460" y="112" text-anchor="middle" font-family="DM Mono, monospace" font-size="6.5" fill="#4a8888" letter-spacing="1.5">IDENTITY · REPUTATION</text>
+
+          <!-- JollofSwap box -->
+          <rect x="370" y="398" width="180" height="68" fill="#1a1208" stroke="#A97855" stroke-width="1.2"/>
+          <rect x="370" y="398" width="180" height="3" fill="#A97855"/>
+          <text x="460" y="430" text-anchor="middle" font-family="Cinzel, serif" font-size="13" font-weight="700" fill="#A97855">JollofSwap</text>
+          <text x="460" y="449" text-anchor="middle" font-family="DM Mono, monospace" font-size="6.5" fill="#8a6038" letter-spacing="1.5">DEX · LIQUIDITY · SWAP</text>
+
+          <!-- AmVault box -->
+          <rect x="82" y="238" width="160" height="68" fill="#12160e" stroke="#CBB294" stroke-width="1.2"/>
+          <rect x="82" y="238" width="160" height="3" fill="#CBB294"/>
+          <text x="162" y="270" text-anchor="middle" font-family="Cinzel, serif" font-size="13" font-weight="700" fill="#CBB294">AmVault</text>
+          <text x="162" y="289" text-anchor="middle" font-family="DM Mono, monospace" font-size="6.5" fill="#8a7848" letter-spacing="1.5">WALLET SDK</text>
+
+          <!-- Nuru AI box -->
+          <rect x="678" y="238" width="160" height="68" fill="#0c1810" stroke="#4a9e6e" stroke-width="1.2"/>
+          <rect x="678" y="238" width="160" height="3" fill="#4a9e6e"/>
+          <text x="758" y="270" text-anchor="middle" font-family="Cinzel, serif" font-size="13" font-weight="700" fill="#4a9e6e">Nuru AI</text>
+          <text x="758" y="289" text-anchor="middle" font-family="DM Mono, monospace" font-size="6.5" fill="#3a6848" letter-spacing="1.5">AI GUIDE</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEEP DIVE -->
+  <section class="dd">
+    <div class="wrap">
+
+      <!-- AIChain -->
+      <div class="app-sec reveal">
+        <div>
+          <div class="app-badge" style="--ac:#1a9db5"><div class="app-badge-dot" style="background:#1a9db5"></div><span style="color:#1a9db5">Identity Layer</span></div>
+          <h2 class="app-n">AIChain</h2>
+          <p class="app-tl" style="color:#1a9db5">Where identity meets the immutable ledger.</p>
+          <p class="app-d">AIChain is the reputation and identity infrastructure layer of the Alkebuleum ecosystem. On-chain credentials for humans and AI agents — verifiable, portable, and composable across every application in the network.</p>
+          <ul class="app-ul" style="--ac:#1a9db5">
+            <li>On-chain identity credentials and verifiable attestations</li>
+            <li>AI and human reputation scoring that compounds across interactions</li>
+            <li>Portable identity — one profile, the entire ecosystem</li>
+            <li>Sybil-resistant access control for dApps</li>
+            <li>Crosschain identity bridge for broader Web3 use</li>
+          </ul>
+          <a href="https://ai-chain.org" target="_blank" class="app-btn" style="--ac:#1a9db5;border-color:#1a9db5;color:#1a9db5">Visit ai-chain.org ↗</a>
+        </div>
+        <div class="app-vis" style="--ac:#1a9db5">
+          <div class="av-inner">
+            <span class="av-ico">◈</span>
+            <p class="av-n" style="color:#1a9db5">AIChain</p>
+            <p style="font-family:'DM Mono',monospace;font-size:.62rem;color:#4a8888;letter-spacing:.2em">ai-chain.org</p>
+            <span class="av-status" style="border-color:#1a9db5;color:#1a9db5">LIVE →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- JollofSwap -->
+      <div class="app-sec rev reveal">
+        <div>
+          <div class="app-badge" style="--ac:var(--bronze)"><div class="app-badge-dot"></div><span>Decentralized Exchange</span></div>
+          <h2 class="app-n">JollofSwap</h2>
+          <p class="app-tl">Born in West Africa. Built for global liquidity.</p>
+          <p class="app-d">Named after the beloved West African dish — a convergence of ingredients into something greater. JollofSwap is the native DEX of Alkebuleum, Uniswap V2-powered with deep ALKE pairs and identity-gated pool access.</p>
+          <ul class="app-ul">
+            <li>Automated market maker (AMM) built on Uniswap V2 mechanics</li>
+            <li>ALKE/USDC and ALKE/MAH primary liquidity pairs</li>
+            <li>Liquidity mining and farming incentives</li>
+            <li>Identity-gated premium pools via AIChain integration</li>
+            <li>One-click swaps for the full ecosystem token suite</li>
+          </ul>
+          <a href="#" class="app-btn">Coming Soon</a>
+        </div>
+        <div class="app-vis">
+          <div class="av-inner">
+            <span class="av-ico">⟁</span>
+            <p class="av-n" style="color:var(--bronze)">JollofSwap</p>
+            <p style="font-family:'DM Mono',monospace;font-size:.62rem;color:#8a6038;letter-spacing:.2em">jollofswap.io</p>
+            <span class="av-status">IN DEVELOPMENT</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AmVault -->
+      <div class="app-sec reveal">
+        <div>
+          <div class="app-badge" style="--ac:var(--sand)"><div class="app-badge-dot" style="background:var(--sand)"></div><span style="color:var(--sand)">Wallet SDK</span></div>
+          <h2 class="app-n">AmVault</h2>
+          <p class="app-tl" style="color:var(--sand)">The developer's key to the ecosystem.</p>
+          <p class="app-d">AmVault is the official React-based wallet auth and transaction SDK for Alkebuleum. EIP-1193 compatible with batch transactions, message signing, and seamless dApp integration. Published on npm.</p>
+          <ul class="app-ul" style="--ac:var(--sand)">
+            <li>React component library — drop in AmVault Connect in minutes</li>
+            <li>EIP-1193 provider compatibility for ecosystem-wide integration</li>
+            <li>Batch transaction bundling for gas efficiency</li>
+            <li>Message signing and on-chain authentication flows</li>
+            <li>Published on npm as <code style="color:var(--sand);font-size:.9em">amvault-connect@0.1.9</code></li>
+          </ul>
+          <a href="https://npmjs.com/package/amvault-connect" target="_blank" class="app-btn" style="--ac:var(--sand);border-color:var(--sand);color:var(--sand)">View on npm ↗</a>
+        </div>
+        <div class="app-vis" style="--ac:var(--sand)">
+          <div class="av-inner">
+            <span class="av-ico">⬡</span>
+            <p class="av-n" style="color:var(--sand)">AmVault</p>
+            <p style="font-family:'DM Mono',monospace;font-size:.62rem;color:#8a7848;letter-spacing:.2em">amvault-connect</p>
+            <span class="av-status" style="border-color:var(--sand);color:var(--sand)">v0.1.9 ON NPM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nuru AI -->
+      <div class="app-sec rev reveal">
+        <div>
+          <div class="app-badge" style="--ac:#4a9e6e"><div class="app-badge-dot" style="background:#4a9e6e"></div><span style="color:#4a9e6e">AI Intelligence Layer</span></div>
+          <h2 class="app-n">Nuru AI</h2>
+          <p class="app-tl" style="color:#4a9e6e">Light, in Swahili. Intelligence, for the ecosystem.</p>
+          <p class="app-d">Nuru — meaning "light" in Swahili — is the AI guide of the Alkebuleum ecosystem. A full web application helping users navigate the chain, understand assets, and interact intelligently with every protocol. Wallet-gated via AmVault, powered by Anthropic.</p>
+          <ul class="app-ul" style="--ac:#4a9e6e">
+            <li>Natural language interface for all Alkebuleum protocols</li>
+            <li>Wallet-gated intelligence — authenticate with AmVault to unlock</li>
+            <li>On-chain data analysis and portfolio interpretation</li>
+            <li>Modular React component architecture, backend on Railway</li>
+            <li>Anthropic Claude API integration for on-chain context</li>
+          </ul>
+          <a href="#" class="app-btn" style="--ac:#4a9e6e;border-color:#4a9e6e;color:#4a9e6e">Coming Soon</a>
+        </div>
+        <div class="app-vis" style="--ac:#4a9e6e">
+          <div class="av-inner">
+            <span class="av-ico">◬</span>
+            <p class="av-n" style="color:#4a9e6e">Nuru AI</p>
+            <p style="font-family:'DM Mono',monospace;font-size:.62rem;color:#3a6848;letter-spacing:.2em">nuru.alkebuleum.io</p>
+            <span class="av-status" style="border-color:#4a9e6e;color:#4a9e6e">IN DEVELOPMENT</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONNECTIONS -->
+  <section class="conn">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="sl" style="justify-content:center">Integration Web</p>
+        <h2 class="st" style="text-align:center">How They <em>Talk To Each Other</em></h2>
+        <p style="color:var(--sand-d);max-width:540px;margin:.75rem auto 0;font-style:italic;font-weight:300;font-size:1.05rem">Every connection below is intentional, native, and live within the chain.</p>
+      </div>
+      <div class="conn-g reveal">
+        <div class="cc"><p class="cc-from" style="color:#1a9db5">AIChain → AmVault</p><p class="cc-via">via SDK</p><p class="cc-desc">AmVault can gate dApp access based on AIChain reputation scores</p></div>
+        <div class="cc"><p class="cc-from" style="color:var(--bronze)">JollofSwap → AIChain</p><p class="cc-via">via Identity</p><p class="cc-desc">Verified traders unlock premium pools; reputation influences fee tiers</p></div>
+        <div class="cc"><p class="cc-from" style="color:#4a9e6e">Nuru AI → All</p><p class="cc-via">via AmVault</p><p class="cc-desc">Nuru reads on-chain data from all protocols, wallet-gated via AmVault</p></div>
+        <div class="cc"><p class="cc-from" style="color:var(--sand)">ALKE → All</p><p class="cc-via">Native Gas</p><p class="cc-desc">Every transaction on every protocol consumes ALKE — one token, one economy</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALKE FLOW -->
+  <section class="flow">
+    <div class="wrap">
+      <div class="reveal" style="text-align:center">
+        <p class="sl" style="justify-content:center">Token Economy</p>
+        <h2 class="st" style="text-align:center">How <em>ALKE</em> Powers Everything</h2>
+      </div>
+      <div class="fg">
+        <div class="fc reveal"><p class="fn">01</p><h3 class="ft2">Gas on Alkebuleum</h3><p class="fd">Every smart contract call and transfer across all four applications requires ALKE as gas. Demand is structural.</p></div>
+        <div class="fc reveal"><p class="fn">02</p><h3 class="ft2">JollofSwap Liquidity</h3><p class="fd">ALKE is the base pair on JollofSwap. Every ecosystem token pairs with ALKE, driving continuous demand as the DEX grows.</p></div>
+        <div class="fc reveal"><p class="fn">03</p><h3 class="ft2">Identity Staking</h3><p class="fd">AIChain reputation requires ALKE staking to establish and maintain. Higher reputation = more ALKE locked.</p></div>
+        <div class="fc reveal"><p class="fn">04</p><h3 class="ft2">AI Services</h3><p class="fd">Nuru AI's advanced intelligence features require ALKE as payment for on-chain analysis and portfolio intelligence.</p></div>
+        <div class="fc reveal"><p class="fn">05</p><h3 class="ft2">SDK Transactions</h3><p class="fd">Every dApp built on AmVault runs on Alkebuleum and pays gas in ALKE. Developer adoption multiplies ecosystem demand.</p></div>
+        <div class="fc reveal"><p class="fn">06</p><h3 class="ft2">Governance</h3><p class="fd">ALKE holders govern protocol parameters, treasury deployment, and future ecosystem additions through on-chain voting.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-sec">
+    <div class="wrap reveal">
+      <p class="sl" style="justify-content:center">Be Early</p>
+      <h2 class="st" style="text-align:center">Ready to Build on <em>Alkebuleum</em>?</h2>
+      <p style="color:var(--sand-d);max-width:480px;margin:.75rem auto 2.5rem;font-style:italic;font-weight:300;font-size:1.05rem">Join the waitlist for testnet access, developer documentation, and the ALKE token launch.</p>
+      <a href="index.html#waitlist" style="font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;padding:1rem 2.4rem;background:var(--blue);color:var(--ivory);border:1px solid var(--blue-l);clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);display:inline-block;transition:background .3s">Join the Waitlist →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="kente" style="opacity:.5"></div>
+    <div class="ft-bot wrap">
+      <span class="ft-copy">© 2025 Alkebuleum. All rights reserved.</span>
+      <ul class="ft-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ecosystem.html">Ecosystem</a></li>
+        <li><a href="https://ai-chain.org" target="_blank">AIChain</a></li>
+        <li><a href="index.html#waitlist">Waitlist</a></li>
+      </ul>
+      <span class="ft-mark">ALKEBULEUM</span>
+    </div>
+  </footer>
+
+  <script>
+    /* Cursor */
+    const cR=document.getElementById('cR'),cD=document.getElementById('cD');
+    const rEl=cR.querySelector('.cur-r');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cD.style.transform=`translate(${mx}px,${my}px)`;});
+    (function L(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cR.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(L);})();
+    document.querySelectorAll('a,button').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{rEl.style.width='56px';rEl.style.height='56px';rEl.style.borderColor='rgba(169,120,85,.85)';});
+      el.addEventListener('mouseleave',()=>{rEl.style.width='';rEl.style.height='';rEl.style.borderColor='';});
+    });
+
+    /* Nav */
+    window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>50));
+
+    /* Reveal */
+    const ro=new IntersectionObserver(entries=>{
+      entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*85);ro.unobserve(e.target);}});
+    },{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+    /* Canvas */
+    const cv=document.getElementById('bgc'),cx2=cv.getContext('2d');
+    let W,H;
+    const rsz=()=>{W=cv.width=innerWidth;H=cv.height=innerHeight;};
+    window.addEventListener('resize',rsz);rsz();
+    const COLS=['#0E4F6E','#CBB294','#A97855','#1e3a2a'];
+    const pts=Array.from({length:50},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.24,vy:(Math.random()-.5)*.24,r:Math.random()*1.6+.4,c:COLS[Math.floor(Math.random()*COLS.length)]}));
+    function spear(x,y,s,o){cx2.save();cx2.globalAlpha=o;cx2.strokeStyle='#CBB294';cx2.lineWidth=.5;cx2.beginPath();cx2.moveTo(x,y-s*1.8);cx2.lineTo(x+s*.65,y);cx2.lineTo(x,y+s*1.8);cx2.lineTo(x-s*.65,y);cx2.closePath();cx2.moveTo(x,y-s*1.8);cx2.lineTo(x,y+s*1.8);cx2.moveTo(x-s*.65,y);cx2.lineTo(x-s*.3,y-s*.4);cx2.lineTo(x,y);cx2.lineTo(x+s*.3,y-s*.4);cx2.lineTo(x+s*.65,y);cx2.stroke();cx2.restore();}
+    let t=0;
+    function draw(){
+      cx2.clearRect(0,0,W,H);
+      const gs=115,ox=(t*.12)%gs,oy=(t*.07)%gs;
+      for(let c=0;c<=Math.ceil(W/gs)+1;c++)for(let r=0;r<=Math.ceil(H/gs)+1;r++)spear(c*gs-ox,r*gs-oy,6,.04);
+      pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;cx2.save();cx2.globalAlpha=.38;cx2.fillStyle=p.c;cx2.beginPath();cx2.arc(p.x,p.y,p.r,0,Math.PI*2);cx2.fill();cx2.restore();});
+      for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const d=Math.hypot(pts[i].x-pts[j].x,pts[i].y-pts[j].y);if(d<105){cx2.save();cx2.globalAlpha=(1-d/105)*.12;cx2.strokeStyle='#CBB294';cx2.lineWidth=.35;cx2.beginPath();cx2.moveTo(pts[i].x,pts[i].y);cx2.lineTo(pts[j].x,pts[j].y);cx2.stroke();cx2.restore();}}
+      t++;requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+</body>
+</html>

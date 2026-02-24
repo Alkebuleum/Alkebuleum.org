@@ -1,41 +1,618 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJNPE41PPQ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-YJNPE41PPQ');
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
-    rel="stylesheet">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alkebuleum</title>
+  <title>Alkebuleum — The African-Born Blockchain</title>
+  <meta name="description" content="Alkebuleum is a general-purpose EVM-compatible blockchain named after the ancient African word for the continent. Foundation of AIChain, JollofSwap, AmVault, and Nuru AI." />
+  <meta name="keywords" content="Alkebuleum, ALKE, blockchain, EVM, African blockchain, Web3, DeFi, AIChain, JollofSwap, AmVault, Nuru AI" />
+  <meta name="author" content="Alkebuleum" />
+  <link rel="canonical" href="https://alkebuleum.io/" />
+  <meta property="og:title" content="Alkebuleum — The African-Born Blockchain" />
+  <meta property="og:description" content="A general-purpose EVM blockchain rooted in African heritage. Powering AIChain, JollofSwap, AmVault, and Nuru AI." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://alkebuleum.io/" />
+  <meta property="og:image" content="https://alkebuleum.io/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Alkebuleum — The African-Born Blockchain" />
+  <meta name="twitter:description" content="A general-purpose EVM blockchain rooted in African heritage." />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Alkebuleum","url":"https://alkebuleum.io","description":"A general-purpose EVM-compatible blockchain named after the ancient African word for the continent."}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;700;900&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ━━━━━ BRAND PALETTE ━━━━━ */
+    :root {
+      --blue:       #0E4F6E;
+      --blue-l:     #165f82;
+      --blue-d:     #093c55;
+      --sand:       #CBB294;
+      --sand-l:     #dcc9ae;
+      --sand-d:     #a08e76;
+      --bronze:     #A97855;
+      --bronze-l:   #c49270;
+      --bronze-d:   #7a5438;
+      --ivory:      #FAFAF8;
+      --ivory-d:    #e8e4dc;
+      --ink:        #0F172A;
+      --ink-m:      #14203a;
+      --ink-l:      #1a2b42;
+      --bg:         #0F172A;
+      --card:       #111c30;
+      --card2:      #152035;
+      --border:     rgba(203,178,148,0.14);
+      --border-m:   rgba(203,178,148,0.28);
+      --border-b:   rgba(169,120,85,0.55);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--ivory);font-family:'Cormorant Garamond',Georgia,serif;line-height:1.75;overflow-x:hidden;cursor:none}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%}
+
+    /* ━━━━━ CURSOR ━━━━━ */
+    .cur{position:fixed;pointer-events:none;z-index:9999;top:0;left:0;will-change:transform}
+    .cur-r{width:38px;height:38px;border:1px solid rgba(203,178,148,0.6);border-radius:50%;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s}
+    .cur-d{width:5px;height:5px;background:var(--sand);border-radius:50%;transform:translate(-50%,-50%)}
+
+    /* ━━━━━ CANVAS ━━━━━ */
+    #bgc{position:fixed;inset:0;z-index:0;opacity:.18;pointer-events:none}
+
+    /* ━━━━━ LAYOUT ━━━━━ */
+    .wrap{max-width:1160px;margin:0 auto;padding:0 2rem}
+    section{position:relative;z-index:1}
+
+    /* ━━━━━ KENTE ━━━━━ */
+    .kente{height:5px;background:repeating-linear-gradient(90deg,var(--blue) 0,var(--blue) 18px,var(--bronze) 18px,var(--bronze) 36px,var(--sand) 36px,var(--sand) 54px,#2d6a52 54px,#2d6a52 72px,#7a4830 72px,#7a4830 90px,var(--sand) 90px,var(--sand) 108px,var(--blue) 108px,var(--blue) 126px);opacity:.7}
+
+    /* ━━━━━ NAV ━━━━━ */
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .35s}
+    .nav-kente{height:3px;background:repeating-linear-gradient(90deg,var(--blue) 0,var(--blue) 12px,var(--bronze) 12px,var(--bronze) 24px,var(--sand) 24px,var(--sand) 36px,#2d6a52 36px,#2d6a52 48px);opacity:0;transition:opacity .35s}
+    nav.sc .nav-kente{opacity:.75}
+    nav.sc .nav-body{background:rgba(15,23,42,.95);backdrop-filter:blur(22px);border-bottom:1px solid var(--border)}
+    .nav-body{padding:1.2rem 0;transition:all .35s}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between}
+
+    /* Logo */
+    .logo{display:flex;align-items:center;gap:.85rem}
+    .logo-svg{width:34px;height:auto;flex-shrink:0}
+    .logo-wm{display:flex;flex-direction:column;line-height:1}
+    .logo-a{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:900;letter-spacing:.2em;color:var(--ivory)}
+    .logo-b{font-family:'Cinzel',serif;font-size:.6rem;font-weight:400;letter-spacing:.4em;color:var(--sand-d);margin-top:2px}
+
+    .nav-ul{display:flex;align-items:center;gap:2.5rem;list-style:none}
+    .nav-ul a{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sand-d);transition:color .2s}
+    .nav-ul a:hover{color:var(--sand)}
+    .btn-nav{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;padding:.6rem 1.5rem;background:transparent;border:1px solid var(--border-b);color:var(--sand);transition:all .25s;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%)}
+    .btn-nav:hover{background:var(--bronze);border-color:var(--bronze);color:var(--ivory)}
+    .ham{display:none;flex-direction:column;gap:4px;cursor:pointer}
+    .ham span{width:24px;height:1px;background:var(--sand)}
+
+    /* ━━━━━ HERO ━━━━━ */
+    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;padding:9rem 2rem 5rem;max-width:1160px;margin:0 auto}
+    .hero-l{z-index:2}
+    .eyebrow{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;opacity:0;animation:up .9s ease .2s forwards}
+    .eyebrow::before{content:'';display:inline-block;width:26px;height:1px;background:var(--bronze)}
+    .h1{font-family:'Cinzel',serif;font-size:clamp(2.5rem,5vw,4.8rem);font-weight:900;line-height:1.06;letter-spacing:.02em;margin-bottom:1.75rem;opacity:0;animation:up 1s ease .4s forwards}
+    .h1 .l1{display:block;color:var(--ivory)}
+    .h1 .l2{display:block;color:transparent;-webkit-text-stroke:1px var(--sand)}
+    .h1 .l3{display:block;color:var(--sand)}
+    .hsub{font-size:1.18rem;color:var(--sand-d);max-width:470px;line-height:1.85;font-weight:300;font-style:italic;margin-bottom:3rem;opacity:0;animation:up 1s ease .6s forwards}
+    .hctas{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:up 1s ease .8s forwards}
+
+    .btn-p{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;padding:1rem 2.4rem;background:var(--blue);color:var(--ivory);border:1px solid var(--blue-l);transition:all .3s;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);position:relative;overflow:hidden;display:inline-block}
+    .btn-p::after{content:'';position:absolute;inset:0;background:var(--blue-l);opacity:0;transition:opacity .3s}
+    .btn-p:hover::after{opacity:1}
+    .btn-p span{position:relative;z-index:1}
+    .btn-g{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;padding:1rem 2.4rem;background:transparent;color:var(--sand);border:1px solid var(--border-m);transition:all .3s;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);display:inline-block}
+    .btn-g:hover{border-color:var(--sand);background:rgba(203,178,148,.07);color:var(--ivory)}
+
+    /* Hero right — logo stage */
+    .hero-r{display:flex;align-items:center;justify-content:center;opacity:0;animation:fd 1.3s ease .5s forwards}
+    .stage{position:relative;width:420px;height:420px;display:flex;align-items:center;justify-content:center}
+    .ring{position:absolute;border-radius:50%;border:1px solid rgba(203,178,148,.08);top:50%;left:50%;transform:translate(-50%,-50%)}
+    .r1{width:390px;height:390px;border-color:rgba(203,178,148,.06);animation:spin 50s linear infinite}
+    .r1::before,
+    .r1::after{content:'';position:absolute;width:5px;height:5px;border-radius:50%;background:var(--bronze);top:50%;left:-2px;transform:translateY(-50%)}
+    .r1::after{left:auto;right:-2px;background:var(--sand)}
+    .r2{width:300px;height:300px;animation:spin 35s linear infinite reverse}
+    .r3{width:210px;height:210px;border-color:rgba(169,120,85,.2)}
+    .glow{position:absolute;width:200px;height:200px;background:radial-gradient(circle,rgba(14,79,110,.45) 0%,transparent 70%);z-index:1;animation:gp 3.5s ease-in-out infinite}
+    .hero-img{position:relative;z-index:2;width:170px;animation:fl 5s ease-in-out infinite;filter:drop-shadow(0 0 40px rgba(14,79,110,.7)) drop-shadow(0 0 70px rgba(169,120,85,.3))}
+
+    /* ━━━━━ SECTION HELPERS ━━━━━ */
+    .sl{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--bronze);margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+    .sl::before{content:'';display:inline-block;width:20px;height:1px;background:var(--bronze)}
+    .st{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3.2vw,2.7rem);font-weight:700;color:var(--ivory);line-height:1.15;margin-bottom:1.25rem;letter-spacing:.02em}
+    .st em{font-style:normal;color:var(--sand)}
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    /* ━━━━━ ABOUT ━━━━━ */
+    .about{padding:8rem 2rem}
+    .ag{display:grid;grid-template-columns:5fr 6fr;gap:5rem;align-items:start;margin-top:4rem}
+    .ag p{font-size:1.1rem;color:var(--sand-d);line-height:1.9;margin-bottom:1.5rem;font-weight:300}
+    .ag p strong{color:var(--ivory);font-weight:600}
+
+    .pillars{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+    .pillar{background:var(--card);padding:1.75rem 1.75rem;display:flex;gap:1.5rem;align-items:flex-start;transition:background .3s;cursor:default;border-left:2px solid transparent;transition:all .25s}
+    .pillar:hover{background:var(--card2);border-left-color:var(--bronze)}
+    .p-icon{flex-shrink:0;width:42px;height:42px;border:1px solid var(--border-m);display:flex;align-items:center;justify-content:center}
+    .p-icon svg{width:18px;height:18px}
+    .p-name{font-family:'Cinzel',serif;font-size:.85rem;font-weight:600;color:var(--sand);letter-spacing:.06em;margin-bottom:.3rem}
+    .p-desc{font-size:.9rem;color:var(--sand-d);line-height:1.65}
+
+    /* ━━━━━ TOKEN ━━━━━ */
+    .token{padding:8rem 2rem;background:linear-gradient(180deg,transparent,rgba(14,79,110,.07),transparent)}
+    .ti{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+    .tv{display:flex;align-items:center;justify-content:center}
+    .cw{position:relative;width:290px;height:290px;display:flex;align-items:center;justify-content:center}
+    .cbr{position:absolute;width:270px;height:270px;border-radius:50%;border:1px solid rgba(203,178,148,.2);animation:spin 28s linear infinite}
+    .cbr::before,.cbr::after{content:'';position:absolute;width:6px;height:6px;border-radius:50%;background:var(--bronze);top:50%;left:-3px;transform:translateY(-50%)}
+    .cbr::after{left:auto;right:-3px;background:var(--sand)}
+    .ci{width:185px;animation:fl 4s ease-in-out infinite;filter:drop-shadow(0 8px 28px rgba(169,120,85,.45));position:relative;z-index:2}
+    .tstats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:2.5rem 0}
+    .ts{background:var(--card);padding:1.4rem}
+    .tsv{font-family:'Cinzel',serif;font-size:1.55rem;font-weight:700;color:var(--sand);display:block;margin-bottom:.25rem}
+    .tsl{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sand-d)}
+    .chips{display:flex;flex-wrap:wrap;gap:.55rem}
+    .chip{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;padding:.45rem .95rem;border:1px solid var(--border-m);color:var(--sand-d);background:rgba(203,178,148,.03);transition:all .22s;cursor:default}
+    .chip:hover{border-color:var(--bronze);color:var(--sand);background:rgba(169,120,85,.09)}
+
+    /* ━━━━━ ECOSYSTEM ━━━━━ */
+    .eco{padding:8rem 2rem}
+    .eco-h{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:4rem;gap:2rem;flex-wrap:wrap}
+    .eco-g{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+    .ec{background:var(--card);padding:2.75rem;position:relative;overflow:hidden;transition:background .3s;display:block;color:var(--ivory)}
+    .ec:hover{background:var(--card2)}
+    .ec::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--ca,var(--bronze));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+    .ec:hover::after{transform:scaleX(1)}
+    .ec-num{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.2em;color:var(--sand-d);margin-bottom:2rem;opacity:.5}
+    .ec-icon{width:48px;height:48px;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;border:1px solid rgba(203,178,148,.18);transition:border-color .3s}
+    .ec:hover .ec-icon{border-color:var(--ca,var(--bronze))}
+    .ec-icon svg{width:22px;height:22px}
+    .ec-tag{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ca,var(--bronze));margin-bottom:.45rem}
+    .ec-name{font-family:'Cinzel',serif;font-size:1.45rem;font-weight:700;color:var(--ivory);margin-bottom:.85rem;letter-spacing:.04em}
+    .ec-desc{font-size:.95rem;color:var(--sand-d);line-height:1.75;margin-bottom:1.75rem;font-weight:300}
+    .ec-lnk{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ca,var(--bronze));display:inline-flex;align-items:center;gap:.5rem;transition:gap .2s}
+    .ec:hover .ec-lnk{gap:.9rem}
+    .ec-corner{position:absolute;top:1.75rem;right:1.75rem;font-size:1.3rem;opacity:.1;color:var(--ca,var(--bronze));transition:opacity .3s}
+    .ec:hover .ec-corner{opacity:.4}
+
+    /* ━━━━━ STATS BAR ━━━━━ */
+    .sbar{padding:5rem 2rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .sr{display:grid;grid-template-columns:repeat(4,1fr)}
+    .sc2{padding:2rem;text-align:center;position:relative}
+    .sc2:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;bottom:20%;width:1px;background:var(--border)}
+    .sv{font-family:'Cinzel',serif;font-size:2.5rem;font-weight:700;color:var(--sand);display:block;line-height:1;margin-bottom:.55rem}
+    .slb{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sand-d)}
+
+    /* ━━━━━ WAITLIST ━━━━━ */
+    .wl{padding:8rem 2rem}
+    .wl-i{max-width:680px;margin:0 auto;text-align:center}
+    .wl-box{margin-top:3.5rem;background:var(--card);border:1px solid var(--border-m);padding:3.5rem;position:relative;overflow:hidden}
+    .wl-box::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,var(--blue) 0,var(--blue) 22px,var(--bronze) 22px,var(--bronze) 44px,var(--sand) 44px,var(--sand) 66px)}
+    .wl-lede{font-size:1.1rem;color:var(--sand-d);font-style:italic;font-weight:300;margin-bottom:2.5rem;line-height:1.85}
+    .wl-form{display:flex}
+    .wl-in{flex:1;padding:1rem 1.5rem;background:rgba(250,250,248,.04);border:1px solid var(--border-m);border-right:none;color:var(--ivory);font-family:'Cormorant Garamond',serif;font-size:1rem;outline:none;transition:border-color .3s}
+    .wl-in:focus{border-color:var(--sand)}
+    .wl-in::placeholder{color:var(--sand-d);font-style:italic}
+    .wl-sub{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;padding:1rem 1.85rem;background:var(--blue);color:var(--ivory);border:1px solid var(--blue-l);cursor:pointer;transition:background .3s;white-space:nowrap}
+    .wl-sub:hover{background:var(--blue-l)}
+    .wl-note{font-size:.82rem;color:var(--sand-d);margin-top:.9rem;font-style:italic}
+
+    /* ━━━━━ FOOTER ━━━━━ */
+    footer{border-top:1px solid var(--border);position:relative;z-index:1}
+    .ft-main{padding:5rem 2rem 4rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+    .ft-brand p{font-size:.92rem;color:var(--sand-d);line-height:1.85;margin-top:1.2rem;max-width:255px;font-weight:300}
+    .ft-col h5{font-family:'Cinzel',serif;font-size:.78rem;font-weight:600;letter-spacing:.1em;color:var(--sand-d);margin-bottom:1.2rem}
+    .ft-col ul{list-style:none}
+    .ft-col ul li{margin-bottom:.65rem}
+    .ft-col ul a{font-size:.9rem;color:var(--sand-d);transition:color .2s;font-weight:300}
+    .ft-col ul a:hover{color:var(--sand)}
+    .ft-bot{padding:1.5rem 2rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+    .ft-copy{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--sand-d)}
+    .ft-mark{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.3em;color:var(--bronze);opacity:.45}
+
+    /* ━━━━━ KEYFRAMES ━━━━━ */
+    @keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+    @keyframes fd{from{opacity:0}to{opacity:1}}
+    @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes gp{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
+
+    /* ━━━━━ RESPONSIVE ━━━━━ */
+    @media(max-width:1024px){
+      .hero{grid-template-columns:1fr;padding-bottom:4rem}
+      .hero-r{display:none}
+      .ag{grid-template-columns:1fr;gap:3rem}
+      .ti{grid-template-columns:1fr;gap:3rem}
+      .tv{order:-1}
+      .ft-main{grid-template-columns:1fr 1fr}
+      .ft-brand{grid-column:span 2}
+    }
+    @media(max-width:768px){
+      .eco-g{grid-template-columns:1fr}
+      .sr{grid-template-columns:1fr 1fr}
+      .sc2::after{display:none}
+      .eco-h{flex-direction:column;align-items:flex-start}
+      .nav-ul{display:none}
+      .btn-nav{display:none}
+      .ham{display:flex}
+      .nav-ul.open{display:flex;flex-direction:column;position:fixed;inset:0;background:var(--ink);align-items:center;justify-content:center;gap:2.5rem;z-index:999}
+      .nav-ul.open a{font-size:1rem}
+    }
+    @media(max-width:520px){
+      .wl-form{flex-direction:column}
+      .wl-in{border-right:1px solid var(--border-m);border-bottom:none}
+      .ft-main{grid-template-columns:1fr}
+      .ft-brand{grid-column:span 1}
+      .sr{grid-template-columns:1fr}
+      .tstats{grid-template-columns:1fr}
+      .ft-bot{flex-direction:column;gap:.75rem;text-align:center}
+      .hctas{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cur" id="cR"><div class="cur-r"></div></div>
+  <div class="cur" id="cD"><div class="cur-d"></div></div>
+  <canvas id="bgc"></canvas>
+
+  <!-- ═══ NAV ═══ -->
+  <nav id="nav">
+    <div class="nav-kente"></div>
+    <div class="nav-body">
+      <div class="wrap nav-inner">
+        <a href="index.html" class="logo">
+          <svg class="logo-svg" viewBox="0 0 60 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Spear / diamond body -->
+            <path d="M30 3 L55 44 L30 102 L5 44 Z" fill="none" stroke="#CBB294" stroke-width="1.8"/>
+            <path d="M30 3 L30 102" stroke="#CBB294" stroke-width="1.1"/>
+            <!-- Upper filled triangles -->
+            <path d="M30 3 L55 44 L30 30 Z" fill="#CBB294" opacity=".55"/>
+            <path d="M30 3 L5 44 L30 30 Z" fill="#CBB294" opacity=".35"/>
+            <!-- Tribal band - outer chevrons -->
+            <path d="M5 44 L18 36 L30 44 L42 36 L55 44" fill="none" stroke="#A97855" stroke-width="2.2" stroke-linejoin="round"/>
+            <!-- Tribal band - inner chevrons -->
+            <path d="M10 49 L20 42 L30 49 L40 42 L50 49" fill="none" stroke="#A97855" stroke-width="1.4" stroke-linejoin="round"/>
+            <!-- Horizontal bars of the band -->
+            <line x1="5" y1="44" x2="55" y2="44" stroke="#CBB294" stroke-width=".8" opacity=".4"/>
+            <line x1="8" y1="51" x2="52" y2="51" stroke="#CBB294" stroke-width=".6" opacity=".3"/>
+            <!-- Lower point -->
+            <path d="M30 102 L8 51 L52 51 Z" fill="#A97855" opacity=".4"/>
+          </svg>
+          <div class="logo-wm">
+            <span class="logo-a">ALKE</span>
+            <span class="logo-b">BULEUM</span>
+          </div>
+        </a>
+
+        <ul class="nav-ul" id="nul">
+          <li><a href="#about">About</a></li>
+          <li><a href="#alke">Token</a></li>
+          <li><a href="#eco">Ecosystem</a></li>
+          <li><a href="ecosystem.html">Full Map</a></li>
+        </ul>
+        <a href="#waitlist" class="btn-nav">Join Waitlist</a>
+        <div class="ham" id="ham" onclick="this.classList.toggle('x');document.getElementById('nul').classList.toggle('open')">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section>
+    <div class="hero">
+      <div class="hero-l">
+        <p class="eyebrow">Named for the Ancient African Continent</p>
+        <h1 class="h1">
+          <span class="l1">The Chain</span>
+          <span class="l2">Rooted in</span>
+          <span class="l3">Heritage</span>
+        </h1>
+        <p class="hsub">A general-purpose EVM blockchain that carries the spirit of a continent — powering identity, exchange, intelligence, and sovereignty at civilizational scale.</p>
+        <div class="hctas">
+          <a href="#eco" class="btn-p"><span>Explore the Ecosystem</span></a>
+          <a href="#waitlist" class="btn-g">Join Waitlist</a>
+        </div>
+      </div>
+
+      <div class="hero-r">
+        <div class="stage">
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+          <div class="glow"></div>
+          <img src="alkecoin.png" alt="Alkebuleum" class="hero-img" />
+        </div>
+      </div>
+    </div>
+    <div class="kente"></div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="sl">The Foundation</p>
+        <h2 class="st">What is <em>Alkebuleum</em>?</h2>
+      </div>
+      <div class="ag">
+        <div class="reveal">
+          <p>Alkebuleum takes its name from the <strong>ancient African word for the continent</strong> — predating colonization, carrying millennia of mathematics, astronomy, philosophy, and civilization.</p>
+          <p>Built as a fully EVM-compatible Layer 1, Alkebuleum provides general-purpose smart contract infrastructure while serving as the sovereign foundation for an interconnected ecosystem: identity, exchange, tooling, and intelligence — all on one chain.</p>
+          <p>This is not imitation. It is <strong>origin</strong> — a declaration that the next chapter of blockchain infrastructure can be written with African identity at its root.</p>
+        </div>
+        <div class="pillars reveal">
+          <div class="pillar">
+            <div class="p-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#CBB294" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            </div>
+            <div>
+              <p class="p-name">EVM Compatible</p>
+              <p class="p-desc">Full Ethereum tooling — Solidity, Hardhat, MetaMask, Foundry. Deploy anything, instantly.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="p-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#CBB294" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+            <div>
+              <p class="p-name">Identity-First Design</p>
+              <p class="p-desc">AIChain provides on-chain identity and reputation native to the ecosystem — not bolted on.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="p-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#CBB294" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div>
+              <p class="p-name">Ecosystem Native</p>
+              <p class="p-desc">JollofSwap, AmVault, and Nuru AI are built on Alkebuleum — deeply integrated, not merely deployed.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="p-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#CBB294" stroke-width="1.5"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+            </div>
+            <div>
+              <p class="p-name">Crosschain Ready</p>
+              <p class="p-desc">Designed from inception for interoperability — one identity, one token, many chains.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TOKEN ═══ -->
+  <section class="token" id="alke">
+    <div class="wrap">
+      <div class="ti">
+        <div class="tv reveal">
+          <div class="cw">
+            <div class="cbr"></div>
+            <img src="alke-coin-gold.png" alt="ALKE Token" class="ci" />
+          </div>
+        </div>
+        <div class="reveal">
+          <p class="sl">Native Currency</p>
+          <h2 class="st">The <em>ALKE</em> Token</h2>
+          <p style="color:var(--sand-d);font-size:1.08rem;font-weight:300;margin-bottom:2.5rem;line-height:1.9;">The lifeblood of the Alkebuleum ecosystem. ALKE is not merely a gas token — it is the connective tissue binding every protocol, every user, and every interaction into one unified economic layer.</p>
+          <div class="tstats">
+            <div class="ts"><span class="tsv">ALKE</span><span class="tsl">Ticker Symbol</span></div>
+            <div class="ts"><span class="tsv">EVM</span><span class="tsl">Chain Standard</span></div>
+            <div class="ts"><span class="tsv">$0.0005</span><span class="tsl">Launch Price</span></div>
+            <div class="ts"><span class="tsv">L1</span><span class="tsl">Layer Type</span></div>
+          </div>
+          <div class="chips">
+            <span class="chip">Gas Fees</span>
+            <span class="chip">Governance</span>
+            <span class="chip">Staking</span>
+            <span class="chip">DEX Liquidity</span>
+            <span class="chip">Identity Staking</span>
+            <span class="chip">AI Services</span>
+            <span class="chip">SDK Auth</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ECOSYSTEM ═══ -->
+  <section class="eco" id="eco">
+    <div class="wrap">
+      <div class="eco-h reveal">
+        <div>
+          <p class="sl">The Network</p>
+          <h2 class="st">Four Applications.<br><em>One Unified Chain.</em></h2>
+        </div>
+        <a href="ecosystem.html" class="btn-g" style="flex-shrink:0">View Full Ecosystem →</a>
+      </div>
+
+      <div class="eco-g">
+        <a href="https://ai-chain.org" target="_blank" class="ec reveal" style="--ca:#1a9db5">
+          <p class="ec-num">01 / 04</p>
+          <div class="ec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1a9db5" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><circle cx="19" cy="6" r="2" opacity=".7"/></svg></div>
+          <p class="ec-tag" style="color:#1a9db5">Identity & Reputation</p>
+          <h3 class="ec-name">AIChain</h3>
+          <p class="ec-desc">On-chain identity credentials and reputation scoring for humans and AI agents. One verifiable profile across the ecosystem and beyond.</p>
+          <span class="ec-lnk" style="color:#1a9db5">Visit ai-chain.org <span>→</span></span>
+          <span class="ec-corner" style="color:#1a9db5">◈</span>
+        </a>
+
+        <a href="#" class="ec reveal" style="--ca:var(--bronze)">
+          <p class="ec-num">02 / 04</p>
+          <div class="ec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#A97855" stroke-width="1.5"><path d="M7 16V4m0 0L4 7m3-3 3 3"/><path d="M17 8v12m0 0 3-3m-3 3-3-3"/><path d="M3 12h18"/></svg></div>
+          <p class="ec-tag">Decentralized Exchange</p>
+          <h3 class="ec-name">JollofSwap</h3>
+          <p class="ec-desc">The native DEX of Alkebuleum. Uniswap V2 mechanics, deep ALKE liquidity pairs, and identity-gated pools through AIChain integration.</p>
+          <span class="ec-lnk">Coming Soon <span>→</span></span>
+          <span class="ec-corner">⟁</span>
+        </a>
+
+        <a href="https://npmjs.com/package/amvault-connect" target="_blank" class="ec reveal" style="--ca:var(--sand)">
+          <p class="ec-num">03 / 04</p>
+          <div class="ec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#CBB294" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.5"/></svg></div>
+          <p class="ec-tag" style="color:var(--sand)">Wallet SDK</p>
+          <h3 class="ec-name">AmVault</h3>
+          <p class="ec-desc">The official React SDK for Alkebuleum wallet auth and transactions. EIP-1193 compatible, batch transactions, published on npm as <code style="color:var(--sand);font-size:.88em">amvault-connect</code>.</p>
+          <span class="ec-lnk" style="color:var(--sand)">View on npm <span>→</span></span>
+          <span class="ec-corner" style="color:var(--sand)">⬡</span>
+        </a>
+
+        <a href="#" class="ec reveal" style="--ca:#4a9e6e">
+          <p class="ec-num">04 / 04</p>
+          <div class="ec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#4a9e6e" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M22 2 12 12"/><path d="M15 2h7v7"/></svg></div>
+          <p class="ec-tag" style="color:#4a9e6e">AI Intelligence Layer</p>
+          <h3 class="ec-name">Nuru AI</h3>
+          <p class="ec-desc">Nuru — "light" in Swahili — is the AI guide of the ecosystem. Wallet-gated intelligence for navigating the chain, interpreting assets, and interacting with every protocol.</p>
+          <span class="ec-lnk" style="color:#4a9e6e">Coming Soon <span>→</span></span>
+          <span class="ec-corner" style="color:#4a9e6e">◬</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS ═══ -->
+  <section class="sbar">
+    <div class="wrap">
+      <div class="sr">
+        <div class="sc2 reveal"><span class="sv">4</span><span class="slb">Ecosystem Apps</span></div>
+        <div class="sc2 reveal"><span class="sv">EVM</span><span class="slb">Compatible</span></div>
+        <div class="sc2 reveal"><span class="sv">L1</span><span class="slb">Blockchain Layer</span></div>
+        <div class="sc2 reveal"><span class="sv">∞</span><span class="slb">Composability</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WAITLIST ═══ -->
+  <section class="wl" id="waitlist">
+    <div class="wrap">
+      <div class="wl-i">
+        <div class="reveal">
+          <p class="sl" style="justify-content:center">Early Access</p>
+          <h2 class="st">Be Part of the <em>Beginning</em></h2>
+        </div>
+        <div class="wl-box reveal">
+          <p class="wl-lede">Join the waitlist for testnet access, the ALKE token launch, developer documentation, and early ecosystem application previews.</p>
+          <!-- Replace action="#" with your Mailchimp action URL -->
+          <form class="wl-form" action="#" method="post" id="mc-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+            <input type="email" name="EMAIL" id="mce-EMAIL" class="wl-in" placeholder="Your email address" required />
+            <button type="submit" class="wl-sub" name="subscribe">Join Waitlist</button>
+          </form>
+          <p class="wl-note">No noise. Only milestones — testnet, token launch, ecosystem releases.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="kente" style="opacity:.5"></div>
+    <div class="ft-main wrap">
+      <div class="ft-brand">
+        <a href="index.html" class="logo">
+          <svg class="logo-svg" viewBox="0 0 60 105" fill="none">
+            <path d="M30 3 L55 44 L30 102 L5 44 Z" fill="none" stroke="#CBB294" stroke-width="1.8"/>
+            <path d="M30 3 L30 102" stroke="#CBB294" stroke-width="1.1"/>
+            <path d="M30 3 L55 44 L30 30 Z" fill="#CBB294" opacity=".55"/>
+            <path d="M30 3 L5 44 L30 30 Z" fill="#CBB294" opacity=".35"/>
+            <path d="M5 44 L18 36 L30 44 L42 36 L55 44" fill="none" stroke="#A97855" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M10 49 L20 42 L30 49 L40 42 L50 49" fill="none" stroke="#A97855" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M30 102 L8 51 L52 51 Z" fill="#A97855" opacity=".4"/>
+          </svg>
+          <div class="logo-wm"><span class="logo-a">ALKE</span><span class="logo-b">BULEUM</span></div>
+        </a>
+        <p>Named for the ancient African continent. Built for the decentralized future. The flagship blockchain of a heritage-rooted ecosystem.</p>
+      </div>
+      <div class="ft-col"><h5>Chain</h5><ul><li><a href="#about">About</a></li><li><a href="#alke">ALKE Token</a></li><li><a href="#waitlist">Testnet Access</a></li><li><a href="#">Documentation</a></li></ul></div>
+      <div class="ft-col"><h5>Ecosystem</h5><ul><li><a href="https://ai-chain.org" target="_blank">AIChain ↗</a></li><li><a href="#">JollofSwap</a></li><li><a href="https://npmjs.com/package/amvault-connect" target="_blank">AmVault ↗</a></li><li><a href="#">Nuru AI</a></li></ul></div>
+      <div class="ft-col"><h5>Community</h5><ul><li><a href="#">Twitter / X</a></li><li><a href="#">Discord</a></li><li><a href="#">Telegram</a></li><li><a href="#">GitHub</a></li></ul></div>
+    </div>
+    <div class="ft-bot wrap">
+      <span class="ft-copy">© 2025 Alkebuleum. All rights reserved.</span>
+      <span class="ft-mark">ALKEBULEUM</span>
+    </div>
+  </footer>
 
   <script>
-    (function () {
-      // If GitHub Pages sent us here with ?p=/route, rewrite the URL before React mounts
-      var params = new URLSearchParams(window.location.search);
-      var p = params.get("p");
-      if (p) {
-        window.history.replaceState(null, "", p);
+    /* Cursor */
+    const cR=document.getElementById('cR'),cD=document.getElementById('cD');
+    const rEl=cR.querySelector('.cur-r');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cD.style.transform=`translate(${mx}px,${my}px)`;});
+    (function L(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cR.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(L);})();
+    document.querySelectorAll('a,button').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{rEl.style.width='56px';rEl.style.height='56px';rEl.style.borderColor='rgba(169,120,85,.85)';});
+      el.addEventListener('mouseleave',()=>{rEl.style.width='';rEl.style.height='';rEl.style.borderColor='';});
+    });
+
+    /* Navbar */
+    window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>50));
+
+    /* Reveal */
+    const ro=new IntersectionObserver(entries=>{
+      entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*85);ro.unobserve(e.target);}});
+    },{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+    /* Canvas background */
+    const cv=document.getElementById('bgc'),cx2=cv.getContext('2d');
+    let W,H;
+    const rsz=()=>{W=cv.width=innerWidth;H=cv.height=innerHeight;};
+    window.addEventListener('resize',rsz);rsz();
+
+    const COLS=['#0E4F6E','#CBB294','#A97855','#1e3a2a','#3a2010'];
+    const pts=Array.from({length:55},()=>({
+      x:Math.random()*W,y:Math.random()*H,
+      vx:(Math.random()-.5)*.26,vy:(Math.random()-.5)*.26,
+      r:Math.random()*1.8+.4,c:COLS[Math.floor(Math.random()*COLS.length)]
+    }));
+
+    // Draw spear symbol at grid points (references actual logo)
+    function spear(x,y,s,o){
+      cx2.save();cx2.globalAlpha=o;cx2.strokeStyle='#CBB294';cx2.lineWidth=.5;
+      cx2.beginPath();
+      cx2.moveTo(x,y-s*1.8);cx2.lineTo(x+s*.65,y);cx2.lineTo(x,y+s*1.8);cx2.lineTo(x-s*.65,y);cx2.closePath();
+      cx2.moveTo(x,y-s*1.8);cx2.lineTo(x,y+s*1.8);
+      // chevron band
+      cx2.moveTo(x-s*.65,y);cx2.lineTo(x-s*.3,y-s*.4);cx2.lineTo(x,y);cx2.lineTo(x+s*.3,y-s*.4);cx2.lineTo(x+s*.65,y);
+      cx2.stroke();cx2.restore();
+    }
+
+    let t=0;
+    function draw(){
+      cx2.clearRect(0,0,W,H);
+      const gs=115,ox=(t*.12)%gs,oy=(t*.07)%gs;
+      for(let c=0;c<=Math.ceil(W/gs)+1;c++){
+        for(let r=0;r<=Math.ceil(H/gs)+1;r++){
+          spear(c*gs-ox,r*gs-oy,6,.042);
+        }
       }
-    })();
+      pts.forEach(p=>{
+        p.x+=p.vx;p.y+=p.vy;
+        if(p.x<0)p.x=W;if(p.x>W)p.x=0;
+        if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+        cx2.save();cx2.globalAlpha=.4;cx2.fillStyle=p.c;cx2.beginPath();cx2.arc(p.x,p.y,p.r,0,Math.PI*2);cx2.fill();cx2.restore();
+      });
+      for(let i=0;i<pts.length;i++){
+        for(let j=i+1;j<pts.length;j++){
+          const d=Math.hypot(pts[i].x-pts[j].x,pts[i].y-pts[j].y);
+          if(d<105){cx2.save();cx2.globalAlpha=(1-d/105)*.13;cx2.strokeStyle='#CBB294';cx2.lineWidth=.35;cx2.beginPath();cx2.moveTo(pts[i].x,pts[i].y);cx2.lineTo(pts[j].x,pts[j].y);cx2.stroke();cx2.restore();}
+        }
+      }
+      t++;requestAnimationFrame(draw);
+    }
+    draw();
+
+    /* Mailchimp — paste your action URL here */
+    // document.getElementById('mc-form').action='YOUR_MAILCHIMP_ACTION_URL';
   </script>
-
-</head>
-
-<body class="bg-white">
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
 </body>
-
 </html>
