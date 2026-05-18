@@ -1,12 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import AnalyticsRouterTracker from './analytics/AnalyticsRouterTracker'
-
-function ScrollToTop() {
-  const { pathname } = useLocation()
-  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
-  return null
-}
 import SvgSprite from './components/SvgSprite'
 import Home from './pages/Home'
 import Apps from './pages/Apps'
@@ -16,6 +10,12 @@ import Grants from './pages/Grants'
 import Tokenomics from './pages/Tokenomics'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  return null
+}
 
 export default function App() {
   return (
