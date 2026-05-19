@@ -23,8 +23,8 @@ export default function ConsumerEcosystem() {
                 <span className="nuru-tag-dot" />
                 Sovereign AI · Live in the diaspora
               </div>
-              <h2 className="nuru-title">Meet Nuru.<br /><em>Your AI guide to</em><br />the chain.</h2>
-              <p className="nuru-sub">Nuru is a sovereign AI assistant built natively on Alkebuleum — lowering the onboarding curve for blockchain so anyone in the diaspora can send, save, verify, and transact in plain language. No crypto experience required.</p>
+              <h2 className="nuru-title">Meet Nuru AI.<br /><em>Your AI guide to</em><br />the chain.</h2>
+              <p className="nuru-sub">Nuru AI is a sovereign AI assistant built natively on Alkebuleum — lowering the onboarding curve for blockchain so anyone in the diaspora can send, save, verify, and transact in plain language. No crypto experience required.</p>
               <ul className="nuru-bullets">
                 <li>
                   <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><polyline points="4,10 9,15 16,5"/></svg>
@@ -41,7 +41,7 @@ export default function ConsumerEcosystem() {
               </ul>
               <div className="nuru-cta">
                 <a className="btn btn-violet" href="https://play.google.com/store/apps/details?id=com.alkebuleum.nuru&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
-                  Download Nuru
+                  Download Nuru AI
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
                 </a>
                 <a className="btn btn-ghost-light" href="https://nuruai.org" target="_blank" rel="noopener">See how it works</a>

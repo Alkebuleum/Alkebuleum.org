@@ -18,7 +18,7 @@ const APPS = [
     ),
   },
   {
-    name: 'Nuru',
+    name: 'Nuru AI',
     tagline: 'Your AI guide to the chain',
     desc: 'Sovereign AI assistant built natively on Alkebuleum — lowering the onboarding curve so anyone can send, save, verify, and transact in plain language.',
     category: 'AI',
