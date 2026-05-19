@@ -4,9 +4,8 @@ node_modules/
 # claude local config
 .claude/
 
-# videos (too large for git — host on CDN or YouTube)
-alkebuleum-explainer.mp4
-public/alkebuleum-explainer.mp4
+# root-level video only
+/alkebuleum-explainer.mp4
 
 # build output
 dist/
