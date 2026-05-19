@@ -29,7 +29,20 @@ export default function Assets() {
 
   return (
     <>
-      <Helmet><title>Brand Assets — Alkebuleum</title></Helmet>
+      <Helmet>
+        <title>Brand Assets — Alkebuleum</title>
+        <meta name="description" content="Official Alkebuleum brand assets — logo files, colour palette, typography, and usage guidelines for partners, press, and ecosystem builders." />
+        <link rel="canonical" href="https://alkebuleum.org/assets" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alkebuleum.org/assets" />
+        <meta property="og:title" content="Brand Assets — Alkebuleum" />
+        <meta property="og:description" content="Official Alkebuleum brand assets — logo files, colour palette, typography, and usage guidelines." />
+        <meta property="og:image" content="https://alkebuleum.org/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Brand Assets — Alkebuleum" />
+        <meta name="twitter:description" content="Official Alkebuleum brand assets — logo files, colour palette, typography, and usage guidelines." />
+        <meta name="twitter:image" content="https://alkebuleum.org/og-image.png" />
+      </Helmet>
       <section className="hero" style={{ minHeight: '38vh', paddingBottom: 80 }}>
         <div className="hero-glow" />
         <Navbar />

@@ -52,6 +52,22 @@ export default function Alkecoin() {
         <meta name="twitter:title" content="Alkecoin (ALKE) — Exchange Listing & Token Details" />
         <meta name="twitter:description" content="Official exchange listing details for Alkecoin (ALKE). Chain ID 237422 · 18 decimals · EVM compatible · 1B genesis supply · No ICO." />
         <meta name="twitter:image" content="https://alkebuleum.org/og-image.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Alkecoin (ALKE) — Exchange Listing & Token Details",
+          "url": "https://alkebuleum.org/alkecoin",
+          "description": "Official exchange listing details for Alkecoin (ALKE), the native utility token of the Alkebuleum network.",
+          "publisher": { "@id": "https://alkebuleum.org/#organization" },
+          "mainEntity": {
+            "@type": "Product",
+            "name": "Alkecoin",
+            "alternateName": ["ALKE", "AKE"],
+            "description": "Native utility token of the Alkebuleum Layer 1 blockchain network. Used for transaction fees, smart contract execution, validator staking, governance, and network access. Not a security. No ICO.",
+            "brand": { "@id": "https://alkebuleum.org/#organization" },
+            "url": "https://alkebuleum.org/alkecoin"
+          }
+        })}</script>
       </Helmet>
 
       <section className="hero" style={{ minHeight: '38vh', paddingBottom: 80 }}>
