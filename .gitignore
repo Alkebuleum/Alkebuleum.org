@@ -1,6 +1,12 @@
 # dependencies
 node_modules/
 
+# claude local config
+.claude/
+
+# root-level video
+alkebuleum-explainer.mp4
+
 # build output
 dist/
 
