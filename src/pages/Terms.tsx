@@ -87,7 +87,10 @@ const SECTIONS = [
 export default function Terms() {
   return (
     <>
-      <Helmet><title>Terms of Service — Alkebuleum</title></Helmet>
+      <Helmet>
+        <title>Terms of Service — Alkebuleum</title>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <section className="hero" style={{ minHeight: '30vh', paddingBottom: 60 }}>
         <div className="hero-glow" />
         <Navbar />

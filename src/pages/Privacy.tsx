@@ -71,7 +71,10 @@ const SECTIONS = [
 export default function Privacy() {
   return (
     <>
-      <Helmet><title>Privacy Policy — Alkebuleum</title></Helmet>
+      <Helmet>
+        <title>Privacy Policy — Alkebuleum</title>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <section className="hero" style={{ minHeight: '30vh', paddingBottom: 60 }}>
         <div className="hero-glow" />
         <Navbar />

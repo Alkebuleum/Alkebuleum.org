@@ -36,7 +36,20 @@ const USES = [
 export default function Tokenomics() {
   return (
     <>
-      <Helmet><title>Tokenomics — Alkebuleum</title></Helmet>
+      <Helmet>
+        <title>Alkecoin (ALKE) Tokenomics — Alkebuleum</title>
+        <meta name="description" content="Alkecoin (ALKE) is the native utility token of the Alkebuleum network. Chain ID 237422 · 18 decimals · EVM compatible · PORA consensus · 1B genesis supply." />
+        <link rel="canonical" href="https://alkebuleum.org/tokenomics" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alkebuleum.org/tokenomics" />
+        <meta property="og:title" content="Alkecoin (ALKE) Tokenomics — Alkebuleum" />
+        <meta property="og:description" content="Native utility token of the Alkebuleum network. Chain ID 237422 · 18 decimals · EVM compatible · 1B genesis supply." />
+        <meta property="og:image" content="https://alkebuleum.org/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Alkecoin (ALKE) Tokenomics — Alkebuleum" />
+        <meta name="twitter:description" content="Native utility token of the Alkebuleum network. Chain ID 237422 · 18 decimals · EVM compatible · 1B genesis supply." />
+        <meta name="twitter:image" content="https://alkebuleum.org/og-image.png" />
+      </Helmet>
       <section className="hero" style={{ minHeight: '38vh', paddingBottom: 80 }}>
         <div className="hero-glow" />
         <Navbar />

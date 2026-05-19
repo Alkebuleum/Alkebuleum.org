@@ -20,7 +20,20 @@ const PAST = [
 export default function Events() {
   return (
     <>
-      <Helmet><title>Events — Alkebuleum</title></Helmet>
+      <Helmet>
+        <title>Events — Alkebuleum</title>
+        <meta name="description" content="Alkebuleum events — conferences, summits, and community gatherings across Africa and the diaspora." />
+        <link rel="canonical" href="https://alkebuleum.org/events" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alkebuleum.org/events" />
+        <meta property="og:title" content="Events — Alkebuleum" />
+        <meta property="og:description" content="Alkebuleum events — conferences, summits, and community gatherings across Africa and the diaspora." />
+        <meta property="og:image" content="https://alkebuleum.org/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Events — Alkebuleum" />
+        <meta name="twitter:description" content="Alkebuleum events — conferences, summits, and community gatherings across Africa and the diaspora." />
+        <meta name="twitter:image" content="https://alkebuleum.org/og-image.png" />
+      </Helmet>
       <section className="hero" style={{ minHeight: '38vh', paddingBottom: 80 }}>
         <div className="hero-glow" />
         <Navbar />

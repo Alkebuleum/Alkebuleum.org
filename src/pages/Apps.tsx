@@ -94,7 +94,20 @@ const STATUS = {
 export default function Apps() {
   return (
     <>
-      <Helmet><title>Ecosystem Apps — Alkebuleum</title></Helmet>
+      <Helmet>
+        <title>Ecosystem Apps — Alkebuleum</title>
+        <meta name="description" content="Explore apps built on the Alkebuleum network — Amvault, AfPass, AlkePay, LandLedger, DRIS, and more." />
+        <link rel="canonical" href="https://alkebuleum.org/apps" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alkebuleum.org/apps" />
+        <meta property="og:title" content="Ecosystem Apps — Alkebuleum" />
+        <meta property="og:description" content="Explore apps built on the Alkebuleum network — Amvault, AfPass, AlkePay, LandLedger, DRIS, and more." />
+        <meta property="og:image" content="https://alkebuleum.org/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Ecosystem Apps — Alkebuleum" />
+        <meta name="twitter:description" content="Explore apps built on the Alkebuleum network — Amvault, AfPass, AlkePay, LandLedger, DRIS, and more." />
+        <meta name="twitter:image" content="https://alkebuleum.org/og-image.png" />
+      </Helmet>
       <section className="hero" style={{ minHeight: '38vh', paddingBottom: 80 }}>
         <div className="hero-glow" />
         <Navbar />

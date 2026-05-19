@@ -20,8 +20,18 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Alkebuleum — The Blockchain Infrastructure for Digital Africa</title>
-        <meta name="description" content="Sovereign blockchain infrastructure for identity, finance, and institutional records — built for governments, institutions, and the diaspora." />
+        <title>Alkebuleum — Africa's Sovereign Blockchain Infrastructure</title>
+        <meta name="description" content="A public Layer 1 blockchain built for Africa — powering identity, documents, payments, and trusted records with Alkecoin (ALKE)." />
+        <link rel="canonical" href="https://alkebuleum.org/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alkebuleum.org/" />
+        <meta property="og:title" content="Alkebuleum — Africa's Sovereign Blockchain Infrastructure" />
+        <meta property="og:description" content="A public Layer 1 blockchain built for Africa — powering identity, documents, payments, and trusted records with Alkecoin (ALKE)." />
+        <meta property="og:image" content="https://alkebuleum.org/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Alkebuleum — Africa's Sovereign Blockchain Infrastructure" />
+        <meta name="twitter:description" content="A public Layer 1 blockchain built for Africa — powering identity, documents, payments, and trusted records with Alkecoin (ALKE)." />
+        <meta name="twitter:image" content="https://alkebuleum.org/og-image.png" />
       </Helmet>
       <ActiveEventBanner />
       <HeroSection onContact={() => setContactOpen(true)} />
