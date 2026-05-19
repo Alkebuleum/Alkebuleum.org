@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Start-Process python *)",
+      "Bash(Select-Object Id)",
+      "PowerShell(Start-Sleep -Seconds 2; try { $r = Invoke-WebRequest -Uri \"http://localhost:8080/alkebuleum-website.html\" -UseBasicParsing -Method Head -ErrorAction Stop; $r.StatusCode } catch { \"Error: $_\" })",
+      "PowerShell(Start-Process \"http://localhost:8080/alkebuleum-website.html\")",
+      "PowerShell(Start-Sleep -Seconds 4; try { $r = Invoke-WebRequest -Uri \"http://localhost:5173\" -UseBasicParsing -Method Head -ErrorAction Stop; \"OK: $\\($r.StatusCode\\)\" } catch { \"Not ready: $_\" })",
+      "PowerShell(Start-Sleep -Seconds 6; try { $r = Invoke-WebRequest -Uri \"http://localhost:5173\" -UseBasicParsing -Method Head -ErrorAction Stop; \"OK: $\\($r.StatusCode\\)\" } catch { \"Not ready: $_\" })",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "PowerShell(Start-Process \"http://localhost:5173\")",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:frontpageafricaonline.com)",
+      "Bash(python3 -c \"import sys,json; lines=sys.stdin.read\\(\\).split\\('\\\\n'\\); [print\\(json.loads\\(l\\).get\\('message',{}\\).get\\('content',''\\)[:500] if isinstance\\(json.loads\\(l\\).get\\('message',{}\\).get\\('content',''\\), str\\) else ''\\) for l in lines if l.strip\\(\\)]\")",
+      "Bash(curl -s http://localhost:5173/)",
+      "Bash(git *)"
+    ]
+  }
+}
