@@ -58,6 +58,11 @@
   .download-btn:hover{background:transparent;color:var(--ink)}
   .download-btn svg{width:14px;height:14px}
   @media print{.topbar{display:none}}
+  @media(max-width:600px){
+    .topbar-inner{padding:0 16px;gap:12px}
+    .topbar-meta{display:none}
+    .download-btn{padding:8px 14px;font-size:12px}
+  }
 
   /* ── DOC SHELL ── */
   .doc{max-width:780px;margin:0 auto;padding:60px 32px 120px}
