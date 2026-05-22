@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Brand Assets — Alkebuleum</title>
+<meta name="description" content="Official brand assets, logos, colors, and usage guidelines for Alkebuleum — Africa's sovereign trust infrastructure."/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0a0c;
+    --ink-dim:#3e3e48;
+    --ink-mute:#6b6a78;
+    --bg:#f6f4f1;
+    --white:#ffffff;
+    --rule:rgba(10,10,12,.1);
+    --purple:#7c3aed;
+    --purple-deep:#5e3aff;
+    --purple-mid:#8b6dff;
+    --purple-light:#efeaff;
+    --accent:#c6b6ff;
+    --dark:#0a0a0c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
+  a{color:inherit;text-decoration:none}
+
+  /* NAV */
+  .nav{background:rgba(246,244,241,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--rule);padding:14px 0;position:sticky;top:0;z-index:50}
+  .nav-inner{max-width:1100px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:500}
+  .brand svg{width:24px;height:24px}
+  .back-link{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;color:var(--ink-mute);display:flex;align-items:center;gap:6px;transition:color .15s}
+  .back-link:hover{color:var(--purple)}
+
+  /* LAYOUT */
+  .wrap{max-width:1100px;margin:0 auto;padding:0 32px}
+  .hero{padding:72px 0 56px}
+  .eyebrow{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.16em;color:var(--purple);font-weight:500;text-transform:uppercase;margin-bottom:16px}
+  .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(36px,5vw,58px);font-weight:500;letter-spacing:-.025em;line-height:1.05;margin-bottom:18px}
+  .hero p{font-size:17px;color:var(--ink-dim);max-width:560px;line-height:1.65}
+  .divider{border:none;border-top:1px solid var(--rule);margin:0}
+  section.block{padding:56px 0}
+  section.block+section.block{border-top:1px solid var(--rule)}
+  .block-label{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:32px}
+  .block-title{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:500;letter-spacing:-.015em;margin-bottom:8px}
+  .block-desc{font-size:15px;color:var(--ink-dim);margin-bottom:32px;max-width:520px}
+
+  /* LOGO GRID */
+  .logo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+  .logo-card{background:var(--white);border:1px solid var(--rule);border-radius:16px;padding:36px 24px 24px;display:flex;flex-direction:column;align-items:center;gap:20px}
+  .logo-card.dark-bg{background:var(--dark);border-color:rgba(255,255,255,.08)}
+  .logo-card.purple-bg{background:var(--purple);border-color:transparent}
+  .logo-card-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute)}
+  .logo-card.dark-bg .logo-card-label,.logo-card.purple-bg .logo-card-label{color:rgba(255,255,255,.45)}
+  .logo-mark{width:64px;height:70px}
+  .logo-full{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:500}
+  .logo-full .alke{font-weight:700;font-variant:small-caps;letter-spacing:.08em}
+  .logo-full .buleum{font-weight:300;font-variant:small-caps;letter-spacing:.08em}
+
+  /* COLOR SWATCHES */
+  .swatch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+  .swatch{border-radius:12px;overflow:hidden;border:1px solid var(--rule)}
+  .swatch-color{height:80px}
+  .swatch-info{background:var(--white);padding:14px 16px}
+  .swatch-name{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;margin-bottom:4px}
+  .swatch-hex{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-mute);cursor:pointer;transition:color .15s}
+  .swatch-hex:hover{color:var(--purple)}
+
+  /* TYPOGRAPHY */
+  .type-row{display:flex;flex-direction:column;gap:28px}
+  .type-sample{background:var(--white);border:1px solid var(--rule);border-radius:16px;padding:32px}
+  .type-meta{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:16px}
+  .type-display{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:500;letter-spacing:-.02em;line-height:1.1}
+  .type-body{font-family:'Inter',sans-serif;font-size:17px;line-height:1.65;color:var(--ink-dim)}
+  .type-mono{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--ink-mute);letter-spacing:.04em}
+
+  /* DOWNLOADS */
+  .dl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+  .dl-card{background:var(--white);border:1px solid var(--rule);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:16px;transition:border-color .2s,box-shadow .2s}
+  .dl-card:hover{border-color:var(--purple);box-shadow:0 4px 20px rgba(124,58,237,.12)}
+  .dl-card-icon{width:40px;height:40px;background:var(--purple-light);border-radius:10px;display:flex;align-items:center;justify-content:center}
+  .dl-card-icon svg{width:20px;height:20px;color:var(--purple)}
+  .dl-card-name{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:500}
+  .dl-card-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-mute)}
+  .dl-btn{display:inline-flex;align-items:center;gap:6px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:500;color:var(--purple);margin-top:auto;transition:gap .15s}
+  .dl-btn:hover{gap:10px}
+
+  /* USAGE */
+  .usage-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .usage-card{background:var(--white);border:1px solid var(--rule);border-radius:16px;padding:28px}
+  .usage-card h4{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;margin-bottom:12px}
+  .usage-card ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .usage-card ul li{font-size:14px;color:var(--ink-dim);padding-left:16px;position:relative}
+  .usage-card ul li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%}
+  .usage-card.do ul li::before{background:#22c55e}
+  .usage-card.dont ul li::before{background:#ef4444}
+
+  /* FOOTER */
+  .foot{padding:48px 0;border-top:1px solid var(--rule);margin-top:24px}
+  .foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .foot-copy{font-size:13px;color:var(--ink-mute)}
+  .foot-links{display:flex;gap:24px}
+  .foot-links a{font-size:13px;color:var(--ink-mute);transition:color .15s}
+  .foot-links a:hover{color:var(--ink)}
+
+  @media(max-width:700px){
+    .wrap{padding:0 20px}
+    .nav-inner{padding:0 20px}
+    .usage-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#7c3aed" d="M50,7 L86,28 Q90,30.5 90,35 L90,75 Q90,79.5 86,82 L50,103 L14,82 Q10,79.5 10,75 L10,35 Q10,30.5 14,28 Z"/>
+        <line stroke="#fff" stroke-width="5" stroke-linecap="round" x1="50" y1="27" x2="50" y2="83"/>
+        <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="30,42 42,55 30,68"/>
+        <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="20,45 29.3,55 20,65"/>
+        <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="70,42 58,55 70,68"/>
+        <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="80,45 70.7,55 80,65"/>
+      </svg>
+      <span><span class="alke" style="font-weight:700;font-variant:small-caps;letter-spacing:.08em">Alke</span><span style="font-weight:300;font-variant:small-caps;letter-spacing:.08em">buleum</span></span>
+    </div>
+    <a class="back-link" href="/">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to site
+    </a>
+  </div>
+</nav>
+
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Brand Assets</div>
+    <h1>Alkebuleum<br/>Brand Kit</h1>
+    <p>Official logos, colors, typography, and usage guidelines. Free to use for media coverage, research, and integrations. Please follow the usage guidelines below.</p>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- LOGO -->
+  <section class="block">
+    <div class="block-label">01 — Logo &amp; Mark</div>
+    <div class="logo-grid">
+
+      <div class="logo-card">
+        <svg class="logo-mark" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#7c3aed" d="M50,7 L86,28 Q90,30.5 90,35 L90,75 Q90,79.5 86,82 L50,103 L14,82 Q10,79.5 10,75 L10,35 Q10,30.5 14,28 Z"/>
+          <line stroke="#fff" stroke-width="5" stroke-linecap="round" x1="50" y1="27" x2="50" y2="83"/>
+          <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="30,42 42,55 30,68"/>
+          <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="20,45 29.3,55 20,65"/>
+          <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="70,42 58,55 70,68"/>
+          <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="80,45 70.7,55 80,65"/>
+        </svg>
+        <span class="logo-card-label">Mark · Light</span>
+      </div>
+
+      <div class="logo-card dark-bg">
+        <svg class="logo-mark" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#7c3aed" d="M50,7 L86,28 Q90,30.5 90,35 L90,75 Q90,79.5 86,82 L50,103 L14,82 Q10,79.5 10,75 L10,35 Q10,30.5 14,28 Z"/>
+          <line stroke="#fff" stroke-width="5" stroke-linecap="round" x1="50" y1="27" x2="50" y2="83"/>
+          <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="30,42 42,55 30,68"/>
+          <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="20,45 29.3,55 20,65"/>
+          <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="70,42 58,55 70,68"/>
+          <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="80,45 70.7,55 80,65"/>
+        </svg>
+        <span class="logo-card-label">Mark · Dark</span>
+      </div>
+
+      <div class="logo-card" style="grid-column:span 2">
+        <div class="logo-full">
+          <svg style="width:36px;height:40px" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#7c3aed" d="M50,7 L86,28 Q90,30.5 90,35 L90,75 Q90,79.5 86,82 L50,103 L14,82 Q10,79.5 10,75 L10,35 Q10,30.5 14,28 Z"/>
+            <line stroke="#fff" stroke-width="5" stroke-linecap="round" x1="50" y1="27" x2="50" y2="83"/>
+            <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="30,42 42,55 30,68"/>
+            <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="20,45 29.3,55 20,65"/>
+            <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="70,42 58,55 70,68"/>
+            <polyline fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="80,45 70.7,55 80,65"/>
+          </svg>
+          <span><span class="alke">Alke</span><span class="buleum">buleum</span></span>
+        </div>
+        <span class="logo-card-label">Wordmark · Light</span>
+      </div>
+
+    </div>
+
+    <p style="margin-top:20px;font-size:13px;color:var(--ink-mute)">Download SVG: <a href="/favicon.svg" download="alkebuleum-mark.svg" style="color:var(--purple);font-weight:500">alkebuleum-mark.svg</a></p>
+  </section>
+
+
+  <!-- COLORS -->
+  <section class="block">
+    <div class="block-label">02 — Brand Colors</div>
+    <div class="swatch-grid">
+
+      <div class="swatch">
+        <div class="swatch-color" style="background:#7c3aed"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Purple</div>
+          <div class="swatch-hex" title="Click to copy" onclick="navigator.clipboard.writeText('#7c3aed')">#7c3aed</div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="swatch-color" style="background:#5e3aff"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Purple Deep</div>
+          <div class="swatch-hex" title="Click to copy" onclick="navigator.clipboard.writeText('#5e3aff')">#5e3aff</div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="swatch-color" style="background:#8b6dff"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Purple Mid</div>
+          <div class="swatch-hex" title="Click to copy" onclick="navigator.clipboard.writeText('#8b6dff')">#8b6dff</div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="swatch-color" style="background:#c6b6ff"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Accent</div>
+          <div class="swatch-hex" title="Click to copy" onclick="navigator.clipboard.writeText('#c6b6ff')">#c6b6ff</div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="swatch-color" style="background:#efeaff"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Purple Light</div>
+          <div class="swatch-hex" title="Click to copy" onclick="navigator.clipboard.writeText('#efeaff')">#efeaff</div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="swatch-color" style="background:#0a0a0c;border-radius:0"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dark</div>
+          <div class="swatch-hex" title="Click to copy" onclick="navigator.clipboard.writeText('#0a0a0c')">#0a0a0c</div>
+        </div>
+      </div>
+
+      <div class="swatch">
+        <div class="swatch-color" style="background:#f6f4f1"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Background</div>
+          <div class="swatch-hex" title="Click to copy" onclick="navigator.clipboard.writeText('#f6f4f1')">#f6f4f1</div>
+        </div>
+      </div>
+
+    </div>
+    <p style="margin-top:16px;font-size:13px;color:var(--ink-mute)">Click any hex value to copy.</p>
+  </section>
+
+
+  <!-- TYPOGRAPHY -->
+  <section class="block">
+    <div class="block-label">03 — Typography</div>
+    <div class="type-row">
+
+      <div class="type-sample">
+        <div class="type-meta">Headings — Space Grotesk</div>
+        <div class="type-display">A sovereign ledger,<br/>built where it's used.</div>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-meta">Body — Inter</div>
+        <div class="type-body">Alkebuleum is a public, permissioned Layer 1 designed around the realities of African governance, commerce, and identity. Most blockchains were built for somewhere else. This one is built for here.</div>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-meta">Monospace — JetBrains Mono</div>
+        <div class="type-mono">VALIDATOR · PORA · CONSENSUS · LAYER-1 · TRUST</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- DOWNLOADS -->
+  <section class="block">
+    <div class="block-label">04 — Downloads</div>
+    <div class="dl-grid">
+
+      <a class="dl-card" href="/favicon.svg" download="alkebuleum-mark.svg">
+        <div class="dl-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l4-4 4 4M12 16V8"/></svg>
+        </div>
+        <div>
+          <div class="dl-card-name">Alkebuleum Mark</div>
+          <div class="dl-card-meta">SVG · Vector</div>
+        </div>
+        <div class="dl-btn">
+          Download
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <a class="dl-card" href="/og-image.png" download="alkebuleum-og-image.png">
+        <div class="dl-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <div>
+          <div class="dl-card-name">Social Preview Image</div>
+          <div class="dl-card-meta">PNG · 1200×630</div>
+        </div>
+        <div class="dl-btn">
+          Download
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <a class="dl-card" href="/whitepaper.html" target="_blank" rel="noopener">
+        <div class="dl-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div>
+          <div class="dl-card-name">Whitepaper v2.0</div>
+          <div class="dl-card-meta">HTML · May 2026</div>
+        </div>
+        <div class="dl-btn">
+          Read
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <a class="dl-card" href="/AlkecoinTokenomicsPaper.pdf" download="AlkecoinTokenomicsPaper.pdf">
+        <div class="dl-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div>
+          <div class="dl-card-name">Tokenomics Paper</div>
+          <div class="dl-card-meta">PDF</div>
+        </div>
+        <div class="dl-btn">
+          Download
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- USAGE -->
+  <section class="block">
+    <div class="block-label">05 — Usage Guidelines</div>
+    <div class="usage-grid">
+
+      <div class="usage-card do">
+        <h4>You may</h4>
+        <ul>
+          <li>Use the logo and mark in editorial, news, and research coverage of Alkebuleum</li>
+          <li>Reference the brand name and colors in integrations, apps, and developer tools</li>
+          <li>Use assets in presentations, whitepapers, and academic work that reference Alkebuleum</li>
+          <li>Use the wordmark or mark at any size, provided it is not distorted</li>
+        </ul>
+      </div>
+
+      <div class="usage-card dont">
+        <h4>Please do not</h4>
+        <ul>
+          <li>Alter, recolor, or distort the logo or mark</li>
+          <li>Use the brand to imply official partnership or endorsement without written permission</li>
+          <li>Use the name "Alkebuleum" as part of your own product or company name</li>
+          <li>Reproduce assets in a way that could mislead or confuse users about the source</li>
+        </ul>
+      </div>
+
+    </div>
+    <p style="margin-top:20px;font-size:14px;color:var(--ink-dim)">Questions or permissions requests: <a href="mailto:hello@alkebuleum.org" style="color:var(--purple);font-weight:500">hello@alkebuleum.org</a></p>
+  </section>
+
+</div>
+
+
+<div class="wrap">
+  <div class="foot">
+    <div class="foot-inner">
+      <span class="foot-copy">© 2026 Alkebuleum Foundation</span>
+      <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/whitepaper.html">Whitepaper</a>
+        <a href="mailto:hello@alkebuleum.org">Contact</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
