@@ -34,7 +34,7 @@ export default function WhatIsSection() {
                 position: 'absolute', inset: 0,
                 backgroundImage: 'url(https://img.youtube.com/vi/nPPiWE-Nqcs/maxresdefault.jpg)',
                 backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                backgroundPosition: 'left center',
                 cursor: 'pointer',
               }}
             >
