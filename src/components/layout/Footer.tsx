@@ -71,7 +71,7 @@ export default function Footer() {
               <li><Link to="/events">Events</Link></li>
               <li><a href="https://t.me/alkebuleum" target="_blank" rel="noopener noreferrer">Telegram</a></li>
               <li><a href="/#blog">Blog</a></li>
-              <li><a href="/assets">Brand</a></li>
+              <li><a href="/brand">Brand</a></li>
             </ul>
           </div>
         </div>
@@ -80,7 +80,7 @@ export default function Footer() {
           <div className="foot-links">
             <Link to="/privacy">Privacy</Link>
             <Link to="/terms">Terms</Link>
-            <a href="/assets">Brand</a>
+            <a href="/brand">Brand</a>
           </div>
         </div>
       </div>

@@ -109,7 +109,7 @@ export default function Alkecoin() {
             ))}
           </div>
           <p style={{ marginTop: 20, fontSize: 12, color: 'var(--ink-mute)' }}>
-            For brand assets, logos, and colour references — <a href="/assets" style={{ color: 'var(--purple-deep)' }}>see the brand page →</a>
+            For brand assets, logos, and colour references — <a href="/brand" style={{ color: 'var(--purple-deep)' }}>see the brand page →</a>
           </p>
         </div>
       </section>
