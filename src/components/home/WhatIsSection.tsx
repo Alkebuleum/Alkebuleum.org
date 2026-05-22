@@ -32,23 +32,17 @@ export default function WhatIsSection() {
               onClick={() => setPlaying(true)}
               style={{
                 position: 'absolute', inset: 0,
-                background: 'radial-gradient(ellipse at 55% 38%, #1e1040 0%, #0a0a0c 68%)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                backgroundImage: 'url(https://img.youtube.com/vi/nPPiWE-Nqcs/maxresdefault.jpg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
                 cursor: 'pointer',
               }}
             >
-              <svg
-                viewBox="0 0 100 110"
-                style={{ width: 80, height: 88, filter: 'drop-shadow(0 0 28px rgba(124,58,237,0.6))' }}
-              >
-                <path fill="#7c3aed" stroke="#7c3aed" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"
-                  d="M50,7 L86,28 Q90,30.5 90,35 L90,75 Q90,79.5 86,82 L50,103 L14,82 Q10,79.5 10,75 L10,35 Q10,30.5 14,28 Z"/>
-                <line stroke="#ffffff" strokeWidth="5" strokeLinecap="round" x1="50" y1="27" x2="50" y2="83"/>
-                <polyline fill="none" stroke="#ffffff" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" points="30,42 42,55 30,68"/>
-                <polyline fill="none" stroke="#ffffff" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" points="20,45 29.3,55 20,65"/>
-                <polyline fill="none" stroke="#ffffff" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" points="70,42 58,55 70,68"/>
-                <polyline fill="none" stroke="#ffffff" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" points="80,45 70.7,55 80,65"/>
-              </svg>
+              <div style={{
+                position: 'absolute', inset: 0,
+                background: 'linear-gradient(135deg, rgba(10,10,12,0.55) 0%, rgba(94,58,255,0.35) 100%)',
+                borderRadius: 18,
+              }} />
               <div className="video-play-btn">
                 <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
               </div>
