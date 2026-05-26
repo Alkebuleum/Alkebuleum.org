@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async'
 import ActiveEventBanner from '../components/home/ActiveEventBanner'
 import HeroSection from '../components/home/HeroSection'
 import TickerSection from '../components/home/TickerSection'
-import TrustInfrastructure from '../components/home/TrustInfrastructure'
 import WhatIsSection from '../components/home/WhatIsSection'
 import ServicesSection from '../components/home/ServicesSection'
 import CouncilSection from '../components/home/CouncilSection'
@@ -61,8 +60,7 @@ export default function Home() {
       <ActiveEventBanner />
       <HeroSection onContact={() => setContactOpen(true)} />
       <TickerSection />
-      <TrustInfrastructure />
-      <WhatIsSection />
+<WhatIsSection />
       <ServicesSection />
       <CouncilSection />
       <WhitepaperBand />

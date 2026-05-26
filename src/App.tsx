@@ -11,7 +11,6 @@ import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Alkecoin from './pages/Alkecoin'
 import Network from './pages/Network'
-import Council from './pages/Council'
 import AlkeLedger from './pages/AlkeLedger'
 import AlkePay from './pages/AlkePay'
 import AlkeID from './pages/AlkeID'
@@ -39,7 +38,7 @@ export default function App() {
       <Routes>
         {/* Primary pages */}
         <Route path="/" element={<Home />} />
-        <Route path="/council" element={<Council />} />
+        <Route path="/council" element={<RedirectToStatic to="/council-hub.html" />} />
         <Route path="/alkeledger" element={<AlkeLedger />} />
         <Route path="/alkepay" element={<AlkePay />} />
         <Route path="/alkeid" element={<AlkeID />} />

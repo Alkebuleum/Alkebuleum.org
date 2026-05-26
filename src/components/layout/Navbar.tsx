@@ -6,7 +6,7 @@ interface Props {
 }
 
 const ECOSYSTEM_LINKS = [
-  { label: 'Alkebuleum Council', href: '/council' },
+  { label: 'Alkebuleum Council', href: '/council-hub.html', static: true },
   { label: 'AlkeLedger', href: '/alkeledger' },
   { label: 'AlkePay', href: '/alkepay' },
   { label: 'AlkeID', href: '/alkeid' },
@@ -37,7 +37,9 @@ export default function Navbar({ onContact }: Props) {
           <div className="nav-right">
             <div className="nav-links">
               {ECOSYSTEM_LINKS.map(l => (
-                <Link key={l.label} to={l.href}>{l.label}</Link>
+                l.static
+                  ? <a key={l.label} href={l.href}>{l.label}</a>
+                  : <Link key={l.label} to={l.href}>{l.label}</Link>
               ))}
             </div>
             <button className="menu-btn" aria-label="Menu" onClick={() => setDrawerOpen(true)}>
@@ -73,9 +75,9 @@ export default function Navbar({ onContact }: Props) {
               <div className="drawer-section">
                 <div className="drawer-section-label">Ecosystem</div>
                 {ECOSYSTEM_LINKS.map(l => (
-                  <Link key={l.label} className="drawer-link" to={l.href} onClick={close}>
-                    {l.label} <ChevronRight />
-                  </Link>
+                  l.static
+                    ? <a key={l.label} className="drawer-link" href={l.href} onClick={close}>{l.label} <ChevronRight /></a>
+                    : <Link key={l.label} className="drawer-link" to={l.href} onClick={close}>{l.label} <ChevronRight /></Link>
                 ))}
               </div>
 
