@@ -2,6 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function(l) {
+        if (l.search[1] === 'p') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded[0].replace('p=', '/') +
+            (decoded[1] ? '?' + decoded[1].replace('q=', '') : '') +
+            l.hash
+          );
+        }
+      }(window.location));
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alkebuleum — Africa's Sovereign Blockchain Infrastructure</title>
     <meta name="description" content="Alkebuleum is a public Layer 1 blockchain built for Africa — powering identity, documents, payments, and trusted records with Alkecoin (ALKE)." />

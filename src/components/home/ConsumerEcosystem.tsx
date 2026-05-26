@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom'
 
 const PROTOCOLS = [
-  { num: '01', name: 'Council',     sub: 'Governance',        href: '/council-hub.html', isStatic: true },
-  { num: '02', name: 'AlkeLedger',  sub: 'Ledger Protocol',   href: '/alkeledger' },
-  { num: '03', name: 'AlkePay',     sub: 'Payment Protocol',  href: '/alkepay' },
-  { num: '04', name: 'AlkeID',      sub: 'Identity Protocol', href: '/alkeid' },
-  { num: '05', name: 'AlkeCredit',  sub: 'Credit Protocol',   href: '/alkecredit' },
-  { num: '06', name: 'AlkeCoin',    sub: 'Native Currency',   href: '/alkecoin' },
+  { num: '01', name: 'AlkeLedger',  sub: 'Ledger Protocol',   href: '/alkeledger' },
+  { num: '02', name: 'AlkePay',     sub: 'Payment Protocol',  href: '/alkepay' },
+  { num: '03', name: 'AlkeID',      sub: 'Identity Protocol', href: '/alkeid' },
+  { num: '04', name: 'AlkeCredit',  sub: 'Credit Protocol',   href: '/alkecredit' },
 ]
 
 
@@ -133,15 +131,16 @@ function ArchDiagram() {
         .nuru-rays-g { animation: nuru-rays-spin 6s linear infinite; transform-origin: 0 0; }
         .nuru-aura { animation: nuru-pulse 2.5s ease-in-out infinite; }
         @keyframes node-light {
-          0%, 40%, 60%, 100% { opacity: 0; }
+          0%, 44%, 56%, 100% { opacity: 0; }
           50% { opacity: 1; }
         }
-        /* Orbit starts at east (AlkePay=i1) t=0, CCW: north (Ledger=i0) t=3.5s, west (ID=i3) t=7s, south (Credit=i2) t=10.5s */
-        /* Peak is at 50% of 14s = 7s. delay = 7s - peak_time */
-        .node-glow-0 { animation: node-light 14s ease-in-out infinite; animation-delay: -3.5s; } /* Ledger peaks at t=3.5s */
-        .node-glow-1 { animation: node-light 14s ease-in-out infinite; animation-delay: -7s;   } /* Pay    peaks at t=0s   */
-        .node-glow-2 { animation: node-light 14s ease-in-out infinite; animation-delay: 3.5s;  } /* Credit peaks at t=10.5s*/
-        .node-glow-3 { animation: node-light 14s ease-in-out infinite; animation-delay: 0s;    } /* ID     peaks at t=7s   */
+        /* Orbit: east(Pay t=0) → north(Ledger t=3.5s) → west(ID t=7s) → south(Credit t=10.5s)  */
+        /* Peak at 50% = 7s. Shift -1s so glow peaks as Nuru arrives, not after.                 */
+        /* delay = (pass_time - 1) - 7  →  pass_time - 8                                         */
+        .node-glow-0 { animation: node-light 14s ease-in-out infinite; animation-delay: -4.5s; } /* Ledger  3.5-8=-4.5  */
+        .node-glow-1 { animation: node-light 14s ease-in-out infinite; animation-delay: -8s;   } /* Pay     0-8=-8      */
+        .node-glow-2 { animation: node-light 14s ease-in-out infinite; animation-delay: 2.5s;  } /* Credit  10.5-8=2.5  */
+        .node-glow-3 { animation: node-light 14s ease-in-out infinite; animation-delay: -1s;   } /* ID      7-8=-1      */
         .arch-desktop { display: block; }
         .arch-mobile  { display: none; }
         @media (max-width: 640px) {
@@ -278,7 +277,7 @@ export default function ConsumerEcosystem() {
         <div className="wrap">
           <div className="sec-head center">
             <span className="eyebrow" style={{ color: 'var(--purple-deep)' }}>— The Trust Ecosystem</span>
-            <h2>One chain. <span className="hl">Four protocols.</span><br />One sovereign light.</h2>
+            <h2>One chain. <span className="hl">Four protocols.</span><br />One sovereign AI.</h2>
             <p>The Alkebuleum Blockchain sits at the center — governed by the Council, orbited by AlkePay, AlkeLedger, AlkeCredit, and AlkeID, and illuminated by Nuru AI.</p>
           </div>
 
@@ -304,7 +303,7 @@ export default function ConsumerEcosystem() {
             color: '#0a0a0a',
             marginBottom: 28,
           }}>
-            Trust Infrastructure
+            Trust Protocols
           </h3>
           <div className="services" style={{ borderRadius: 16, overflow: 'hidden' }}>
             {PROTOCOLS.map(c => {
