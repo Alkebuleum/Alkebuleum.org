@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Trust Ecosystem · Alkebuleum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbfaf6;
+    --bg-2:#f5f2ea;
+    --ink:#0a0a14;
+    --ink-dim:#3a3a48;
+    --ink-mute:#7a7986;
+    --purple:#8b6dff;
+    --purple-deep:#5e3aff;
+    --purple-bright:#7a55ff;
+    --accent:#5e3aff;
+    --gold:#c89a3a;
+    --gold-deep:#8e6b1c;
+    --teal:#3aa8a3;
+    --rule:rgba(10,10,20,.1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{
+    background:var(--bg);color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  svg{display:block}
+
+  /* ═══ SECTION ═══ */
+  .ecosystem-section{
+    position:relative;
+    padding:120px 0 110px;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 50%,#ffffff 0%,var(--bg) 60%,var(--bg-2) 100%);
+    overflow:hidden;
+  }
+  .glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
+  .glow-1{
+    left:15%;top:30%;width:480px;height:480px;
+    background:radial-gradient(circle,rgba(139,109,255,.18),transparent 60%);
+    animation:drift 22s ease-in-out infinite;
+  }
+  .glow-2{
+    right:10%;top:55%;width:420px;height:420px;
+    background:radial-gradient(circle,rgba(200,154,58,.12),transparent 60%);
+    animation:drift 26s ease-in-out infinite reverse;
+  }
+  @keyframes drift{
+    0%,100%{transform:translate(0,0) scale(1)}
+    50%{transform:translate(30px,-20px) scale(1.04)}
+  }
+  .dot-pattern{
+    position:absolute;inset:0;pointer-events:none;
+    background-image:radial-gradient(rgba(10,10,20,.06) 1px,transparent 1px);
+    background-size:32px 32px;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,#000 30%,transparent 80%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,#000 30%,transparent 80%);
+  }
+  .wrap{max-width:1320px;margin:0 auto;padding:0 32px;position:relative;z-index:5}
+
+  /* ═══ HEADER ═══ */
+  .eco-head{text-align:center;max-width:780px;margin:0 auto 80px}
+  .eco-eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'JetBrains Mono',monospace;font-size:11.5px;
+    letter-spacing:.2em;text-transform:uppercase;
+    color:var(--purple-deep);margin-bottom:28px;font-weight:500;
+  }
+  .eco-eyebrow::before,.eco-eyebrow::after{
+    content:"";width:32px;height:1px;background:var(--purple-deep);
+  }
+  .eco-head h2{
+    font-family:'Fraunces',serif;font-weight:400;
+    font-size:clamp(38px,5.5vw,68px);line-height:1.02;letter-spacing:-.025em;
+    color:var(--ink);margin-bottom:24px;
+  }
+  .eco-head h2 em{font-style:italic;color:var(--purple-deep);font-weight:400}
+  .eco-head .lede{
+    font-size:18px;line-height:1.55;color:var(--ink-dim);
+    max-width:620px;margin:0 auto;font-weight:300;
+  }
+
+  /* ═══ ORBITAL SYSTEM ═══ */
+  .solar-system{
+    position:relative;
+    width:100%;max-width:980px;height:760px;
+    margin:0 auto;
+    background:radial-gradient(ellipse 72% 66% at 50% 52%,
+      rgba(6,4,20,.9) 0%,
+      rgba(10,6,32,.75) 32%,
+      rgba(14,10,42,.5) 56%,
+      rgba(18,12,50,.18) 76%,
+      transparent 100%);
+    border-radius:28px;
+  }
+
+  /* Orbit rings */
+  .orbit{
+    position:absolute;left:50%;top:50%;
+    border-radius:50%;pointer-events:none;
+  }
+  .orbit-1{
+    width:280px;height:280px;margin:-140px 0 0 -140px;
+    border:1px dashed rgba(251,191,36,.4);
+    animation:rotate-cw 30s linear infinite;
+  }
+  .orbit-2{
+    width:480px;height:480px;margin:-240px 0 0 -240px;
+    border:1px dashed rgba(139,109,255,.28);
+  }
+  .orbit-3{
+    width:720px;height:720px;margin:-360px 0 0 -360px;
+    border:1px dotted rgba(58,168,163,.2);
+  }
+  @keyframes rotate-cw{to{transform:rotate(360deg)}}
+  @keyframes rotate-ccw{to{transform:rotate(-360deg)}}
+
+  /* ─── BLOCKCHAIN CUBE — center ─── */
+  .blockchain-center{
+    position:absolute;left:50%;top:50%;
+    transform:translate(-50%,-50%);
+    width:110px;height:110px;
+    display:flex;align-items:center;justify-content:center;
+    flex-direction:column;
+    z-index:5;cursor:pointer;
+  }
+  .cube-glow{
+    position:absolute;inset:-32px;border-radius:50%;
+    background:radial-gradient(circle,
+      rgba(139,109,255,.55) 0%,
+      rgba(94,58,255,.28) 42%,
+      transparent 70%);
+    animation:cube-pulse 5s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes cube-pulse{
+    0%,100%{transform:scale(1);opacity:.6}
+    50%{transform:scale(1.18);opacity:1}
+  }
+  .cube-svg{
+    position:relative;z-index:2;
+    width:78px;height:90px;
+    filter:
+      drop-shadow(0 0 16px rgba(139,109,255,.75))
+      drop-shadow(0 6px 22px rgba(94,58,255,.55));
+    transition:transform .35s cubic-bezier(.2,.7,.2,1),filter .35s;
+  }
+  .blockchain-center:hover .cube-svg{
+    transform:scale(1.1);
+    filter:
+      drop-shadow(0 0 26px rgba(139,109,255,1))
+      drop-shadow(0 10px 32px rgba(94,58,255,.8));
+  }
+  .cube-label{
+    position:absolute;bottom:-34px;left:50%;
+    transform:translateX(-50%);
+    text-align:center;white-space:nowrap;
+  }
+  .cube-label-title{
+    font-family:'JetBrains Mono',monospace;
+    font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(210,200,255,.8);font-weight:500;
+  }
+
+  /* ─── NURU AI — light of the ecosystem ─── */
+  .nuru-orbit{
+    position:absolute;left:50%;top:50%;
+    width:280px;height:280px;margin:-140px 0 0 -140px;
+    animation:rotate-cw 30s linear infinite;
+    pointer-events:none;z-index:4;
+  }
+  .nuru{
+    position:absolute;left:50%;top:-2px;
+    transform:translate(-50%,-50%);
+    width:54px;height:54px;
+    display:flex;align-items:center;justify-content:center;
+    pointer-events:auto;cursor:pointer;
+    animation:rotate-ccw 30s linear infinite;
+  }
+  .nuru-aura{
+    position:absolute;
+    width:90px;height:90px;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:radial-gradient(circle,
+      rgba(253,230,138,.65) 0%,
+      rgba(251,191,36,.32) 38%,
+      rgba(245,158,11,.1) 62%,
+      transparent 80%);
+    animation:nuru-pulse 3.2s ease-in-out infinite;
+    pointer-events:none;z-index:0;
+  }
+  @keyframes nuru-pulse{
+    0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.65}
+    50%{transform:translate(-50%,-50%) scale(1.45);opacity:1}
+  }
+  .nuru-rays-svg{
+    position:absolute;
+    width:68px;height:68px;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    animation:rays-spin 9s linear infinite;
+    pointer-events:none;z-index:1;
+  }
+  @keyframes rays-spin{
+    to{transform:translate(-50%,-50%) rotate(360deg)}
+  }
+  .nuru-core{
+    position:relative;z-index:2;
+    width:44px;height:44px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,
+      #fffbeb 0%,#fde68a 28%,#fbbf24 62%,#d97706 100%);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:
+      0 0 18px rgba(251,191,36,.85),
+      0 0 42px rgba(245,158,11,.5),
+      0 0 80px rgba(245,158,11,.18),
+      inset 0 -3px 9px rgba(120,60,0,.3),
+      inset 0 2px 5px rgba(255,255,255,.6);
+  }
+  .nuru-symbol{
+    width:19px;height:19px;color:#78350f;
+    filter:drop-shadow(0 1px 2px rgba(255,255,255,.5));
+  }
+  .nuru-tag{
+    position:absolute;top:54px;left:50%;
+    transform:translateX(-50%);
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:9.5px;letter-spacing:.07em;
+    color:#fde68a;white-space:nowrap;
+    text-shadow:0 0 10px rgba(251,191,36,.7),0 0 20px rgba(251,191,36,.4);
+  }
+  .nuru-detail{
+    position:absolute;left:50%;top:100%;
+    transform:translateX(-50%) translateY(12px);
+    width:210px;
+    background:rgba(6,4,20,.96);
+    border:1px solid rgba(251,191,36,.35);
+    border-radius:10px;padding:12px 16px;
+    text-align:left;
+    box-shadow:0 14px 30px -10px rgba(0,0,0,.6);
+    opacity:0;visibility:hidden;transition:all .25s;
+    pointer-events:none;z-index:50;
+  }
+  .nuru:hover .nuru-detail{
+    opacity:1;visibility:visible;
+    transform:translateX(-50%) translateY(20px);
+  }
+  .nuru-detail h4{
+    font-family:'Space Grotesk',sans-serif;font-weight:500;
+    font-size:12px;color:#fde68a;margin-bottom:5px;
+  }
+  .nuru-detail p{
+    font-size:11.5px;line-height:1.55;color:rgba(255,255,255,.6);margin:0;
+  }
+
+  /* ─── PLANETS (Core Protocols) ─── */
+  .planet{
+    position:absolute;transform:translate(-50%,-50%);
+    cursor:pointer;z-index:3;
+  }
+  .planet-body{
+    position:relative;width:80px;height:80px;border-radius:50%;
+    background:linear-gradient(135deg,#a78bfa 0%,#7c5cff 70%,#5e3aff 100%);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:
+      inset 0 -8px 20px rgba(40,15,150,.4),
+      inset 0 2px 6px rgba(255,255,255,.25),
+      0 12px 30px -8px rgba(94,58,255,.45);
+    transition:all .3s cubic-bezier(.2,.7,.2,1);
+  }
+  .planet:hover .planet-body{
+    transform:scale(1.12);
+    box-shadow:
+      inset 0 -8px 20px rgba(40,15,150,.4),
+      inset 0 2px 6px rgba(255,255,255,.25),
+      0 16px 40px -8px rgba(94,58,255,.65);
+  }
+  .planet-icon{
+    width:36px;height:36px;color:#fff;
+    filter:drop-shadow(0 1px 3px rgba(0,0,0,.3));
+  }
+  .planet-label{
+    position:absolute;left:50%;transform:translateX(-50%);
+    margin-top:12px;
+    font-family:'Space Grotesk',sans-serif;font-weight:500;
+    font-size:13.5px;letter-spacing:-.005em;
+    color:rgba(230,224,255,.9);white-space:nowrap;text-align:center;
+  }
+  .planet-tier{
+    display:block;
+    font-family:'JetBrains Mono',monospace;
+    font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:rgba(180,170,255,.55);font-weight:500;margin-top:3px;
+  }
+  .planet-ledger{left:50%;top:25.5%}
+  .planet-pay{left:74.5%;top:50%}
+  .planet-credit{left:50%;top:74.5%}
+  .planet-id{left:25.5%;top:50%}
+
+  .planet-detail{
+    position:absolute;left:50%;top:100%;
+    transform:translateX(-50%) translateY(40px);
+    width:220px;
+    background:rgba(6,4,20,.96);
+    border:1px solid rgba(139,109,255,.28);
+    border-radius:10px;padding:14px 18px;text-align:left;
+    box-shadow:0 14px 30px -10px rgba(0,0,0,.55);
+    opacity:0;visibility:hidden;transition:all .25s;
+    pointer-events:none;z-index:30;
+  }
+  .planet:hover .planet-detail{
+    opacity:1;visibility:visible;
+    transform:translateX(-50%) translateY(48px);
+  }
+  .planet-detail h4{
+    font-family:'Space Grotesk',sans-serif;font-weight:500;
+    font-size:13px;color:#fff;margin-bottom:5px;
+  }
+  .planet-detail p{font-size:12px;line-height:1.55;color:rgba(255,255,255,.6);margin:0}
+
+  /* ─── MOONS (Ecosystem Apps) ─── */
+  .moon{
+    position:absolute;transform:translate(-50%,-50%);
+    cursor:pointer;z-index:2;
+  }
+  .moon-body{
+    width:54px;height:54px;border-radius:50%;
+    background:linear-gradient(135deg,#5dcfca 0%,#3aa8a3 70%,#287973 100%);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:
+      inset 0 -4px 10px rgba(20,80,75,.4),
+      inset 0 2px 4px rgba(255,255,255,.25),
+      0 8px 18px -4px rgba(58,168,163,.4);
+    transition:all .3s;
+  }
+  .moon:hover .moon-body{transform:scale(1.18)}
+  .moon-future .moon-body{
+    background:linear-gradient(135deg,rgba(93,207,202,.4) 0%,rgba(58,168,163,.5) 70%,rgba(40,121,115,.6) 100%);
+    border:1px dashed rgba(58,168,163,.7);
+  }
+  .moon-icon{width:24px;height:24px;color:#fff}
+  .moon-label{
+    position:absolute;left:50%;transform:translateX(-50%);
+    margin-top:8px;
+    font-family:'Space Grotesk',sans-serif;font-weight:500;
+    font-size:11.5px;letter-spacing:-.002em;
+    color:rgba(190,235,232,.8);white-space:nowrap;text-align:center;
+  }
+  .moon-future .moon-label{color:rgba(160,200,198,.5)}
+  .moon-jollof{left:69.7%;top:25%}
+  .moon-nuru{left:91%;top:50%}
+  .moon-dris{left:69.7%;top:75%}
+  .moon-afpass{left:30.3%;top:75%}
+  .moon-dev{left:9%;top:50%}
+  .moon-inst{left:30.3%;top:25%}
+
+  /* ─── HALO (Council above) ─── */
+  .halo{
+    position:absolute;left:50%;top:-30px;
+    transform:translateX(-50%);
+    text-align:center;cursor:pointer;z-index:6;
+  }
+  .halo-mark{
+    width:84px;height:84px;border-radius:50%;
+    background:linear-gradient(135deg,#fde281 0%,#c89a3a 60%,#8e6b1c 100%);
+    display:flex;align-items:center;justify-content:center;margin:0 auto;
+    box-shadow:
+      inset 0 -6px 16px rgba(80,50,0,.4),
+      inset 0 2px 6px rgba(255,255,255,.5),
+      0 16px 40px -8px rgba(200,154,58,.5);
+    transition:transform .3s;
+  }
+  .halo:hover .halo-mark{transform:scale(1.08)}
+  .halo-icon{width:36px;height:36px;color:#3a2800}
+  .halo-label{
+    margin-top:14px;
+    font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+    font-size:16px;color:rgba(230,225,255,.9);
+  }
+  .halo-tier{
+    font-family:'JetBrains Mono',monospace;
+    font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--gold-deep);font-weight:500;margin-top:4px;
+  }
+  .halo-detail{
+    position:absolute;left:50%;top:100%;
+    transform:translateX(-50%) translateY(8px);
+    width:240px;
+    background:rgba(6,4,20,.96);
+    border:1px solid rgba(200,154,58,.28);
+    border-radius:10px;padding:14px 18px;text-align:left;
+    box-shadow:0 14px 30px -10px rgba(0,0,0,.55);
+    opacity:0;visibility:hidden;transition:all .25s;
+    pointer-events:none;z-index:30;
+  }
+  .halo:hover .halo-detail{
+    opacity:1;visibility:visible;
+    transform:translateX(-50%) translateY(16px);
+  }
+  .halo-detail h4{
+    font-family:'Space Grotesk',sans-serif;font-weight:500;
+    font-size:13px;color:#fff;margin-bottom:5px;
+  }
+  .halo-detail p{font-size:12px;line-height:1.55;color:rgba(255,255,255,.6);margin:0}
+
+  /* ─── ALKE FLOW LINES + PARTICLES ─── */
+  .alke-lines{
+    position:absolute;inset:0;width:100%;height:100%;
+    pointer-events:none;z-index:2;overflow:visible;
+  }
+  .flow-path{
+    fill:none;
+    stroke:rgba(200,154,58,.22);
+    stroke-width:1.5;stroke-dasharray:4 9;
+    animation:dash-out 6s linear infinite;
+  }
+  @keyframes dash-out{to{stroke-dashoffset:-78}}
+  .alke-dot{fill:#c89a3a}
+  .alke-dot-ret{fill:rgba(139,109,255,.75)}
+
+  /* Council→blockchain connector */
+  .connectors{
+    position:absolute;inset:0;width:100%;height:100%;
+    pointer-events:none;z-index:1;
+  }
+  .connectors line{
+    stroke:rgba(200,154,58,.18);stroke-width:1;
+    stroke-dasharray:3 8;
+    animation:dash-out 14s linear infinite;
+  }
+
+  /* ═══ LEGEND ═══ */
+  .legend{
+    margin-top:48px;
+    display:flex;justify-content:center;gap:40px;flex-wrap:wrap;
+  }
+  .legend-item{
+    display:flex;align-items:center;gap:10px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-dim);font-weight:500;
+  }
+  .legend-circle{
+    width:12px;height:12px;border-radius:50%;
+    box-shadow:inset 0 -2px 3px rgba(0,0,0,.2);
+  }
+  .legend-circle.halo-c{background:linear-gradient(135deg,#fde281,#c89a3a)}
+  .legend-circle.cube-c{background:linear-gradient(135deg,#a78bfa,#5e3aff)}
+  .legend-circle.nuru-c{background:radial-gradient(circle,#fffbeb,#fbbf24 60%,#d97706)}
+  .legend-circle.planet-c{background:linear-gradient(135deg,#a78bfa,#5e3aff)}
+  .legend-circle.moon-c{background:linear-gradient(135deg,#5dcfca,#3aa8a3)}
+
+  /* ═══ EXPLORE CTA ═══ */
+  .explore{margin-top:64px;text-align:center}
+  .explore p{
+    font-size:16px;color:var(--ink-dim);margin-bottom:22px;
+    font-family:'Inter',sans-serif;
+  }
+  .explore-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 30px;border-radius:999px;
+    background:var(--ink);color:#fff;
+    border:1px solid var(--ink);
+    font-size:14px;font-weight:500;
+    font-family:'Inter',sans-serif;
+    text-decoration:none;transition:all .25s;
+  }
+  .explore-btn:hover{background:transparent;color:var(--ink);transform:translateY(-2px)}
+
+  /* ═══ MOBILE ═══ */
+  @media(max-width:880px){
+    .ecosystem-section{padding:80px 0 80px}
+    .eco-head{margin-bottom:56px}
+    .solar-system{height:640px;max-width:640px}
+    .orbit-1{width:220px;height:220px;margin:-110px 0 0 -110px}
+    .orbit-2{width:380px;height:380px;margin:-190px 0 0 -190px}
+    .orbit-3{width:560px;height:560px;margin:-280px 0 0 -280px}
+    .blockchain-center{width:88px;height:88px}
+    .cube-svg{width:60px;height:70px}
+    .cube-label-title{font-size:8.5px}
+    .nuru-orbit{width:220px;height:220px;margin:-110px 0 0 -110px}
+    .nuru-core{width:36px;height:36px}
+    .nuru-symbol{width:15px;height:15px}
+    .nuru-rays-svg{width:54px;height:54px}
+    .nuru-aura{width:72px;height:72px}
+    .nuru-tag{top:46px;font-size:8.5px}
+    .planet-body{width:60px;height:60px}
+    .planet-icon{width:26px;height:26px}
+    .planet-label{font-size:11.5px;margin-top:8px}
+    .planet-tier{font-size:8.5px;margin-top:2px}
+    .moon-body{width:42px;height:42px}
+    .moon-icon{width:18px;height:18px}
+    .moon-label{font-size:10px;margin-top:6px}
+    .halo-mark{width:68px;height:68px}
+    .halo-icon{width:28px;height:28px}
+    .halo-label{font-size:13.5px}
+    .halo-tier{font-size:8.5px}
+    .planet-detail,.halo-detail,.nuru-detail{display:none}
+    .legend{gap:18px;margin-top:32px}
+    .legend-item{font-size:10px}
+  }
+  @media(max-width:600px){
+    .solar-system{height:520px}
+    .orbit-1{width:170px;height:170px;margin:-85px 0 0 -85px}
+    .orbit-2{width:300px;height:300px;margin:-150px 0 0 -150px}
+    .orbit-3{width:440px;height:440px;margin:-220px 0 0 -220px}
+    .blockchain-center{width:70px;height:70px}
+    .cube-svg{width:48px;height:56px}
+    .cube-label{bottom:-28px}
+    .cube-label-title{font-size:7.5px;letter-spacing:.12em}
+    .nuru-orbit{width:170px;height:170px;margin:-85px 0 0 -85px}
+    .nuru-core{width:30px;height:30px}
+    .nuru-symbol{width:12px;height:12px}
+    .nuru-rays-svg{width:44px;height:44px}
+    .nuru-aura{width:56px;height:56px}
+    .nuru-tag{top:38px;font-size:7.5px}
+    .planet-body{width:48px;height:48px}
+    .planet-icon{width:22px;height:22px}
+    .planet-label{font-size:10.5px;margin-top:6px}
+    .planet-tier{display:none}
+    .moon-body{width:36px;height:36px}
+    .moon-icon{width:16px;height:16px}
+    .moon-label{font-size:9.5px;margin-top:5px}
+    .halo{top:-20px}
+    .halo-mark{width:56px;height:56px}
+    .halo-icon{width:22px;height:22px}
+    .halo-label{font-size:12px;margin-top:10px}
+    .halo-tier{display:none}
+    .legend{flex-direction:column;align-items:center;gap:10px}
+  }
+</style>
+</head>
+<body>
+
+<section class="ecosystem-section" id="trust-ecosystem" aria-labelledby="eco-title">
+
+  <div class="dot-pattern" aria-hidden="true"></div>
+  <div class="glow glow-1" aria-hidden="true"></div>
+  <div class="glow glow-2" aria-hidden="true"></div>
+
+  <div class="wrap">
+
+    <!-- Header -->
+    <header class="eco-head">
+      <div class="eco-eyebrow">The Trust Ecosystem</div>
+      <h2 id="eco-title">One chain. <em>Four protocols.</em><br/>One sovereign light.</h2>
+      <p class="lede">The Alkebuleum Blockchain sits at the center — governed by the Council above, orbited by AlkePay, AlkeLedger, AlkeCredit, and AlkeID, and illuminated by Nuru AI, the intelligence that brings light across the sovereign network.</p>
+    </header>
+
+
+    <!-- ═══ SOLAR SYSTEM ═══ -->
+    <div class="solar-system" role="img" aria-label="Alkebuleum Trust Ecosystem diagram showing the Council, the Alkebuleum Blockchain cube at center, Nuru AI orbiting as the light of the ecosystem, four core protocols, and ecosystem applications">
+
+      <!-- Orbit rings -->
+      <div class="orbit orbit-1" aria-hidden="true"></div>
+      <div class="orbit orbit-2" aria-hidden="true"></div>
+      <div class="orbit orbit-3" aria-hidden="true"></div>
+
+      <!-- Council → blockchain connector -->
+      <svg class="connectors" viewBox="0 0 980 760" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="490" y1="0" x2="490" y2="352"/>
+      </svg>
+
+      <!-- ALKE flow lines between blockchain and the 4 protocols -->
+      <svg class="alke-lines" viewBox="0 0 980 760" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <path id="p-ledger" d="M490,380 L490,194"/>
+          <path id="p-pay"    d="M490,380 L730,380"/>
+          <path id="p-credit" d="M490,380 L490,566"/>
+          <path id="p-id"     d="M490,380 L250,380"/>
+        </defs>
+
+        <!-- Visible dashed flow lines -->
+        <path d="M490,380 L490,194" class="flow-path"/>
+        <path d="M490,380 L730,380" class="flow-path" style="animation-delay:-2s"/>
+        <path d="M490,380 L490,566" class="flow-path" style="animation-delay:-4s"/>
+        <path d="M490,380 L250,380" class="flow-path" style="animation-delay:-1s"/>
+
+        <!-- Ledger: 2 ALKE out + 1 return -->
+        <circle class="alke-dot" r="4">
+          <animateMotion dur="2.4s" repeatCount="indefinite" begin="0s"><mpath href="#p-ledger"/></animateMotion>
+        </circle>
+        <circle class="alke-dot" r="4">
+          <animateMotion dur="2.4s" repeatCount="indefinite" begin="-1.2s"><mpath href="#p-ledger"/></animateMotion>
+        </circle>
+        <circle class="alke-dot-ret" r="3">
+          <animateMotion dur="2.8s" repeatCount="indefinite" begin="-0.7s" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#p-ledger"/></animateMotion>
+        </circle>
+
+        <!-- Pay: 2 ALKE out + 1 return -->
+        <circle class="alke-dot" r="4">
+          <animateMotion dur="2.6s" repeatCount="indefinite" begin="-0.5s"><mpath href="#p-pay"/></animateMotion>
+        </circle>
+        <circle class="alke-dot" r="4">
+          <animateMotion dur="2.6s" repeatCount="indefinite" begin="-1.8s"><mpath href="#p-pay"/></animateMotion>
+        </circle>
+        <circle class="alke-dot-ret" r="3">
+          <animateMotion dur="3s" repeatCount="indefinite" begin="-0.9s" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#p-pay"/></animateMotion>
+        </circle>
+
+        <!-- Credit: 2 ALKE out + 1 return -->
+        <circle class="alke-dot" r="4">
+          <animateMotion dur="2.5s" repeatCount="indefinite" begin="-1s"><mpath href="#p-credit"/></animateMotion>
+        </circle>
+        <circle class="alke-dot" r="4">
+          <animateMotion dur="2.5s" repeatCount="indefinite" begin="-0.2s"><mpath href="#p-credit"/></animateMotion>
+        </circle>
+        <circle class="alke-dot-ret" r="3">
+          <animateMotion dur="2.9s" repeatCount="indefinite" begin="-1.4s" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#p-credit"/></animateMotion>
+        </circle>
+
+        <!-- ID: 2 ALKE out + 1 return -->
+        <circle class="alke-dot" r="4">
+          <animateMotion dur="2.3s" repeatCount="indefinite" begin="-1.3s"><mpath href="#p-id"/></animateMotion>
+        </circle>
+        <circle class="alke-dot" r="4">
+          <animateMotion dur="2.3s" repeatCount="indefinite" begin="-0.3s"><mpath href="#p-id"/></animateMotion>
+        </circle>
+        <circle class="alke-dot-ret" r="3">
+          <animateMotion dur="2.7s" repeatCount="indefinite" begin="-1.6s" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#p-id"/></animateMotion>
+        </circle>
+      </svg>
+
+
+      <!-- ═══ HALO — Council (kept above) ═══ -->
+      <div class="halo" tabindex="0" role="button" aria-label="Alkebuleum Council">
+        <div class="halo-mark">
+          <svg class="halo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M5 21V10l7-4 7 4v11M9 21V13h6v8M9 9h6"/>
+          </svg>
+        </div>
+        <div class="halo-label">Alkebuleum Council</div>
+        <div class="halo-tier">Governance · Above</div>
+        <div class="halo-detail">
+          <h4>Reputable Authority</h4>
+          <p>Reputable institutions guiding standards, participation, and trust across the Alkebuleum ecosystem.</p>
+        </div>
+      </div>
+
+
+      <!-- ═══ BLOCKCHAIN CUBE — center ═══ -->
+      <div class="blockchain-center" tabindex="0" role="button" aria-label="Alkebuleum Blockchain — sovereign trust chain at the center">
+        <div class="cube-glow" aria-hidden="true"></div>
+        <svg class="cube-svg" viewBox="0 0 64 74" fill="none" aria-hidden="true">
+          <!-- Top face -->
+          <polygon points="32,4 60,19 32,34 4,19" fill="#9d84fa"/>
+          <!-- Shine overlay on top face -->
+          <polygon points="32,4 60,19 32,34 4,19" fill="url(#top-shine)" opacity="0.45"/>
+          <!-- Left face (darkest) -->
+          <polygon points="4,19 32,34 32,64 4,49" fill="#5236e8"/>
+          <!-- Right face (medium) -->
+          <polygon points="60,19 32,34 32,64 60,49" fill="#7055f0"/>
+          <!-- Outline edges -->
+          <polyline points="32,4 60,19 60,49 32,64 4,49 4,19 32,4"
+            stroke="rgba(200,185,255,0.55)" stroke-width="0.7" fill="none"/>
+          <!-- Inner vertical edge -->
+          <line x1="32" y1="34" x2="32" y2="64"
+            stroke="rgba(200,185,255,0.32)" stroke-width="0.6"/>
+          <!-- Top-face diagonals (circuit hint) -->
+          <line x1="32" y1="34" x2="4"  y2="19"
+            stroke="rgba(200,185,255,0.22)" stroke-width="0.5"/>
+          <line x1="32" y1="34" x2="60" y2="19"
+            stroke="rgba(200,185,255,0.22)" stroke-width="0.5"/>
+          <!-- Subtle node dots on top face -->
+          <circle cx="32" cy="14" r="2" fill="rgba(255,255,255,0.28)"/>
+          <circle cx="20" cy="21" r="1.4" fill="rgba(255,255,255,0.2)"/>
+          <circle cx="44" cy="21" r="1.4" fill="rgba(255,255,255,0.2)"/>
+          <line x1="32" y1="14" x2="20" y2="21" stroke="rgba(255,255,255,0.15)" stroke-width="0.7"/>
+          <line x1="32" y1="14" x2="44" y2="21" stroke="rgba(255,255,255,0.15)" stroke-width="0.7"/>
+          <defs>
+            <linearGradient id="top-shine" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="white" stop-opacity="0.45"/>
+              <stop offset="100%" stop-color="white" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="cube-label">
+          <div class="cube-label-title">alkebuleum blockchain</div>
+        </div>
+      </div>
+
+
+      <!-- ═══ NURU AI — orbiting light of the ecosystem ═══ -->
+      <div class="nuru-orbit" aria-hidden="false">
+        <div class="nuru" tabindex="0" role="button" aria-label="Nuru AI — the light of the ecosystem">
+          <div class="nuru-aura" aria-hidden="true"></div>
+          <!-- Spinning rays -->
+          <svg class="nuru-rays-svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <line x1="32" y1="3"  x2="32" y2="12" stroke="#fbbf24" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+            <line x1="32" y1="52" x2="32" y2="61" stroke="#fbbf24" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+            <line x1="3"  y1="32" x2="12" y2="32" stroke="#fbbf24" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+            <line x1="52" y1="32" x2="61" y2="32" stroke="#fbbf24" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
+            <line x1="10.5" y1="10.5" x2="16.5" y2="16.5" stroke="#fbbf24" stroke-width="1.7" stroke-linecap="round" opacity="0.68"/>
+            <line x1="47.5" y1="47.5" x2="53.5" y2="53.5" stroke="#fbbf24" stroke-width="1.7" stroke-linecap="round" opacity="0.68"/>
+            <line x1="53.5" y1="10.5" x2="47.5" y2="16.5" stroke="#fbbf24" stroke-width="1.7" stroke-linecap="round" opacity="0.68"/>
+            <line x1="16.5" y1="47.5" x2="10.5" y2="53.5" stroke="#fbbf24" stroke-width="1.7" stroke-linecap="round" opacity="0.68"/>
+          </svg>
+          <!-- Core glow sphere -->
+          <div class="nuru-core">
+            <svg class="nuru-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3.5"/>
+              <path d="M12 2v2.5M12 19.5V22M4.22 4.22l1.77 1.77M18.01 18.01l1.77 1.77M2 12h2.5M19.5 12H22M4.22 19.78l1.77-1.77M18.01 5.99l1.77-1.77"/>
+            </svg>
+          </div>
+          <!-- Persistent label (counter-rotates so it stays readable) -->
+          <div class="nuru-tag">Nuru AI</div>
+          <!-- Hover detail -->
+          <div class="nuru-detail">
+            <h4>Nuru AI</h4>
+            <p>The intelligence woven through the Alkebuleum network — bringing light, insight, and adaptive intelligence across every protocol.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ═══ PLANETS — Core Protocols ═══ -->
+      <a href="#" class="planet planet-ledger" tabindex="0" aria-label="AlkeLedger">
+        <div class="planet-body">
+          <svg class="planet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="8" y1="13" x2="16" y2="13"/>
+            <line x1="8" y1="17" x2="14" y2="17"/>
+          </svg>
+        </div>
+        <div class="planet-label">AlkeLedger<span class="planet-tier">Records</span></div>
+        <div class="planet-detail">
+          <h4>Institutional Records</h4>
+          <p>Blockchain-anchored ledger for documents, audit trails, and accountability.</p>
+        </div>
+      </a>
+
+      <a href="#" class="planet planet-pay" tabindex="0" aria-label="AlkePay">
+        <div class="planet-body">
+          <svg class="planet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="6" width="20" height="12" rx="2"/>
+            <line x1="2" y1="10" x2="22" y2="10"/>
+            <line x1="6" y1="15" x2="10" y2="15"/>
+          </svg>
+        </div>
+        <div class="planet-label">AlkePay<span class="planet-tier">Payments</span></div>
+        <div class="planet-detail">
+          <h4>Payment Infrastructure</h4>
+          <p>Payment links, disbursements, and settlement connected to trusted ledgers.</p>
+        </div>
+      </a>
+
+      <a href="#" class="planet planet-credit" tabindex="0" aria-label="AlkeCredit">
+        <div class="planet-body">
+          <svg class="planet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 17 9 11 13 15 21 7"/>
+            <polyline points="15 7 21 7 21 13"/>
+          </svg>
+        </div>
+        <div class="planet-label">AlkeCredit<span class="planet-tier">Reputation</span></div>
+        <div class="planet-detail">
+          <h4>Credit &amp; Reputation</h4>
+          <p>Portable creditworthiness built from identity, payments, and participation history.</p>
+        </div>
+      </a>
+
+      <a href="#" class="planet planet-id" tabindex="0" aria-label="AlkeID">
+        <div class="planet-body">
+          <svg class="planet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <circle cx="9" cy="11" r="2.5"/>
+            <path d="M5.5 17c0-2 1.5-3.5 3.5-3.5s3.5 1.5 3.5 3.5"/>
+            <line x1="15" y1="10" x2="19" y2="10"/>
+            <line x1="15" y1="14" x2="19" y2="14"/>
+          </svg>
+        </div>
+        <div class="planet-label">AlkeID<span class="planet-tier">Identity</span></div>
+        <div class="planet-detail">
+          <h4>Identity &amp; Credentials</h4>
+          <p>Verifiable identity for people, institutions, and trusted digital participation.</p>
+        </div>
+      </a>
+
+
+      <!-- ═══ MOONS — Ecosystem Apps ═══ -->
+      <div class="moon moon-jollof" tabindex="0" role="button" aria-label="JollofSwap">
+        <div class="moon-body">
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3l5 5-5 5M3 8h18M8 21l-5-5 5-5M21 16H3"/>
+          </svg>
+        </div>
+        <div class="moon-label">JollofSwap</div>
+      </div>
+
+      <div class="moon moon-nuru" tabindex="0" role="button" aria-label="Nuru App">
+        <div class="moon-body">
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2"/>
+            <line x1="12" y1="18" x2="12" y2="18.01"/>
+          </svg>
+        </div>
+        <div class="moon-label">Nuru App</div>
+      </div>
+
+      <div class="moon moon-dris" tabindex="0" role="button" aria-label="DRIS">
+        <div class="moon-body">
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+            <path d="M3 5v6c0 1.7 4 3 9 3s9-1.3 9-3V5M3 11v6c0 1.7 4 3 9 3s9-1.3 9-3v-6"/>
+          </svg>
+        </div>
+        <div class="moon-label">DRIS</div>
+      </div>
+
+      <div class="moon moon-afpass" tabindex="0" role="button" aria-label="AfPass">
+        <div class="moon-body">
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="3" width="16" height="18" rx="2"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M7 18c1-3 3-4 5-4s4 1 5 4"/>
+          </svg>
+        </div>
+        <div class="moon-label">AfPass</div>
+      </div>
+
+      <div class="moon moon-dev moon-future" tabindex="0" role="button" aria-label="Developer Apps">
+        <div class="moon-body">
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <div class="moon-label">Developer Apps</div>
+      </div>
+
+      <div class="moon moon-inst moon-future" tabindex="0" role="button" aria-label="Institutional Apps">
+        <div class="moon-body">
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+        </div>
+        <div class="moon-label">Institutional Apps</div>
+      </div>
+
+    </div><!-- /solar-system -->
+
+
+    <!-- Legend -->
+    <div class="legend">
+      <div class="legend-item"><span class="legend-circle halo-c"></span> Governance</div>
+      <div class="legend-item"><span class="legend-circle cube-c"></span> Blockchain</div>
+      <div class="legend-item"><span class="legend-circle nuru-c"></span> Nuru AI</div>
+      <div class="legend-item"><span class="legend-circle planet-c"></span> Core Protocols</div>
+      <div class="legend-item"><span class="legend-circle moon-c"></span> Ecosystem Apps</div>
+    </div>
+
+
+    <!-- Explore CTA -->
+    <div class="explore">
+      <p>Every layer is built to be explored on its own.</p>
+      <a class="explore-btn" href="#">Explore the ecosystem →</a>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

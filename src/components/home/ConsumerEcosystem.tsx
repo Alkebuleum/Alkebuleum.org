@@ -1,306 +1,481 @@
+import { Link } from 'react-router-dom'
+
+const PROTOCOLS = [
+  { num: '01', name: 'Council',     sub: 'Governance',        href: '/council-hub.html', isStatic: true },
+  { num: '02', name: 'AlkeLedger',  sub: 'Ledger Protocol',   href: '/alkeledger' },
+  { num: '03', name: 'AlkePay',     sub: 'Payment Protocol',  href: '/alkepay' },
+  { num: '04', name: 'AlkeID',      sub: 'Identity Protocol', href: '/alkeid' },
+  { num: '05', name: 'AlkeCredit',  sub: 'Credit Protocol',   href: '/alkecredit' },
+  { num: '06', name: 'AlkeCoin',    sub: 'Native Currency',   href: '/alkecoin' },
+]
+
+
+/* ─────────────────────────────────────────
+   Diagram: blockchain cube + 4 protocols + Nuru AI
+   Two SVGs: desktop (880×520) and mobile (380×430)
+───────────────────────────────────────── */
+function NuruOrbit({ cx, r, dur, pathId }: { cx: number, r: number, dur: string, pathId: string }) {
+  return (
+    <g>
+      <animateMotion dur={dur} repeatCount="indefinite">
+        <mpath href={`#${pathId}`}/>
+      </animateMotion>
+      <circle r={r * 2.8} fill="rgba(251,191,36,0.1)" className="nuru-aura"/>
+      <circle r={r * 1.8} fill="rgba(251,191,36,0.18)"/>
+      <g className="nuru-rays-g">
+        {[0,45,90,135,180,225,270,315].map(a => {
+          const rad = a * Math.PI / 180
+          const inner = r * 1.25, outer = r * 2.1
+          return <line key={a}
+            x1={Math.cos(rad)*inner} y1={Math.sin(rad)*inner}
+            x2={Math.cos(rad)*outer} y2={Math.sin(rad)*outer}
+            stroke="#fbbf24" strokeWidth={a % 90 === 0 ? r * 0.25 : r * 0.16}
+            strokeLinecap="round" opacity={a % 90 === 0 ? 0.9 : 0.62}/>
+        })}
+      </g>
+      <circle r={r} fill="#fde68a"/>
+      <circle r={r * 0.46} fill="#d97706"/>
+      <text y={r * 3.1} textAnchor="middle"
+        fontFamily="'Space Grotesk',sans-serif" fontSize={r * 1.18} fontWeight="700"
+        fill="rgba(253,230,138,0.9)" letterSpacing="0.05em">Nuru AI</text>
+    </g>
+  )
+}
+
+function CubeFaces({ cx, cy, s }: { cx: number, cy: number, s: number }) {
+  // s = half-width of cube face
+  const h = s * 0.56  // vertical half
+  return (
+    <>
+      <polygon points={`${cx},${cy-s} ${cx+s},${cy-h} ${cx},${cy} ${cx-s},${cy-h}`}
+        fill="#8b6dff" opacity="0.92"/>
+      <polygon points={`${cx},${cy-s} ${cx+s},${cy-h} ${cx},${cy} ${cx-s},${cy-h}`}
+        fill="rgba(255,255,255,0.22)" opacity="0.38"/>
+      <polygon points={`${cx-s},${cy-h} ${cx},${cy} ${cx},${cy+s} ${cx-s},${cy+h}`}
+        fill="#4a28d4" opacity="0.95"/>
+      <polygon points={`${cx+s},${cy-h} ${cx},${cy} ${cx},${cy+s} ${cx+s},${cy+h}`}
+        fill="#6644ee" opacity="0.95"/>
+      <polygon points={`${cx},${cy-s} ${cx+s},${cy-h} ${cx+s},${cy+h} ${cx},${cy+s} ${cx-s},${cy+h} ${cx-s},${cy-h}`}
+        fill="none" stroke="rgba(180,165,255,0.55)" strokeWidth="0.8"/>
+      <line x1={cx} y1={cy} x2={cx} y2={cy+s}
+        stroke="rgba(180,165,255,0.28)" strokeWidth="0.7"/>
+    </>
+  )
+}
+
+function ArchDiagram() {
+  // ── Desktop layout (viewBox 880×520, center 440,280) ──
+  const CX = 440, CY = 280
+  const nodes = [
+    { name: 'AlkeLedger', sub: 'Records',    x: CX,       y: CY - 185 },
+    { name: 'AlkePay',    sub: 'Payments',   x: CX + 185, y: CY       },
+    { name: 'AlkeCredit', sub: 'Reputation', x: CX,       y: CY + 185 },
+    { name: 'AlkeID',     sub: 'Identity',   x: CX - 185, y: CY       },
+  ]
+  const lines = [
+    { x1: CX,      y1: CY - 38, x2: CX,       y2: CY - 159, id: 'pl0' },
+    { x1: CX + 38, y1: CY,      x2: CX + 127, y2: CY,       id: 'pl1' },
+    { x1: CX,      y1: CY + 38, x2: CX,       y2: CY + 159, id: 'pl2' },
+    { x1: CX - 38, y1: CY,      x2: CX - 127, y2: CY,       id: 'pl3' },
+  ]
+
+  // ── Mobile layout (viewBox 380×430, center 190,225) ──
+  const MCX = 190, MCY = 225
+  const mNodes = [
+    { name: 'AlkeLedger', sub: 'Records',    x: MCX,        y: MCY - 145 },
+    { name: 'AlkePay',    sub: 'Payments',   x: MCX + 130,  y: MCY       }, // 130 → right edge at 372, 8px from 380
+    { name: 'AlkeCredit', sub: 'Reputation', x: MCX,        y: MCY + 145 },
+    { name: 'AlkeID',     sub: 'Identity',   x: MCX - 130,  y: MCY       }, // 130 → left edge at 8
+  ]
+  const mLines = [
+    { x1: MCX,       y1: MCY - 32, x2: MCX,       y2: MCY - 122, id: 'ml0' },
+    { x1: MCX + 32,  y1: MCY,      x2: MCX + 82,  y2: MCY,       id: 'ml1' }, // ends ~4px before node left edge
+    { x1: MCX,       y1: MCY + 32, x2: MCX,       y2: MCY + 122, id: 'ml2' },
+    { x1: MCX - 32,  y1: MCY,      x2: MCX - 82,  y2: MCY,       id: 'ml3' }, // ends ~4px before node right edge
+  ]
+
+  const sharedParticles = (ls: typeof lines, prefix: string) => ls.map((l, i) => (
+    <g key={l.id}>
+      <line x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2}
+        stroke="rgba(200,154,58,0.28)" strokeWidth="1.4"
+        className="alke-flow" style={{ animationDelay: `${-i * 1.25}s` }}/>
+      <line x1={l.x2} y1={l.y2} x2={l.x1} y2={l.y1}
+        stroke="rgba(139,109,255,0.22)" strokeWidth="1"
+        className="alke-ret" style={{ animationDelay: `${-i * 1.0 - 0.6}s` }}/>
+      <circle r="3.5" fill="#c89a3a" opacity="0.9">
+        <animateMotion dur={`${2.2 + i * 0.15}s`} repeatCount="indefinite" begin={`${-i * 0.55}s`}>
+          <mpath href={`#${l.id}`}/></animateMotion>
+      </circle>
+      <circle r="3.5" fill="#c89a3a" opacity="0.9">
+        <animateMotion dur={`${2.2 + i * 0.15}s`} repeatCount="indefinite" begin={`${-i * 0.55 - 1.1}s`}>
+          <mpath href={`#${l.id}`}/></animateMotion>
+      </circle>
+      <circle r="2.5" fill="rgba(139,109,255,0.8)">
+        <animateMotion dur={`${2.7 + i * 0.1}s`} repeatCount="indefinite"
+          begin={`${-i * 0.4 - 0.8}s`} keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+          <mpath href={`#${l.id}`}/></animateMotion>
+      </circle>
+    </g>
+  ))
+
+  return (
+    <div style={{ width: '100%' }}>
+      <style>{`
+        @keyframes alke-out  { to { stroke-dashoffset: -72; } }
+        @keyframes alke-in   { to { stroke-dashoffset:  72; } }
+        @keyframes cube-glow { 0%,100%{opacity:.5} 50%{opacity:1} }
+        @keyframes card-fade { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes nuru-rays-spin { to { transform: rotate(360deg); } }
+        @keyframes nuru-pulse { 0%,100%{opacity:.85} 50%{opacity:1} }
+        .alke-flow { stroke-dasharray: 4 9; animation: alke-out 5s linear infinite; }
+        .alke-ret  { stroke-dasharray: 3 11; animation: alke-in  6s linear infinite; }
+        .cube-halo { animation: cube-glow 4s ease-in-out infinite; }
+        .nuru-rays-g { animation: nuru-rays-spin 6s linear infinite; transform-origin: 0 0; }
+        .nuru-aura { animation: nuru-pulse 2.5s ease-in-out infinite; }
+        @keyframes node-light {
+          0%, 40%, 60%, 100% { opacity: 0; }
+          50% { opacity: 1; }
+        }
+        /* Orbit starts at east (AlkePay=i1) t=0, CCW: north (Ledger=i0) t=3.5s, west (ID=i3) t=7s, south (Credit=i2) t=10.5s */
+        /* Peak is at 50% of 14s = 7s. delay = 7s - peak_time */
+        .node-glow-0 { animation: node-light 14s ease-in-out infinite; animation-delay: -3.5s; } /* Ledger peaks at t=3.5s */
+        .node-glow-1 { animation: node-light 14s ease-in-out infinite; animation-delay: -7s;   } /* Pay    peaks at t=0s   */
+        .node-glow-2 { animation: node-light 14s ease-in-out infinite; animation-delay: 3.5s;  } /* Credit peaks at t=10.5s*/
+        .node-glow-3 { animation: node-light 14s ease-in-out infinite; animation-delay: 0s;    } /* ID     peaks at t=7s   */
+        .arch-desktop { display: block; }
+        .arch-mobile  { display: none; }
+        @media (max-width: 640px) {
+          .arch-desktop { display: none; }
+          .arch-mobile  { display: block; }
+        }
+      `}</style>
+
+      {/* ══ DESKTOP SVG ══ */}
+      <div className="arch-desktop">
+        <svg viewBox="0 0 880 520" fill="none" aria-hidden="true"
+          style={{ width: '100%', display: 'block' }}>
+          <defs>
+            <radialGradient id="bgr" cx="50%" cy="54%" r="48%">
+              <stop offset="0%" stopColor="#0e0a28"/>
+              <stop offset="100%" stopColor="#06040f"/>
+            </radialGradient>
+            <radialGradient id="cgr" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#5e3aff" stopOpacity="0.5"/>
+              <stop offset="100%" stopColor="#5e3aff" stopOpacity="0"/>
+            </radialGradient>
+            <pattern id="dotgrid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M40 0L0 0 0 40" fill="none" stroke="rgba(255,255,255,0.02)" strokeWidth="0.6"/>
+            </pattern>
+            <path id="nuru-path" d={`M${CX+90},${CY} A90,90 0 0,0 ${CX-90},${CY} A90,90 0 0,0 ${CX+90},${CY}`}/>
+            {lines.map(l => <path key={l.id+'-d'} id={l.id} d={`M${l.x1},${l.y1} L${l.x2},${l.y2}`}/>)}
+          </defs>
+
+          <rect width="880" height="520" rx="20" fill="url(#bgr)"/>
+          <rect width="880" height="520" rx="20" fill="url(#dotgrid)"/>
+          <circle cx={CX} cy={CY} r="90" stroke="rgba(251,191,36,0.18)" strokeWidth="1" strokeDasharray="3 6"/>
+          <circle cx={CX} cy={CY} r="185" stroke="rgba(139,109,255,0.15)" strokeWidth="1" strokeDasharray="3 8"/>
+
+          {/* Council */}
+          <line x1={CX} y1="72" x2={CX} y2={CY-40} stroke="rgba(200,154,58,0.3)" strokeWidth="1" strokeDasharray="3 7"/>
+          <rect x={CX-78} y="22" width="156" height="42" rx="8" fill="rgba(200,154,58,0.08)" stroke="rgba(200,154,58,0.4)" strokeWidth="1"/>
+          <text x={CX} y="38" textAnchor="middle" fontFamily="'JetBrains Mono',monospace" fontSize="7.5" fontWeight="500" fill="rgba(200,154,58,0.6)" letterSpacing="0.14em">GOVERNANCE</text>
+          <text x={CX} y="54" textAnchor="middle" fontFamily="'Space Grotesk',sans-serif" fontSize="12" fontWeight="600" fill="rgba(253,226,138,0.9)">Alkebuleum Council</text>
+
+          {sharedParticles(lines, 'pl')}
+
+          {/* Cube */}
+          <ellipse cx={CX} cy={CY} rx="54" ry="40" fill="url(#cgr)" className="cube-halo"/>
+          <CubeFaces cx={CX} cy={CY} s={32}/>
+          <text x={CX} y={CY+52} textAnchor="middle" fontFamily="'JetBrains Mono',monospace" fontSize="8" fontWeight="500" fill="rgba(200,190,255,0.65)" letterSpacing="0.15em">ALKEBULEUM BLOCKCHAIN</text>
+
+          {/* Nuru AI */}
+          <NuruOrbit cx={CX} r={8} dur="14s" pathId="nuru-path"/>
+
+          {/* Protocol nodes */}
+          {nodes.map((n, i) => (
+            <g key={n.name} style={{ animation: `card-fade 0.5s ease-out ${i*0.1}s both` }}>
+              <rect x={n.x-58} y={n.y-26} width="116" height="52" rx="9" fill="rgba(255,255,255,0.03)" stroke="rgba(139,109,255,0.38)" strokeWidth="1"/>
+              {/* Nuru AI proximity glow — synced to orbit timing */}
+              <rect x={n.x-60} y={n.y-28} width="120" height="56" rx="10"
+                fill="rgba(253,230,138,0.08)" stroke="rgba(251,191,36,0.9)" strokeWidth="1.5"
+                className={`node-glow-${i}`} style={{ opacity: 0 }} pointerEvents="none"/>
+              <rect x={n.x-38} y={n.y-26} width="76" height="1.5" rx="1" fill="rgba(139,109,255,0.55)"/>
+              <text x={n.x} y={n.y-6} textAnchor="middle" fontFamily="'Space Grotesk',sans-serif" fontSize="12.5" fontWeight="600" fill="rgba(255,255,255,0.88)">{n.name}</text>
+              <text x={n.x} y={n.y+13} textAnchor="middle" fontFamily="'JetBrains Mono',monospace" fontSize="7.5" fontWeight="500" fill="rgba(139,109,255,0.55)" letterSpacing="0.12em">{n.sub.toUpperCase()}</text>
+            </g>
+          ))}
+        </svg>
+      </div>
+
+      {/* ══ MOBILE SVG (viewBox 380×430 — renders ~1:1 on phone, text stays large) ══ */}
+      <div className="arch-mobile">
+        <svg viewBox="0 0 380 430" fill="none" aria-hidden="true"
+          style={{ width: '100%', display: 'block' }}>
+          <defs>
+            <radialGradient id="m-bgr" cx="50%" cy="52%" r="50%">
+              <stop offset="0%" stopColor="#0e0a28"/>
+              <stop offset="100%" stopColor="#06040f"/>
+            </radialGradient>
+            <radialGradient id="m-cgr" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#5e3aff" stopOpacity="0.5"/>
+              <stop offset="100%" stopColor="#5e3aff" stopOpacity="0"/>
+            </radialGradient>
+            <pattern id="m-dots" width="30" height="30" patternUnits="userSpaceOnUse">
+              <path d="M30 0L0 0 0 30" fill="none" stroke="rgba(255,255,255,0.025)" strokeWidth="0.5"/>
+            </pattern>
+            <path id="m-nuru" d={`M${MCX+70},${MCY} A70,70 0 0,0 ${MCX-70},${MCY} A70,70 0 0,0 ${MCX+70},${MCY}`}/>
+            {mLines.map(l => <path key={l.id+'-d'} id={l.id} d={`M${l.x1},${l.y1} L${l.x2},${l.y2}`}/>)}
+          </defs>
+
+          <rect width="380" height="430" rx="16" fill="url(#m-bgr)"/>
+          <rect width="380" height="430" rx="16" fill="url(#m-dots)"/>
+          <circle cx={MCX} cy={MCY} r="70" stroke="rgba(251,191,36,0.2)" strokeWidth="1" strokeDasharray="3 5"/>
+          <circle cx={MCX} cy={MCY} r="138" stroke="rgba(139,109,255,0.18)" strokeWidth="1" strokeDasharray="3 7"/>
+
+          {/* Council */}
+          <line x1={MCX} y1="52" x2={MCX} y2={MCY-34} stroke="rgba(200,154,58,0.35)" strokeWidth="1" strokeDasharray="3 6"/>
+          <rect x={MCX-70} y="14" width="140" height="38" rx="7" fill="rgba(200,154,58,0.1)" stroke="rgba(200,154,58,0.45)" strokeWidth="1"/>
+          <text x={MCX} y="29" textAnchor="middle" fontFamily="'JetBrains Mono',monospace" fontSize="8" fontWeight="500" fill="rgba(200,154,58,0.65)" letterSpacing="0.12em">GOVERNANCE</text>
+          <text x={MCX} y="44" textAnchor="middle" fontFamily="'Space Grotesk',sans-serif" fontSize="13" fontWeight="600" fill="rgba(253,226,138,0.92)">Alkebuleum Council</text>
+
+          {sharedParticles(mLines, 'ml')}
+
+          {/* Cube */}
+          <ellipse cx={MCX} cy={MCY} rx="44" ry="32" fill="url(#m-cgr)" className="cube-halo"/>
+          <CubeFaces cx={MCX} cy={MCY} s={26}/>
+          <text x={MCX} y={MCY+44} textAnchor="middle" fontFamily="'JetBrains Mono',monospace" fontSize="7.5" fontWeight="500" fill="rgba(200,190,255,0.7)" letterSpacing="0.13em">ALKEBULEUM BLOCKCHAIN</text>
+
+          {/* Nuru AI */}
+          <NuruOrbit cx={MCX} r={7} dur="14s" pathId="m-nuru"/>
+
+          {/* Protocol nodes — larger text for mobile */}
+          {mNodes.map((n, i) => (
+            <g key={n.name} style={{ animation: `card-fade 0.5s ease-out ${i*0.1}s both` }}>
+              <rect x={n.x-52} y={n.y-24} width="104" height="48" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(139,109,255,0.42)" strokeWidth="1"/>
+              {/* Nuru AI proximity glow */}
+              <rect x={n.x-54} y={n.y-26} width="108" height="52" rx="9"
+                fill="rgba(253,230,138,0.08)" stroke="rgba(251,191,36,0.9)" strokeWidth="1.5"
+                className={`node-glow-${i}`} style={{ opacity: 0 }} pointerEvents="none"/>
+              <rect x={n.x-34} y={n.y-24} width="68" height="1.5" rx="1" fill="rgba(139,109,255,0.6)"/>
+              <text x={n.x} y={n.y-4} textAnchor="middle" fontFamily="'Space Grotesk',sans-serif" fontSize="13" fontWeight="600" fill="rgba(255,255,255,0.9)">{n.name}</text>
+              <text x={n.x} y={n.y+14} textAnchor="middle" fontFamily="'JetBrains Mono',monospace" fontSize="8.5" fontWeight="500" fill="rgba(139,109,255,0.6)" letterSpacing="0.1em">{n.sub.toUpperCase()}</text>
+            </g>
+          ))}
+        </svg>
+      </div>
+    </div>
+  )
+}
+
+/* ─────────────────────────────────────────
+   Main export
+───────────────────────────────────────── */
 export default function ConsumerEcosystem() {
   return (
     <>
-      {/* Zone 1 — Intro */}
-      <section className="eco-intro">
+      {/* ── 1. Diagram + heading (light) ── */}
+      <section className="sec" id="ecosystem" style={{ paddingTop: 100, paddingBottom: 0 }}>
         <div className="wrap">
-          <div className="eco-head">
-            <span className="eyebrow">— Consumer Ecosystem</span>
-            <h2>Real products.<br />Real usage. <em>Right now.</em></h2>
-            <p>Alkebuleum isn't just infrastructure on a roadmap. It's already in people's pockets — through a growing stack of sovereign applications built directly on the chain, designed for the continent and the diaspora that powers it.</p>
+          <div className="sec-head center">
+            <span className="eyebrow" style={{ color: 'var(--purple-deep)' }}>— The Trust Ecosystem</span>
+            <h2>One chain. <span className="hl">Four protocols.</span><br />One sovereign light.</h2>
+            <p>The Alkebuleum Blockchain sits at the center — governed by the Council, orbited by AlkePay, AlkeLedger, AlkeCredit, and AlkeID, and illuminated by Nuru AI.</p>
+          </div>
+
+          <div style={{
+            borderRadius: 20,
+            overflow: 'hidden',
+            border: '1px solid rgba(0,0,0,0.08)',
+            boxShadow: '0 24px 60px -16px rgba(94,58,255,0.14), 0 4px 16px rgba(0,0,0,0.08)',
+          }}>
+            <ArchDiagram />
           </div>
         </div>
       </section>
 
-      {/* Zone 2 — Nuru */}
-      <section className="nuru-band">
-        <div className="nuru-bg-grid" />
-        <div className="nuru-glow" />
+      {/* ── 2. Explore cards (light) ── */}
+      <section className="sec" style={{ paddingTop: 64, paddingBottom: 80 }}>
         <div className="wrap">
-          <div className="nuru-grid">
+          <h3 style={{
+            fontFamily: "'Space Grotesk',sans-serif",
+            fontWeight: 500,
+            fontSize: 'clamp(20px,2.5vw,28px)',
+            letterSpacing: '-.02em',
+            color: '#0a0a0a',
+            marginBottom: 28,
+          }}>
+            Trust Infrastructure
+          </h3>
+          <div className="services" style={{ borderRadius: 16, overflow: 'hidden' }}>
+            {PROTOCOLS.map(c => {
+              const Tag = c.isStatic ? 'a' : Link as any
+              const linkProps = c.isStatic ? { href: c.href } : { to: c.href }
+              return (
+                <Tag key={c.name} {...linkProps} className="service" style={{ textDecoration: 'none' }}>
+                  <div className="service-num">{c.num}</div>
+                  <h3>{c.name}</h3>
+                  <p style={{ marginBottom: 22 }}>{c.sub}</p>
+                  <span className="more">
+                    Explore
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </span>
+                </Tag>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. Meet Nuru (dark) ── */}
+      <section style={{
+        background: '#000',
+        padding: '88px 0 100px',
+        borderTop: '1px solid rgba(255,255,255,0.06)',
+      }}>
+        <div className="wrap">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+            gap: 48,
+            alignItems: 'center',
+          }}>
             <div>
-              <div className="nuru-tag">
-                <span className="nuru-tag-dot" />
-                Sovereign AI · Live in the diaspora
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
+                <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 10, letterSpacing: '.14em', color: 'var(--nuru-gold)', fontWeight: 500 }}>
+                  SOVEREIGN AI · LIVE
+                </span>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#22c55e', display: 'inline-block' }}/>
               </div>
-              <h2 className="nuru-title">Meet Nuru AI.<br /><em>Your AI guide to</em><br />the chain.</h2>
-              <p className="nuru-sub">Nuru AI is a sovereign AI assistant built natively on Alkebuleum — lowering the onboarding curve for blockchain so anyone in the diaspora can send, save, verify, and transact in plain language. No crypto experience required.</p>
-              <ul className="nuru-bullets">
-                <li>
-                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><polyline points="4,10 9,15 16,5"/></svg>
-                  Speaks the languages of the diaspora — English, French, Swahili, Yoruba, Twi, more
-                </li>
-                <li>
-                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><polyline points="4,10 9,15 16,5"/></svg>
-                  Guides users through AfPass, DRIS, and on-chain payments — natively
-                </li>
-                <li>
-                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><polyline points="4,10 9,15 16,5"/></svg>
-                  Confirms every action before it touches the chain. No surprises.
-                </li>
+              <h2 style={{
+                fontFamily: "'Space Grotesk',sans-serif",
+                fontWeight: 500,
+                fontSize: 'clamp(32px,4vw,52px)',
+                letterSpacing: '-.03em',
+                color: '#fff',
+                lineHeight: 1.05,
+                marginBottom: 20,
+              }}>
+                Meet<br /><em style={{ fontStyle: 'normal', color: 'var(--nuru-gold)' }}>Nuru AI.</em>
+              </h2>
+              <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 16, lineHeight: 1.65, marginBottom: 32, maxWidth: 480 }}>
+                Sovereign AI assistant built natively on Alkebuleum. Send money, verify documents, manage your AlkeID — all in plain language. No crypto experience required.
+              </p>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 36 }}>
+                {[
+                  'Speaks English, French, Swahili, Yoruba, Twi, and more',
+                  'Guides you through AlkePay, AlkeID, and AlkeLedger natively',
+                  'Confirms every action before it touches the chain',
+                ].map(item => (
+                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 14, color: 'rgba(255,255,255,0.55)' }}>
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="rgba(139,109,255,0.8)" strokeWidth="2.2" strokeLinecap="round" style={{ flexShrink: 0, marginTop: 2 }}>
+                      <polyline points="4,10 9,15 16,5"/>
+                    </svg>
+                    {item}
+                  </li>
+                ))}
               </ul>
-              <div className="nuru-cta">
-                <a className="btn btn-violet" href="https://play.google.com/store/apps/details?id=com.alkebuleum.nuru&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
-                  Download Nuru AI
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                <a className="btn btn-violet"
+                  href="https://play.google.com/store/apps/details?id=com.alkebuleum.nuru&pcampaignid=web_share"
+                  target="_blank" rel="noopener noreferrer"
+                >
+                  Download on Google Play →
                 </a>
-                <a className="btn btn-ghost-light" href="https://nuruai.org" target="_blank" rel="noopener">See how it works</a>
+                <a className="btn btn-ghost-light" href="https://nuruai.org" target="_blank" rel="noopener noreferrer">
+                  Visit nuruai.org
+                </a>
               </div>
             </div>
 
-            <div className="nuru-phone-wrap" aria-hidden="true">
-              <div className="nuru-phone">
-                <div className="nuru-phone-notch"><span>9:41</span><span>●●● 5G</span></div>
-                <div className="nuru-phone-bar">
-                  <div className="nuru-av">N</div>
-                  <div style={{ flex: 1 }}>
-                    <div className="nuru-brand">Nuru</div>
-                    <div className="nuru-status">Online · Sovereign</div>
-                  </div>
-                </div>
-                <div className="nuru-chat">
-                  <div className="nuru-msg nuru-msg-ai">
-                    <div className="nuru-bubble nuru-bubble-ai">Sannu! I'm Nuru. Want to send money home, verify a document, or set up your AfPass?</div>
-                  </div>
-                  <div className="nuru-msg nuru-msg-user">
-                    <div className="nuru-bubble nuru-bubble-user">Send $200 to my sister in Lagos</div>
-                  </div>
-                  <div className="nuru-msg nuru-msg-ai">
-                    <div className="nuru-bubble nuru-bubble-action">
-                      ✓ Best route via Alkebuleum<br />
-                      <strong>$200 → ₦186,400</strong> · fee $0.80<br />
-                      Arrives in ~4 seconds
-                    </div>
-                  </div>
-                  <div className="nuru-msg nuru-msg-ai">
-                    <div className="nuru-bubble nuru-bubble-ai">Confirm send?</div>
-                  </div>
-                  <div className="nuru-msg nuru-msg-user">
-                    <div className="nuru-bubble nuru-bubble-user">Yes</div>
-                  </div>
-                </div>
-                <div className="nuru-chips">
-                  <div className="nuru-chip">Send money</div>
-                  <div className="nuru-chip">Verify ID</div>
-                  <div className="nuru-chip">Land record</div>
-                </div>
-                <div className="nuru-input">
-                  <span className="nuru-input-ph">Ask Nuru anything…</span>
-                  <div className="nuru-send">
-                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 8l12-5-4 12-2-5-6-2z"/></svg>
+            {/* Chat preview */}
+            <div style={{
+              background: 'rgba(10,10,12,0.95)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: 20,
+              padding: '24px',
+              maxWidth: 360,
+              justifySelf: 'center',
+              width: '100%',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, paddingBottom: 16, borderBottom: '1px solid rgba(255,255,255,0.06)', marginBottom: 16 }}>
+                <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'linear-gradient(135deg, var(--purple-deep), var(--nuru-gold))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 14, color: '#fff' }}>N</div>
+                <div>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: '#fff' }}>Nuru</div>
+                  <div style={{ fontSize: 10, color: '#22c55e', display: 'flex', alignItems: 'center', gap: 4 }}>
+                    <span style={{ width: 4, height: 4, borderRadius: '50%', background: '#22c55e', display: 'inline-block' }}/>
+                    Online · Sovereign
                   </div>
                 </div>
               </div>
-              <a className="nuru-dl" href="https://play.google.com/store/apps/details?id=com.alkebuleum.nuru&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-                <div className="nuru-dl-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v13M6 11l6 6 6-6M4 21h16"/></svg>
+              {[
+                { role: 'ai',   text: 'Sannu! I\'m Nuru. Want to send money home, verify a document, or set up your AlkeID?' },
+                { role: 'user', text: 'Send $200 to my sister in Lagos' },
+                { role: 'ai',   text: '✓ Best route via Alkebuleum\n$200 → ₦186,400 · fee $0.80\nArrives in ~4 seconds' },
+                { role: 'ai',   text: 'Confirm send?' },
+                { role: 'user', text: 'Yes' },
+              ].map((msg, i) => (
+                <div key={i} style={{ display: 'flex', justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start', marginBottom: 8 }}>
+                  <div style={{
+                    maxWidth: '80%', padding: '8px 12px',
+                    borderRadius: msg.role === 'user' ? '14px 14px 2px 14px' : '14px 14px 14px 2px',
+                    background: msg.role === 'user' ? 'var(--purple-deep)' : 'rgba(255,255,255,0.06)',
+                    fontSize: 12.5, color: '#fff', lineHeight: 1.5, whiteSpace: 'pre-line',
+                  }}>
+                    {msg.text}
+                  </div>
                 </div>
-                <div className="nuru-dl-text">
-                  <span className="nuru-dl-label">Download on</span>
-                  <span className="nuru-dl-name">Google Play</span>
-                </div>
-              </a>
+              ))}
+              <div style={{ marginTop: 12, border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, padding: '10px 14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)' }}>Ask Nuru anything…</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="rgba(139,109,255,0.6)" strokeWidth="2" strokeLinecap="round"><path d="M2 8l12-5-4 12-2-5-6-2z"/></svg>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Zone 3 — Flagship Cards */}
-      <section className="flagship-band" id="flagship">
+      {/* ── 4. Apps built on Alkebuleum (light) ── */}
+      <section className="sec" style={{ paddingTop: 80, paddingBottom: 80 }}>
         <div className="wrap">
-          <div className="flagship-head">
-            <span className="eyebrow" style={{ color: 'var(--purple-deep)' }}>— Flagship products</span>
-            <h3>What Nuru opens you into.</h3>
-            <p>Three production-grade applications built on Alkebuleum — identity, document trust, and decentralized exchange for the continent.</p>
-          </div>
-
-          <div className="flagships">
-            <a className="flag-card" href="https://afpass.org" target="_blank" rel="noopener">
-              <div className="flag-visual flag-visual-afpass">
-                <div className="passport-card">
-                  <div className="pc-top">
-                    <div className="pc-logo"><span className="pc-logo-mark" /> AfPass</div>
-                    <div className="pc-chip" />
-                  </div>
-                  <div className="pc-mid">
-                    <div className="pc-label">Sovereign Identity Passport</div>
-                    <div className="pc-id">AF-2345-6789-ABCD</div>
-                  </div>
-                  <div className="pc-bot">
-                    <div className="pc-name">Holder<strong>Adaeze Okonkwo</strong></div>
-                    <div className="pc-qr">
-                      {Array.from({ length: 25 }).map((_, i) => <span key={i} />)}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flag-body">
-                <div className="flag-meta">
-                  <span className="flag-cat">Identity</span>
-                  <span className="flag-pill pill-live">Live</span>
-                </div>
-                <h4 className="flag-h">AfPass —<br /><em>one passport, a continent of trust.</em></h4>
-                <p className="flag-p">The African Identity Passport. Reusable KYC, cross-border business verification, and selective disclosure — built sovereign from the ground. Prove who you are across the continent without surrendering your private data.</p>
-                <div className="flag-features">
-                  <span className="flag-feat">Reusable KYC</span>
-                  <span className="flag-feat">AfCFTA-ready</span>
-                  <span className="flag-feat">Diaspora trust</span>
-                  <span className="flag-feat">Verifiable credentials</span>
-                </div>
-                <div className="flag-foot">
-                  <span className="flag-built">Built on Alkebuleum</span>
-                  <span className="flag-link">Visit afpass.org →</span>
-                </div>
-              </div>
-            </a>
-
-            <a className="flag-card" href="https://dris.cc" target="_blank" rel="noopener">
-              <div className="flag-visual flag-visual-dris">
-                <div className="dris-doc">
-                  <div className="dris-doc-head">
-                    <span className="dris-doc-brand">DRIS</span>
-                    <span className="dris-doc-ref">DRS-2026-44712</span>
-                  </div>
-                  <div className="dris-doc-title">Certificate of Property Deed</div>
-                  <div className="dris-doc-sub">Issued by Metro Land Authority</div>
-                  <div className="dris-doc-lines">
-                    {Array.from({ length: 6 }).map((_, i) => <div className="dris-doc-line" key={i} />)}
-                  </div>
-                  <div className="dris-doc-seal">
-                    <div className="dris-doc-check">
-                      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="4,10 9,15 16,5"/></svg>
-                    </div>
-                    <div className="dris-doc-anchor"><strong>Anchored · Block #1,847,223</strong>Verifiable forever</div>
-                  </div>
-                </div>
-              </div>
-              <div className="flag-body">
-                <div className="flag-meta">
-                  <span className="flag-cat">Document Trust</span>
-                  <span className="flag-pill pill-early">Early Access</span>
-                </div>
-                <h4 className="flag-h">DRIS —<br /><em>any document, permanent proof.</em></h4>
-                <p className="flag-p">Document Trust Infrastructure. Institutions issue diplomas, deeds, contracts, and licenses as verifiable digital documents — born on the blockchain, signed by the issuer, and provable forever. Document fraud, made obsolete.</p>
-                <div className="flag-features">
-                  <span className="flag-feat">Diplomas</span>
-                  <span className="flag-feat">Deeds &amp; titles</span>
-                  <span className="flag-feat">Contracts</span>
-                  <span className="flag-feat">Public records</span>
-                </div>
-                <div className="flag-foot">
-                  <span className="flag-built">Built on Alkebuleum</span>
-                  <span className="flag-link">Visit dris.cc →</span>
-                </div>
-              </div>
-            </a>
-            <a className="flag-card" href="https://jollofswap.com/" target="_blank" rel="noopener noreferrer">
-              <div className="flag-visual flag-visual-jollof">
-                <div className="jollof-swap">
-                  <div className="jollof-swap-label">Swap</div>
-                  <div className="jollof-token">
-                    <div className="jollof-token-left">
-                      <div className="jollof-token-icon jollof-token-icon-alkeb">A</div>
-                      <span className="jollof-token-name">ALKE</span>
-                    </div>
-                    <span className="jollof-token-amount">500</span>
-                  </div>
-                  <div className="jollof-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-                  </div>
-                  <div className="jollof-token">
-                    <div className="jollof-token-left">
-                      <div className="jollof-token-icon jollof-token-icon-usdc">$</div>
-                      <span className="jollof-token-name">USDC</span>
-                    </div>
-                    <span className="jollof-token-amount">124.80</span>
-                  </div>
-                  <div className="jollof-rate">1 ALKE ≈ 0.2496 USDC · fee 0.3%</div>
-                  <div className="jollof-btn">Swap tokens</div>
-                </div>
-              </div>
-              <div className="flag-body">
-                <div className="flag-meta">
-                  <span className="flag-cat">DeFi</span>
-                  <span className="flag-pill pill-live">Live</span>
-                </div>
-                <h4 className="flag-h">Jollofswap —<br /><em>Africa's sovereign DEX.</em></h4>
-                <p className="flag-p">The native decentralized exchange of the Alkebuleum ecosystem. Swap tokens, provide liquidity, and earn yield — all on-chain, all sovereign, with fees settled in $ALKE.</p>
-                <div className="flag-features">
-                  <span className="flag-feat">AMM liquidity pools</span>
-                  <span className="flag-feat">ALKE pairs</span>
-                  <span className="flag-feat">Low fees</span>
-                  <span className="flag-feat">On-chain settlement</span>
-                </div>
-                <div className="flag-foot">
-                  <span className="flag-built">Built on Alkebuleum</span>
-                  <span className="flag-link">Launch app →</span>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Zone 4 — Pipeline */}
-      <section className="pipeline-band">
-        <div className="wrap">
-          <div className="pipeline-head">
+          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20, marginBottom: 36 }}>
             <div>
-              <span className="eyebrow">— In the pipeline</span>
-              <h4>The next layer of the stack.</h4>
+              <span className="eyebrow" style={{ color: 'var(--purple-deep)', marginBottom: 10, display: 'block' }}>— Built on Alkebuleum</span>
+              <h3 style={{ fontFamily: "'Space Grotesk',sans-serif", fontWeight: 500, fontSize: 'clamp(22px,3vw,34px)', letterSpacing: '-.025em', color: '#0a0a0a', margin: 0 }}>
+                Applications on the network
+              </h3>
             </div>
-            <p>Four sovereign-by-design products extending Alkebuleum across credit, health, payments, and land.</p>
+            <a className="btn btn-dark" href="https://docs.alkebuleum.com" target="_blank" rel="noopener noreferrer" style={{ flexShrink: 0 }}>
+              Build on Alkebuleum →
+            </a>
           </div>
 
-          <div className="pipeline-grid">
-            <div className="pipe-card">
-              <div className="pipe-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9z"/><path d="M8 13l3 3 5-6"/>
-                </svg>
-              </div>
-              <h5 className="pipe-h">AlkeCredit</h5>
-              <div className="pipe-sub">Sovereign Credit Layer</div>
-              <p className="pipe-p">A privacy-preserving credit reputation built from verified payment, business, and repayment history — owned by the individual, queryable by any lender on the continent.</p>
-              <span className="pipe-pill pill-beta">Beta</span>
-            </div>
-
-            <div className="pipe-card">
-              <div className="pipe-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 21s-7-4.5-7-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-7 11-7 11h-4z" transform="translate(-2 0)"/>
-                  <path d="M9 12h2v-2h2v2h2"/>
-                </svg>
-              </div>
-              <h5 className="pipe-h">Asili Health</h5>
-              <div className="pipe-sub">ZK Health &amp; Research</div>
-              <p className="pipe-p">Patients own their health records. Researchers query population-level insights through zero-knowledge proofs — never the underlying data. Privacy and discovery, finally compatible.</p>
-              <span className="pipe-pill pill-research">Research Phase</span>
-            </div>
-
-            <div className="pipe-card">
-              <div className="pipe-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/>
-                </svg>
-              </div>
-              <h5 className="pipe-h">AlkePay</h5>
-              <div className="pipe-sub">Payments &amp; Settlement</div>
-              <p className="pipe-p">Stablecoin-denominated transfers, merchant settlement, and programmable disbursements. The rails under every Nuru remittance — built for African banks, ministries, and treasuries.</p>
-              <span className="pipe-pill pill-pilot">Pilot</span>
-            </div>
-
-            <div className="pipe-card">
-              <div className="pipe-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-7h6v7"/>
-                </svg>
-              </div>
-              <h5 className="pipe-h">LandLedger</h5>
-              <div className="pipe-sub">Property &amp; Land Registry</div>
-              <p className="pipe-p">Tokenized, dispute-resistant ownership records. A foundation for collateral, investment, and generational wealth — and a working alternative to paper registries vulnerable to dispute and decay.</p>
-              <span className="pipe-pill pill-soon">Coming Soon</span>
-            </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 1, background: 'rgba(0,0,0,0.08)', border: '1px solid rgba(0,0,0,0.08)', borderRadius: 16, overflow: 'hidden' }}>
+            {[
+              { name: 'AfPass',      tag: 'Identity',       status: 'Live',         statusColor: '#0f6e3d', desc: 'The African Identity Passport — reusable KYC, cross-border verification, and selective disclosure built on AlkeID.', href: 'https://afpass.org',      domain: 'afpass.org' },
+              { name: 'DRIS',        tag: 'Document Trust', status: 'Early Access', statusColor: '#7c3aed', desc: 'Document registry and institutional signing on-chain. Diplomas, deeds, contracts — anchored to AlkeLedger.',        href: 'https://dris.cc',         domain: 'dris.cc' },
+              { name: 'JollofSwap',  tag: 'DeFi',           status: 'Live',         statusColor: '#0f6e3d', desc: "Africa's native decentralised exchange — swap tokens and provide liquidity with fees settled in AlkeCoin.",        href: 'https://jollofswap.com',  domain: 'jollofswap.com' },
+              { name: 'Your app',    tag: 'Open to builders',status: 'Apply',        statusColor: '#1d4ed8', desc: 'Building on Alkebuleum? Get developer docs, grants, and ecosystem support to launch your application.',           href: '/grants',                 domain: 'Apply for a grant →', isInternal: true },
+            ].map(app => {
+              const Tag = app.isInternal ? Link as any : 'a'
+              const linkProps = app.isInternal ? { to: app.href } : { href: app.href, target: '_blank', rel: 'noopener noreferrer' }
+              return (
+                <Tag key={app.name} {...linkProps}
+                  style={{ display: 'block', background: '#fff', padding: '28px 28px 24px', textDecoration: 'none', color: 'inherit', transition: 'background .15s' }}
+                  onMouseEnter={(e: any) => { e.currentTarget.style.background = '#faf9f7' }}
+                  onMouseLeave={(e: any) => { e.currentTarget.style.background = '#fff' }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
+                    <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 9.5, letterSpacing: '.08em', fontWeight: 500, color: '#5b5b66' }}>{app.tag}</span>
+                    <span style={{ fontSize: 9.5, fontWeight: 600, padding: '2px 7px', borderRadius: 99, background: app.statusColor, color: '#fff', letterSpacing: '.04em' }}>{app.status}</span>
+                  </div>
+                  <div style={{ fontFamily: "'Space Grotesk',sans-serif", fontWeight: 600, fontSize: 18, color: '#0a0a0a', marginBottom: 10 }}>{app.name}</div>
+                  <p style={{ fontSize: 13.5, color: '#5b5b66', lineHeight: 1.6, margin: '0 0 18px' }}>{app.desc}</p>
+                  <span style={{ fontSize: 12.5, color: 'var(--purple-deep)', fontWeight: 500 }}>{app.domain}</span>
+                </Tag>
+              )
+            })}
           </div>
         </div>
       </section>
