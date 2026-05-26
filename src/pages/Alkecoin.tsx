@@ -60,7 +60,7 @@ export default function Alkecoin() {
           "description": "AlkeCoin (ALKE) is the native coin of the Alkebuleum network, used to power transactions, network participation, and trust infrastructure.",
           "publisher": { "@id": "https://alkebuleum.org/#organization" },
           "mainEntity": {
-            "@type": "Product",
+            "@type": "FinancialProduct",
             "name": "AlkeCoin",
             "alternateName": ["ALKE", "AKE"],
             "description": "Native coin of the Alkebuleum network. Used for transaction fees, smart contract execution, validator staking, governance, and network access. Not a security. No ICO.",
