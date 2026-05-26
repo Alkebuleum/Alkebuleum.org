@@ -307,10 +307,8 @@ export default function ConsumerEcosystem() {
           </h3>
           <div className="services" style={{ borderRadius: 16, overflow: 'hidden' }}>
             {PROTOCOLS.map(c => {
-              const Tag = c.isStatic ? 'a' : Link as any
-              const linkProps = c.isStatic ? { href: c.href } : { to: c.href }
               return (
-                <Tag key={c.name} {...linkProps} className="service" style={{ textDecoration: 'none' }}>
+                <Link key={c.name} to={c.href} className="service" style={{ textDecoration: 'none' }}>
                   <div className="service-num">{c.num}</div>
                   <h3>{c.name}</h3>
                   <p style={{ marginBottom: 22 }}>{c.sub}</p>
@@ -320,7 +318,7 @@ export default function ConsumerEcosystem() {
                       <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                   </span>
-                </Tag>
+                </Link>
               )
             })}
           </div>
@@ -451,12 +449,12 @@ export default function ConsumerEcosystem() {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 1, background: 'rgba(0,0,0,0.08)', border: '1px solid rgba(0,0,0,0.08)', borderRadius: 16, overflow: 'hidden' }}>
-            {[
-              { name: 'AfPass',      tag: 'Identity',       status: 'Live',         statusColor: '#0f6e3d', desc: 'The African Identity Passport — reusable KYC, cross-border verification, and selective disclosure built on AlkeID.', href: 'https://afpass.org',      domain: 'afpass.org' },
-              { name: 'DRIS',        tag: 'Document Trust', status: 'Early Access', statusColor: '#7c3aed', desc: 'Document registry and institutional signing on-chain. Diplomas, deeds, contracts — anchored to AlkeLedger.',        href: 'https://dris.cc',         domain: 'dris.cc' },
-              { name: 'JollofSwap',  tag: 'DeFi',           status: 'Live',         statusColor: '#0f6e3d', desc: "Africa's native decentralised exchange — swap tokens and provide liquidity with fees settled in AlkeCoin.",        href: 'https://jollofswap.com',  domain: 'jollofswap.com' },
-              { name: 'Your app',    tag: 'Open to builders',status: 'Apply',        statusColor: '#1d4ed8', desc: 'Building on Alkebuleum? Get developer docs, grants, and ecosystem support to launch your application.',           href: '/grants',                 domain: 'Apply for a grant →', isInternal: true },
-            ].map(app => {
+            {([
+              { name: 'AfPass',      tag: 'Identity',       status: 'Live',         statusColor: '#0f6e3d', desc: 'The African Identity Passport — reusable KYC, cross-border verification, and selective disclosure built on AlkeID.', href: 'https://afpass.org',      domain: 'afpass.org',          isInternal: false as const },
+              { name: 'DRIS',        tag: 'Document Trust', status: 'Early Access', statusColor: '#7c3aed', desc: 'Document registry and institutional signing on-chain. Diplomas, deeds, contracts — anchored to AlkeLedger.',        href: 'https://dris.cc',         domain: 'dris.cc',             isInternal: false as const },
+              { name: 'JollofSwap',  tag: 'DeFi',           status: 'Live',         statusColor: '#0f6e3d', desc: "Africa's native decentralised exchange — swap tokens and provide liquidity with fees settled in AlkeCoin.",        href: 'https://jollofswap.com',  domain: 'jollofswap.com',      isInternal: false as const },
+              { name: 'Your app',    tag: 'Open to builders',status: 'Apply',        statusColor: '#1d4ed8', desc: 'Building on Alkebuleum? Get developer docs, grants, and ecosystem support to launch your application.',           href: '/grants',                 domain: 'Apply for a grant →', isInternal: true  as const },
+            ] as const satisfies { name: string; tag: string; status: string; statusColor: string; desc: string; href: string; domain: string; isInternal: boolean }[]).map(app => {
               const Tag = app.isInternal ? Link as any : 'a'
               const linkProps = app.isInternal ? { to: app.href } : { href: app.href, target: '_blank', rel: 'noopener noreferrer' }
               return (
