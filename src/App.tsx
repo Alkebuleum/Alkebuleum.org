@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import AnalyticsRouterTracker from './analytics/AnalyticsRouterTracker'
 import SvgSprite from './components/SvgSprite'
@@ -11,10 +11,22 @@ import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Alkecoin from './pages/Alkecoin'
 import Network from './pages/Network'
+import Council from './pages/Council'
+import AlkeLedger from './pages/AlkeLedger'
+import AlkePay from './pages/AlkePay'
+import AlkeID from './pages/AlkeID'
+import AlkeCredit from './pages/AlkeCredit'
+import Resources from './pages/Resources'
+import BrandAssets from './pages/BrandAssets'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
   useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  return null
+}
+
+function RedirectToStatic({ to }: { to: string }) {
+  useEffect(() => { window.location.replace(to) }, [to])
   return null
 }
 
@@ -25,15 +37,30 @@ export default function App() {
       <SvgSprite />
       <AnalyticsRouterTracker />
       <Routes>
+        {/* Primary pages */}
         <Route path="/" element={<Home />} />
+        <Route path="/council" element={<Council />} />
+        <Route path="/alkeledger" element={<AlkeLedger />} />
+        <Route path="/alkepay" element={<AlkePay />} />
+        <Route path="/alkeid" element={<AlkeID />} />
+        <Route path="/alkecredit" element={<AlkeCredit />} />
+        <Route path="/alkecoin" element={<Alkecoin />} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="/brand-assets" element={<BrandAssets />} />
+
+        {/* Existing pages */}
         <Route path="/apps" element={<Apps />} />
         <Route path="/events" element={<Events />} />
         <Route path="/grants" element={<Grants />} />
         <Route path="/tokenomics" element={<Tokenomics />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
-        <Route path="/alkecoin" element={<Alkecoin />} />
         <Route path="/network" element={<Network />} />
+
+        {/* Redirects for broken/old URLs */}
+        <Route path="/whitepaper" element={<RedirectToStatic to="/whitepaper.html" />} />
+        <Route path="/vision" element={<Navigate to="/resources" replace />} />
+        <Route path="/assets" element={<Navigate to="/brand-assets" replace />} />
       </Routes>
     </BrowserRouter>
   )

@@ -1,28 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url>
     <loc>https://alkebuleum.org/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Primary ecosystem pages -->
+  <url>
+    <loc>https://alkebuleum.org/council</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://alkebuleum.org/alkeledger</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://alkebuleum.org/alkepay</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://alkebuleum.org/alkeid</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://alkebuleum.org/alkecredit</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
   <url>
     <loc>https://alkebuleum.org/alkecoin</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
+
+  <!-- Supporting pages -->
   <url>
-    <loc>https://alkebuleum.org/network</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://alkebuleum.org/tokenomics</loc>
+    <loc>https://alkebuleum.org/resources</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://alkebuleum.org/apps</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://alkebuleum.org/whitepaper.html</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
@@ -31,9 +56,41 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://alkebuleum.org/events</loc>
+    <loc>https://alkebuleum.org/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://alkebuleum.org/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://alkebuleum.org/brand-assets</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Other pages -->
+  <url>
+    <loc>https://alkebuleum.org/network</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://alkebuleum.org/tokenomics</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://alkebuleum.org/apps</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://alkebuleum.org/events</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://alkebuleum.org/brand</loc>

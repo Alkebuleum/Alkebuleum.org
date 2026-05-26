@@ -55,23 +55,24 @@ export default function Footer() {
             </ul>
           </div>
           <div className="foot-col">
-            <h5>Ecosystem</h5>
+            <h5>Trust Infrastructure</h5>
             <ul>
-              <li><Link to="/apps">Apps</Link></li>
-              <li><a href="https://amvault.net" target="_blank" rel="noopener noreferrer">Amvault</a></li>
-              <li><a href="https://nuruai.org" target="_blank" rel="noopener noreferrer">Nuru AI</a></li>
-              <li><a href="https://jollofswap.com" target="_blank" rel="noopener noreferrer">JollofSwap</a></li>
-              <li><a href="https://ugov.cc" target="_blank" rel="noopener noreferrer">Governance</a></li>
+              <li><Link to="/council">Alkebuleum Council</Link></li>
+              <li><Link to="/alkeledger">AlkeLedger</Link></li>
+              <li><Link to="/alkepay">AlkePay</Link></li>
+              <li><Link to="/alkeid">AlkeID</Link></li>
+              <li><Link to="/alkecredit">AlkeCredit</Link></li>
+              <li><Link to="/alkecoin">AlkeCoin</Link></li>
             </ul>
           </div>
           <div className="foot-col">
-            <h5>Community</h5>
+            <h5>Resources</h5>
             <ul>
-              <li><a href="/#governance">Council</a></li>
-              <li><Link to="/events">Events</Link></li>
-              <li><a href="https://t.me/alkebuleum" target="_blank" rel="noopener noreferrer">Telegram</a></li>
-              <li><a href="/#blog">Blog</a></li>
-              <li><a href="/brand">Brand</a></li>
+              <li><Link to="/resources">Resources</Link></li>
+              <li><a href="/whitepaper.html" target="_blank" rel="noopener">Whitepaper</a></li>
+              <li><Link to="/grants">Grants</Link></li>
+              <li><Link to="/apps">Apps</Link></li>
+              <li><a href="/brand">Brand assets</a></li>
             </ul>
           </div>
         </div>

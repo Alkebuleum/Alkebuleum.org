@@ -40,30 +40,30 @@ export default function Alkecoin() {
   return (
     <>
       <Helmet>
-        <title>Alkecoin (ALKE) — Exchange Listing & Token Details</title>
-        <meta name="description" content="Official exchange listing details for Alkecoin (ALKE) — the native utility token of the Alkebuleum network. Chain ID 237422, 18 decimals, EVM compatible, PORA consensus, 1B genesis supply, no ICO." />
+        <title>AlkeCoin (ALKE) | Native Coin of Alkebuleum</title>
+        <meta name="description" content="AlkeCoin (ALKE) is the native coin of the Alkebuleum network, used to power transactions, network participation, and trust infrastructure." />
         <link rel="canonical" href="https://alkebuleum.org/alkecoin" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://alkebuleum.org/alkecoin" />
-        <meta property="og:title" content="Alkecoin (ALKE) — Exchange Listing & Token Details" />
-        <meta property="og:description" content="Official exchange listing details for Alkecoin (ALKE). Chain ID 237422 · 18 decimals · EVM compatible · 1B genesis supply · No ICO." />
+        <meta property="og:title" content="AlkeCoin (ALKE) | Native Coin of Alkebuleum" />
+        <meta property="og:description" content="AlkeCoin (ALKE) is the native coin of the Alkebuleum network, used to power transactions, network participation, and trust infrastructure." />
         <meta property="og:image" content="https://alkebuleum.org/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Alkecoin (ALKE) — Exchange Listing & Token Details" />
-        <meta name="twitter:description" content="Official exchange listing details for Alkecoin (ALKE). Chain ID 237422 · 18 decimals · EVM compatible · 1B genesis supply · No ICO." />
+        <meta name="twitter:title" content="AlkeCoin (ALKE) | Native Coin of Alkebuleum" />
+        <meta name="twitter:description" content="AlkeCoin (ALKE) is the native coin of the Alkebuleum network, used to power transactions, network participation, and trust infrastructure." />
         <meta name="twitter:image" content="https://alkebuleum.org/og-image.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": "Alkecoin (ALKE) — Exchange Listing & Token Details",
+          "name": "AlkeCoin (ALKE) | Native Coin of Alkebuleum",
           "url": "https://alkebuleum.org/alkecoin",
-          "description": "Official exchange listing details for Alkecoin (ALKE), the native utility token of the Alkebuleum network.",
+          "description": "AlkeCoin (ALKE) is the native coin of the Alkebuleum network, used to power transactions, network participation, and trust infrastructure.",
           "publisher": { "@id": "https://alkebuleum.org/#organization" },
           "mainEntity": {
             "@type": "Product",
-            "name": "Alkecoin",
+            "name": "AlkeCoin",
             "alternateName": ["ALKE", "AKE"],
-            "description": "Native utility token of the Alkebuleum Layer 1 blockchain network. Used for transaction fees, smart contract execution, validator staking, governance, and network access. Not a security. No ICO.",
+            "description": "Native coin of the Alkebuleum network. Used for transaction fees, smart contract execution, validator staking, governance, and network access. Not a security. No ICO.",
             "brand": { "@id": "https://alkebuleum.org/#organization" },
             "url": "https://alkebuleum.org/alkecoin"
           }

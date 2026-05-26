@@ -88,8 +88,14 @@ export default function Terms() {
   return (
     <>
       <Helmet>
-        <title>Terms of Service — Alkebuleum</title>
-        <meta name="robots" content="noindex" />
+        <title>Terms of Use | Alkebuleum</title>
+        <link rel="canonical" href="https://alkebuleum.org/terms" />
+        <meta name="description" content="Terms of Use for Alkebuleum — the terms and conditions governing use of alkebuleum.org and the Alkebuleum network." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alkebuleum.org/terms" />
+        <meta property="og:title" content="Terms of Use | Alkebuleum" />
+        <meta property="og:description" content="Terms of Use for Alkebuleum — the terms and conditions governing use of alkebuleum.org and the Alkebuleum network." />
+        <meta property="og:image" content="https://alkebuleum.org/og-image.png" />
       </Helmet>
       <section className="hero" style={{ minHeight: '30vh', paddingBottom: 60 }}>
         <div className="hero-glow" />

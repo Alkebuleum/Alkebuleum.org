@@ -72,8 +72,14 @@ export default function Privacy() {
   return (
     <>
       <Helmet>
-        <title>Privacy Policy — Alkebuleum</title>
-        <meta name="robots" content="noindex" />
+        <title>Privacy Policy | Alkebuleum</title>
+        <link rel="canonical" href="https://alkebuleum.org/privacy" />
+        <meta name="description" content="Privacy Policy for Alkebuleum — how we collect, use, and protect your information on alkebuleum.org." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alkebuleum.org/privacy" />
+        <meta property="og:title" content="Privacy Policy | Alkebuleum" />
+        <meta property="og:description" content="Privacy Policy for Alkebuleum — how we collect, use, and protect your information on alkebuleum.org." />
+        <meta property="og:image" content="https://alkebuleum.org/og-image.png" />
       </Helmet>
       <section className="hero" style={{ minHeight: '30vh', paddingBottom: 60 }}>
         <div className="hero-glow" />

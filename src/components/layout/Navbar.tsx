@@ -1,15 +1,17 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 interface Props {
   onContact?: () => void
 }
 
-const NAV_LINKS = [
-  { label: 'Network', href: '#network' },
-  { label: 'Use Cases', href: '#flagship' },
-  { label: 'Developers', href: '#developers' },
-  { label: 'Governance', href: '#governance' },
-  { label: 'Ecosystem', href: '#flagship' },
+const ECOSYSTEM_LINKS = [
+  { label: 'Alkebuleum Council', href: '/council' },
+  { label: 'AlkeLedger', href: '/alkeledger' },
+  { label: 'AlkePay', href: '/alkepay' },
+  { label: 'AlkeID', href: '/alkeid' },
+  { label: 'AlkeCredit', href: '/alkecredit' },
+  { label: 'AlkeCoin', href: '/alkecoin' },
 ]
 
 const ChevronRight = () => (
@@ -34,8 +36,8 @@ export default function Navbar({ onContact }: Props) {
           </a>
           <div className="nav-right">
             <div className="nav-links">
-              {NAV_LINKS.map(l => (
-                <a key={l.label} href={l.href}>{l.label}</a>
+              {ECOSYSTEM_LINKS.map(l => (
+                <Link key={l.label} to={l.href}>{l.label}</Link>
               ))}
             </div>
             <button className="menu-btn" aria-label="Menu" onClick={() => setDrawerOpen(true)}>
@@ -67,17 +69,30 @@ export default function Navbar({ onContact }: Props) {
             </div>
 
             <div className="drawer-body">
-              {/* Navigation */}
+              {/* Ecosystem */}
               <div className="drawer-section">
-                <div className="drawer-section-label">Navigate</div>
-                {NAV_LINKS.map(l => (
-                  <a key={l.label} className="drawer-link" href={l.href} onClick={close}>
+                <div className="drawer-section-label">Ecosystem</div>
+                {ECOSYSTEM_LINKS.map(l => (
+                  <Link key={l.label} className="drawer-link" to={l.href} onClick={close}>
                     {l.label} <ChevronRight />
-                  </a>
+                  </Link>
                 ))}
-                <a className="drawer-link" href="#whitepaper" onClick={close}>
+              </div>
+
+              <div className="drawer-divider" />
+
+              {/* Resources */}
+              <div className="drawer-section">
+                <div className="drawer-section-label">Resources</div>
+                <Link className="drawer-link" to="/resources" onClick={close}>
+                  Resources <ChevronRight />
+                </Link>
+                <a className="drawer-link" href="/whitepaper.html" target="_blank" rel="noopener" onClick={close}>
                   Whitepaper <ChevronRight />
                 </a>
+                <Link className="drawer-link" to="/grants" onClick={close}>
+                  Grants <ChevronRight />
+                </Link>
               </div>
 
               <div className="drawer-divider" />
@@ -110,12 +125,9 @@ export default function Navbar({ onContact }: Props) {
                     Contact us <ChevronRight />
                   </a>
                 )}
-                <a className="drawer-link" href="/whitepaper.html" target="_blank" rel="noopener" onClick={close}>
-                  Read whitepaper <ChevronRight />
-                </a>
-                <a className="drawer-link" href="#governance" onClick={close}>
-                  Apply to validate <ChevronRight />
-                </a>
+                <Link className="drawer-link" to="/council" onClick={close}>
+                  Join the Council <ChevronRight />
+                </Link>
               </div>
             </div>
 

@@ -38,17 +38,17 @@ export default function Grants() {
   return (
     <>
       <Helmet>
-        <title>Developer Grants — Alkebuleum</title>
-        <meta name="description" content="Apply for Alkebuleum developer grants to build on Africa's sovereign blockchain — identity, payments, governance, and infrastructure projects welcome." />
+        <title>Grants & Funding | Alkebuleum</title>
+        <meta name="description" content="Explore Alkebuleum grant, funding, and support opportunities for digital trust infrastructure, education, records, and institutional transformation." />
         <link rel="canonical" href="https://alkebuleum.org/grants" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://alkebuleum.org/grants" />
-        <meta property="og:title" content="Developer Grants — Alkebuleum" />
-        <meta property="og:description" content="Apply for Alkebuleum developer grants to build on Africa's sovereign blockchain — identity, payments, governance, and infrastructure projects welcome." />
+        <meta property="og:title" content="Grants & Funding | Alkebuleum" />
+        <meta property="og:description" content="Explore Alkebuleum grant, funding, and support opportunities for digital trust infrastructure, education, records, and institutional transformation." />
         <meta property="og:image" content="https://alkebuleum.org/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Developer Grants — Alkebuleum" />
-        <meta name="twitter:description" content="Apply for Alkebuleum developer grants to build on Africa's sovereign blockchain." />
+        <meta name="twitter:title" content="Grants & Funding | Alkebuleum" />
+        <meta name="twitter:description" content="Explore Alkebuleum grant, funding, and support opportunities for digital trust infrastructure, education, records, and institutional transformation." />
         <meta name="twitter:image" content="https://alkebuleum.org/og-image.png" />
       </Helmet>
       <section className="hero" style={{ minHeight: '38vh', paddingBottom: 80 }}>
