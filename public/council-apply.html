@@ -35,6 +35,8 @@
     --accent:#c6b6ff;
     --line:rgba(255,255,255,.08);
     --line-2:rgba(255,255,255,.16);
+    --error:#e05252;
+    --error-bg:rgba(224,82,82,.08);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -102,6 +104,16 @@
   }
   .form-row input:focus, .form-row select:focus, .form-row textarea:focus{
     outline:none;border-color:var(--purple);background:#0d0d16;
+  }
+  .form-row input:invalid:not(:placeholder-shown),
+  .form-row select:invalid:not(:placeholder-shown),
+  .form-row textarea:invalid:not(:placeholder-shown){
+    border-color:var(--error);background:var(--error-bg);
+  }
+  .form-row input:invalid:focus,
+  .form-row select:invalid:focus,
+  .form-row textarea:invalid:focus{
+    border-color:var(--error);background:var(--error-bg);
   }
   .form-row input::placeholder, .form-row textarea::placeholder{color:var(--ink-mute);opacity:.6}
   .form-row textarea{resize:vertical;min-height:120px;line-height:1.55}
@@ -335,20 +347,20 @@
 
 <nav class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="council-hub.html">
+    <a class="brand" href="/council-hub.html">
       <svg><use href="#mark"/></svg>
       <span><span class="alke">Alke</span><span class="buleum">buleum</span></span>
       <span class="brand-sep"></span>
       <span class="brand-section">The Council</span>
     </a>
     <div class="nav-links">
-      <a href="council-brief.html">Brief</a>
-      <a href="council-membership.html">Membership</a>
-      <a href="council-usecases.html">Use Cases</a>
-      <a href="council-apply.html" class="active">Apply</a>
+      <a href="/council-brief.html">Brief</a>
+      <a href="/council-membership.html">Membership</a>
+      <a href="/council-usecases.html">Use Cases</a>
+      <a href="/council-apply.html" class="active">Apply</a>
     </div>
     <div class="nav-cta">
-      <a class="nav-back" href="council-hub.html">← Hub</a>
+      <a class="nav-back" href="/council-hub.html">← Hub</a>
     </div>
   </div>
 </nav>
@@ -544,19 +556,44 @@
   <div class="wrap foot-inner">
     <span>© 2026 Alkebuleum Foundation · The Council Office</span>
     <div class="foot-links">
-      <a href="council-hub.html">Hub</a>
-      <a href="alkebuleum-website-v21.html">Main site</a>
+      <a href="/council-hub.html">Hub</a>
+      <a href="/">Main site</a>
       <a href="mailto:council@alkebuleum.org">council@alkebuleum.org</a>
     </div>
   </div>
 </footer>
 
 <script>
-  document.getElementById('applyForm').addEventListener('submit', function(e){
+  const FORMSPREE = 'https://formspree.io/f/mbdblrae';
+  const form = document.getElementById('applyForm');
+  const btn = form.querySelector('.btn-submit');
+
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
-    document.getElementById('applyForm').style.display = 'none';
-    document.getElementById('successMsg').classList.add('show');
-    window.scrollTo({top: 0, behavior:'smooth'});
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch(FORMSPREE, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('successMsg').classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Submit expression of interest →';
+        alert('Something went wrong. Please try again or email council@alkebuleum.org directly.');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Submit expression of interest →';
+      alert('Network error. Please check your connection and try again.');
+    }
   });
 </script>
 
