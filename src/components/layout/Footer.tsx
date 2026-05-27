@@ -73,6 +73,7 @@ export default function Footer() {
               <li><Link to="/grants">Grants</Link></li>
               <li><Link to="/apps">Apps</Link></li>
               <li><a href="/brand">Brand assets</a></li>
+              <li><a href="/media/">Media Kit</a></li>
             </ul>
           </div>
         </div>

@@ -1,0 +1,16 @@
+{
+  "releases": [
+    {
+      "slug": "founding-announcement",
+      "title": "Alkebuleum Launches as Africa's Sovereign Trust Infrastructure, Opens Founding Council to Reputable Institutions",
+      "summary": "The Alkebuleum Foundation announces the public launch of the Alkebuleum network — a Layer 1 public, permissioned blockchain purpose-built for the African continent and its global diaspora — alongside an open invitation to reputable institutions to join the Alkebuleum Founding Council.",
+      "date": "2026-05-24",
+      "date_display": "May 24, 2026",
+      "category": "Foundation",
+      "location": "Monrovia, Liberia",
+      "embargo": null,
+      "featured": true,
+      "tags": ["launch", "council", "foundation"]
+    }
+  ]
+}

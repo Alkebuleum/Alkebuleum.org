@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Media Kit | Alkebuleum</title>
+<meta name="description" content="Access Alkebuleum press releases, media assets, founder information, logos, previous coverage, and background on Africa's digital trust infrastructure."/>
+<link rel="canonical" href="https://alkebuleum.org/media"/>
+<meta property="og:title" content="Media Kit | Alkebuleum"/>
+<meta property="og:description" content="Access Alkebuleum press releases, media assets, founder information, logos, previous coverage, and background on Africa's digital trust infrastructure."/>
+<meta property="og:url" content="https://alkebuleum.org/media"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://alkebuleum.org/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Media Kit | Alkebuleum"/>
+<meta name="twitter:description" content="Access Alkebuleum press releases, media assets, founder information, logos, and background on Africa's digital trust infrastructure."/>
+<meta name="twitter:image" content="https://alkebuleum.org/og-image.png"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#0c0b0a;
+  --ink-2:#2e2d2b;
+  --ink-3:#6b6a66;
+  --ink-4:#9a9994;
+  --bg:#faf8f4;
+  --bg-2:#f4f0e8;
+  --bg-dark:#0c0b0a;
+  --purple:#6b52e8;
+  --purple-2:#4f3ac0;
+  --accent:#c6b6ff;
+  --gold:#b08a2e;
+  --gold-2:#d4a940;
+  --rule:rgba(12,11,10,.1);
+  --rule-2:rgba(12,11,10,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'DM Sans',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;font-size:16px;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+img{display:block;max-width:100%}
+
+/* ──────────────────────────────
+   LAYOUT
+────────────────────────────── */
+.page{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+.sidebar{
+  position:sticky;top:0;height:100vh;
+  background:var(--bg-dark);color:#fff;
+  padding:40px 28px;
+  display:flex;flex-direction:column;
+  gap:0;
+  overflow-y:auto;
+  z-index:10;
+}
+.main{min-width:0}
+
+/* ──────────────────────────────
+   SIDEBAR
+────────────────────────────── */
+.sb-brand{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:40px;padding-bottom:28px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.sb-brand svg{width:24px;height:28px;color:#fff}
+.sb-brand-word{
+  font-family:'DM Sans',sans-serif;font-size:14px;
+  font-variant:small-caps;letter-spacing:.12em;
+}
+.sb-brand-word strong{font-weight:600}
+.sb-brand-word span{font-weight:300}
+
+.sb-label{
+  font-family:'DM Mono',monospace;font-size:9.5px;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);
+  margin-bottom:12px;margin-top:28px;
+}
+.sb-nav{list-style:none;display:flex;flex-direction:column;gap:2px}
+.sb-nav a{
+  display:block;padding:7px 12px;border-radius:6px;
+  font-size:13.5px;color:rgba(255,255,255,.7);
+  transition:all .15s;
+}
+.sb-nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+.sb-nav a.active{background:rgba(107,82,232,.25);color:#c6b6ff}
+
+.sb-contact{
+  margin-top:auto;padding-top:28px;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+.sb-contact p{
+  font-size:12px;line-height:1.55;
+  color:rgba(255,255,255,.5);margin-bottom:14px;
+}
+.sb-contact a{
+  font-size:12.5px;color:rgba(255,255,255,.8);
+  display:flex;align-items:center;gap:6px;
+  margin-bottom:6px;
+  transition:color .15s;
+}
+.sb-contact a:hover{color:#fff}
+.sb-embargo{
+  margin-top:18px;padding:10px 14px;
+  border-radius:6px;background:rgba(176,138,46,.15);
+  border:1px solid rgba(176,138,46,.3);
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold-2);
+}
+.sb-embargo.none{
+  background:rgba(255,255,255,.04);
+  border-color:rgba(255,255,255,.1);
+  color:rgba(255,255,255,.35);
+}
+
+/* ──────────────────────────────
+   MAIN
+────────────────────────────── */
+/* Section scaffolding */
+.media-sec{
+  padding:72px 64px;
+  border-bottom:1px solid var(--rule);
+}
+.media-sec:last-child{border-bottom:none}
+
+/* Running chapter number */
+.ch{
+  font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--purple);font-weight:500;
+  margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.ch::before{content:"";width:28px;height:1px;background:var(--purple)}
+
+h2.sec-title{
+  font-family:'Playfair Display',serif;font-weight:400;
+  font-size:clamp(28px,3vw,40px);line-height:1.12;
+  letter-spacing:-.02em;color:var(--ink);
+  margin-bottom:10px;
+}
+h2.sec-title em{font-style:italic;color:var(--purple)}
+.sec-deck{
+  font-size:15.5px;line-height:1.55;color:var(--ink-3);
+  max-width:640px;margin-bottom:36px;
+}
+
+/* ──────────────────────────────
+   HERO BAND
+────────────────────────────── */
+.hero-band{
+  background:var(--bg-dark);color:#fff;
+  padding:56px 64px;
+  position:relative;overflow:hidden;
+}
+.hero-band::before{
+  content:"";position:absolute;
+  right:-100px;top:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(107,82,232,.3),transparent 60%);
+  filter:blur(60px);pointer-events:none;
+}
+.hero-band::after{
+  content:"";position:absolute;
+  inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:24px 24px;
+  mask-image:radial-gradient(ellipse at 80% 50%,#000 20%,transparent 70%);
+  -webkit-mask-image:radial-gradient(ellipse at 80% 50%,#000 20%,transparent 70%);
+  pointer-events:none;
+}
+.hero-band-inner{position:relative;z-index:2}
+.hero-eyebrow{
+  font-family:'DM Mono',monospace;font-size:11px;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(198,182,255,.9);font-weight:500;
+  margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.hero-eyebrow::before{content:"";width:24px;height:1px;background:rgba(198,182,255,.6)}
+.hero-band h1{
+  font-family:'Playfair Display',serif;font-weight:400;
+  font-size:clamp(36px,4.5vw,58px);line-height:1.06;
+  letter-spacing:-.025em;color:#fff;
+  margin-bottom:20px;max-width:700px;
+}
+.hero-band h1 em{font-style:italic;color:var(--accent)}
+.hero-band p{
+  font-size:17px;line-height:1.55;
+  color:rgba(255,255,255,.72);max-width:580px;
+  margin-bottom:32px;
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:999px;
+  font-size:13.5px;font-weight:500;
+  border:1px solid;transition:all .2s;cursor:pointer;
+  font-family:'DM Sans',sans-serif;
+}
+.btn-white{background:#fff;color:var(--ink);border-color:#fff}
+.btn-white:hover{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.btn-ghost-white{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.btn-ghost-white:hover{background:#fff;color:var(--ink);border-color:#fff}
+.btn-ink{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn-ink:hover{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--rule-2)}
+.btn-outline:hover{border-color:var(--ink)}
+
+/* ──────────────────────────────
+   PRESS RELEASE
+────────────────────────────── */
+.pr-meta{
+  display:flex;gap:28px;flex-wrap:wrap;
+  padding:16px 0;border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  margin-bottom:28px;
+  font-family:'DM Mono',monospace;font-size:11.5px;
+  letter-spacing:.08em;color:var(--ink-3);
+}
+.pr-meta strong{color:var(--ink);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500}
+.pr-body{max-width:720px}
+.pr-body h3{
+  font-family:'Playfair Display',serif;font-weight:500;
+  font-size:22px;line-height:1.25;letter-spacing:-.01em;
+  color:var(--ink);margin-bottom:14px;
+}
+.pr-body p{
+  font-size:15.5px;line-height:1.7;color:var(--ink-2);
+  margin-bottom:16px;
+}
+.pr-body p:last-child{margin-bottom:0}
+.pr-pullquote{
+  border-left:3px solid var(--purple);
+  padding:8px 0 8px 24px;
+  margin:28px 0;
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-weight:400;
+  font-size:21px;line-height:1.35;
+  letter-spacing:-.01em;color:var(--ink);
+}
+
+/* ──────────────────────────────
+   FOUNDER
+────────────────────────────── */
+.founder-grid{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:start}
+.founder-photo{
+  width:200px;height:240px;
+  border-radius:4px;overflow:hidden;
+  background:var(--bg-2);
+  position:relative;
+  border:1px solid var(--rule);
+}
+.founder-photo-placeholder{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;
+  color:var(--ink-4);
+}
+.founder-photo-placeholder svg{width:48px;height:48px;opacity:.4}
+.founder-photo-placeholder span{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;opacity:.5;text-align:center;
+}
+.founder-name{
+  font-family:'Playfair Display',serif;font-weight:500;
+  font-size:28px;letter-spacing:-.015em;color:var(--ink);
+  margin-bottom:4px;
+}
+.founder-role{
+  font-family:'DM Mono',monospace;font-size:11.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--purple);font-weight:500;margin-bottom:22px;
+}
+.founder-bio{
+  font-size:15.5px;line-height:1.7;color:var(--ink-2);
+  margin-bottom:20px;
+}
+.founder-quote{
+  padding:18px 24px;
+  background:linear-gradient(135deg,#f7f4ff 0%,#f2edff 100%);
+  border-left:3px solid var(--purple);
+  border-radius:0 6px 6px 0;
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:18px;line-height:1.45;letter-spacing:-.01em;
+  color:var(--ink);margin-bottom:20px;
+}
+.founder-download{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'DM Mono',monospace;font-size:11.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);
+  border:1px solid var(--rule-2);
+  padding:8px 16px;border-radius:999px;
+  transition:all .2s;
+}
+.founder-download:hover{border-color:var(--ink);color:var(--ink)}
+.founder-download svg{width:14px;height:14px}
+
+/* ──────────────────────────────
+   BOILERPLATE / DESCRIPTIONS
+────────────────────────────── */
+.boiler-box{
+  background:var(--bg-2);border-radius:8px;
+  padding:24px 28px;margin-bottom:20px;
+  position:relative;
+}
+.boiler-label{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--purple);font-weight:500;margin-bottom:10px;
+}
+.boiler-text{
+  font-size:14.5px;line-height:1.65;color:var(--ink-2);
+}
+.copy-btn{
+  position:absolute;top:16px;right:16px;
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-4);
+  background:var(--bg);border:1px solid var(--rule);
+  padding:5px 10px;border-radius:4px;
+  cursor:pointer;transition:all .15s;
+}
+.copy-btn:hover{color:var(--ink);border-color:var(--rule-2)}
+.copy-btn.copied{color:var(--purple);border-color:var(--purple)}
+
+/* Ecosystem table */
+.eco-table{width:100%;border-collapse:collapse;font-size:14px}
+.eco-table thead tr{border-bottom:2px solid var(--rule-2)}
+.eco-table th{
+  text-align:left;padding:12px 14px;
+  font-family:'DM Mono',monospace;font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;
+}
+.eco-table tbody tr{border-bottom:1px solid var(--rule);transition:background .15s}
+.eco-table tbody tr:hover{background:var(--bg-2)}
+.eco-table td{padding:14px 14px;vertical-align:top}
+.eco-table td:first-child{
+  font-family:'DM Sans',sans-serif;font-weight:500;
+  color:var(--ink);font-size:14px;
+  white-space:nowrap;
+}
+.eco-table td:nth-child(2){
+  font-family:'DM Mono',monospace;font-size:11px;
+  letter-spacing:.08em;color:var(--purple);
+  text-transform:uppercase;white-space:nowrap;
+}
+.eco-table td:nth-child(3){color:var(--ink-2);line-height:1.55}
+
+/* ──────────────────────────────
+   LOGO DOWNLOADS
+────────────────────────────── */
+.logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.logo-card{
+  border:1px solid var(--rule);border-radius:8px;
+  overflow:hidden;
+  transition:border-color .2s;
+}
+.logo-card:hover{border-color:var(--ink-3)}
+.logo-preview{
+  height:120px;display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.logo-preview.light{background:var(--bg-2)}
+.logo-preview.dark{background:var(--bg-dark)}
+.logo-preview.violet{background:linear-gradient(135deg,#5e3aff,#3318cc)}
+.logo-preview svg{width:56px;height:64px}
+.logo-meta{
+  padding:12px 16px;border-top:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo-name{
+  font-size:12.5px;font-weight:500;color:var(--ink);
+  display:block;margin-bottom:2px;
+}
+.logo-format{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);
+}
+.logo-dl{
+  width:30px;height:30px;border-radius:50%;
+  background:var(--bg-2);border:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink-3);transition:all .2s;cursor:pointer;
+  text-decoration:none;
+}
+.logo-dl:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.logo-dl svg{width:14px;height:14px}
+
+.logo-usage{
+  background:var(--bg-2);border-radius:6px;
+  padding:18px 22px;
+  font-size:13.5px;line-height:1.6;color:var(--ink-2);
+}
+.logo-usage strong{color:var(--ink);font-weight:500}
+
+/* ──────────────────────────────
+   COVERAGE LINKS
+────────────────────────────── */
+.coverage-list{list-style:none;display:flex;flex-direction:column;gap:0}
+.coverage-item{
+  padding:18px 0;
+  border-bottom:1px solid var(--rule);
+  display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
+}
+.coverage-item:first-child{border-top:1px solid var(--rule)}
+.cov-pub{
+  font-family:'DM Mono',monospace;font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--purple);margin-bottom:5px;
+}
+.cov-title{
+  font-family:'Playfair Display',serif;font-weight:400;
+  font-size:17px;line-height:1.25;color:var(--ink);
+  margin-bottom:4px;
+}
+.cov-date{
+  font-size:12.5px;color:var(--ink-4);
+  font-family:'DM Mono',monospace;
+}
+.cov-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'DM Mono',monospace;font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);border:1px solid var(--rule-2);
+  padding:7px 14px;border-radius:999px;
+  white-space:nowrap;transition:all .2s;
+}
+.cov-link:hover{color:var(--ink);border-color:var(--ink)}
+.cov-link svg{width:12px;height:12px}
+
+.no-coverage{
+  text-align:center;padding:40px 20px;
+  border:1px dashed var(--rule-2);border-radius:8px;
+  color:var(--ink-4);
+  font-size:14px;line-height:1.6;
+}
+.no-coverage strong{display:block;color:var(--ink-3);margin-bottom:6px;font-size:15px}
+
+/* ──────────────────────────────
+   MEDIA CONTACT
+────────────────────────────── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.contact-card{
+  padding:28px;
+  border:1px solid var(--rule);border-radius:10px;
+  position:relative;overflow:hidden;
+  transition:border-color .2s;
+}
+.contact-card:hover{border-color:var(--purple)}
+.contact-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--purple),transparent);
+  opacity:0;transition:opacity .25s;
+}
+.contact-card:hover::before{opacity:1}
+.contact-role{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--purple);font-weight:500;margin-bottom:10px;
+}
+.contact-name{
+  font-family:'Playfair Display',serif;font-weight:500;
+  font-size:20px;letter-spacing:-.01em;color:var(--ink);
+  margin-bottom:4px;
+}
+.contact-title{font-size:13px;color:var(--ink-3);margin-bottom:18px}
+.contact-links{display:flex;flex-direction:column;gap:6px}
+.contact-link{
+  display:flex;align-items:center;gap:8px;
+  font-size:14px;color:var(--ink-2);transition:color .15s;
+}
+.contact-link:hover{color:var(--purple)}
+.contact-link svg{width:15px;height:15px;color:var(--ink-4);flex-shrink:0}
+
+.response-note{
+  margin-top:28px;padding:16px 20px;
+  background:var(--bg-2);border-radius:6px;
+  font-size:13.5px;line-height:1.55;color:var(--ink-2);
+}
+.response-note strong{color:var(--ink);font-weight:500}
+
+/* ──────────────────────────────
+   RESPONSIVE
+────────────────────────────── */
+@media(max-width:1100px){
+  .page{grid-template-columns:220px 1fr}
+  .media-sec{padding:56px 48px}
+  .hero-band{padding:48px 48px}
+}
+@media(max-width:900px){
+  .page{grid-template-columns:1fr}
+  .sidebar{
+    position:relative;height:auto;
+    padding:28px 24px;
+    flex-direction:row;align-items:center;
+    flex-wrap:wrap;gap:16px;
+  }
+  .sb-brand{margin-bottom:0;padding-bottom:0;border-bottom:none;flex:1}
+  .sb-label,.sb-nav,.sb-contact,.sb-embargo{display:none}
+  .media-sec{padding:48px 28px}
+  .hero-band{padding:40px 28px}
+  .founder-grid{grid-template-columns:1fr;gap:28px}
+  .founder-photo{width:100%;height:200px}
+  .logo-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .media-sec{padding:40px 20px}
+  .hero-band{padding:36px 20px}
+  .logo-grid{grid-template-columns:1fr 1fr}
+  .eco-table{font-size:13px}
+  .eco-table td:nth-child(2){display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ LOGO SVG ═══ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 100 110">
+    <path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M50,7 L86,28 Q90,30.5 90,35 L90,75 Q90,79.5 86,82 L50,103 L14,82 Q10,79.5 10,75 L10,35 Q10,30.5 14,28 Z"/>
+    <line fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" x1="50" y1="27" x2="50" y2="83"/>
+    <polyline fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" points="30,42 42,55 30,68"/>
+    <polyline fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" points="20,45 29.3,55 20,65"/>
+    <polyline fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" points="70,42 58,55 70,68"/>
+    <polyline fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" points="80,45 70.7,55 80,65"/>
+  </symbol>
+</svg>
+
+
+<div class="page">
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="sidebar" aria-label="Media kit navigation">
+
+    <a href="/" class="sb-brand">
+      <svg><use href="#mark"/></svg>
+      <span class="sb-brand-word"><strong>Alke</strong><span>buleum</span></span>
+    </a>
+
+    <div class="sb-label">Media Kit</div>
+    <ul class="sb-nav" role="list">
+      <li><a href="#press-release" class="active">Press Releases</a></li>
+      <li><a href="#founder">Founder</a></li>
+      <li><a href="#descriptions">Descriptions</a></li>
+      <li><a href="#ecosystem">Ecosystem</a></li>
+      <li><a href="#logos">Logo Downloads</a></li>
+      <li><a href="#photos">Photos</a></li>
+      <li><a href="#coverage">Previous Coverage</a></li>
+      <li><a href="#contact">Media Contact</a></li>
+    </ul>
+
+    <div style="margin-top:32px">
+      <div class="sb-label">Quick Download</div>
+      <a href="/alkebuleum-press-kit.zip" download class="btn btn-white" style="font-size:12px;padding:10px 18px;margin-top:10px;display:inline-flex;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Full Press Kit (.zip)
+      </a>
+    </div>
+
+    <div class="sb-contact">
+      <p>Press enquiries</p>
+      <a href="mailto:press@alkebuleum.org">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        press@alkebuleum.org
+      </a>
+      <a href="https://alkebuleum.org" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+        alkebuleum.org
+      </a>
+      <div class="sb-embargo none">No Active Embargo</div>
+    </div>
+
+  </aside>
+
+
+  <!-- ═══ MAIN ═══ -->
+  <main>
+
+    <!-- ── HERO BAND ── -->
+    <div class="hero-band">
+      <div class="hero-band-inner">
+        <div class="hero-eyebrow">Press Room · May 2026</div>
+        <h1>Alkebuleum<br/><em>Media Kit.</em></h1>
+        <p>Official press materials for journalists, researchers, and media partners covering Africa's sovereign trust infrastructure and the Alkebuleum Trust Ecosystem.</p>
+        <div class="hero-actions">
+          <a href="/alkebuleum-press-kit.zip" download class="btn btn-white">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Full Kit (.zip)
+          </a>
+          <a href="#contact" class="btn btn-ghost-white">Media Contact</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ── PRESS RELEASE ── -->
+    <section class="media-sec" id="press-release">
+      <div class="ch">01 · Press Releases</div>
+      <h2 class="sec-title">Official Announcements &amp;<br/><em>Foundation News</em></h2>
+      <p class="sec-deck">All Alkebuleum press releases live in the press archive. The most recent is featured below.</p>
+
+      <!-- Latest release preview -->
+      <a href="/media/press/founding-announcement.html" style="display:block;background:var(--bg-2);border:1px solid var(--rule);border-radius:10px;padding:32px 36px;text-decoration:none;transition:all .2s;margin-bottom:20px" onmouseover="this.style.borderColor='var(--ink)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--rule)';this.style.transform='translateY(0)'">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);font-weight:600">
+          <span>Latest Release</span>
+          <span style="color:var(--ink-4)">·</span>
+          <span style="color:var(--ink-3)">May 24, 2026</span>
+          <span style="color:var(--ink-4)">·</span>
+          <span style="color:var(--ink-3)">Foundation</span>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-weight:500;font-size:24px;line-height:1.2;letter-spacing:-.015em;color:var(--ink);margin-bottom:12px">Alkebuleum Opens Its Founding Council to Reputable Institutions Across Africa and the Diaspora</h3>
+        <p style="font-size:14.5px;line-height:1.6;color:var(--ink-2);margin-bottom:18px;max-width:620px">The Alkebuleum Foundation opens its Founding Council — the institutional governance body of Africa's sovereign trust infrastructure — to reputable institutions across the continent and diaspora. The network, which began operations in Liberia in 2025, now invites governments, banks, universities, and diaspora organizations to join its founding governance body.</p>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);font-weight:600">
+          Read full release
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </span>
+      </a>
+
+      <!-- CTAs -->
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+        <a href="/media/press" class="btn btn-ink">
+          View all press releases
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+        <a href="mailto:press@alkebuleum.org?subject=Press%20subscription%20request" class="btn btn-outline">
+          Subscribe to releases
+        </a>
+      </div>
+    </section>
+
+
+    <!-- ── FOUNDER ── -->
+    <section class="media-sec" id="founder">
+      <div class="ch">02 · Founder</div>
+      <h2 class="sec-title">Founder Information &amp;<br/><em>Official Quote</em></h2>
+      <p class="sec-deck">The following materials are approved for use in media coverage. Please do not alter the quote.</p>
+
+      <div class="founder-grid">
+        <div>
+          <div class="founder-photo">
+            <img src="/founder_photo.jpg" alt="Ernesto Dwehsidi Herbert, Founder of Alkebuleum Foundation" style="width:100%;height:100%;object-fit:cover;object-position:top"/>
+          </div>
+          <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+            <a href="/founder_photo.jpg" download class="founder-download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Hi-res photo
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="founder-name">Ernesto Dwehsidi Herbert</div>
+          <div class="founder-role">Founder · Alkebuleum Foundation</div>
+
+          <p class="founder-bio">Ernesto Dwehsidi Herbert is the founder of the Alkebuleum Foundation and the architect of the Alkebuleum Trust Ecosystem. A Pan-African technologist and entrepreneur, Herbert holds a Master's degree in Data Science from George Washington University and brings more than 15 years of experience building data infrastructure — the systems institutions depend on to record truth, protect information, and verify trust at scale.</p>
+
+          <p class="founder-bio">Herbert developed the Alkebuleum concept from a foundational insight: that Africa's economic and governance challenges are not primarily problems of resources or will, but problems of trust infrastructure. His work spans blockchain protocol design, institutional outreach, and the strategic alignment of Alkebuleum with continental frameworks including the AfCFTA and the African Union's Agenda 2063. The 2022 Alkebuleum whitepaper, which he authored, laid the foundation for what is now a multi-protocol trust ecosystem serving governments, institutions, and the global African diaspora.</p>
+
+          <div class="founder-quote">
+            "A blockchain is only as trusted as those who validate it. Alkebuleum's validators are the institutions Africa already trusts."
+          </div>
+
+          <a href="mailto:press@alkebuleum.org" class="founder-download">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Request interview
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── DESCRIPTIONS / BOILERPLATE ── -->
+    <section class="media-sec" id="descriptions">
+      <div class="ch">03 · Approved Descriptions</div>
+      <h2 class="sec-title">Boilerplate Copy &amp;<br/><em>Approved Language</em></h2>
+      <p class="sec-deck">Use these descriptions verbatim in coverage. They are approved for publication without further clearance.</p>
+
+      <div class="boiler-box">
+        <div class="boiler-label">One-sentence description</div>
+        <div class="boiler-text">Alkebuleum is a Layer 1 public, permissioned blockchain purpose-built for the African continent and its global diaspora, serving as the sovereign trust infrastructure for identity, institutional records, payments, credit, and governance.</div>
+        <button class="copy-btn" onclick="copyBoiler(this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+
+      <div class="boiler-box">
+        <div class="boiler-label">Short description (2–3 sentences)</div>
+        <div class="boiler-text">Alkebuleum is a sovereign Layer 1 blockchain built for Africa and the global African diaspora. It is secured by PORA — Proof of Reputation and Authority — a consensus mechanism in which validators are exclusively reputable institutions including central banks, universities, government agencies, fintechs, and diaspora organizations. The network provides trust infrastructure for identity, institutional records, payments, and credit across the African continent and beyond.</div>
+        <button class="copy-btn" onclick="copyBoiler(this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+
+      <div class="boiler-box">
+        <div class="boiler-label">Council description</div>
+        <div class="boiler-text">The Alkebuleum Council is the body of reputable institutions that govern, validate, and shape the Alkebuleum network. Its members include central banks, commercial banks, universities, government ministries, regulators, fintech companies, civil-society organizations, national archives, and diaspora institutions from across Africa and the global African family. The Council is currently forming its founding cohort, with four participation pathways available: Council Observer, Founding Council Member, Validator Partner, and Implementation Partner.</div>
+        <button class="copy-btn" onclick="copyBoiler(this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+
+      <div class="boiler-box">
+        <div class="boiler-label">Full boilerplate (for press release ends)</div>
+        <div class="boiler-text">About Alkebuleum: Alkebuleum is a Layer 1 public, permissioned blockchain built for the African continent and its global diaspora. Secured by PORA (Proof of Reputation and Authority), the network is validated by reputable institutions — central banks, universities, government agencies, fintechs, and diaspora organizations — rather than anonymous capital holders. Alkebuleum provides trust infrastructure for identity, institutional records, payments, and credit, and is aligned with the AfCFTA, the African Union's Agenda 2063, and the Digital Transformation Strategy for Africa 2020–2030. The Alkebuleum Foundation is the steward of the network and its ecosystem. For press enquiries, contact press@alkebuleum.org. Visit alkebuleum.org.</div>
+        <button class="copy-btn" onclick="copyBoiler(this)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ── ECOSYSTEM SUMMARY ── -->
+    <section class="media-sec" id="ecosystem">
+      <div class="ch">04 · Ecosystem</div>
+      <h2 class="sec-title">The Trust Ecosystem:<br/><em>Component Summary</em></h2>
+      <p class="sec-deck">Each component of the Alkebuleum Trust Ecosystem in one sentence, approved for media use.</p>
+
+      <table class="eco-table" aria-label="Alkebuleum ecosystem components">
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Category</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Alkebuleum Council</td>
+            <td>Governance</td>
+            <td>The governing body of reputable African and diaspora institutions that validate, guide standards, and shape the direction of the Alkebuleum network.</td>
+          </tr>
+          <tr>
+            <td>AlkeLedger</td>
+            <td>Core Protocol</td>
+            <td>A blockchain-anchored institutional records ledger for documents, audit trails, certificates, and accountability across governments and organizations.</td>
+          </tr>
+          <tr>
+            <td>AlkePay</td>
+            <td>Core Protocol</td>
+            <td>Payment request links, collections, disbursements, and cross-border settlement infrastructure connected to the Alkebuleum trust layer.</td>
+          </tr>
+          <tr>
+            <td>AlkeID</td>
+            <td>Core Protocol</td>
+            <td>Zero-knowledge identity infrastructure for verifiable credentials, citizen IDs, institutional identity, and cross-border digital participation.</td>
+          </tr>
+          <tr>
+            <td>AlkeCredit</td>
+            <td>Core Protocol</td>
+            <td>Portable credit history and reputation infrastructure built from verified identity, payment records, and institutional participation data.</td>
+          </tr>
+          <tr>
+            <td>AlkeCoin (ALKE)</td>
+            <td>Utility</td>
+            <td>The native utility coin of the Alkebuleum network, used for transaction fees, validator rewards, and protocol participation.</td>
+          </tr>
+          <tr>
+            <td>JollofSwap</td>
+            <td>Ecosystem App</td>
+            <td>A decentralized exchange and liquidity application built on Alkebuleum for trading ecosystem assets.</td>
+          </tr>
+          <tr>
+            <td>Nuru</td>
+            <td>Ecosystem App</td>
+            <td>A user-facing wallet, assistant, and gateway application for everyday interaction with the Alkebuleum ecosystem.</td>
+          </tr>
+          <tr>
+            <td>DRIS</td>
+            <td>Ecosystem App</td>
+            <td>Digital Records Infrastructure Service — an application for national and institutional digital archives, land records, and document registries.</td>
+          </tr>
+          <tr>
+            <td>AfPass</td>
+            <td>Ecosystem App</td>
+            <td>An identity passport and access layer enabling trusted participation and credentialing across the Alkebuleum ecosystem.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+
+    <!-- ── LOGOS ── -->
+    <section class="media-sec" id="logos">
+      <div class="ch">05 · Logo Downloads</div>
+      <h2 class="sec-title">Brand Assets &amp;<br/><em>Logo Files</em></h2>
+      <p class="sec-deck">All logo files are available in SVG (scalable) and PNG (high resolution). Use the version appropriate for your background color.</p>
+
+      <div class="logo-grid">
+        <!-- Light bg logo -->
+        <div class="logo-card">
+          <div class="logo-preview light">
+            <svg style="color:#0a0a0c"><use href="#mark"/></svg>
+          </div>
+          <div class="logo-meta">
+            <div>
+              <span class="logo-name">Standard · Dark</span>
+              <span class="logo-format">SVG · PNG · For light backgrounds</span>
+            </div>
+            <a href="/favicon-black.svg" download class="logo-dl" aria-label="Download dark logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Dark bg logo -->
+        <div class="logo-card">
+          <div class="logo-preview dark">
+            <svg style="color:#ffffff"><use href="#mark"/></svg>
+          </div>
+          <div class="logo-meta">
+            <div>
+              <span class="logo-name">Standard · White</span>
+              <span class="logo-format">SVG · PNG · For dark backgrounds</span>
+            </div>
+            <a href="/favicon.svg" download class="logo-dl" aria-label="Download white logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- PNG logo -->
+        <div class="logo-card">
+          <div class="logo-preview violet">
+            <svg style="color:#ffffff"><use href="#mark"/></svg>
+          </div>
+          <div class="logo-meta">
+            <div>
+              <span class="logo-name">Standard · PNG</span>
+              <span class="logo-format">PNG · Hi-res variant</span>
+            </div>
+            <a href="/logo.png" download class="logo-dl" aria-label="Download PNG logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="logo-usage">
+        <strong>Usage guidelines:</strong> Do not stretch, recolor outside the three approved variants, or place the logo on backgrounds that reduce contrast below 4.5:1. Minimum digital size: 24px height. Do not add shadows, borders, or visual effects to the logo mark. Clear space around the mark should equal half the height of the hexagon on all sides. For custom usage, contact press@alkebuleum.org.
+      </div>
+    </section>
+
+
+    <!-- ── PHOTOS ── -->
+    <section class="media-sec" id="photos">
+      <div class="ch">06 · Photos &amp; Assets</div>
+      <h2 class="sec-title">Launch Photos &amp;<br/><em>Product Assets</em></h2>
+      <p class="sec-deck">High-resolution photos and product visuals approved for media use. Credit: Alkebuleum Foundation.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px">
+        <!-- Placeholder photo slots -->
+        <a href="/founder_photo.jpg" download style="aspect-ratio:4/3;border-radius:8px;overflow:hidden;display:block;position:relative;border:1px solid var(--rule)">
+          <img src="/founder_photo.jpg" alt="Ernesto Dwehsidi Herbert" style="width:100%;height:100%;object-fit:cover;object-position:top"/>
+          <span style="position:absolute;bottom:8px;left:8px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;background:rgba(12,11,10,.6);color:#fff;padding:4px 8px;border-radius:3px">Founder · Download</span>
+        </a>
+        <a href="/launch_photo.jpg" download style="aspect-ratio:4/3;border-radius:8px;overflow:hidden;display:block;position:relative;border:1px solid var(--rule)">
+          <img src="/launch_photo.jpg" alt="Alkebuleum launch event" style="width:100%;height:100%;object-fit:cover"/>
+          <span style="position:absolute;bottom:8px;left:8px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;background:rgba(12,11,10,.6);color:#fff;padding:4px 8px;border-radius:3px">Launch · Download</span>
+        </a>
+        <div style="aspect-ratio:4/3;background:var(--bg-dark);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(107,82,232,.5),transparent 60%);filter:blur(20px)"></div>
+          <svg style="color:#fff;position:relative;z-index:2;width:56px;height:64px"><use href="#mark"/></svg>
+          <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);position:relative;z-index:2;text-align:center">Brand mark<br/>Available</span>
+        </div>
+      </div>
+
+      <p style="font-size:13.5px;color:var(--ink-3);line-height:1.6">Additional photos, product screenshots, and event photography will be added as they become available. Contact <a href="mailto:press@alkebuleum.org" style="color:var(--purple)">press@alkebuleum.org</a> to request specific assets.</p>
+    </section>
+
+
+    <!-- ── COVERAGE ── -->
+    <section class="media-sec" id="coverage">
+      <div class="ch">07 · Previous Coverage</div>
+      <h2 class="sec-title">Media Coverage &amp;<br/><em>Previous Features</em></h2>
+      <p class="sec-deck">Links to published coverage of Alkebuleum. If you have published a piece you'd like listed here, contact the press office.</p>
+
+      <div class="no-coverage">
+        <strong>Coverage listings coming soon.</strong>
+        Coverage links will appear here as Alkebuleum receives media coverage. If you are publishing a piece about Alkebuleum and would like to be listed, contact press@alkebuleum.org.
+      </div>
+
+      <!-- Template — uncomment and fill in when coverage exists:
+      <ul class="coverage-list">
+        <li class="coverage-item">
+          <div>
+            <div class="cov-pub">Publication Name</div>
+            <div class="cov-title">Article headline goes here in full</div>
+            <div class="cov-date">Month DD, YYYY</div>
+          </div>
+          <a href="#" target="_blank" rel="noopener" class="cov-link">
+            Read
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+          </a>
+        </li>
+      </ul>
+      -->
+    </section>
+
+
+    <!-- ── CONTACT ── -->
+    <section class="media-sec" id="contact">
+      <div class="ch">08 · Media Contact</div>
+      <h2 class="sec-title">Press &amp; Media<br/><em>Enquiries</em></h2>
+      <p class="sec-deck">All media enquiries, interview requests, and asset requests should be directed to the Foundation press office.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-role">Press Office</div>
+          <div class="contact-name">Alkebuleum Foundation</div>
+          <div class="contact-title">Media Relations</div>
+          <div class="contact-links">
+            <a href="mailto:press@alkebuleum.org" class="contact-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              press@alkebuleum.org
+            </a>
+            <a href="https://alkebuleum.org" class="contact-link" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+              alkebuleum.org
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-role">Council Office</div>
+          <div class="contact-name">Alkebuleum Council</div>
+          <div class="contact-title">Institutional Partnerships</div>
+          <div class="contact-links">
+            <a href="mailto:council@alkebuleum.org" class="contact-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              council@alkebuleum.org
+            </a>
+            <a href="/council-hub.html" class="contact-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+              Council microsite
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="response-note">
+        <strong>Response time:</strong> The press office responds to all media enquiries within two business days. For time-sensitive requests, mark your subject line <em>URGENT — DEADLINE [DATE]</em> and we will prioritize accordingly. Interview requests for the founder should be made at least five business days in advance.
+      </div>
+    </section>
+
+  </main>
+</div>
+
+
+<script>
+// Copy boilerplate text
+function copyBoiler(btn){
+  const box = btn.closest('.boiler-box');
+  const text = box.querySelector('.boiler-text').textContent.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.classList.add('copied');
+    btn.textContent = '✓ Copied';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy`;
+    }, 2500);
+  });
+}
+
+// Active sidebar nav on scroll
+const sections = document.querySelectorAll('section[id], .hero-band');
+const navLinks = document.querySelectorAll('.sb-nav a');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const id = entry.target.id;
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+},{threshold:.3});
+
+sections.forEach(s => s.id && observer.observe(s));
+</script>
+
+</body>
+</html>

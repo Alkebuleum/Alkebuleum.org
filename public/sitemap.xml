@@ -97,4 +97,21 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
+  <!-- Press room -->
+  <url>
+    <loc>https://alkebuleum.org/media</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://alkebuleum.org/media/press</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://alkebuleum.org/media/press/founding-announcement</loc>
+    <lastmod>2026-05-24</lastmod>
+    <priority>0.5</priority>
+  </url>
 </urlset>

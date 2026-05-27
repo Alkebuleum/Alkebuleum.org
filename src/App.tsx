@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import AnalyticsRouterTracker from './analytics/AnalyticsRouterTracker'
 import SvgSprite from './components/SvgSprite'
@@ -29,6 +29,12 @@ function RedirectToStatic({ to }: { to: string }) {
   return null
 }
 
+function RedirectToStaticPress() {
+  const { slug } = useParams<{ slug: string }>()
+  useEffect(() => { window.location.replace(`/media/press/${slug}.html`) }, [slug])
+  return null
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -39,6 +45,9 @@ export default function App() {
         {/* Primary pages */}
         <Route path="/" element={<Home />} />
         <Route path="/council" element={<RedirectToStatic to="/council-hub.html" />} />
+        <Route path="/council/apply" element={<RedirectToStatic to="/council-apply.html" />} />
+        <Route path="/council/brief" element={<RedirectToStatic to="/council-brief.html" />} />
+        <Route path="/council/membership" element={<RedirectToStatic to="/council-membership.html" />} />
         <Route path="/alkeledger" element={<AlkeLedger />} />
         <Route path="/alkepay" element={<AlkePay />} />
         <Route path="/alkeid" element={<AlkeID />} />
@@ -55,6 +64,11 @@ export default function App() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/network" element={<Network />} />
+
+        {/* Media / Press room — redirect to explicit .html paths to avoid React Router loop */}
+        <Route path="/media" element={<RedirectToStatic to="/media/index.html" />} />
+        <Route path="/media/press" element={<RedirectToStatic to="/media/press/index.html" />} />
+        <Route path="/media/press/:slug" element={<RedirectToStaticPress />} />
 
         {/* Redirects for broken/old URLs */}
         <Route path="/whitepaper" element={<RedirectToStatic to="/whitepaper.html" />} />
