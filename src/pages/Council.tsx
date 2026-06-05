@@ -23,7 +23,7 @@ const ECOSYSTEM = [
   { name: 'AlkePay', desc: 'Payment requests, collections, and disbursements.', href: '/alkepay' },
   { name: 'AlkeID', desc: 'Identity infrastructure for trusted participation.', href: '/alkeid' },
   { name: 'AlkeCredit', desc: 'Reputation and credit infrastructure for Africa.', href: '/alkecredit' },
-  { name: 'AlkeCoin', desc: 'Native coin powering the Alkebuleum network.', href: '/alkecoin' },
+  { name: 'ALKE', desc: 'Native asset powering the Alkebuleum network.', href: '/alkecoin' },
 ]
 
 export default function Council() {

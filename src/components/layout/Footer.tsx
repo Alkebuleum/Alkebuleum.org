@@ -39,7 +39,7 @@ export default function Footer() {
             <ul>
               <li><a href="/">Overview</a></li>
               <li><Link to="/network">Network details</Link></li>
-              <li><Link to="/alkecoin">Alkecoin (ALKE)</Link></li>
+              <li><Link to="/alkecoin">ALKE</Link></li>
               <li><Link to="/tokenomics">Tokenomics</Link></li>
               <li><a href="https://explorer.alkebuleum.com" target="_blank" rel="noopener noreferrer">Explorer</a></li>
             </ul>
@@ -62,7 +62,7 @@ export default function Footer() {
               <li><Link to="/alkepay">AlkePay</Link></li>
               <li><Link to="/alkeid">AlkeID</Link></li>
               <li><Link to="/alkecredit">AlkeCredit</Link></li>
-              <li><Link to="/alkecoin">AlkeCoin</Link></li>
+              <li><Link to="/alkecoin">ALKE</Link></li>
             </ul>
           </div>
           <div className="foot-col">

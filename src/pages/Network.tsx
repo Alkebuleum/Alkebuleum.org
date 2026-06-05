@@ -7,7 +7,7 @@ const NETWORK_PARAMS = {
   chainName: 'Alkebuleum Mainnet',
   chainId: '0x39BEE', // 237422 in hex
   chainIdDecimal: 237422,
-  nativeCurrency: { name: 'Alkecoin', symbol: 'ALKE', decimals: 18 },
+  nativeCurrency: { name: 'ALKE', symbol: 'ALKE', decimals: 18 },
   rpcUrls: ['https://rpc.alkebuleum.com'],
   blockExplorerUrls: ['https://explorer.alkebuleum.com'],
 }
@@ -17,7 +17,7 @@ const DETAILS = [
   { label: 'Chain ID (decimal)', value: '237422' },
   { label: 'Chain ID (hex)', value: '0x39BEE' },
   { label: 'Currency symbol', value: 'ALKE' },
-  { label: 'Currency name', value: 'Alkecoin' },
+  { label: 'Currency name', value: 'ALKE' },
   { label: 'Decimals', value: '18' },
   { label: 'RPC endpoint', value: 'https://rpc.alkebuleum.com', href: 'https://rpc.alkebuleum.com' },
   { label: 'Block explorer', value: 'https://explorer.alkebuleum.com', href: 'https://explorer.alkebuleum.com' },
@@ -152,7 +152,7 @@ export default function Network() {
               { title: 'Block Explorer', href: 'https://explorer.alkebuleum.com', desc: 'Browse blocks, transactions, and addresses' },
               { title: 'Developer Docs', href: 'https://docs.alkebuleum.com', desc: 'Guides, APIs, and SDK references' },
               { title: 'GitHub', href: 'https://github.com/alkebuleum', desc: 'Open source contracts and tooling' },
-              { title: 'Alkecoin (ALKE)', href: '/alkecoin', desc: 'Token details for exchange listings' },
+              { title: 'ALKE (Native Asset)', href: '/alkecoin', desc: 'Native asset details for exchange listings' },
             ].map(r => (
               <a key={r.title} href={r.href} target={r.href.startsWith('http') ? '_blank' : undefined} rel={r.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 style={{ border: '1px solid var(--line)', borderRadius: 14, padding: '22px 24px', textDecoration: 'none', color: 'inherit', display: 'block', transition: 'border-color .15s' }}>

@@ -3,7 +3,7 @@ import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 
 const TOKEN_FACTS = [
-  { label: 'Token name', value: 'Alkecoin' },
+  { label: 'Token name', value: 'ALKE' },
   { label: 'Primary ticker', value: 'ALKE' },
   { label: 'Alias ticker', value: 'AKE' },
   { label: 'Type', value: 'Native utility token' },
@@ -40,30 +40,30 @@ export default function Alkecoin() {
   return (
     <>
       <Helmet>
-        <title>AlkeCoin (ALKE) | Native Coin of Alkebuleum</title>
-        <meta name="description" content="AlkeCoin (ALKE) is the native coin of the Alkebuleum network, used to power transactions, network participation, and trust infrastructure." />
+        <title>ALKE | Native Asset of Alkebuleum</title>
+        <meta name="description" content="ALKE is the native asset of the Alkebuleum network, used to power transactions, network participation, and trust infrastructure." />
         <link rel="canonical" href="https://alkebuleum.org/alkecoin" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://alkebuleum.org/alkecoin" />
-        <meta property="og:title" content="AlkeCoin (ALKE) | Native Coin of Alkebuleum" />
-        <meta property="og:description" content="AlkeCoin (ALKE) is the native coin of the Alkebuleum network, used to power transactions, network participation, and trust infrastructure." />
+        <meta property="og:title" content="ALKE | Native Asset of Alkebuleum" />
+        <meta property="og:description" content="ALKE is the native asset of the Alkebuleum network, used to power transactions, network participation, and trust infrastructure." />
         <meta property="og:image" content="https://alkebuleum.org/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="AlkeCoin (ALKE) | Native Coin of Alkebuleum" />
-        <meta name="twitter:description" content="AlkeCoin (ALKE) is the native coin of the Alkebuleum network, used to power transactions, network participation, and trust infrastructure." />
+        <meta name="twitter:title" content="ALKE | Native Asset of Alkebuleum" />
+        <meta name="twitter:description" content="ALKE is the native asset of the Alkebuleum network, used to power transactions, network participation, and trust infrastructure." />
         <meta name="twitter:image" content="https://alkebuleum.org/og-image.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": "AlkeCoin (ALKE) | Native Coin of Alkebuleum",
+          "name": "ALKE | Native Asset of Alkebuleum",
           "url": "https://alkebuleum.org/alkecoin",
-          "description": "AlkeCoin (ALKE) is the native coin of the Alkebuleum network, used to power transactions, network participation, and trust infrastructure.",
+          "description": "ALKE is the native asset of the Alkebuleum network, used to power transactions, network participation, and trust infrastructure.",
           "publisher": { "@id": "https://alkebuleum.org/#organization" },
           "mainEntity": {
             "@type": "FinancialProduct",
-            "name": "AlkeCoin",
-            "alternateName": ["ALKE", "AKE"],
-            "description": "Native coin of the Alkebuleum network. Used for transaction fees, smart contract execution, validator staking, governance, and network access. Not a security. No ICO.",
+            "name": "ALKE",
+            "alternateName": ["AKE"],
+            "description": "Native asset of the Alkebuleum network. Used for transaction fees, smart contract execution, validator staking, governance, and network access. Not a security. No ICO.",
             "brand": { "@id": "https://alkebuleum.org/#organization" },
             "url": "https://alkebuleum.org/alkecoin"
           }
@@ -74,10 +74,10 @@ export default function Alkecoin() {
         <div className="hero-glow" />
         <Navbar />
         <div className="hero-inner" style={{ paddingTop: 60 }}>
-          <span className="eyebrow" style={{ color: 'var(--accent)', marginBottom: 20, display: 'block' }}>— Network token</span>
-          <h1 className="hero-title" style={{ fontSize: 'clamp(36px,5vw,64px)' }}>Alkecoin <span style={{ color: 'var(--purple)' }}>ALKE</span></h1>
+          <span className="eyebrow" style={{ color: 'var(--accent)', marginBottom: 20, display: 'block' }}>— Native asset</span>
+          <h1 className="hero-title" style={{ fontSize: 'clamp(36px,5vw,64px)' }}>ALKE <span style={{ color: 'var(--purple)' }}>Native Asset</span></h1>
           <p className="hero-sub" style={{ maxWidth: 560 }}>
-            The native utility token of the Alkebuleum network. Used for transaction fees, smart contract execution, validator staking, and governance. Not a security. No ICO.
+            The native asset of the Alkebuleum network. Used for transaction fees, smart contract execution, validator staking, and governance. Not a security. No ICO.
           </p>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 32 }}>
             <a className="btn btn-primary" href="https://jollofswap.com" target="_blank" rel="noopener noreferrer">Get ALKE on JollofSwap →</a>
@@ -159,7 +159,7 @@ export default function Alkecoin() {
           <span className="eyebrow" style={{ marginBottom: 16, display: 'block' }}>— Legal</span>
           <h2 style={{ fontFamily: "'Space Grotesk',sans-serif", fontWeight: 500, letterSpacing: '-.025em', marginBottom: 20 }}>Disclaimer</h2>
           <p style={{ color: 'var(--ink-mute)', lineHeight: 1.8, fontSize: 14 }}>
-            Alkecoin (ALKE) is a native utility token of the Alkebuleum network. It is not a security, investment contract, or equity instrument. Holding ALKE does not confer ownership of or rights in Alkebuleum Foundation or any related entity. There was no initial coin offering (ICO), no public presale, and no guaranteed return.
+            ALKE is the native utility asset of the Alkebuleum network. It is not a security, investment contract, or equity instrument. Holding ALKE does not confer ownership of or rights in Alkebuleum Foundation or any related entity. There was no public presale and no guaranteed return.
           </p>
           <p style={{ color: 'var(--ink-mute)', lineHeight: 1.8, fontSize: 14, marginTop: 16 }}>
             For exchange listing enquiries, please contact <a href="mailto:listing@alkebuleum.org" style={{ color: 'var(--purple-deep)' }}>listing@alkebuleum.org</a>. For CoinGecko / CoinMarketCap applications, use the token details on this page and link to <a href="https://alkebuleum.org/alkecoin" style={{ color: 'var(--purple-deep)' }}>alkebuleum.org/alkecoin</a> as the official token page.

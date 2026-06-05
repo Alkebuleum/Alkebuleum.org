@@ -27,8 +27,8 @@ const ECOSYSTEM = [
     href: '/alkecredit',
   },
   {
-    name: 'AlkeCoin',
-    desc: 'The native coin used to power transactions, network participation, and the Alkebuleum trust layer.',
+    name: 'ALKE',
+    desc: 'The native asset used to power transactions, network participation, and the Alkebuleum trust layer.',
     href: '/alkecoin',
   },
 ]

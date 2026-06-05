@@ -31,7 +31,7 @@ const DOCS = [
       { title: 'AlkePay', desc: 'Payment request links, collections, disbursements, and automatic ledger updates.', href: '/alkepay', external: false },
       { title: 'AlkeID', desc: 'Identity infrastructure for trusted people, institutions, credentials, and participation.', href: '/alkeid', external: false },
       { title: 'AlkeCredit', desc: 'Reputation and credit infrastructure for people and organizations.', href: '/alkecredit', external: false },
-      { title: 'AlkeCoin (ALKE)', desc: 'Official details, exchange listing information, and tokenomics for AlkeCoin.', href: '/alkecoin', external: false },
+      { title: 'ALKE (Native Asset)', desc: 'Official details, exchange listing information, and tokenomics for ALKE.', href: '/alkecoin', external: false },
     ]
   },
   {

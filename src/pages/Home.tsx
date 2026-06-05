@@ -21,17 +21,17 @@ export default function Home() {
     <>
       <Helmet>
         <title>Alkebuleum — Africa's Sovereign Blockchain Infrastructure</title>
-        <meta name="description" content="A public Layer 1 blockchain built for Africa — powering identity, documents, payments, and trusted records with Alkecoin (ALKE)." />
+        <meta name="description" content="A public Layer 1 blockchain built for Africa — powering identity, documents, payments, and trusted records with ALKE." />
         <link rel="canonical" href="https://alkebuleum.org/" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://alkebuleum.org/" />
         <meta property="og:title" content="Alkebuleum — Africa's Sovereign Blockchain Infrastructure" />
-        <meta property="og:description" content="A public Layer 1 blockchain built for Africa — powering identity, documents, payments, and trusted records with Alkecoin (ALKE)." />
+        <meta property="og:description" content="A public Layer 1 blockchain built for Africa — powering identity, documents, payments, and trusted records with ALKE." />
         <meta property="og:image" content="https://alkebuleum.org/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@Alkebuleum" />
         <meta name="twitter:title" content="Alkebuleum — Africa's Sovereign Blockchain Infrastructure" />
-        <meta name="twitter:description" content="A public Layer 1 blockchain built for Africa — powering identity, documents, payments, and trusted records with Alkecoin (ALKE)." />
+        <meta name="twitter:description" content="A public Layer 1 blockchain built for Africa — powering identity, documents, payments, and trusted records with ALKE." />
         <meta name="twitter:image" content="https://alkebuleum.org/og-image.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -51,7 +51,7 @@ export default function Home() {
                 { "@type": "SiteLinksSearchBox", "@id": "https://alkebuleum.org/alkepay", "position": 3, "name": "AlkePay", "url": "https://alkebuleum.org/alkepay" },
                 { "@type": "SiteLinksSearchBox", "@id": "https://alkebuleum.org/alkeid", "position": 4, "name": "AlkeID", "url": "https://alkebuleum.org/alkeid" },
                 { "@type": "SiteLinksSearchBox", "@id": "https://alkebuleum.org/alkecredit", "position": 5, "name": "AlkeCredit", "url": "https://alkebuleum.org/alkecredit" },
-                { "@type": "SiteLinksSearchBox", "@id": "https://alkebuleum.org/alkecoin", "position": 6, "name": "AlkeCoin", "url": "https://alkebuleum.org/alkecoin" }
+                { "@type": "SiteLinksSearchBox", "@id": "https://alkebuleum.org/alkecoin", "position": 6, "name": "ALKE", "url": "https://alkebuleum.org/alkecoin" }
               ]
             }
           ]

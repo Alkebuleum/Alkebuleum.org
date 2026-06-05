@@ -25,7 +25,7 @@ const ECOSYSTEM = [
   { name: 'AlkeLedger', desc: 'The institutional ledger where every payment is anchored.', href: '/alkeledger' },
   { name: 'AlkeID', desc: 'Identity infrastructure for verified payment participants.', href: '/alkeid' },
   { name: 'AlkeCredit', desc: 'Credit reputation built from payment history.', href: '/alkecredit' },
-  { name: 'AlkeCoin', desc: 'Native coin settling every AlkePay transaction.', href: '/alkecoin' },
+  { name: 'ALKE', desc: 'Native asset settling every AlkePay transaction.', href: '/alkecoin' },
 ]
 
 export default function AlkePay() {

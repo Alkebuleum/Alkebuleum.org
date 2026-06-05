@@ -11,7 +11,7 @@ const ECOSYSTEM_LINKS = [
   { label: 'AlkePay', href: '/alkepay' },
   { label: 'AlkeID', href: '/alkeid' },
   { label: 'AlkeCredit', href: '/alkecredit' },
-  { label: 'AlkeCoin', href: '/alkecoin' },
+  { label: 'ALKE', href: '/alkecoin' },
 ]
 
 const ChevronRight = () => (
