@@ -44,10 +44,10 @@ export default function App() {
       <Routes>
         {/* Primary pages */}
         <Route path="/" element={<Home />} />
-        <Route path="/council" element={<RedirectToStatic to="/council-hub.html" />} />
-        <Route path="/council/apply" element={<RedirectToStatic to="/council-apply.html" />} />
-        <Route path="/council/brief" element={<RedirectToStatic to="/council-brief.html" />} />
-        <Route path="/council/membership" element={<RedirectToStatic to="/council-membership.html" />} />
+        <Route path="/council" element={<RedirectToStatic to="https://council.alkebuleum.org" />} />
+        <Route path="/council/apply" element={<RedirectToStatic to="https://council.alkebuleum.org/council-apply.html" />} />
+        <Route path="/council/brief" element={<RedirectToStatic to="https://council.alkebuleum.org/council-brief.html" />} />
+        <Route path="/council/membership" element={<RedirectToStatic to="https://council.alkebuleum.org/council-membership.html" />} />
         <Route path="/alkeledger" element={<AlkeLedger />} />
         <Route path="/alkepay" element={<AlkePay />} />
         <Route path="/alkeid" element={<AlkeID />} />

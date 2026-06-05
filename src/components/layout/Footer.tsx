@@ -57,7 +57,7 @@ export default function Footer() {
           <div className="foot-col">
             <h5>Trust Infrastructure</h5>
             <ul>
-              <li><a href="/council-hub.html">Alkebuleum Council</a></li>
+              <li><a href="https://council.alkebuleum.org">Alkebuleum Council</a></li>
               <li><Link to="/alkeledger">AlkeLedger</Link></li>
               <li><Link to="/alkepay">AlkePay</Link></li>
               <li><Link to="/alkeid">AlkeID</Link></li>

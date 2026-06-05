@@ -149,7 +149,7 @@ export default function CouncilSection() {
           <p>If your institution serves Africa or the diaspora, we're inviting you to join the founding council. Validators shape the protocol, secure the network, and define how the continent's digital trust infrastructure is built.</p>
           <div className="council-actions">
             <button className="btn btn-dark" onClick={() => setApplyOpen(true)}>Apply to validate →</button>
-            <a className="btn btn-outline-dark" href="/council-hub.html">Visit the Council</a>
+            <a className="btn btn-outline-dark" href="https://council.alkebuleum.org">Visit the Council</a>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ interface Props {
 }
 
 const ECOSYSTEM_LINKS = [
-  { label: 'Alkebuleum Council', href: '/council-hub.html', static: true },
+  { label: 'Alkebuleum Council', href: 'https://council.alkebuleum.org', static: true },
   { label: 'AlkeLedger', href: '/alkeledger' },
   { label: 'AlkePay', href: '/alkepay' },
   { label: 'AlkeID', href: '/alkeid' },
