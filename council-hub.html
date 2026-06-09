@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Join the Council | Alkebuleum</title>
+<meta name="description" content="Join the institutions shaping Africa's sovereign trust layer. The Alkebuleum Council brings together banks, universities, regulators, governments, and diaspora institutions to govern the trust infrastructure of digital Africa."/>
+<link rel="canonical" href="https://council.alkebuleum.org"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#06060a;--bg-soft:#0e0e14;--bg-card:#13131c;
+    --ink:#ffffff;--ink-dim:#a9a8b3;--ink-mute:#6b6a78;
+    --purple:#8b6dff;--purple-deep:#5e3aff;--accent:#c6b6ff;--gold:#d9b25e;
+    --line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;font-size:16px;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  svg{display:block}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--purple);font-weight:500}
+  .nav{position:sticky;top:0;z-index:50;background:rgba(6,6,10,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:18px 0}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-size:15px}
+  .brand svg{width:22px;height:25px;color:#fff}
+  .brand-word{font-variant:small-caps;letter-spacing:.1em}
+  .brand-word strong{font-weight:700}.brand-word span{font-weight:300}
+  .brand-sep{width:1px;height:18px;background:var(--line-2);margin:0 4px}
+  .brand-section{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute)}
+  .nav-links{display:flex;align-items:center;gap:28px}
+  .nav-link{font-size:13.5px;color:var(--ink-dim);transition:color .15s}
+  .nav-link:hover{color:#fff}
+  .nav-cta{display:flex;align-items:center;flex-shrink:0}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:999px;font-size:14px;font-weight:500;border:1px solid;transition:all .2s;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap}
+  .btn-violet{background:var(--purple);color:#fff;border-color:var(--purple)}
+  .btn-violet:hover{background:var(--purple-deep);border-color:var(--purple-deep)}
+  .btn-outline{background:transparent;color:#fff;border-color:var(--line-2)}
+  .btn-outline:hover{background:#fff;color:var(--bg);border-color:#fff}
+  .btn-white{background:#fff;color:var(--bg);border-color:#fff}
+  .btn-white:hover{background:transparent;color:#fff;border-color:#fff}
+  .btn-sm{padding:10px 18px;font-size:13px}
+  @media(max-width:760px){.nav-links{display:none}}
+  @media(max-width:640px){.nav-cta{display:none}}
+  .hero{padding:96px 0 84px;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero::before{content:"";position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(94,58,255,.22),transparent 65%);filter:blur(60px);pointer-events:none}
+  .hero-inner{position:relative;z-index:2;max-width:880px}
+  .hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:rgba(139,109,255,.1);border:1px solid rgba(139,109,255,.3);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:34px;font-weight:500}
+  .hero-badge .pulse{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(198,182,255,.2);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(40px,5.8vw,74px);line-height:1.03;letter-spacing:-.025em;margin-bottom:28px;color:#fff}
+  .hero h1 em{font-style:italic;color:var(--accent)}
+  .hero-lede{font-size:19px;line-height:1.6;color:var(--ink-dim);max-width:620px;margin-bottom:40px;font-weight:300}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero-reassure{margin-top:28px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:var(--ink-mute);display:flex;align-items:center;gap:10px}
+  .hero-reassure svg{width:14px;height:14px;color:var(--purple);flex-shrink:0}
+  section{padding:100px 0;border-bottom:1px solid var(--line)}
+  .sec-head{max-width:680px;margin-bottom:60px}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+  .sec-head h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(32px,4.2vw,52px);line-height:1.06;letter-spacing:-.02em;margin:16px 0 20px;color:#fff}
+  .sec-head h2 em{font-style:italic;color:var(--accent)}
+  .sec-head p{font-size:17px;color:var(--ink-dim);line-height:1.6}
+  .intro{padding:90px 0;border-bottom:1px solid var(--line)}
+  .intro-statement{max-width:860px;font-family:'Fraunces',serif;font-weight:400;font-size:clamp(24px,3vw,34px);line-height:1.4;letter-spacing:-.01em;color:#fff}
+  .intro-statement em{font-style:italic;color:var(--accent)}
+  .intro-sub{margin-top:32px;font-size:17px;line-height:1.7;color:var(--ink-dim);max-width:680px}
+  .seats-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .seats-copy p{font-size:15.5px;line-height:1.7;color:var(--ink-dim);margin-bottom:16px}
+  .seats-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0}
+  .seat-card{background:var(--bg-card);border:1px solid var(--line);border-radius:12px;padding:22px 20px;transition:all .2s}
+  .seat-card:hover{border-color:var(--line-2);background:#16161f}
+  .seat-card .big{font-family:'Fraunces',serif;font-size:30px;font-weight:500;color:#fff;line-height:1;letter-spacing:-.02em;margin-bottom:10px}
+  .seat-card h4{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:15px;color:#fff;margin-bottom:8px;line-height:1.2}
+  .seat-card p{font-size:12.5px;line-height:1.5;color:var(--ink-mute);margin:0}
+  .chamber-wrap{position:relative;border:1px solid var(--line);border-radius:18px;background:radial-gradient(ellipse 70% 60% at 50% 35%,rgba(94,58,255,.12),transparent 70%),var(--bg-soft);padding:30px;overflow:hidden}
+  .chamber-wrap svg{width:100%;height:auto;display:block}
+  .chamber-legend{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+  .chamber-legend .lg{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim)}
+  .chamber-legend .dot{width:9px;height:9px;border-radius:50%}
+  @media(max-width:900px){.seats-grid{grid-template-columns:1fr;gap:40px}.seats-cards{margin:24px 0}}
+  @media(max-width:560px){.seats-cards{grid-template-columns:1fr}}
+  .benefits-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .benefit{background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:34px 32px;transition:all .25s;position:relative;overflow:hidden}
+  .benefit::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--purple),transparent);opacity:0;transition:opacity .3s}
+  .benefit:hover{border-color:var(--line-2);transform:translateY(-3px);background:#16161f}
+  .benefit:hover::before{opacity:1}
+  .benefit-icon{width:44px;height:44px;border-radius:11px;background:rgba(139,109,255,.12);border:1px solid rgba(139,109,255,.25);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+  .benefit-icon svg{width:21px;height:21px;color:var(--accent)}
+  .benefit h3{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:19px;letter-spacing:-.01em;color:#fff;margin-bottom:11px;line-height:1.25}
+  .benefit p{font-size:14.5px;line-height:1.6;color:var(--ink-dim)}
+  @media(max-width:760px){.benefits-grid{grid-template-columns:1fr}}
+  .who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .who-card{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:26px 22px;transition:all .2s}
+  .who-card:hover{border-color:var(--line-2);background:var(--bg-card)}
+  .who-card svg{width:24px;height:24px;color:var(--purple);margin-bottom:14px}
+  .who-card h4{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:15px;color:#fff;margin-bottom:6px}
+  .who-card p{font-size:13px;line-height:1.5;color:var(--ink-mute)}
+  @media(max-width:900px){.who-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.who-grid{grid-template-columns:1fr}}
+  .pathways{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .pathway{background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:32px;position:relative;transition:all .25s}
+  .pathway:hover{border-color:var(--line-2);background:#16161f}
+  .pathway-num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--purple);font-weight:500;margin-bottom:16px}
+  .pathway h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:21px;letter-spacing:-.01em;color:#fff;margin-bottom:6px}
+  .pathway .tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:16px}
+  .pathway p{font-size:14.5px;line-height:1.6;color:var(--ink-dim)}
+  @media(max-width:760px){.pathways{grid-template-columns:1fr}}
+  .receive{background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;padding:38px 40px}
+  .receive-head{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--purple);font-weight:500;margin-bottom:24px}
+  .receive-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 32px;list-style:none}
+  .receive-list li{display:flex;align-items:flex-start;gap:11px;font-size:15px;color:var(--ink-dim);line-height:1.45}
+  .receive-list li svg{width:17px;height:17px;color:var(--purple);flex-shrink:0;margin-top:2px}
+  @media(max-width:760px){.receive{padding:30px 26px}.receive-list{grid-template-columns:1fr;gap:14px}}
+  .pilots-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .pilot{background:var(--bg-soft);border:1px solid var(--line);border-radius:11px;padding:22px 20px;transition:all .2s}
+  .pilot:hover{border-color:var(--purple);background:var(--bg-card)}
+  .pilot svg{width:22px;height:22px;color:var(--accent);margin-bottom:13px}
+  .pilot h4{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:14.5px;color:#fff;line-height:1.3;margin-bottom:5px}
+  .pilot p{font-size:12.5px;line-height:1.5;color:var(--ink-mute)}
+  @media(max-width:900px){.pilots-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.pilots-grid{grid-template-columns:1fr}}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .step{position:relative;padding:0 24px}
+  .step:not(:last-child)::after{content:"";position:absolute;top:22px;right:-2px;width:1px;height:calc(100% - 22px);background:var(--line)}
+  .step-num{width:46px;height:46px;border-radius:50%;border:1px solid var(--purple);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;color:var(--accent);margin-bottom:22px;background:rgba(139,109,255,.08)}
+  .step h4{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:17px;color:#fff;margin-bottom:9px}
+  .step p{font-size:14px;line-height:1.55;color:var(--ink-dim)}
+  @media(max-width:900px){.steps{grid-template-columns:1fr;gap:32px}.step{padding:0}.step:not(:last-child)::after{display:none}}
+  .docs-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+  .doc-link{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:24px 22px;transition:all .2s;display:flex;flex-direction:column;min-height:150px}
+  .doc-link:hover{border-color:var(--line-2);background:var(--bg-card);transform:translateY(-2px)}
+  .doc-link .doc-num{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ink-mute);letter-spacing:.1em;margin-bottom:auto}
+  .doc-link h4{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:16px;color:#fff;margin:18px 0 6px;display:flex;align-items:center;gap:8px}
+  .doc-link h4 svg{width:14px;height:14px;color:var(--purple)}
+  .doc-link p{font-size:12.5px;line-height:1.5;color:var(--ink-mute)}
+  @media(max-width:900px){.docs-strip{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.docs-strip{grid-template-columns:1fr}}
+  .final-cta{padding:120px 0;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .final-cta::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:760px;height:500px;background:radial-gradient(ellipse,rgba(94,58,255,.2),transparent 65%);filter:blur(70px);pointer-events:none}
+  .final-cta-inner{position:relative;z-index:2;max-width:680px;margin:0 auto}
+  .final-cta h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(34px,4.6vw,58px);line-height:1.05;letter-spacing:-.02em;color:#fff;margin-bottom:24px}
+  .final-cta h2 em{font-style:italic;color:var(--accent)}
+  .final-cta p{font-size:18px;line-height:1.6;color:var(--ink-dim);margin-bottom:38px}
+  .final-cta .hero-cta{justify-content:center}
+  footer{padding:64px 0 40px;background:var(--bg)}
+  .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid var(--line)}
+  .foot-brand{max-width:320px}
+  .foot-brand .brand{margin-bottom:18px}
+  .foot-brand p{font-size:14px;line-height:1.6;color:var(--ink-mute)}
+  .foot-cols{display:flex;gap:64px;flex-wrap:wrap}
+  .foot-col h5{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:16px;font-weight:500}
+  .foot-col a{display:block;font-size:14px;color:var(--ink-dim);margin-bottom:10px;transition:color .15s}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{padding-top:28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-mute);letter-spacing:.06em}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 100 110">
+    <path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M50,7 L86,28 Q90,30.5 90,35 L90,75 Q90,79.5 86,82 L50,103 L14,82 Q10,79.5 10,75 L10,35 Q10,30.5 14,28 Z"/>
+    <line fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" x1="50" y1="27" x2="50" y2="83"/>
+    <polyline fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" points="30,42 42,55 30,68"/>
+    <polyline fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" points="20,45 29.3,55 20,65"/>
+    <polyline fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" points="70,42 58,55 70,68"/>
+    <polyline fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" points="80,45 70.7,55 80,65"/>
+  </symbol>
+</svg>
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="https://alkebuleum.org" class="brand">
+      <svg><use href="#mark"/></svg>
+      <span class="brand-word"><strong>Alke</strong><span>buleum</span></span>
+      <span class="brand-sep"></span><span class="brand-section">Council</span>
+    </a>
+    <div class="nav-links">
+      <a href="#why" class="nav-link">Why Join</a>
+      <a href="#pathways" class="nav-link">Pathways</a>
+      <a href="#pilots" class="nav-link">Pilots</a>
+      <a href="#how" class="nav-link">How to Join</a>
+      <a href="https://alkeledger.com/alkebuleum-council" class="nav-link">Member Login</a>
+    </div>
+    <div class="nav-cta">
+      <a href="council-apply.html" class="btn btn-violet btn-sm">Start a conversation</a>
+    </div>
+  </div>
+</nav>
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-badge"><span class="pulse"></span> The Council is forming</div>
+    <h1>Join the institutions shaping Africa's <em>sovereign trust layer.</em></h1>
+    <p class="hero-lede">The Alkebuleum Council brings together the banks, universities, regulators, governments, and diaspora institutions that will govern the trust infrastructure of digital Africa — identity, records, payments, and credentials.</p>
+    <div class="hero-cta">
+      <a href="council-apply.html" class="btn btn-violet">Start a private conversation</a>
+      <a href="#why" class="btn btn-outline">Why join the Council</a>
+    </div>
+    <div class="hero-reassure">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      No fee to begin &middot; No public announcement &middot; Move at your institution's pace
+    </div>
+  </div>
+</header>
+<div class="intro">
+  <div class="wrap">
+    <p class="intro-statement">Africa's institutions should not rent the infrastructure that records what is true. The Alkebuleum Council exists so that the continent's own banks, universities, regulators, and governments <em>govern that infrastructure together</em> — setting the standards, validating the network, and shaping its direction.</p>
+    <p class="intro-sub">Alkebuleum is a sovereign trust layer for identity, institutional records, payments, and credit. It is secured not by anonymous capital, but by reputable institutions. The Council is how those institutions take part — and the founding cohort is forming now.</p>
+  </div>
+</div>
+<section id="seats">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Council Structure</span>
+      <h2>Limited to <em>55 institutional seats.</em></h2>
+    </div>
+    <div class="seats-grid">
+      <div class="seats-copy">
+        <p>The Alkebuleum Council is designed as a limited-seat governance body, not an open membership club. At maturity, the Council will include 55 institutional members, each holding one equal vote.</p>
+        <p>Seats are balanced across government, education, finance, fintech, business, nonprofit, civil society, and diaspora institutions to ensure that Africa's sovereign trust layer is shaped by a broad and credible group of institutions — not one sector alone.</p>
+        <p>Participation tracks define how a member contributes, not how much voting power they hold. A member may participate as an Observer, Governance Contributor, Validator Partner, or Implementation Partner depending on readiness and capacity.</p>
+        <div class="seats-cards">
+          <div class="seat-card">
+            <div class="big">55</div>
+            <h4>Institutional Seats</h4>
+            <p>A limited Council designed for credibility, balance, and serious governance.</p>
+          </div>
+          <div class="seat-card">
+            <div class="big">1&#8201;:&#8201;1</div>
+            <h4>One Institution, One Vote</h4>
+            <p>Every accepted Council member holds equal voting rights.</p>
+          </div>
+          <div class="seat-card">
+            <div class="big">8</div>
+            <h4>Balanced by Sector</h4>
+            <p>Seats are distributed across trusted institution types to prevent control by any single sector.</p>
+          </div>
+        </div>
+        <a href="council-membership.html" class="btn btn-outline">View Membership Structure &rarr;</a>
+      </div>
+      <div>
+        <div class="chamber-wrap">
+          <svg viewBox="0 0 480 340" role="img" aria-label="A top-down parliamentary seating chart. Curved seat blocks radiate in a semicircle around a speaker's podium. Twelve seats are highlighted to show the founding cohort forming; the rest are available.">
+            <defs>
+              <radialGradient id="fanGlow" cx="50%" cy="92%" r="75%">
+                <stop offset="0%" stop-color="rgba(139,109,255,.16)"/>
+                <stop offset="60%" stop-color="rgba(94,58,255,.04)"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </radialGradient>
+              <linearGradient id="litTile" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#c6b6ff"/>
+                <stop offset="100%" stop-color="#7a55ff"/>
+              </linearGradient>
+              <filter id="tileGlow" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="1.6" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <rect x="0" y="0" width="480" height="340" fill="url(#fanGlow)"/>
+            <g id="seatRows"></g>
+            <g>
+              <rect x="212" y="266" width="56" height="26" rx="3" fill="#1a1726" stroke="#caa24a" stroke-width="1" stroke-opacity="0.55"/>
+              <g transform="translate(240,279) scale(0.17,0.17) translate(-50,-55)" opacity="0.9">
+                <path fill="none" stroke="#caa24a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" d="M50,7 L86,28 Q90,30.5 90,35 L90,75 Q90,79.5 86,82 L50,103 L14,82 Q10,79.5 10,75 L10,35 Q10,30.5 14,28 Z"/>
+                <line stroke="#caa24a" stroke-width="4" stroke-linecap="round" x1="50" y1="27" x2="50" y2="83"/>
+                <polyline fill="none" stroke="#caa24a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" points="32,44 42,55 32,66"/>
+                <polyline fill="none" stroke="#caa24a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" points="68,44 58,55 68,66"/>
+              </g>
+              <rect x="228" y="296" width="24" height="16" rx="2.5" fill="#1a1726" stroke="#caa24a" stroke-width="0.8" stroke-opacity="0.45"/>
+            </g>
+          </svg>
+          <div class="chamber-legend">
+            <span class="lg"><span class="dot" style="background:#a78bfa;box-shadow:0 0 8px #8b6dff;"></span> Founding cohort forming</span>
+            <span class="lg"><span class="dot" style="background:#2b2b3d;border:1px solid #4a4a5e;"></span> Seats available</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Why Join</span>
+      <h2>What your institution <em>gains.</em></h2>
+      <p>The Council is not a membership club. It is a governance body for continental infrastructure — and joining early means helping set the rules, not inheriting them.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
+        <h3>Shape Africa's digital trust infrastructure</h3>
+        <p>Take part in the governance decisions that shape identity, records, payments, credentials, and institutional trust across the continent.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21.4 8 14 2 9.4h7.6z"/></svg></div>
+        <h3>Gain founding-institution standing</h3>
+        <p>Be recognized — when and only if you choose to be named publicly — as one of the institutions that helped build Africa's sovereign trust layer.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg></div>
+        <h3>Access real implementation pilots</h3>
+        <p>Work with the Foundation on pilots in identity, academic credentials, land records, payments, anti-corruption logs, and document verification.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Influence standards and protocol direction</h3>
+        <p>Help define validator standards, governance rules, protocol upgrades, and the pathways by which institutions across Africa adopt the network.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
+        <h3>Join without financial obligation</h3>
+        <p>Most Council pathways carry no membership fee or financial contribution. Begin as an Observer, Member, Validator, or Implementation Partner based on your readiness.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></div>
+        <h3>Move at your institution's pace</h3>
+        <p>Begin privately. Evaluate internally. Go public only when your institution is ready — there is no obligation and no public announcement at the expression-of-interest stage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="who">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Who Should Join</span>
+      <h2>Built for the institutions Africa <em>already trusts.</em></h2>
+      <p>The Council is open to credible institutions across Africa and the global diaspora — at every level of technical readiness.</p>
+    </div>
+    <div class="who-grid">
+      <div class="who-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg><h4>Governments &amp; Ministries</h4><p>National and regional public bodies</p></div>
+      <div class="who-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M3 8l9-5 9 5M8 21v-7h8v7"/></svg><h4>Banks &amp; Central Banks</h4><p>Financial institutions and regulators</p></div>
+      <div class="who-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg><h4>Universities</h4><p>Higher education and research bodies</p></div>
+      <div class="who-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><h4>Fintechs</h4><p>Payment and financial technology firms</p></div>
+      <div class="who-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM2 12h20"/><path d="M12 2a15 15 0 0 1 0 20"/></svg><h4>Regulators</h4><p>Standards and oversight authorities</p></div>
+      <div class="who-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M8 7h5M8 11h8M8 15h8"/></svg><h4>National Archives</h4><p>Records and registry institutions</p></div>
+      <div class="who-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5M15.5 20c0-2 1-3.5 3-3.5"/></svg><h4>Civil Society</h4><p>Transparency and accountability orgs</p></div>
+      <div class="who-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><h4>Diaspora Institutions</h4><p>Chambers, coalitions, and networks</p></div>
+    </div>
+  </div>
+</section>
+<section id="pathways">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Ways to Participate</span>
+      <h2>One Council. <em>Four ways to participate.</em></h2>
+      <p>All accepted Council members hold one equal vote. Members choose a participation track based on their institution's readiness, mandate, and capacity — and may move between tracks over time.</p>
+    </div>
+    <div class="pathways">
+      <div class="pathway"><div class="pathway-num">01</div><h3>Observer Track</h3><span class="tag">Evaluating</span><p>A full Council seat with equal voting rights, for institutions participating at a lighter level while they evaluate deeper involvement. You vote and receive briefings without an operational commitment.</p></div>
+      <div class="pathway"><div class="pathway-num">02</div><h3>Governance Track</h3><span class="tag">Governing</span><p>For institutions ready to take an active governance role — shaping standards, validator rules, and the direction of the protocol, and willing to be named publicly as a Council member.</p></div>
+      <div class="pathway"><div class="pathway-num">03</div><h3>Validator Track</h3><span class="tag">Operating</span><p>For institutions ready to help secure the network by operating validator infrastructure under the Proof of Reputation and Authority model — alongside their equal vote.</p></div>
+      <div class="pathway"><div class="pathway-num">04</div><h3>Implementation Track</h3><span class="tag">Piloting</span><p>For institutions piloting a specific use case — credentials, records, payments, or identity — on the network with Foundation support, alongside their equal vote.</p></div>
+    </div>
+    <div style="margin-top:28px"><a href="council-membership.html" class="btn btn-outline">Compare pathways in detail &rarr;</a></div>
+    <div class="receive" style="margin-top:40px">
+      <div class="receive-head">What Members Receive</div>
+      <ul class="receive-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Private Council briefings</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Access to pilot opportunities</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Participation in working groups</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Governance input</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Institutional visibility when approved</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Council documents and meeting notes</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section id="pilots">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Pilot Opportunities</span>
+      <h2>Where institutions can <em>put it to work.</em></h2>
+      <p>Implementation pilots are real, scoped engagements where an institution applies Alkebuleum to a concrete problem. Examples include:</p>
+    </div>
+    <div class="pilots-grid">
+      <div class="pilot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M5 17c0-2 1.8-3 4-3s4 1 4 3M15 9h4M15 13h4"/></svg><h4>Digital Identity</h4><p>Verifiable citizen and institutional credentials</p></div>
+      <div class="pilot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg><h4>Academic Credentials</h4><p>Tamper-proof degrees and certificates</p></div>
+      <div class="pilot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-4 7 4v11M9 21v-5h6v5"/></svg><h4>Land Records</h4><p>Property and title registries</p></div>
+      <div class="pilot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg><h4>Payments</h4><p>Disbursement and settlement rails</p></div>
+      <div class="pilot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg><h4>Anti-Corruption Logs</h4><p>Transparent public-procurement records</p></div>
+      <div class="pilot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg><h4>Document Verification</h4><p>Authenticity for official paperwork</p></div>
+      <div class="pilot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><h4>Diaspora Investment</h4><p>Cross-border verified participation</p></div>
+      <div class="pilot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><polyline points="15 7 21 7 21 13"/></svg><h4>Credit History</h4><p>Portable reputation and creditworthiness</p></div>
+    </div>
+    <div style="margin-top:28px"><a href="council-usecases.html" class="btn btn-outline">Explore all use cases &rarr;</a></div>
+  </div>
+</section>
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">How Joining Works</span>
+      <h2>A private, <em>no-pressure</em> process.</h2>
+      <p>Joining begins with a conversation, not a commitment. Here's how it goes.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h4>Express interest</h4><p>Submit a brief, private expression of interest. No public announcement, no obligation to continue.</p></div>
+      <div class="step"><div class="step-num">2</div><h4>Private call</h4><p>We hold an introductory conversation to share the initiative and understand your institution's priorities.</p></div>
+      <div class="step"><div class="step-num">3</div><h4>Tailored proposal</h4><p>We prepare a participation proposal matched to your readiness, mandate, and the pathway that fits.</p></div>
+      <div class="step"><div class="step-num">4</div><h4>Onboarding</h4><p>When your institution is ready, you formalize participation and — if you choose — are named publicly.</p></div>
+    </div>
+  </div>
+</section>
+<section id="documents">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">For Due Diligence</span>
+      <h2>The full institutional <em>record.</em></h2>
+      <p>For teams that need to evaluate in depth, the complete Council documentation is available.</p>
+    </div>
+    <div class="docs-strip">
+      <a href="council-brief.html" class="doc-link"><span class="doc-num">DOC 01</span><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Council Brief</h4><p>The full 10-section formal brief on the Council's purpose, structure, and governance.</p></a>
+      <a href="council-membership.html" class="doc-link"><span class="doc-num">DOC 02</span><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>Membership</h4><p>Detailed comparison of the four pathways and what each involves.</p></a>
+      <a href="council-usecases.html" class="doc-link"><span class="doc-num">DOC 03</span><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Use Cases</h4><p>Eight pilot use cases showing how the network applies to real institutional problems.</p></a>
+      <a href="council-apply.html" class="doc-link"><span class="doc-num">DOC 04</span><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>Apply</h4><p>The private expression-of-interest form to begin a conversation.</p></a>
+    </div>
+  </div>
+</section>
+<section class="final-cta">
+  <div class="wrap final-cta-inner">
+    <h2>Help build the foundation, <em>not inherit it.</em></h2>
+    <p>The founding cohort is forming now. Begin a private conversation — no fee, no public announcement, no obligation.</p>
+    <div class="hero-cta">
+      <a href="council-apply.html" class="btn btn-white">Start a private conversation</a>
+      <a href="mailto:council@alkebuleum.org" class="btn btn-outline">council@alkebuleum.org</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="https://alkebuleum.org" class="brand">
+          <svg><use href="#mark"/></svg>
+          <span class="brand-word"><strong>Alke</strong><span>buleum</span></span>
+          <span class="brand-sep"></span><span class="brand-section">Council</span>
+        </a>
+        <p>The governance body of reputable institutions shaping Africa's sovereign trust layer.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col"><h5>The Council</h5><a href="#why">Why Join</a><a href="#pathways">Pathways</a><a href="#pilots">Pilots</a><a href="#how">How to Join</a><a href="https://alkeledger.com/alkebuleum-council">Member Login</a></div>
+        <div class="foot-col"><h5>Documents</h5><a href="council-brief.html">Council Brief</a><a href="council-membership.html">Membership</a><a href="council-usecases.html">Use Cases</a><a href="council-apply.html">Apply</a></div>
+        <div class="foot-col"><h5>Alkebuleum</h5><a href="https://alkebuleum.org">Main site</a><a href="https://alkebuleum.org/media">Media kit</a><a href="mailto:council@alkebuleum.org">Contact</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Alkebuleum Foundation &middot; The Council</span>
+      <span>A Ledger of Trust, Built by Africa</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var g = document.getElementById('seatRows');
+  if(!g) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  var cx = 240, cy = 290;
+  var rows = [
+    {r:70,  n:7},
+    {r:102, n:9},
+    {r:136, n:11},
+    {r:172, n:13},
+    {r:210, n:15}
+  ];
+  var SPAN_L = -86, SPAN_R = 86;
+  var AISLE_FRAC = 0.06;
+  var seed = 20260605;
+  function rand(){ seed = (seed*1103515245 + 12345) & 0x7fffffff; return seed/0x7fffffff; }
+  var all = [];
+  rows.forEach(function(row,ri){ for(var i=0;i<row.n;i++) all.push([ri,i]); });
+  for(var i=all.length-1;i>0;i--){ var j=Math.floor(rand()*(i+1)); var tmp=all[i]; all[i]=all[j]; all[j]=tmp; }
+  var litSet = {};
+  for(var k=0;k<12;k++){ litSet[ all[k][0]+'-'+all[k][1] ] = true; }
+  function tile(angDeg, halfW, r, rExtent, founding){
+    var a0 = (angDeg - halfW) * Math.PI/180;
+    var a1 = (angDeg + halfW) * Math.PI/180;
+    function pt(rr,aa){ return [ (cx + rr*Math.sin(aa)).toFixed(2), (cy - rr*Math.cos(aa)).toFixed(2) ]; }
+    var ri = r, ro = r + rExtent;
+    var p1 = pt(ri,a0), p2 = pt(ro,a0), p3 = pt(ro,a1), p4 = pt(ri,a1);
+    var d = 'M'+p1[0]+','+p1[1]+' L'+p2[0]+','+p2[1]+
+            ' A'+ro+','+ro+' 0 0 1 '+p3[0]+','+p3[1]+
+            ' L'+p4[0]+','+p4[1]+
+            ' A'+ri+','+ri+' 0 0 0 '+p1[0]+','+p1[1]+' Z';
+    var path = document.createElementNS(NS,'path');
+    path.setAttribute('d',d);
+    path.setAttribute('stroke-linejoin','round');
+    if(founding){
+      path.setAttribute('fill','url(#litTile)');
+      path.setAttribute('stroke','#a78bfa');
+      path.setAttribute('stroke-width','1.6');
+      path.setAttribute('filter','url(#tileGlow)');
+      var an = document.createElementNS(NS,'animate');
+      an.setAttribute('attributeName','opacity');
+      an.setAttribute('values','0.82;1;0.82');
+      an.setAttribute('dur',(2.4 + ((Math.abs(Math.round(angDeg))+Math.round(r))%6)*0.3)+'s');
+      an.setAttribute('repeatCount','indefinite');
+      path.appendChild(an);
+    } else {
+      path.setAttribute('fill','#23212f');
+      path.setAttribute('stroke','#3a3747');
+      path.setAttribute('stroke-width','1.6');
+    }
+    return path;
+  }
+  rows.forEach(function(row, ri){
+    var n = row.n;
+    var rExtent = ri<2 ? 18 : 20;
+    var seatSpan = (SPAN_R - SPAN_L) / n;
+    var halfW = seatSpan*(0.5 - AISLE_FRAC);
+    for(var i=0;i<n;i++){
+      var ang = SPAN_L + seatSpan*(i+0.5);
+      var founding = !!litSet[ri+'-'+i];
+      g.appendChild(tile(ang, halfW, row.r, rExtent, founding));
+    }
+  });
+})();
+</script>
+</body>
+</html>

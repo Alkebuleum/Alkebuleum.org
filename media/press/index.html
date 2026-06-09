@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Press Releases | Alkebuleum</title>
+<meta name="description" content="Official press releases from the Alkebuleum Foundation. Announcements, council news, partnership updates, and milestones."/>
+<link rel="canonical" href="https://alkebuleum.org/media/press"/>
+<meta property="og:title" content="Press Releases | Alkebuleum"/>
+<meta property="og:description" content="Official press releases from the Alkebuleum Foundation. Announcements, council news, partnership updates, and milestones."/>
+<meta property="og:url" content="https://alkebuleum.org/media/press"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://alkebuleum.org/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Press Releases | Alkebuleum"/>
+<meta name="twitter:description" content="Official press releases from the Alkebuleum Foundation."/>
+<meta name="twitter:image" content="https://alkebuleum.org/og-image.png"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0c0b0a;
+  --ink-2:#2e2d2b;
+  --ink-3:#6b6a66;
+  --ink-4:#9a9994;
+  --bg:#faf8f4;
+  --bg-2:#f4f0e8;
+  --bg-dark:#0c0b0a;
+  --purple:#6b52e8;
+  --purple-2:#4f3ac0;
+  --accent:#c6b6ff;
+  --gold:#b08a2e;
+  --rule:rgba(12,11,10,.1);
+  --rule-2:rgba(12,11,10,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'DM Sans',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;font-size:16px;
+}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+
+/* ── TOPBAR ── */
+.topbar{
+  background:var(--bg-dark);color:#fff;
+  padding:20px 0;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.topbar-inner{
+  max-width:1180px;margin:0 auto;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.topbar-brand{display:flex;align-items:center;gap:10px}
+.topbar-brand svg{width:24px;height:28px;color:#fff}
+.topbar-brand-word{
+  font-family:'DM Sans',sans-serif;font-size:14px;
+  font-variant:small-caps;letter-spacing:.12em;
+}
+.topbar-brand-word strong{font-weight:600}
+.topbar-brand-word span{font-weight:300}
+.topbar-section{
+  font-family:'DM Mono',monospace;font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);
+  padding-left:14px;border-left:1px solid rgba(255,255,255,.2);
+  margin-left:14px;
+}
+.topbar-nav{display:flex;gap:24px;font-size:13.5px}
+.topbar-nav a{color:rgba(255,255,255,.7);transition:color .15s}
+.topbar-nav a:hover, .topbar-nav a.active{color:#fff}
+@media(max-width:760px){
+  .topbar-nav{display:none}
+  .topbar-section{display:none}
+}
+
+/* ── HERO ── */
+.hero{
+  background:var(--bg-dark);color:#fff;
+  padding:80px 0 70px;
+  position:relative;overflow:hidden;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.hero::before{
+  content:"";position:absolute;
+  right:-100px;top:-50px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(107,82,232,.25),transparent 60%);
+  filter:blur(80px);pointer-events:none;
+}
+.hero-inner{
+  max-width:1180px;margin:0 auto;padding:0 32px;
+  position:relative;z-index:2;
+}
+.hero-eyebrow{
+  font-family:'DM Mono',monospace;font-size:11px;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);font-weight:500;
+  margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.hero-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent)}
+.hero h1{
+  font-family:'Playfair Display',serif;font-weight:400;
+  font-size:clamp(36px,5vw,58px);line-height:1.05;
+  letter-spacing:-.025em;color:#fff;
+  margin-bottom:18px;max-width:780px;
+}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p{
+  font-size:17px;line-height:1.55;
+  color:rgba(255,255,255,.72);max-width:600px;
+}
+
+/* ── FILTER BAR ── */
+.filter-bar{
+  background:#fff;border-bottom:1px solid var(--rule);
+  position:sticky;top:0;z-index:20;
+}
+.filter-inner{
+  max-width:1180px;margin:0 auto;padding:18px 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+}
+.filter-tabs{display:flex;gap:4px;flex-wrap:wrap}
+.filter-tab{
+  font-family:'DM Mono',monospace;font-size:11px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;
+  padding:8px 14px;border-radius:999px;
+  border:1px solid var(--rule);background:transparent;
+  cursor:pointer;transition:all .15s;
+}
+.filter-tab:hover{border-color:var(--rule-2);color:var(--ink)}
+.filter-tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.filter-count{
+  font-family:'DM Mono',monospace;font-size:11px;
+  letter-spacing:.08em;color:var(--ink-4);
+}
+
+/* ── RELEASES LIST ── */
+.releases-wrap{
+  max-width:1180px;margin:0 auto;padding:56px 32px 100px;
+}
+.releases-list{display:flex;flex-direction:column;gap:0}
+.release-item{
+  display:grid;grid-template-columns:180px 1fr auto;gap:32px;
+  padding:32px 0;
+  border-bottom:1px solid var(--rule);
+  align-items:start;
+  transition:transform .2s;
+}
+.release-item:first-child{border-top:1px solid var(--rule)}
+.release-item:hover{transform:translateX(4px)}
+
+.release-date{
+  font-family:'DM Mono',monospace;font-size:11.5px;
+  letter-spacing:.1em;color:var(--ink-3);
+  padding-top:6px;
+}
+.release-date strong{
+  display:block;color:var(--ink);font-family:'DM Sans',sans-serif;
+  font-weight:500;font-size:13px;letter-spacing:0;margin-bottom:2px;
+  text-transform:none;
+}
+
+.release-body{min-width:0}
+.release-cat{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--purple);font-weight:500;margin-bottom:8px;
+  display:inline-block;
+}
+.release-title{
+  font-family:'Playfair Display',serif;font-weight:500;
+  font-size:clamp(20px,2.4vw,28px);line-height:1.2;
+  letter-spacing:-.015em;color:var(--ink);
+  margin-bottom:10px;
+  transition:color .15s;
+}
+.release-item:hover .release-title{color:var(--purple-2)}
+.release-summary{
+  font-size:14.5px;line-height:1.6;color:var(--ink-2);
+  max-width:680px;margin-bottom:14px;
+}
+.release-meta{
+  display:flex;gap:18px;flex-wrap:wrap;
+  font-family:'DM Mono',monospace;font-size:10.5px;
+  letter-spacing:.08em;color:var(--ink-4);
+}
+.release-meta .embargo{
+  color:var(--gold);font-weight:500;
+}
+
+.release-action{
+  padding-top:6px;
+  display:flex;align-items:center;gap:6px;
+  font-family:'DM Mono',monospace;font-size:11px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);
+  white-space:nowrap;transition:all .2s;
+}
+.release-item:hover .release-action{color:var(--purple)}
+.release-action svg{width:14px;height:14px}
+
+/* ── EMPTY STATE ── */
+.empty-state{
+  text-align:center;padding:80px 24px;
+  border:1px dashed var(--rule-2);border-radius:10px;
+  color:var(--ink-3);
+}
+.empty-state h3{
+  font-family:'Playfair Display',serif;font-weight:500;
+  font-size:22px;color:var(--ink);margin-bottom:8px;
+}
+.empty-state p{font-size:14px;line-height:1.6;max-width:380px;margin:0 auto}
+
+/* ── LOADING ── */
+.loading{
+  text-align:center;padding:60px 24px;
+  font-family:'DM Mono',monospace;font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-4);
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--bg-dark);color:#fff;padding:40px 0 32px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.foot-inner{
+  max-width:1180px;margin:0 auto;padding:0 32px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:14px;
+  font-family:'DM Mono',monospace;font-size:11px;
+  color:rgba(255,255,255,.5);letter-spacing:.08em;
+}
+.foot-links{display:flex;gap:20px}
+.foot-links a:hover{color:#fff}
+
+/* ── MOBILE ── */
+@media(max-width:760px){
+  .hero{padding:56px 0 48px}
+  .topbar-inner{padding:0 20px}
+  .filter-inner{padding:14px 20px}
+  .releases-wrap{padding:36px 20px 60px}
+  .release-item{
+    grid-template-columns:1fr;gap:14px;
+    padding:24px 0;
+  }
+  .release-item:hover{transform:none}
+  .release-date{padding-top:0;font-size:11px}
+  .release-action{padding-top:0}
+  .filter-tabs{gap:6px}
+  .filter-tab{padding:6px 12px;font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ LOGO SVG ═══ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 100 110">
+    <path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M50,7 L86,28 Q90,30.5 90,35 L90,75 Q90,79.5 86,82 L50,103 L14,82 Q10,79.5 10,75 L10,35 Q10,30.5 14,28 Z"/>
+    <line fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" x1="50" y1="27" x2="50" y2="83"/>
+    <polyline fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" points="30,42 42,55 30,68"/>
+    <polyline fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" points="20,45 29.3,55 20,65"/>
+    <polyline fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" points="70,42 58,55 70,68"/>
+    <polyline fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" points="80,45 70.7,55 80,65"/>
+  </symbol>
+</svg>
+
+
+<!-- ═══ TOPBAR ═══ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="/" class="topbar-brand">
+      <svg><use href="#mark"/></svg>
+      <span class="topbar-brand-word"><strong>Alke</strong><span>buleum</span></span>
+      <span class="topbar-section">Press Room</span>
+    </a>
+    <div class="topbar-nav">
+      <a href="/media">Media Kit</a>
+      <a href="/media/press" class="active">Press Releases</a>
+      <a href="mailto:press@alkebuleum.org">Contact</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ HERO ═══ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Press Releases · Alkebuleum Foundation</div>
+    <h1>Official announcements &amp;<br/><em>foundation news.</em></h1>
+    <p>Press releases from the Alkebuleum Foundation. Launches, council news, partnership announcements, and milestones — newest first.</p>
+  </div>
+</header>
+
+
+<!-- ═══ FILTER BAR ═══ -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <div class="filter-tabs" role="tablist" aria-label="Filter releases by category">
+      <button class="filter-tab active" data-filter="all" role="tab">All Releases</button>
+      <button class="filter-tab" data-filter="Foundation" role="tab">Foundation</button>
+      <button class="filter-tab" data-filter="Council" role="tab">Council</button>
+      <button class="filter-tab" data-filter="Partnership" role="tab">Partnerships</button>
+      <button class="filter-tab" data-filter="Product" role="tab">Product</button>
+    </div>
+    <div class="filter-count" id="releaseCount">—</div>
+  </div>
+</div>
+
+
+<!-- ═══ RELEASES LIST ═══ -->
+<main class="releases-wrap">
+  <div id="releasesList" class="releases-list" aria-live="polite">
+    <div class="loading">Loading press releases…</div>
+  </div>
+</main>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="foot-inner">
+    <span>© 2026 Alkebuleum Foundation · Press Office</span>
+    <div class="foot-links">
+      <a href="/media">Media Kit</a>
+      <a href="/">Main site</a>
+      <a href="mailto:press@alkebuleum.org">press@alkebuleum.org</a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+// ───────────────────────────────
+// Press releases — load from JSON
+// ───────────────────────────────
+let ALL_RELEASES = [];
+let CURRENT_FILTER = 'all';
+
+async function loadReleases(){
+  try {
+    const res = await fetch('/media/press-releases.json');
+    if(!res.ok) throw new Error('Failed to load');
+    const data = await res.json();
+    ALL_RELEASES = data.releases || [];
+    // Sort newest first by date
+    ALL_RELEASES.sort((a,b) => new Date(b.date) - new Date(a.date));
+    renderReleases();
+  } catch(err) {
+    console.error(err);
+    document.getElementById('releasesList').innerHTML = `
+      <div class="empty-state">
+        <h3>Couldn't load releases</h3>
+        <p>There was an error loading the press releases. Please refresh, or contact press@alkebuleum.org.</p>
+      </div>`;
+  }
+}
+
+function renderReleases(){
+  const filtered = CURRENT_FILTER === 'all'
+    ? ALL_RELEASES
+    : ALL_RELEASES.filter(r => r.category === CURRENT_FILTER);
+
+  const list = document.getElementById('releasesList');
+  const count = document.getElementById('releaseCount');
+
+  count.textContent = filtered.length === 1
+    ? '1 release'
+    : `${filtered.length} releases`;
+
+  if(filtered.length === 0){
+    list.innerHTML = `
+      <div class="empty-state">
+        <h3>No releases in this category yet</h3>
+        <p>New releases will appear here as they're published. Subscribe for updates by contacting press@alkebuleum.org.</p>
+      </div>`;
+    return;
+  }
+
+  list.innerHTML = filtered.map(r => {
+    const dateObj = new Date(r.date);
+    const monthShort = dateObj.toLocaleDateString('en-US',{month:'short'});
+    const day = dateObj.getDate();
+    const year = dateObj.getFullYear();
+
+    const embargoBadge = r.embargo
+      ? `<span class="embargo">EMBARGOED · ${r.embargo}</span>`
+      : '';
+
+    return `
+      <a href="/media/press/${r.slug}.html" class="release-item">
+        <div class="release-date">
+          <strong>${monthShort} ${day}, ${year}</strong>
+          ${r.location || ''}
+        </div>
+        <div class="release-body">
+          <span class="release-cat">${r.category}</span>
+          <h2 class="release-title">${r.title}</h2>
+          <p class="release-summary">${r.summary}</p>
+          <div class="release-meta">
+            ${embargoBadge}
+            ${r.tags ? r.tags.map(t => `#${t}`).join(' · ') : ''}
+          </div>
+        </div>
+        <div class="release-action">
+          Read
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </div>
+      </a>`;
+  }).join('');
+}
+
+// Filter tabs
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    CURRENT_FILTER = tab.dataset.filter;
+    renderReleases();
+  });
+});
+
+loadReleases();
+</script>
+
+</body>
+</html>
