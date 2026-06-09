@@ -9,11 +9,6 @@
 
   <!-- Primary ecosystem pages -->
   <url>
-    <loc>https://alkebuleum.org/council</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
     <loc>https://alkebuleum.org/alkeledger</loc>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
@@ -42,6 +37,7 @@
   <!-- Supporting pages -->
   <url>
     <loc>https://alkebuleum.org/resources</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -52,21 +48,25 @@
   </url>
   <url>
     <loc>https://alkebuleum.org/grants</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://alkebuleum.org/terms</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://alkebuleum.org/privacy</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://alkebuleum.org/brand-assets</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -74,11 +74,13 @@
   <!-- Other pages -->
   <url>
     <loc>https://alkebuleum.org/network</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://alkebuleum.org/tokenomics</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -92,12 +94,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url>
-    <loc>https://alkebuleum.org/brand</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
   <!-- Press room -->
   <url>
     <loc>https://alkebuleum.org/media</loc>
