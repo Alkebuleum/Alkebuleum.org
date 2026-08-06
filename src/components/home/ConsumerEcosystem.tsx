@@ -443,7 +443,7 @@ export default function ConsumerEcosystem() {
                 Applications on the network
               </h3>
             </div>
-            <a className="btn btn-dark" href="https://docs.alkebuleum.com" target="_blank" rel="noopener noreferrer" style={{ flexShrink: 0 }}>
+            <a className="btn btn-dark" href="https://docs.alkebuleum.org" target="_blank" rel="noopener noreferrer" style={{ flexShrink: 0 }}>
               Build on Alkebuleum →
             </a>
           </div>

@@ -19,7 +19,7 @@ const DOCS = [
   {
     category: 'Developer resources',
     items: [
-      { title: 'Developer documentation', desc: 'Technical documentation for building on the Alkebuleum network — RPC, smart contracts, SDKs, and APIs.', href: 'https://docs.alkebuleum.com', external: true },
+      { title: 'Developer documentation', desc: 'Technical documentation for building on the Alkebuleum network — RPC, smart contracts, SDKs, and APIs.', href: 'https://docs.alkebuleum.org', external: true },
       { title: 'Block explorer', desc: 'Explore transactions, blocks, and addresses on the Alkebuleum mainnet.', href: 'https://explorer.alkebuleum.com', external: true },
       { title: 'GitHub', desc: 'Open-source repositories for the Alkebuleum network, tools, and ecosystem projects.', href: 'https://github.com/alkebuleum', external: true },
     ]

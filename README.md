@@ -39,3 +39,8 @@ src/             React source (components, pages, styles)
 .github/         GitHub Actions deploy workflow
 CouncilHub/      Council Hub page sources (copy to public/ before deploying)
 ```
+
+
+### ----------------- Run Build Locall and Push to Git (Without GitAction)
+ npm run build
+  npx gh-pages -d dist

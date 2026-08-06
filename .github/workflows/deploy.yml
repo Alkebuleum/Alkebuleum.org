@@ -1,8 +1,6 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -43,7 +41,7 @@ jobs:
 
       - name: Create SPA route files
         run: |
-          for route in council alkeledger alkepay alkeid alkecredit alkecoin resources brand-assets; do
+          for route in council alkeledger alkepay alkeid alkecredit alkecoin resources brand-assets brand apps events grants tokenomics privacy terms network; do
             mkdir -p dist/$route
             cp dist/index.html dist/$route/index.html
           done

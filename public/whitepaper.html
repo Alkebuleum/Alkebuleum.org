@@ -31,7 +31,7 @@
   a{color:inherit;text-decoration:none}
   svg{display:block}
 
-  /* ── PRINT/DOWNLOAD BAR ── */
+  /* ── TOPBAR ── */
   .topbar{
     position:sticky;top:0;z-index:50;
     background:rgba(255,255,255,.92);backdrop-filter:blur(14px);
@@ -53,16 +53,11 @@
     padding:9px 18px;border-radius:999px;
     background:var(--ink);color:#fff;font-size:13px;font-weight:500;
     border:1px solid var(--ink);cursor:pointer;transition:all .2s;
-    font-family:'Inter',sans-serif;text-decoration:none;
+    font-family:'Inter',sans-serif;
   }
   .download-btn:hover{background:transparent;color:var(--ink)}
   .download-btn svg{width:14px;height:14px}
   @media print{.topbar{display:none}}
-  @media(max-width:600px){
-    .topbar-inner{padding:0 16px;gap:12px}
-    .topbar-meta{display:none}
-    .download-btn{padding:8px 14px;font-size:12px}
-  }
 
   /* ── DOC SHELL ── */
   .doc{max-width:780px;margin:0 auto;padding:60px 32px 120px}
@@ -70,7 +65,7 @@
   /* ── COVER ── */
   .cover{
     text-align:center;padding:80px 0 100px;border-bottom:1px solid var(--rule);
-    margin-bottom:80px;
+    margin-bottom:64px;
   }
   .cover-mark{width:96px;height:96px;margin:0 auto 40px;color:var(--ink)}
   .cover-eyebrow{
@@ -96,6 +91,18 @@
   }
   .cover-meta div span{display:block;color:var(--ink);margin-top:5px;font-weight:500}
 
+  /* ── LEGAL NOTICE ── */
+  .notice{
+    background:#fffbf0;border:1px solid rgba(200,150,0,.25);
+    border-radius:12px;padding:28px 32px;margin:0 0 64px;
+  }
+  .notice-lab{
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;
+    color:#8a6a00;font-weight:500;margin-bottom:10px;
+  }
+  .notice p{font-size:13.5px;line-height:1.65;color:var(--ink-dim);margin-bottom:0}
+
   /* ── TABLE OF CONTENTS ── */
   .toc{
     background:var(--bg-soft);border-radius:14px;
@@ -110,8 +117,7 @@
   .toc li{
     counter-increment:toc;padding:8px 0;font-size:14.5px;
     border-bottom:1px solid rgba(10,10,12,.06);
-    display:flex;gap:14px;
-    break-inside:avoid;
+    display:flex;gap:14px;break-inside:avoid;
   }
   .toc li::before{
     content:counter(toc, decimal-leading-zero);
@@ -130,9 +136,7 @@
     letter-spacing:.14em;text-transform:uppercase;
     color:var(--purple-deep);font-weight:500;
   }
-  .ch-meta::before{
-    content:"";width:32px;height:1px;background:var(--purple-deep);
-  }
+  .ch-meta::before{content:"";width:32px;height:1px;background:var(--purple-deep)}
   .chapter h2{
     font-family:'Space Grotesk',sans-serif;font-weight:500;
     font-size:clamp(28px,3.8vw,42px);line-height:1.08;letter-spacing:-.025em;
@@ -144,21 +148,13 @@
     font-size:22px;letter-spacing:-.01em;line-height:1.2;
     margin:44px 0 14px;
   }
-  .chapter p{
-    font-size:16px;line-height:1.7;color:var(--ink-dim);
-    margin-bottom:18px;
-  }
+  .chapter p{font-size:16px;line-height:1.7;color:var(--ink-dim);margin-bottom:18px}
   .chapter p strong{color:var(--ink);font-weight:600}
   .chapter p em{color:var(--ink);font-style:italic}
-
-  /* Lead paragraph */
   .lead{
     font-size:18.5px !important;line-height:1.55 !important;
-    color:var(--ink) !important;margin-bottom:30px !important;
-    font-weight:400;
+    color:var(--ink) !important;margin-bottom:30px !important;font-weight:400;
   }
-
-  /* Pull-quote */
   .pull{
     border-left:3px solid var(--purple-deep);
     padding:8px 0 8px 28px;margin:36px 0;
@@ -166,12 +162,7 @@
     font-size:22px;line-height:1.35;letter-spacing:-.01em;
     color:var(--ink);font-style:italic;
   }
-
-  /* Inline emphasis blocks */
-  .callout{
-    background:var(--bg-soft);border-radius:10px;
-    padding:24px 28px;margin:30px 0;
-  }
+  .callout{background:var(--bg-soft);border-radius:10px;padding:24px 28px;margin:30px 0}
   .callout .lab{
     font-family:'JetBrains Mono',monospace;font-size:11px;
     letter-spacing:.14em;text-transform:uppercase;color:var(--purple-deep);
@@ -179,37 +170,23 @@
   }
   .callout p{font-size:15px !important;margin-bottom:0 !important;color:var(--ink-dim) !important}
 
-  /* Grids for pillars / cards */
+  /* ── GRIDS & CARDS ── */
   .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:32px 0}
   .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:32px 0}
-  .card{
-    background:var(--bg-soft);border-radius:10px;padding:24px 26px;
-  }
-  .card h4{
-    font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:17px;
-    margin-bottom:8px;letter-spacing:-.005em;
-  }
+  .card{background:var(--bg-soft);border-radius:10px;padding:24px 26px}
+  .card h4{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:17px;margin-bottom:8px;letter-spacing:-.005em}
   .card p{font-size:14px !important;margin-bottom:0 !important;line-height:1.55 !important}
   @media(max-width:720px){.grid-2,.grid-3{grid-template-columns:1fr}}
 
-  /* Validator categories list */
+  /* ── VLIST ── */
   .vlist{margin:24px 0;border-top:1px solid var(--rule)}
-  .vrow{
-    display:grid;grid-template-columns:170px 1fr;gap:24px;
-    padding:18px 0;border-bottom:1px solid var(--rule);
-  }
-  .vrow .vname{
-    font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:15px;
-    color:var(--ink);
-  }
+  .vrow{display:grid;grid-template-columns:170px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--rule)}
+  .vrow .vname{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:15px;color:var(--ink)}
   .vrow .vdesc{font-size:14.5px;color:var(--ink-dim);line-height:1.55}
   @media(max-width:640px){.vrow{grid-template-columns:1fr;gap:6px;padding:16px 0}}
 
-  /* Roadmap timeline */
-  .phase{
-    display:grid;grid-template-columns:120px 1fr;gap:28px;
-    padding:24px 0;border-top:1px solid var(--rule);
-  }
+  /* ── ROADMAP ── */
+  .phase{display:grid;grid-template-columns:140px 1fr;gap:28px;padding:24px 0;border-top:1px solid var(--rule)}
   .phase:last-child{border-bottom:1px solid var(--rule)}
   .phase-tag{
     font-family:'JetBrains Mono',monospace;font-size:11.5px;
@@ -221,21 +198,115 @@
     background:var(--purple-deep);color:#fff;border-radius:999px;
     font-size:10px;letter-spacing:.08em;
   }
-  .phase-body h4{
-    font-family:'Space Grotesk',sans-serif;font-weight:500;
-    font-size:18px;margin-bottom:8px;
-  }
+  .phase-body h4{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:18px;margin-bottom:8px}
   .phase-body p{font-size:14.5px !important;line-height:1.6 !important;margin-bottom:0 !important}
   @media(max-width:640px){.phase{grid-template-columns:1fr;gap:8px;padding:20px 0}}
 
-  /* ── CONCLUSION ── */
+  /* ── DATA TABLES ── */
+  .data-table{
+    width:100%;border-collapse:collapse;margin:24px 0;font-size:14.5px;
+    border:1px solid var(--rule);border-radius:10px;overflow:hidden;
+  }
+  .data-table th{
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;
+    letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-mute);font-weight:500;
+    padding:11px 18px;background:var(--bg-soft);text-align:left;
+  }
+  .data-table td{padding:12px 18px;border-top:1px solid var(--rule);color:var(--ink-dim);line-height:1.45}
+  .data-table td:first-child{font-weight:500;color:var(--ink)}
+  .data-table .mono{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--purple-deep)}
+  .data-table a{color:var(--purple-deep);text-decoration:underline;text-underline-offset:3px}
+
+  /* ── STATUS BADGES ── */
+  .badge-live{
+    display:inline-block;background:#16a34a;color:#fff;
+    font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.08em;padding:2px 8px;border-radius:999px;
+    text-transform:uppercase;
+  }
+  .badge-beta{
+    display:inline-block;background:var(--purple-deep);color:#fff;
+    font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.08em;padding:2px 8px;border-radius:999px;
+    text-transform:uppercase;
+  }
+  .badge-pilot{
+    display:inline-block;background:#b45309;color:#fff;
+    font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.08em;padding:2px 8px;border-radius:999px;
+    text-transform:uppercase;
+  }
+  .badge-concept{
+    display:inline-block;background:#6b6a78;color:#fff;
+    font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.08em;padding:2px 8px;border-radius:999px;
+    text-transform:uppercase;
+  }
+
+  /* ── DIFFERENTIATORS LIST ── */
+  .diff-list{list-style:none;counter-reset:diff;margin:28px 0}
+  .diff-list li{
+    counter-increment:diff;display:flex;gap:20px;
+    padding:18px 0;border-bottom:1px solid var(--rule);align-items:flex-start;
+  }
+  .diff-list li:first-child{border-top:1px solid var(--rule)}
+  .diff-list li::before{
+    content:counter(diff, decimal-leading-zero);
+    font-family:'JetBrains Mono',monospace;font-size:11.5px;
+    color:var(--purple-deep);font-weight:500;padding-top:3px;flex-shrink:0;
+  }
+  .diff-list li p{margin:0 !important;font-size:15px !important;line-height:1.65 !important;color:var(--ink-dim) !important}
+  .diff-list li p strong{color:var(--ink) !important;font-weight:600}
+
+  /* ── VALIDATOR TIERS ── */
+  .tier-list{margin:24px 0;border-top:1px solid var(--rule)}
+  .tier-row{display:grid;grid-template-columns:90px 200px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--rule);align-items:start}
+  .tier-badge{
+    font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.08em;color:#fff;background:var(--purple-deep);
+    padding:3px 10px;border-radius:999px;text-align:center;
+    font-weight:500;width:fit-content;
+  }
+  .tier-label{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:14.5px;color:var(--ink);padding-top:1px}
+  .tier-desc{font-size:14px;color:var(--ink-dim);line-height:1.55}
+  @media(max-width:640px){.tier-row{grid-template-columns:1fr;gap:6px;padding:16px 0}}
+
+  /* ── COUNCIL GRID ── */
+  .council-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+  .council-card{border:1px solid var(--rule);border-radius:10px;padding:18px 22px}
+  .council-card h4{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:16px;margin-bottom:6px;letter-spacing:-.005em}
+  .council-card p{font-size:13.5px !important;color:var(--ink-dim) !important;margin-bottom:0 !important;line-height:1.5 !important}
+  @media(max-width:640px){.council-grid{grid-template-columns:1fr}}
+
+  /* ── TEAM GRID ── */
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:32px 0}
+  .team-card{background:var(--bg-soft);border-radius:10px;padding:22px 24px}
+  .t-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;margin-bottom:4px;color:var(--ink)}
+  .t-role{
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;
+    letter-spacing:.1em;text-transform:uppercase;
+    color:var(--purple-deep);margin-bottom:10px;font-weight:500;
+  }
+  .t-bio{font-size:13.5px;color:var(--ink-dim);line-height:1.5}
+  @media(max-width:720px){.team-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.team-grid{grid-template-columns:1fr}}
+
+  /* ── CLOSING ── */
   .closing{
     background:var(--bg-dark);color:#fff;
     border-radius:14px;padding:60px 50px;margin-top:80px;text-align:center;
+    scroll-margin-top:80px;
   }
   .closing svg{width:64px;height:64px;color:#fff;margin:0 auto 28px}
   .closing h2{color:#fff;font-style:italic;font-weight:400;font-size:30px;line-height:1.2;margin-bottom:22px;font-family:'Space Grotesk',sans-serif;letter-spacing:-.015em}
-  .closing p{color:rgba(255,255,255,.78);font-size:16px;max-width:520px;margin:0 auto;line-height:1.55}
+  .closing p{color:rgba(255,255,255,.78);font-size:16px;max-width:520px;margin:0 auto 16px;line-height:1.55}
+  .closing .closing-quote{font-style:italic;font-size:15px !important;color:rgba(255,255,255,.65) !important;margin-top:4px}
+  .closing-contact{
+    margin-top:32px;font-family:'JetBrains Mono',monospace;
+    font-size:12px;letter-spacing:.06em;color:rgba(255,255,255,.45);
+  }
+  .closing-contact a{color:rgba(255,255,255,.7);text-decoration:underline;text-underline-offset:3px}
 
   /* ── FOOTER ── */
   .doc-foot{
@@ -245,26 +316,27 @@
     color:var(--ink-mute);letter-spacing:.05em;
   }
 
-  /* ── PRINT STYLES ── */
+  /* ── PRINT ── */
   @media print{
     body{font-size:11pt;line-height:1.55}
     .doc{max-width:none;padding:0;margin:0}
     .cover{padding:40px 0 60px;margin-bottom:40px;page-break-after:always}
+    .notice{page-break-inside:avoid}
     .toc{margin-bottom:40px;page-break-after:always}
     section.chapter{margin-bottom:30px;page-break-inside:avoid}
     .closing{page-break-before:always;background:#0a0a0c !important;color:#fff !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .closing h2, .closing p, .closing svg{color:#fff !important}
+    .closing h2,.closing p,.closing svg{color:#fff !important}
     .chapter h2{font-size:22pt}
     .chapter h3{font-size:14pt;margin-top:18pt}
     .chapter p{font-size:11pt}
     .pull{font-size:13pt}
+    .data-table{page-break-inside:avoid}
     a{color:inherit;text-decoration:none}
   }
 </style>
 </head>
 <body>
 
-<!-- ═══ LOGO SVG ═══ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="mark" viewBox="0 0 100 110">
     <path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"
@@ -277,8 +349,6 @@
   </symbol>
 </svg>
 
-
-<!-- ═══ TOPBAR ═══ -->
 <div class="topbar">
   <div class="topbar-inner">
     <div class="brand">
@@ -292,13 +362,11 @@
         <polyline points="7 10 12 15 17 10"/>
         <line x1="12" y1="15" x2="12" y2="3"/>
       </svg>
-      Print / Save as PDF
+      Download PDF
     </button>
   </div>
 </div>
 
-
-<!-- ═══ DOCUMENT ═══ -->
 <div class="doc">
 
   <!-- COVER -->
@@ -306,353 +374,640 @@
     <svg class="cover-mark"><use href="#mark"/></svg>
     <div class="cover-eyebrow">Whitepaper · Version 2.0</div>
     <h1>A Ledger of Trust,<br/><em>Built by Africa.</em></h1>
-    <p class="sub">Sovereign blockchain infrastructure for identity, finance, and institutional records — built for governments, institutions, and the diaspora.</p>
+    <p class="sub">Sovereign blockchain infrastructure for identity, records, payments, and credit — built for African governments, institutions, and the diaspora.</p>
     <div class="cover-meta">
-      <div>Issued <span>May 2026</span></div>
-      <div>Foundation <span>Alkebuleum Foundation</span></div>
-      <div>Network <span>Layer 1 · EVM-Compatible</span></div>
+      <div>Issued <span>June 2026</span></div>
+      <div>Chain ID <span>237422 · Live</span></div>
+      <div>Architecture <span>Layer 1 · EVM-Compatible</span></div>
     </div>
   </header>
+
+  <!-- IMPORTANT NOTICE -->
+  <div class="notice">
+    <div class="notice-lab">Important Notice</div>
+    <p>This whitepaper is provided for informational purposes only. It does not constitute an offer to sell securities, a solicitation to invest, or financial, legal, or tax advice. Alkecoin (ALKE) is designed as a native utility asset for network usage, transaction fees, validator operations, and protocol participation. ALKE is not intended to represent equity, ownership, debt, profit rights, or claims on Alkebuleum Foundation, Alkebuleum Technology LLC, or any affiliated entity. Regulatory treatment of digital assets varies by jurisdiction and should be evaluated by qualified legal counsel prior to any participation or investment decision. Any investment into Alkebuleum Technology LLC or related commercial vehicles must be governed by separate legal agreements and jurisdiction-specific compliance review. Prospective participants and partners should conduct independent due diligence before making any decision.</p>
+  </div>
 
   <!-- TOC -->
   <nav class="toc">
     <h3>Contents</h3>
     <ol>
+      <li><a href="#different">What Makes Alkebuleum Different</a></li>
       <li><a href="#executive">Executive Summary</a></li>
-      <li><a href="#thesis">The Trust Infrastructure Thesis</a></li>
+      <li><a href="#thesis">The Core Thesis</a></li>
       <li><a href="#why-now">Why Africa. Why Now.</a></li>
-      <li><a href="#what-is">What is Alkebuleum</a></li>
-      <li><a href="#pora">PORA Consensus</a></li>
-      <li><a href="#validators">The Validator Set</a></li>
-      <li><a href="#evm">EVM Architecture</a></li>
-      <li><a href="#protocols">The Three Protocols</a></li>
-      <li><a href="#alignment">Strategic Alignment</a></li>
+      <li><a href="#struggle">Why Blockchain Efforts Struggle</a></li>
+      <li><a href="#what-is">What Is Alkebuleum</a></li>
+      <li><a href="#technology">Technology Strategy</a></li>
+      <li><a href="#pora">PORA — Proof of Reputable Authority</a></li>
+      <li><a href="#council">The Alkebuleum Council</a></li>
+      <li><a href="#protocols">The Four Protocols</a></li>
       <li><a href="#use-cases">Use Cases</a></li>
+      <li><a href="#ecosystem">Ecosystem &amp; User Access</a></li>
+      <li><a href="#token">Native Asset — Alkecoin (ALKE)</a></li>
+      <li><a href="#structure">Foundation, DAO &amp; LLC</a></li>
+      <li><a href="#team">Team &amp; Operating History</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
-      <li><a href="#governance">Foundation &amp; Governance</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
     </ol>
   </nav>
 
 
-  <!-- ═══ 1. EXECUTIVE SUMMARY ═══ -->
-  <section class="chapter" id="executive">
-    <div class="ch-meta">01 · Executive Summary</div>
-    <h2>The infrastructure layer for digital Africa.</h2>
-    <p class="lead">Alkebuleum is a Layer 1 public, permissioned blockchain network purpose-built for the African continent and its global diaspora. It is sovereign infrastructure designed from the ground up to serve as the digital trust layer for African governments, institutions, and the 1.4 billion people connected to the continent worldwide.</p>
-
-    <p>Most blockchains in existence today were built in Silicon Valley, Switzerland, or Singapore and then marketed outward. Alkebuleum inverts that relationship. It is not foreign infrastructure adapted for African use. It is African-built infrastructure, governed by African and diaspora institutions, designed around the specific realities of African governance, commerce, and identity.</p>
-
-    <p>The network is secured by <strong>PORA</strong> — Proof of Reputation and Authority — a consensus mechanism in which validators are exclusively reputable institutions: central banks, commercial banks, universities, fintechs, government agencies, regulators, and diaspora organizations. The network is EVM-compatible, ships three foundational protocols — Identity, Institutional Records, and Credit — and is strategically aligned with the AfCFTA, the African Union's Agenda 2063, and the digital infrastructure programs of multilateral institutions actively designing Africa's economic future.</p>
-
-    <div class="pull">"A blockchain is only as trusted as those who validate it. Alkebuleum's validators are the institutions Africa already trusts."</div>
+  <!-- 01 · WHAT MAKES ALKEBULEUM DIFFERENT -->
+  <section class="chapter" id="different">
+    <div class="ch-meta">01 · What Makes Alkebuleum Different</div>
+    <h2>Seven facts that <em>set us apart.</em></h2>
+    <p class="lead">Before the full thesis — seven concrete differentiators that separate Alkebuleum from every other blockchain competing for Africa's infrastructure role.</p>
+    <ul class="diff-list">
+      <li><p><strong>The network is live.</strong> Chain ID 237422, over 3.3 million blocks produced, publicly verifiable at explorer.alkebuleum.com and rpc.alkebuleum.com. This is not a concept.</p></li>
+      <li><p><strong>Validation is institutional, not anonymous.</strong> PORA — Proof of Reputable Authority — places accredited institutions at the centre of network security: governments, banks, universities — not anonymous capital.</p></li>
+      <li><p><strong>Governance is African.</strong> The Alkebuleum Council and Foundation ensure the network's direction is set by institutions serving Africa and the diaspora, not external owners.</p></li>
+      <li><p><strong>EVM-compatible, not experimental.</strong> Developers use familiar Solidity tooling, wallets, and audit patterns. Adoption does not require learning an entirely new stack.</p></li>
+      <li><p><strong>Public-interest mission with commercial execution.</strong> The Foundation stewards legitimacy; Alkebuleum Technology LLC creates the investable commercial engine.</p></li>
+      <li><p><strong>Built through resilience.</strong> Operational progress across multiple years without major external funding demonstrates founder conviction and technical persistence.</p></li>
+      <li><p><strong>Focused use cases.</strong> Identity, records, credit, payments, and governance. Not everything for everyone — the right infrastructure for Africa's institutional trust needs.</p></li>
+    </ul>
   </section>
 
 
-  <!-- ═══ 2. THE TRUST INFRASTRUCTURE THESIS ═══ -->
+  <!-- 02 · EXECUTIVE SUMMARY -->
+  <section class="chapter" id="executive">
+    <div class="ch-meta">02 · Executive Summary</div>
+    <h2>The infrastructure layer <em>for digital Africa.</em></h2>
+    <p class="lead">Africa is entering a defining infrastructure decade. The continent is building the next generation of its trade systems, digital identity frameworks, payment networks, and institutional coordination models. The question is no longer whether digital infrastructure will shape Africa's future — it is who will own it, who will govern it, and whose interests it will serve.</p>
+
+    <p>Alkebuleum is a public, permissioned, EVM-compatible Layer 1 blockchain built to serve as Africa's sovereign trust layer. It is designed for governments, institutions, regulated enterprises, universities, civil society organizations, and diaspora networks that need verifiable infrastructure for identity, records, payments, credit, and cross-border coordination.</p>
+
+    <div class="pull">"Africa does not only need more apps. Africa needs trusted rails."</div>
+
+    <p><strong>The network is live.</strong> As of June 2026, Alkebuleum Mainnet has produced over 3.3 million blocks at a consistent ~5-second block time since genesis. Five ecosystem applications are operational. Developers can deploy Solidity contracts today. Institutional partners can evaluate real infrastructure — not a roadmap.</p>
+
+    <table class="data-table">
+      <tr><th>Parameter</th><th>Value</th></tr>
+      <tr><td>Chain ID</td><td class="mono">237422</td></tr>
+      <tr><td>Block Height</td><td>3,379,208+ &nbsp;<span class="badge-live">Live</span></td></tr>
+      <tr><td>Block Time</td><td>~5 seconds</td></tr>
+      <tr><td>EVM Compatibility</td><td>Yes — EIP-1559, Solidity-native</td></tr>
+      <tr><td>Explorer</td><td class="mono"><a href="https://explorer.alkebuleum.com">explorer.alkebuleum.com</a></td></tr>
+      <tr><td>RPC Endpoint</td><td class="mono"><a href="https://rpc.alkebuleum.com">rpc.alkebuleum.com</a></td></tr>
+      <tr><td>ICO / Presale</td><td>None</td></tr>
+      <tr><td>Genesis Supply</td><td>1,000,000,000 ALKE (fixed)</td></tr>
+    </table>
+
+    <h3>Live ecosystem applications</h3>
+    <table class="data-table">
+      <tr><th>Product</th><th>Status</th><th>Role</th></tr>
+      <tr><td>AlkeLedger</td><td><span class="badge-live">Live</span></td><td>Institutional trust ledger — foundational records layer</td></tr>
+      <tr><td>Amvault</td><td><span class="badge-live">Live</span></td><td>Self-custodial AA wallet and identity hub</td></tr>
+      <tr><td>JollofSwap</td><td><span class="badge-live">Live</span></td><td>Native decentralised exchange</td></tr>
+      <tr><td>Nuru AI</td><td><span class="badge-live">Live</span></td><td>Sovereign AI assistant for identity and finance</td></tr>
+    </table>
+
+    <div class="callout">
+      <div class="lab">Three-entity governance structure</div>
+      <p>Alkebuleum is stewarded by the <strong>Alkebuleum Foundation</strong> (public-interest governance), supported by a <strong>Community DAO / Ecosystem Reserve</strong> (builders, developers, diaspora), and commercialized through <strong>Alkebuleum Technology LLC</strong> (enterprise products, implementation services, institutional deployments). This structure combines mission integrity with commercial execution.</p>
+    </div>
+  </section>
+
+
+  <!-- 03 · THE CORE THESIS -->
   <section class="chapter" id="thesis">
-    <div class="ch-meta">02 · The Thesis</div>
-    <h2>Trust is the missing layer.</h2>
-    <p class="lead">Every modern economy runs on trust infrastructure. Land registries, identity systems, credit bureaus, payment rails, court records, regulatory filings. When these systems work, capital flows, businesses scale, and citizens prosper. When they fail, fraud, corruption, and economic exclusion thrive.</p>
+    <div class="ch-meta">03 · The Core Thesis</div>
+    <h2>Trust is the <em>missing layer.</em></h2>
+    <p class="lead">Every functioning economy depends on trusted records. When these systems work, commerce scales. When they fail, economies become expensive, informal, and exclusionary.</p>
 
-    <p>Across much of Africa, this infrastructure is fragmented, paper-based, vulnerable to manipulation, or controlled by external systems whose interests don't align with the continent's. The result is measurable: a Ghanaian degree that doesn't travel to a Kenyan employer, a Nigerian credit history that resets to zero when the borrower crosses a border, a Liberian land title that can be contested or erased.</p>
+    <p>A land registry tells a bank whether collateral is real. An identity system tells a lender whether a borrower is verified. A university transcript tells an employer whether a graduate is qualified. A business registry tells a supplier whether a company exists. A payment network confirms whether settlement is final. A credit record tells capital whether risk can be priced. A procurement log tells citizens whether public money was handled honestly.</p>
 
-    <p>Alkebuleum exists to provide that missing layer — a public, verifiable, sovereign substrate on which African institutions can record what is true, prove what is owned, and settle what is owed. We call this <em>trust infrastructure</em>: the foundational digital layer that lets every other system — financial, civic, commercial — operate with verifiable integrity.</p>
+    <p>Across much of Africa, trust infrastructure remains fragmented. Records are often paper-based or trapped in disconnected databases. Verification is slow. Cross-border trust is weak. Identity does not always travel. Credit histories do not move with people.</p>
+
+    <p>This does not mean African societies lack trust. In many ways, the opposite is true. African commerce, diplomacy, governance, and community life are deeply trust-based. Relationships matter. Reputation matters. Institutional legitimacy matters. That is precisely why anonymous, speculative, retail-first blockchain models are not sufficient for Africa's institutional infrastructure needs.</p>
+
+    <div class="pull">"Africa's trust problem is not solved by asking citizens to trust code alone. It is solved by combining code with institutions that already carry legitimacy."</div>
 
     <div class="callout">
       <div class="lab">The thesis in one sentence</div>
-      <p>Africa needs sovereign trust infrastructure. Alkebuleum is being built to be that infrastructure, validated by the institutions Africa already trusts, governed by Africa and the diaspora together.</p>
+      <p>Alkebuleum exists to turn institutional trust into verifiable digital infrastructure — a sovereign, public, auditable trust layer where records, credentials, payments, identity proofs, credit signals, and governance commitments can be verified across borders without depending on fragile paper systems or external rails.</p>
     </div>
   </section>
 
 
-  <!-- ═══ 3. WHY AFRICA. WHY NOW. ═══ -->
+  <!-- 04 · WHY AFRICA. WHY NOW. -->
   <section class="chapter" id="why-now">
-    <div class="ch-meta">03 · Context</div>
+    <div class="ch-meta">04 · Context</div>
     <h2>Why Africa. <em>Why now.</em></h2>
-    <p class="lead">The next decade is the most consequential in modern African economic history. The choices made now about who builds and owns the continent's digital foundations will define the next century.</p>
+    <p class="lead">Africa's digital infrastructure conversation is shifting — from application innovation to rail ownership. The next decade is the most consequential in modern African economic history.</p>
 
-    <p>The African Continental Free Trade Area covers 54 nations, 1.4 billion people, and a combined GDP of $3.4 trillion. The African Union's Agenda 2063 lays out a continental vision of integrated prosperity. The Digital Transformation Strategy for Africa 2020–2030 explicitly identifies blockchain and emerging technologies as foundational to that future. The World Bank, the African Development Bank, and continental institutions are actively designing the rails for cross-border trade, identity, payments, and regulatory coordination.</p>
+    <p>The African Continental Free Trade Area is pushing toward deeper economic integration across 54 nations and 1.4 billion people. Pan-African payment systems are emerging to reduce dependence on foreign correspondent banking. Governments are digitizing services. Universities are seeking credential portability. Diaspora communities are searching for transparent investment channels. Regulators are trying to balance innovation, sovereignty, and financial stability.</p>
 
-    <p>None of this works without trust infrastructure that every party — government, institution, citizen, investor — can verify independently. The question is not whether that infrastructure will be built. It is who will build it, who will own it, and whose interests it will serve.</p>
+    <p>These efforts require shared infrastructure. A continental market cannot operate efficiently if identity, credit, payments, credentials, procurement, and records remain fragmented across national silos. A university credential issued in one country should be verifiable in another. A business reputation built in one market should not disappear at the border. A diaspora investor should be able to verify what they are funding.</p>
 
     <div class="pull">The infrastructure of Africa's digital future is being built right now. It should be built by Africa.</div>
 
-    <p>Alkebuleum is the answer to that question. A blockchain whose validators, governance, and design originate from African and diaspora institutions. Sovereign by construction. Aligned with continental architecture by design. Ready to serve as the substrate on which the African digital economy is built.</p>
+    <p>Africa has produced world-class fintech, mobile money adoption, and fast-growing developer communities. The challenge is that many applications still depend on rails governed elsewhere. When a continent's identity, payment, record, and digital trust systems are governed externally, the continent does not fully control the foundation of its own digital economy.</p>
+
+    <p>As the call for sovereignty grows, Africa will need infrastructure that is not only technically capable, but politically acceptable, institutionally credible, and locally governed. Alkebuleum is built for that moment.</p>
   </section>
 
 
-  <!-- ═══ 4. WHAT IS ALKEBULEUM ═══ -->
+  <!-- 05 · WHY BLOCKCHAIN EFFORTS STRUGGLE -->
+  <section class="chapter" id="struggle">
+    <div class="ch-meta">05 · The Landscape</div>
+    <h2>Why many blockchain efforts <em>struggle in Africa.</em></h2>
+    <p class="lead">Many blockchain projects fail in Africa because they misunderstand the adoption environment. They assume technical superiority alone creates adoption.</p>
+
+    <p>They assume retail speculation matures into institutional infrastructure. They assume African governments, banks, universities, and regulators will adopt networks validated by anonymous actors with no local accountability. That is not how institutional adoption works on this continent.</p>
+
+    <p>Africa is diplomatic. Institutional trust moves carefully. Governments do not adopt critical infrastructure overnight. Banks need regulatory comfort. Universities need credibility. Regulators need visibility. Communities need proof the system will not exploit them.</p>
+
+    <p>Alkebuleum is designed around that reality. Instead of asking Africa to trust an anonymous network, Alkebuleum invites reputable institutions to become the network. Instead of bypassing regulators, it gives them a path to observe, participate, and govern. Instead of replacing local legitimacy with foreign technical systems, it encodes institutional reputation into the validator model.</p>
+
+    <div class="pull">"For African blockchain infrastructure, speed without trust is fragile. Trust without infrastructure is limited. Alkebuleum combines both."</div>
+  </section>
+
+
+  <!-- 06 · WHAT IS ALKEBULEUM -->
   <section class="chapter" id="what-is">
-    <div class="ch-meta">04 · The Network</div>
+    <div class="ch-meta">06 · The Network</div>
     <h2>What is Alkebuleum.</h2>
-    <p class="lead">Alkebuleum is a Layer 1 public, permissioned blockchain. It is EVM-compatible, secured by the PORA consensus mechanism, and operates a network of validators composed exclusively of reputable institutions across Africa and the diaspora.</p>
+    <p class="lead">Alkebuleum is a Layer 1 public, permissioned blockchain. It is EVM-compatible, secured by the PORA consensus mechanism, and operates a validator network composed exclusively of reputable institutions across Africa and the diaspora.</p>
 
-    <p>The name <em>Alkebuleum</em> comes from <em>Alkebulan</em>, one of the most ancient indigenous names for the African continent — meaning <em>"mother of mankind"</em> or <em>"garden of life."</em> The network carries forward that meaning by serving as the foundational digital substrate on which the future of African economic and civic life will be built.</p>
+    <p>The name <em>Alkebuleum</em> comes from <em>Alkebulan</em>, one of the most ancient indigenous names for the African continent — meaning <em>"mother of mankind"</em> or <em>"garden of life."</em> The network carries forward that meaning as the foundational digital substrate on which the future of African economic and civic life will be built.</p>
 
-    <h3>Public, but permissioned</h3>
-    <p>Alkebuleum is publicly auditable. Anyone can read the ledger, verify state transitions, and build applications on the network. But validation — the act of producing and confirming blocks — is restricted to approved institutional validators. This combination of public verifiability and permissioned validation is what makes the network suitable for the kinds of high-stakes records that governments, banks, and institutions need to anchor on-chain.</p>
-
-    <h3>EVM-compatible by design</h3>
-    <p>The network runs the Ethereum Virtual Machine. Any smart contract written in Solidity can be deployed to Alkebuleum with no modifications. This gives developers access to the largest blockchain tooling ecosystem in the world, dramatically lowering the cost of building on the network and enabling immediate interoperability with the wider Web3 economy.</p>
-  </section>
-
-
-  <!-- ═══ 5. PORA ═══ -->
-  <section class="chapter" id="pora">
-    <div class="ch-meta">05 · Consensus</div>
-    <h2>PORA — <em>Proof of Reputation and Authority.</em></h2>
-    <p class="lead">Alkebuleum is secured by an original consensus mechanism called PORA. This is the defining technical and philosophical innovation of the network.</p>
-
-    <p>Where most public blockchains rely on anonymous validators holding capital, PORA validates the network through a curated set of institutions whose real-world reputations are themselves at stake. Validators are not interchangeable wallets. They are named institutions with public accountability, regulatory standing, and institutional credibility — the same institutions Africa already trusts in the physical world.</p>
-
-    <h3>The mechanism</h3>
-    <p>To become a validator on Alkebuleum, an institution must apply, be vetted against established criteria, and be approved by the network's governance process. Validators are evaluated on real-world reputation, regulatory status, institutional credibility, and operational capability. Approved validators run nodes, participate in block production, and uphold the network's security guarantees.</p>
-
-    <p>Misbehavior by a validator is not merely a technical violation. It is a reputational event — one that affects the institution's standing far beyond the network. This creates incentives no anonymous-validator chain can match.</p>
-
-    <h3>Three outcomes</h3>
-    <div class="grid-3">
+    <div class="grid-2">
       <div class="card">
-        <h4>Inherited credibility</h4>
-        <p>The network inherits the combined credibility of its validators. A chain validated by central banks and universities carries that weight intrinsically.</p>
+        <h4>Public</h4>
+        <p>Records and state transitions are independently verifiable at explorer.alkebuleum.com. Anyone can read the ledger, verify proofs, and build applications on the network.</p>
       </div>
       <div class="card">
-        <h4>Clear ownership</h4>
-        <p>Validators are named, accountable institutions — not anonymous nodes. Governance and ownership are visible and verifiable.</p>
+        <h4>Permissioned</h4>
+        <p>Validation is restricted to accredited institutional validators under PORA — making the network suitable for high-stakes records that governments and banks need to anchor on-chain.</p>
       </div>
       <div class="card">
-        <h4>Regulatory alignment</h4>
-        <p>Validators are themselves regulators or regulated entities. The network is aligned with oversight by construction, not as a retrofit.</p>
+        <h4>EVM-Compatible</h4>
+        <p>Any smart contract written in Solidity deploys to Alkebuleum with no modifications — access to the largest blockchain tooling ecosystem in the world, from day one.</p>
+      </div>
+      <div class="card">
+        <h4>Sovereign</h4>
+        <p>Validator governance and protocol priorities are designed around Africa and the diaspora — not external infrastructure owners. Sovereign by construction.</p>
       </div>
     </div>
+
+    <p>Alkebuleum is not a general-purpose chain. Its role is focused: the network anchors proofs, commitments, attestations, hashes, credentials, settlement events, and verifiable records in a way that can be audited across institutions and borders.</p>
 
     <div class="callout">
-      <div class="lab">Evolution from the original PORA</div>
-      <p>The PORA framework was first introduced in Alkebuleum's 2022 whitepaper as Proof of Reputable Authority, designed around DAO members. Version 2.0 redefines it as Proof of Reputation and Authority, with the validator set expanded to formally include institutional categories: central banks, commercial banks, universities, fintechs, governments, regulators, and diaspora institutions.</p>
+      <div class="lab">In one sentence</div>
+      <p>Alkebuleum is the ledger of what must be trusted.</p>
     </div>
   </section>
 
 
-  <!-- ═══ 6. VALIDATOR SET ═══ -->
-  <section class="chapter" id="validators">
-    <div class="ch-meta">06 · The Validator Set</div>
-    <h2>Who secures the network.</h2>
-    <p class="lead">The validator set is the heart of Alkebuleum. It is also what makes the network's credibility profile genuinely unique in the blockchain industry. No other public chain is validated by this specific combination of institutional actors.</p>
+  <!-- 07 · TECHNOLOGY STRATEGY -->
+  <section class="chapter" id="technology">
+    <div class="ch-meta">07 · Technology</div>
+    <h2>EVM pragmatism. <em>African governance.</em></h2>
+    <p class="lead">Alkebuleum uses the Ethereum Virtual Machine as its execution layer, builds on open-source EVM-compatible architecture, then innovates at the governance, trust, and institutional-integration layers where Africa's needs demand it. This is pragmatic by design.</p>
 
-    <div class="vlist">
-      <div class="vrow">
-        <div class="vname">Central Banks</div>
-        <div class="vdesc">Monetary authorities across African nations, providing sovereign monetary credibility and direct involvement in the network's payment and settlement infrastructure.</div>
-      </div>
-      <div class="vrow">
-        <div class="vname">Commercial Banks</div>
-        <div class="vdesc">Financial institutions operating across the continent, bringing day-to-day financial market expertise and customer-facing services into the validator ecosystem.</div>
-      </div>
-      <div class="vrow">
-        <div class="vname">Universities</div>
-        <div class="vdesc">Academic institutions providing technical expertise, research credibility, and the ability to issue verifiable academic credentials directly on-chain.</div>
-      </div>
-      <div class="vrow">
-        <div class="vname">Fintechs</div>
-        <div class="vdesc">Companies that have already built significant African financial infrastructure, bringing technical depth, mobile-first design, and existing user bases.</div>
-      </div>
-      <div class="vrow">
-        <div class="vname">Governments &amp; Ministries</div>
-        <div class="vdesc">National government agencies and ministries, providing direct connection to civic record-keeping needs, regulatory frameworks, and public service infrastructure.</div>
-      </div>
-      <div class="vrow">
-        <div class="vname">Regulators</div>
-        <div class="vdesc">Financial, telecommunications, and data protection regulators participating as validators to ensure the network is aligned with oversight from inception.</div>
-      </div>
-      <div class="vrow">
-        <div class="vname">Diaspora Institutions</div>
-        <div class="vdesc">Coalitions, investment vehicles, and major diaspora-led organizations, ensuring the network reflects the full global African family — not only the continent.</div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══ 7. EVM ARCHITECTURE ═══ -->
-  <section class="chapter" id="evm">
-    <div class="ch-meta">07 · Architecture</div>
-    <h2>Built on EVM. <em>Built for Africa.</em></h2>
-    <p class="lead">Alkebuleum runs the Ethereum Virtual Machine. This is a deliberate architectural decision with significant strategic consequences for adoption, interoperability, and developer access.</p>
-
-    <h3>Why EVM</h3>
-    <p>The EVM is the most widely deployed smart-contract execution environment in the world. Choosing it gives Alkebuleum immediate access to the global Solidity developer ecosystem, the standard tooling stack used by every major blockchain team, and a tested security model proven across hundreds of billions of dollars of on-chain value.</p>
-
-    <p>For African developers, this means no new languages, no new toolchains, no proprietary SDKs. The skills already in use globally translate directly to building on Alkebuleum. For institutions, this means existing audit firms, security researchers, and infrastructure providers already understand the network's architecture.</p>
+    <h3>Current technical foundation</h3>
+    <table class="data-table">
+      <tr><th>Component</th><th>Detail</th></tr>
+      <tr><td>Execution Layer</td><td>EVM-compatible (EIP-1559)</td></tr>
+      <tr><td>Developer Tooling</td><td>Solidity, Hardhat, Foundry, Remix, ethers.js, viem, wagmi</td></tr>
+      <tr><td>Wallet Compatibility</td><td>MetaMask-compatible + native Amvault (amvault.net)</td></tr>
+      <tr><td>Explorer</td><td class="mono"><a href="https://explorer.alkebuleum.com">explorer.alkebuleum.com</a> &nbsp;<span class="badge-live">Live</span></td></tr>
+      <tr><td>RPC</td><td class="mono"><a href="https://rpc.alkebuleum.com">rpc.alkebuleum.com</a></td></tr>
+      <tr><td>Block Time</td><td>~5 seconds</td></tr>
+      <tr><td>Chain ID</td><td class="mono">237422</td></tr>
+      <tr><td>GitHub</td><td class="mono"><a href="https://github.com/Alkebuleum">github.com/Alkebuleum</a></td></tr>
+      <tr><td>Documentation</td><td class="mono"><a href="https://docs.alkebuleum.com">docs.alkebuleum.com</a></td></tr>
+    </table>
 
     <h3>Sovereignty without isolation</h3>
     <p>EVM compatibility does not compromise sovereignty. Alkebuleum's validators, governance, monetary policy, and protocol direction are entirely sovereign to the Alkebuleum Foundation and its validator council. EVM compatibility is an architectural choice — like a country choosing to drive on the right side of the road because that's what most of the world does, while keeping every other aspect of national policy fully sovereign.</p>
 
-    <div class="callout">
-      <div class="lab">For developers</div>
-      <p>If you can deploy a smart contract on Ethereum, you can deploy it on Alkebuleum. The SDKs, the tooling, the security patterns — everything carries over. The only difference is where it runs, who validates it, and what infrastructure it serves.</p>
-    </div>
-  </section>
-
-
-  <!-- ═══ 8. THE THREE PROTOCOLS ═══ -->
-  <section class="chapter" id="protocols">
-    <div class="ch-meta">08 · The Protocols</div>
-    <h2>Three foundational protocols.</h2>
-    <p class="lead">Alkebuleum is not a general-purpose chain that hopes applications will be built on it. The network deploys three foundational protocols that directly serve the trust-infrastructure mission. Each is implemented as a suite of smart contracts on the EVM, and each is available to any developer building on the network.</p>
-
-    <h3>The Identity Protocol</h3>
-    <p>The Alkebuleum Identity Protocol is built on zero-knowledge cryptography and is privacy-first by design. Citizens, institutions, and businesses can prove who they are, what they hold, and what they are authorized to do — without surrendering the underlying data to any counterparty, foreign infrastructure, or even the network itself.</p>
-
-    <p>Verification happens in real time, globally, and across borders, while sovereignty over personal and institutional data remains with the holder. The protocol implements W3C Verifiable Credentials and Decentralized Identifiers (DID) standards, ensuring interoperability with global identity frameworks while operating under African data sovereignty.</p>
-
-    <p>This is the basis for cross-border KYC, citizen credentials, professional licensing, and any scenario where two parties need to verify a fact about each other without exchanging the raw information behind that fact.</p>
-
-    <h3>The Institutional Records Protocol</h3>
-    <p>The Institutional Records Protocol extends the Identity Protocol to the anchoring of critical real-world records. Certificates of birth, marriage, education, and incorporation. Professional licenses for doctors, lawyers, engineers, accountants. Contracts, deeds, and titles. Court records and regulatory filings.</p>
-
-    <p>All of these can be anchored to Alkebuleum through the protocol, where they become verifiable globally and tamper-resistant by construction, while the underlying documents and personal information remain protected. Issuers — universities, ministries, regulators — sign records cryptographically. Holders control disclosure. Verifiers receive proofs, not data.</p>
-
-    <h3>The Credit Protocol</h3>
-    <p>The Alkebuleum Credit Protocol provides on-chain credit histories, credit ratings, and other foundational economic infrastructure. Today, the lack of portable credit history is one of the largest structural barriers to capital access for African individuals and businesses.</p>
-
-    <p>By providing a neutral, privacy-preserving protocol layer for credit history, Alkebuleum makes it possible for a creditworthy individual or business in Lagos, Nairobi, or Accra to carry that credit standing across borders, across lenders, and across the diaspora. Credit becomes a portable asset that travels with the individual, not a record locked inside a single national bureau.</p>
-  </section>
-
-
-  <!-- ═══ 9. STRATEGIC ALIGNMENT ═══ -->
-  <section class="chapter" id="alignment">
-    <div class="ch-meta">09 · Alignment</div>
-    <h2>Aligned with the architects of Africa's future.</h2>
-    <p class="lead">Alkebuleum is not being built in isolation. It is being built in parallel with — and in service to — the institutional architects of Africa's digital economic future.</p>
-
+    <h3>R&amp;D roadmap</h3>
     <div class="grid-2">
       <div class="card">
-        <h4>AfCFTA</h4>
-        <p>The African Continental Free Trade Area covers 54 nations and 1.4 billion people. It requires shared infrastructure for identity, customs, payments, and regulatory coordination. Alkebuleum is being built as the verifiable substrate that infrastructure can run on.</p>
+        <h4>Zero-Knowledge Proofs</h4>
+        <p>Privacy-preserving credential verification and selective disclosure — identity and records use cases without exposing raw data to any counterparty.</p>
       </div>
       <div class="card">
-        <h4>African Union — Agenda 2063</h4>
-        <p>The AU's continental vision calls for "an integrated, prosperous, and peaceful Africa, driven by its own citizens." Alkebuleum is engineered to be the digital foundation of that vision — built and validated by African and diaspora institutions.</p>
+        <h4>Validator Governance Tooling</h4>
+        <p>Enhanced validator-policy enforcement, accreditation automation, and on-chain governance tooling for the Council.</p>
       </div>
       <div class="card">
-        <h4>World Bank &amp; ADB</h4>
-        <p>Multilateral institutions are actively designing digital infrastructure programs across the continent. Alkebuleum is positioned to provide the neutral, verifiable layer those programs need to coordinate across jurisdictions.</p>
+        <h4>Sector Subchains</h4>
+        <p>National and sectoral subchains for governments and consortia requiring additional privacy or jurisdiction-specific governance.</p>
       </div>
       <div class="card">
-        <h4>Digital Transformation Strategy 2020–2030</h4>
-        <p>The AU's continental digital strategy explicitly identifies blockchain and emerging technologies as foundational. Alkebuleum is the implementation that strategy has been waiting for — designed by and for the continent it serves.</p>
+        <h4>Stable-Value Settlement</h4>
+        <p>Compliance-aware stable-value settlement architecture for cross-border trade and regulated financial institution use cases.</p>
+      </div>
+      <div class="card">
+        <h4>Enterprise APIs &amp; Dashboards</h4>
+        <p>Enterprise-grade APIs, institutional dashboards, and advanced security audits enabling non-crypto-native institutional deployment.</p>
+      </div>
+      <div class="card">
+        <h4>DPI Interoperability</h4>
+        <p>Interoperability with African payment systems, digital public infrastructure, and continental standards bodies.</p>
       </div>
     </div>
   </section>
 
 
-  <!-- ═══ 10. USE CASES ═══ -->
+  <!-- 08 · PORA -->
+  <section class="chapter" id="pora">
+    <div class="ch-meta">08 · Consensus</div>
+    <h2>PORA — <em>Proof of Reputable Authority.</em></h2>
+    <p class="lead">PORA is Alkebuleum's validator and governance model — the defining technical and philosophical innovation of the network.</p>
+
+    <p>In most public blockchains, validation power is determined by capital or token stake. That is not appropriate for public-sector records, regulated financial systems, identity credentials, or institutional governance.</p>
+
+    <div class="pull">"A validator should not only have technical capacity. A validator should have something to lose if trust is broken."</div>
+
+    <p>Under PORA, validators are accredited institutions — universities, banks, fintechs, government agencies, regulators, civil society organizations, and diaspora bodies whose public reputation creates real-world accountability beyond the protocol. Misbehavior is not merely a technical violation; it is a reputational event affecting the institution's standing far beyond the network. This creates incentives no anonymous-validator chain can match.</p>
+
+    <h3>Current network status under PORA</h3>
+    <p>Alkebuleum Mainnet is live and currently Foundation-stewarded while the institutional validator set is being formally constituted. The Foundation accredits validators, publishes governance policy, and maintains the standards defining eligibility. The long-term target is a distributed multi-institutional validator network. Validator expansion milestones are disclosed in the diligence package.</p>
+
+    <h3>Validator tiers</h3>
+    <div class="tier-list">
+      <div class="tier-row">
+        <div class="tier-badge">Tier 01</div>
+        <div class="tier-label">Sovereign &amp; Monetary Authorities</div>
+        <div class="tier-desc">Central banks, national governments, and financial regulators. Provide sovereign monetary credibility and direct connection to regulatory frameworks.</div>
+      </div>
+      <div class="tier-row">
+        <div class="tier-badge">Tier 02</div>
+        <div class="tier-label">Academic &amp; Financial Institutions</div>
+        <div class="tier-desc">Universities, research institutes, commercial banks, and accredited fintechs. Bring technical expertise, financial market depth, and credential-issuance capability.</div>
+      </div>
+      <div class="tier-row">
+        <div class="tier-badge">Tier 03</div>
+        <div class="tier-label">Civic &amp; Diaspora Bodies</div>
+        <div class="tier-desc">Civil society organizations, diaspora coalitions, and public-interest entities. Ensure the network reflects the full African family — on the continent and globally.</div>
+      </div>
+      <div class="tier-row">
+        <div class="tier-badge">Steward</div>
+        <div class="tier-label">Alkebuleum Foundation</div>
+        <div class="tier-desc">Accreditation authority and governance policy publisher during the network formation phase. Transitions to Validator Council governance as the network matures.</div>
+      </div>
+    </div>
+
+    <h3>Why PORA creates durable advantage</h3>
+    <div class="grid-3">
+      <div class="card">
+        <h4>Inherited credibility</h4>
+        <p>A chain validated by central banks and universities carries that institutional weight intrinsically — no separate trust layer required.</p>
+      </div>
+      <div class="card">
+        <h4>Regulatory alignment</h4>
+        <p>Validators include regulated entities and regulators themselves. Oversight is built in from inception, not retrofitted after the fact.</p>
+      </div>
+      <div class="card">
+        <h4>Adoption leverage</h4>
+        <p>Validators are potential users, integrators, standard-setters, and partners. Every new validator expands the network's institutional reach.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 09 · THE ALKEBULEUM COUNCIL -->
+  <section class="chapter" id="council">
+    <div class="ch-meta">09 · Institutional Governance</div>
+    <h2>The Alkebuleum Council.</h2>
+    <p class="lead">The Alkebuleum Council is the institutional governance body being formed to guide, validate, and secure the network. It is the neutral home for Africa's sovereign trust infrastructure.</p>
+
+    <p>The Council brings together reputable institutions across universities, financial institutions, fintechs, public agencies, regulators, civil society, and diaspora organizations. Its role is to govern validator admission, protocol upgrades, network-level policy, and the long-term strategic direction of the network. As Alkebuleum matures, governance decisions transition progressively to the Council — ensuring that the institutions running the network are the institutions deciding its direction.</p>
+
+    <div class="pull">"For a trust layer, governance is not overhead. Governance is the product."</div>
+
+    <h3>Council representation framework</h3>
+    <div class="council-grid">
+      <div class="council-card">
+        <h4>Universities &amp; Research</h4>
+        <p>Academic credential issuance, research infrastructure, and technical expertise in protocol development.</p>
+      </div>
+      <div class="council-card">
+        <h4>Government &amp; Ministries</h4>
+        <p>Public records, procurement transparency, digital public services, and regulatory interface.</p>
+      </div>
+      <div class="council-card">
+        <h4>Financial Institutions</h4>
+        <p>KYC infrastructure, settlement rails, credit architecture, and cross-border financial coordination.</p>
+      </div>
+      <div class="council-card">
+        <h4>Fintechs &amp; Payments</h4>
+        <p>Cross-border rails, mobile money integration, and existing African consumer user bases.</p>
+      </div>
+      <div class="council-card">
+        <h4>Regulators</h4>
+        <p>Oversight, compliance access, audit participation, and policy coordination across jurisdictions.</p>
+      </div>
+      <div class="council-card">
+        <h4>Civil Society</h4>
+        <p>Public accountability, procurement monitoring, transparency advocacy, and community representation.</p>
+      </div>
+      <div class="council-card">
+        <h4>Diaspora Institutions</h4>
+        <p>Investment verification, credential portability, and the voice of the global African family in governance.</p>
+      </div>
+      <div class="council-card">
+        <h4>Enterprise Partners</h4>
+        <p>Implementation expertise, integration services, and commercial deployment capacity across sectors.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 10 · THE FOUR PROTOCOLS -->
+  <section class="chapter" id="protocols">
+    <div class="ch-meta">10 · The Protocols</div>
+    <h2>Four foundational protocols.</h2>
+    <p class="lead">Alkebuleum deploys four foundational protocols that directly serve the trust-infrastructure mission. Each is implemented as a suite of smart contracts on the EVM, and each is available to any developer or institution building on the network.</p>
+
+    <h3>The Identity Protocol — AlkeID</h3>
+    <p>Enables citizens, institutions, businesses, and organizations to prove facts about themselves without exposing unnecessary underlying data. Built on zero-knowledge cryptography and privacy-first by design. Verification happens in real time, globally, and across borders, while sovereignty over personal and institutional data remains with the holder.</p>
+    <p>The protocol implements W3C Verifiable Credentials and Decentralized Identifiers (DID) standards — interoperability with global identity frameworks, operating under African data sovereignty. The Identity Protocol is deployed on the Alkebuleum network and is the basis for cross-border KYC, citizen credentials, professional licensing, and any scenario where two parties need to verify a fact about each other without exchanging the raw information behind that fact. Consumer-facing delivery through <strong>AlkeID</strong> is in active development.</p>
+
+    <h3>The Ledger Protocol — AlkeLedger <span class="badge-live" style="vertical-align:middle;font-size:10px">Live</span></h3>
+    <p>AlkeLedger is the foundational layer of the entire Alkebuleum trust infrastructure — the shared record of truth that AlkeID, AlkePay, and AlkeCredit all depend on. It is Alkebuleum's institutional-grade blockchain ledger, designed for governments, enterprises, nonprofits, and organizations that need to record, verify, and share trusted activity without relying on third-party intermediaries.</p>
+    <p>When an institution anchors a record to AlkeLedger, that record becomes permanently timestamped and cryptographically verifiable. Any authorized party — whether a counterpart institution, a regulator, or an individual — can verify the record independently, without contacting the original issuer. Issuers sign records cryptographically. Holders control disclosure. Verifiers receive proofs, not data.</p>
+    <p>AlkeLedger supports institutional records, document anchoring, audit trails, trusted activity logs, and cross-institutional verification — designed to meet the compliance, auditability, and accountability requirements of governments, ministries, and public sector agencies. Use cases include land registries, academic credentials, corporate governance records, public procurement trails, and NGO accountability reporting. Live at <strong><a href="https://alkeledger.com" style="color:var(--purple-deep);text-decoration:underline;text-underline-offset:3px">alkeledger.com</a></strong>.</p>
+
+    <h3>The Payment Protocol — AlkePay</h3>
+    <p>Institutional payment infrastructure for organizations — governments, enterprises, nonprofits, and institutions — that need to collect, disburse, and track payments with verifiable records. AlkePay supports payment request links, collections, bulk disbursements, and milestone-based programmable payouts. Every transaction is automatically anchored to AlkeLedger, creating a tamper-proof, independently verifiable record of payment activity.</p>
+    <p>AlkePay is designed for institutional payment workflows — not consumer retail. Payments are denominated in stable units and settled in ALKE, giving organizations predictable pricing for cross-border and institutional transactions. Use cases include government fee collections, NGO disbursements, payroll, vendor payments, and cross-border trade settlement. Delivered through <strong>AlkePay</strong>.</p>
+
+    <div class="pull">"Every AlkePay transaction is anchored to AlkeLedger — creating a permanent, auditable record that persists beyond any single institution's systems."</div>
+
+    <h3>The Credit Protocol — AlkeCredit</h3>
+    <p>Supports portable, privacy-preserving credit and reputation infrastructure: on-chain credit attestations, institution-issued repayment records, SME credit profiles, diaspora-backed credit support, cross-border lending verification, and reputation-based access to services — integrated with banks, fintechs, cooperatives, and microfinance institutions.</p>
+
+    <div class="pull">"Credit should not reset to zero when a person crosses a border."</div>
+
+    <p>The lack of portable credit history is one of the largest structural barriers to capital access for African individuals and businesses. AlkeCredit makes it possible for a creditworthy individual or business in Lagos, Nairobi, or Accra to carry that credit standing across borders, lenders, and the diaspora. Credit becomes a portable asset that travels with the individual — not a record locked inside a single national bureau. Delivered through <strong>AlkeCredit</strong>.</p>
+  </section>
+
+
+  <!-- 11 · USE CASES -->
   <section class="chapter" id="use-cases">
-    <div class="ch-meta">10 · Use Cases</div>
+    <div class="ch-meta">11 · Use Cases</div>
     <h2>From policy to payment.</h2>
-    <p class="lead">Alkebuleum is already powering programs that touch governance, finance, and civic life across the continent. These are not theoretical scenarios — they are the kinds of programs the network exists to enable.</p>
+    <p class="lead">These are not theoretical scenarios — they are the kinds of programs the network exists to enable, and in several cases, programs already in operation.</p>
 
     <div class="grid-2">
       <div class="card">
         <h4>Anti-corruption infrastructure</h4>
-        <p>Public procurement and disbursement records anchored on-chain. Liberia's pilot is the first national-scale program in West Africa, anchoring civic procurement to a verifiable ledger.</p>
+        <p>Tamper-resistant anchoring of procurement documents, bid records, award decisions, and audit trails. Public money, publicly accountable.</p>
       </div>
       <div class="card">
-        <h4>Cross-border settlement</h4>
-        <p>Remittance and trade settlement between African nations and the diaspora, denominated in stable value, finalized in seconds, with regulatory compliance built in.</p>
+        <h4>Academic credentials</h4>
+        <p>Globally verifiable credentials issued by universities — verifiable by employers across borders without manual processes or institutional intermediaries.</p>
       </div>
       <div class="card">
-        <h4>Citizen credentials</h4>
-        <p>Verifiable IDs, academic records, and professional licenses that travel with citizens across borders without surrendering personal data or national sovereignty.</p>
+        <h4>Business &amp; institutional verification</h4>
+        <p>Verifiable institutional profiles for companies, NGOs, cooperatives, and public bodies — enabling trust without bureaucratic delay.</p>
       </div>
       <div class="card">
-        <h4>Land &amp; property registries</h4>
-        <p>Tokenized, dispute-resistant ownership records — a foundation for collateral, investment, and generational wealth, anchored to institutional validators.</p>
+        <h4>Land &amp; property records</h4>
+        <p>Tamper-resistant anchoring of property claims, improving collateralization, dispute resolution, and generational investment confidence.</p>
+      </div>
+      <div class="card">
+        <h4>Cross-border payments &amp; settlement</h4>
+        <p>Stable-value settlement, remittance corridors, diaspora transfers, and trade settlement — finalized in seconds, with regulatory compliance built in.</p>
+      </div>
+      <div class="card">
+        <h4>Diaspora investment transparency</h4>
+        <p>On-chain verification of funding, milestones, governance, disbursement, and reporting — giving the diaspora verifiable channels to invest in the continent.</p>
       </div>
       <div class="card">
         <h4>Supply chain provenance</h4>
-        <p>From cocoa to cobalt — prove origin and chain of custody for goods leaving the continent. Capture value where it's created.</p>
+        <p>From cocoa to cobalt — verifiable chain of custody for agriculture, minerals, manufacturing, and exports. Capture value where it's created.</p>
       </div>
       <div class="card">
-        <h4>Diaspora investment</h4>
-        <p>Programmable vehicles for the global diaspora to invest in, own, and govern continental projects with full transparency and on-chain accountability.</p>
+        <h4>Sovereign AI infrastructure</h4>
+        <p>Nuru AI operates over network identity and finance primitives with institutional provenance — AI that knows who it's serving and can prove it.</p>
       </div>
     </div>
   </section>
 
 
-  <!-- ═══ 11. ROADMAP ═══ -->
-  <section class="chapter" id="roadmap">
-    <div class="ch-meta">11 · Roadmap</div>
-    <h2>The phased path forward.</h2>
-    <p class="lead">Alkebuleum's development is phased intentionally. Trust infrastructure cannot be rushed. Each phase builds the capacity, validator base, and protocol maturity needed for the next.</p>
+  <!-- 12 · ECOSYSTEM & USER ACCESS -->
+  <section class="chapter" id="ecosystem">
+    <div class="ch-meta">12 · Ecosystem</div>
+    <h2>Live applications. <em>Real infrastructure.</em></h2>
+    <p class="lead">The Alkebuleum ecosystem includes five operational applications running on the network today. Each addresses a specific institutional or user need — and each is accessible now.</p>
 
-    <div class="phase">
-      <div class="phase-tag">Phase 1<br/><span class="now">Now</span></div>
-      <div class="phase-body">
-        <h4>Mainnet &amp; Institutional Onboarding</h4>
-        <p>PORA mainnet live with founding institutional validators. Identity and Institutional Records Protocols deployed. Liberia anti-corruption pilot in production. Active onboarding of additional central banks, universities, and diaspora institutions to the validator council.</p>
-      </div>
-    </div>
+    <table class="data-table">
+      <tr><th>Product</th><th>Status</th><th>Role</th><th>URL</th></tr>
+      <tr>
+        <td>AlkeLedger</td>
+        <td><span class="badge-live">Live</span></td>
+        <td>Institutional trust ledger — foundational records layer</td>
+        <td class="mono"><a href="https://alkeledger.com">alkeledger.com</a></td>
+      </tr>
+      <tr>
+        <td>Amvault</td>
+        <td><span class="badge-live">Live</span></td>
+        <td>Self-custodial wallet and identity hub</td>
+        <td class="mono"><a href="https://amvault.net">amvault.net</a></td>
+      </tr>
+      <tr>
+        <td>JollofSwap</td>
+        <td><span class="badge-live">Live</span></td>
+        <td>Native decentralised exchange</td>
+        <td class="mono"><a href="https://jollofswap.com">jollofswap.com</a></td>
+      </tr>
+      <tr>
+        <td>Nuru AI</td>
+        <td><span class="badge-live">Live</span></td>
+        <td>Sovereign AI assistant for identity and finance</td>
+        <td class="mono"><a href="https://nuruai.org">nuruai.org</a></td>
+      </tr>
+      <tr>
+        <td>AfPass</td>
+        <td><span class="badge-concept">Coming Soon</span></td>
+        <td>Decentralised identity passport for Africa</td>
+        <td class="mono" style="color:var(--ink-mute)">afpass.org</td>
+      </tr>
+      <tr>
+        <td>DRIS</td>
+        <td><span class="badge-concept">Coming Soon</span></td>
+        <td>Document registry and institutional signing</td>
+        <td class="mono" style="color:var(--ink-mute)">dris.cc</td>
+      </tr>
+    </table>
 
-    <div class="phase">
-      <div class="phase-tag">Phase 2<br/>2026–27</div>
-      <div class="phase-body">
-        <h4>Protocol Expansion &amp; Cross-Border Pilots</h4>
-        <p>Credit Protocol deployment. First cross-border settlement corridors live between West and East African validators. Diaspora investment vehicles operational. Expansion of the Identity Protocol to support government-issued credentials across multiple nations.</p>
-      </div>
-    </div>
-
-    <div class="phase">
-      <div class="phase-tag">Phase 3<br/>2027–28</div>
-      <div class="phase-body">
-        <h4>ZK Sovereignty &amp; Subchain Architecture</h4>
-        <p>Zero-knowledge proof anchoring for selective Ethereum settlement. Launch of national and sectoral subchains for governments and consortia that require additional privacy. Full interoperability across the Alkebuleum subchain ecosystem.</p>
-      </div>
-    </div>
-
-    <div class="phase">
-      <div class="phase-tag">Phase 4<br/>2028+</div>
-      <div class="phase-body">
-        <h4>Full Continental Coverage</h4>
-        <p>Validator coverage across all five African regions and major diaspora hubs. AfCFTA-aligned trade infrastructure operational. Foundation governance transitioning to fully decentralized validator council with broad institutional and community participation.</p>
-      </div>
-    </div>
+    <p>Institutional users — government offices, banks, universities — do not need a crypto-first interface. Alkebuleum supports institutional dashboards that hide unnecessary complexity while enabling authorized record issuance, verification, approvals, and network interactions. The same network powers different interfaces for different audiences.</p>
   </section>
 
 
-  <!-- ═══ 12. GOVERNANCE ═══ -->
-  <section class="chapter" id="governance">
-    <div class="ch-meta">12 · Governance</div>
-    <h2>The Foundation &amp; the Council.</h2>
-    <p class="lead">Alkebuleum is stewarded by the Alkebuleum Foundation, a non-profit organization established to support the network, its ecosystem, and its mission. The Foundation operates alongside the Validator Council, the governance body of the institutions that validate the network.</p>
+  <!-- 13 · NATIVE ASSET -->
+  <section class="chapter" id="token">
+    <div class="ch-meta">13 · Native Asset</div>
+    <h2>Alkecoin (ALKE).</h2>
+    <p class="lead">ALKE is the native utility asset of the Alkebuleum network — the fuel for transaction fees, smart-contract execution, validator operations, and protocol access.</p>
+
+    <table class="data-table">
+      <tr><th>Property</th><th>Value</th></tr>
+      <tr><td>Token Name</td><td>Alkecoin</td></tr>
+      <tr><td>Ticker</td><td class="mono">ALKE &nbsp;(alias: AKE)</td></tr>
+      <tr><td>Type</td><td>Native utility asset — not intended as a security</td></tr>
+      <tr><td>Genesis Supply</td><td>1,000,000,000 ALKE (fixed)</td></tr>
+      <tr><td>ICO / Presale</td><td>None</td></tr>
+      <tr><td>Network uses</td><td>Transaction fees, smart-contract execution, validator operations, protocol access, institutional service fees, ecosystem participation</td></tr>
+      <tr><td>Full tokenomics</td><td class="mono"><a href="https://alkebuleum.org/tokenomics">alkebuleum.org/tokenomics</a></td></tr>
+    </table>
+
+    <div class="callout">
+      <div class="lab">Allocation</div>
+      <p>The genesis supply is allocated across the Alkebuleum Foundation (ecosystem stewardship), Community DAO / Ecosystem Reserve (builders, developers, diaspora), and Alkebuleum Technology LLC (commercial execution). Allocation is designed to align long-term incentives and prevent short-term supply pressure. Full allocation percentages and vesting schedules are published at <strong>alkebuleum.org/tokenomics</strong>.</p>
+    </div>
+
+    <p>ALKE is not intended to represent equity, ownership, debt, profit rights, or claims on Alkebuleum Foundation, Alkebuleum Technology LLC, or any affiliated entity. Regulatory treatment varies by jurisdiction and should be evaluated by qualified counsel prior to any participation or investment decision.</p>
+  </section>
+
+
+  <!-- 14 · FOUNDATION, DAO & LLC -->
+  <section class="chapter" id="structure">
+    <div class="ch-meta">14 · Governance Structure</div>
+    <h2>Foundation, DAO, <em>and LLC.</em></h2>
+    <p class="lead">Alkebuleum's governance architecture separates three distinct functions: public-interest stewardship, community participation, and commercial execution. Each entity has a defined role — and together they combine mission integrity with commercial viability.</p>
 
     <h3>The Alkebuleum Foundation</h3>
-    <p>The Foundation provides treasury, ecosystem grants, developer programs, and regulatory engagement. It funds core protocol development, supports African and diaspora builders through grants and educational programs, and serves as the network's liaison to governments, regulators, and multilateral institutions.</p>
+    <p>Founded in 2024, the Alkebuleum Foundation is the public-interest steward of the network. It is responsible for governance, technical integrity, and institutional coordination — ensuring the network operates to the standards required by governments, regulated institutions, and the African public. The Foundation does not control the network. It stewards it. It provides treasury management, ecosystem grants, developer programs, regulatory engagement, and core protocol development. It serves as the network's liaison to governments, regulators, and multilateral institutions.</p>
 
-    <h3>The Validator Council</h3>
-    <p>The Council is composed of the institutional validators that secure the network. It governs validator admission, protocol upgrades, network-level policy, and the strategic direction of the network. As the network matures, governance decisions transition progressively to the Council — ensuring that the institutions running the network are the institutions deciding its direction.</p>
+    <h3>The Community DAO / Ecosystem Reserve</h3>
+    <p>The community layer ensures builders, developers, users, diaspora communities, educators, civic groups, and local initiatives have a path into the ecosystem. The reserve funds hackathons, grants, education programs, and adoption initiatives — without institutional capture. The network's long-term legitimacy depends on its ability to serve and be shaped by the 1.4 billion people it exists for.</p>
 
-    <h3>Community &amp; the diaspora</h3>
-    <p>Beyond institutional governance, Alkebuleum is committed to broad community participation. Developer grants, hackathons, educational programs, and diaspora outreach are core Foundation activities. The network's long-term legitimacy depends on its ability to serve and be shaped by the 1.4 billion people it exists for.</p>
+    <h3>Alkebuleum Technology LLC</h3>
+    <p>The LLC is the commercial operator — the entity through which enterprise products, implementation contracts, SaaS offerings, and integration services are developed and delivered. It creates a clear commercial vehicle for institutional deployment and enterprise revenue while the network remains mission-aligned. The Technology LLC is the investable entity for institutional and enterprise engagement.</p>
   </section>
 
 
-  <!-- ═══ CLOSING ═══ -->
-  <section class="closing">
+  <!-- 15 · TEAM & OPERATING HISTORY -->
+  <section class="chapter" id="team">
+    <div class="ch-meta">15 · Team &amp; Operating History</div>
+    <h2>The team behind <em>the network.</em></h2>
+    <p class="lead">Alkebuleum's technical and ecosystem effort began in 2020. The Alkebuleum Foundation was formally constituted in 2024. The result: a live mainnet, five operational ecosystem applications, and a formalized institutional structure — built without major external funding. That is a statement of conviction.</p>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="t-name">Ernesto Herbert</div>
+        <div class="t-role">Executive Director</div>
+        <div class="t-bio">Founder and ecosystem lead. Led Alkebuleum from early architecture through mainnet, product ecosystem, and Foundation formation.</div>
+      </div>
+      <div class="team-card">
+        <div class="t-name">Edward Z. Dickson</div>
+        <div class="t-role">Assistant Director</div>
+        <div class="t-bio">Strategic operations and governance support. Coordinates institutional engagement and Foundation programs.</div>
+      </div>
+      <div class="team-card">
+        <div class="t-name">Sharufa R. Walker</div>
+        <div class="t-role">Global Strategist</div>
+        <div class="t-bio">Diaspora and international relations. Leads global institutional positioning and partnership strategy.</div>
+      </div>
+      <div class="team-card">
+        <div class="t-name">Ken Echols</div>
+        <div class="t-role">Director of Engineering</div>
+        <div class="t-bio">Network engineering, infrastructure, protocol implementation, and the full technical roadmap.</div>
+      </div>
+      <div class="team-card">
+        <div class="t-name">Beyan I. Gonowolo</div>
+        <div class="t-role">Operations Lead</div>
+        <div class="t-bio">Day-to-day operational management, stakeholder coordination, and program delivery.</div>
+      </div>
+      <div class="team-card">
+        <div class="t-name">Isaac Thor</div>
+        <div class="t-role">Cybersecurity Specialist</div>
+        <div class="t-bio">Network security architecture, threat assessment, and protocol integrity.</div>
+      </div>
+      <div class="team-card">
+        <div class="t-name">Putugal Johnson</div>
+        <div class="t-role">Strategic Partnerships</div>
+        <div class="t-bio">Institutional partnership development, enterprise outreach, and alliance coordination.</div>
+      </div>
+      <div class="team-card">
+        <div class="t-name">Raymond Wheeler</div>
+        <div class="t-role">Head of Finance</div>
+        <div class="t-bio">Financial management, treasury oversight, and reporting.</div>
+      </div>
+    </div>
+
+    <h3>Foundation Ambassadors</h3>
+    <p>The Foundation's ambassador network extends reach across Africa and the diaspora: <strong>Amine Duhumy</strong> (Senior Ambassador Coordinator), <strong>Therese Parker</strong> (Foundation Ambassador), <strong>Amos Karnuah</strong> (Foundation Ambassador).</p>
+  </section>
+
+
+  <!-- 16 · ROADMAP -->
+  <section class="chapter" id="roadmap">
+    <div class="ch-meta">16 · Roadmap</div>
+    <h2>The phased path forward.</h2>
+    <p class="lead">Alkebuleum's roadmap is intentionally phased. Trust infrastructure cannot be rushed. Each phase builds credibility, technical reliability, institutional participation, and use-case proof before the next begins.</p>
+
+    <div class="phase">
+      <div class="phase-tag">Phase 1<br/><span class="now">Current</span></div>
+      <div class="phase-body">
+        <h4>Foundation &amp; Institutional Formation</h4>
+        <p>Maintain and strengthen the live EVM-compatible Layer 1 network. Formalize Foundation governance and validator accreditation framework. Publish updated technical documentation and security review roadmap. Strengthen explorer, RPC, wallet, and developer tooling.</p>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-tag">Phase 2</div>
+      <div class="phase-body">
+        <h4>Pilots &amp; Proof</h4>
+        <p>Launch institutional pilots: academic credentials, procurement transparency. Onboard initial Council participants. Begin Credit Protocol testing with financial institution partners. Publish public case studies and build institutional dashboards.</p>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-tag">Phase 3</div>
+      <div class="phase-body">
+        <h4>Commercialization &amp; Scale</h4>
+        <p>Convert pilots into paid enterprise and public-sector deployments. Grow Technology LLC implementation revenue. Launch SaaS/API products for records, identity, and verification. Develop cross-border settlement pilots with regulated financial institution partners.</p>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-tag">Phase 4</div>
+      <div class="phase-body">
+        <h4>Regional &amp; Sectoral Expansion</h4>
+        <p>Expand across African regions and major diaspora hubs. Launch sector-specific protocol extensions and institutional subchains. Integrate with broader digital public infrastructure systems across the continent.</p>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-tag">Phase 5</div>
+      <div class="phase-body">
+        <h4>Continental Trust Layer</h4>
+        <p>Multi-country, multi-institution adoption at scale. Mature Foundation governance and sustainable Technology LLC revenue. Trusted infrastructure across identity, records, payments, credit, and governance — the digital foundation of a sovereign African economy.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CLOSING / CONCLUSION -->
+  <section class="closing" id="conclusion">
     <svg><use href="#mark"/></svg>
     <h2>A ledger of trust,<br/>built by Africa.</h2>
-    <p>For the continent. For the diaspora. For the institutions building Africa's digital future — and the 1.4 billion people who deserve to own what they build.</p>
+    <p>Africa does not need another blockchain narrative. Africa needs infrastructure that can carry trust across borders, institutions, sectors, and generations. The network is live. The blocks are running. The ecosystem exists. The team is in place. The Council is being constituted. The thesis is clear.</p>
+    <p class="closing-quote">"The next century of African commerce, governance, and identity will be shaped by the rails being built today. Alkebuleum is building those rails."</p>
+    <div class="closing-contact">
+      <a href="mailto:info@alkebuleum.org">info@alkebuleum.org</a>
+      &nbsp;·&nbsp;
+      <a href="https://alkebuleum.org">alkebuleum.org</a>
+      &nbsp;·&nbsp;
+      <a href="https://foundation.alkebuleum.org">foundation.alkebuleum.org</a>
+    </div>
   </section>
 
 
-  <!-- DOC FOOTER -->
   <div class="doc-foot">
     <span>© 2026 ALKEBULEUM FOUNDATION · ALL RIGHTS RESERVED</span>
-    <span>WHITEPAPER V2.0 · MAY 2026</span>
+    <span>WHITEPAPER V2.0 · JUNE 2026</span>
   </div>
 
 </div>
-
-
 </body>
 </html>

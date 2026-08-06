@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Developer Docs | Alkebuleum</title>
+<meta name="description" content="Technical documentation for building on Alkebuleum — Africa's sovereign Layer 1 blockchain. RPC, smart contracts, identity, PORA consensus, and ecosystem SDKs."/>
+<link rel="canonical" href="https://docs.alkebuleum.org"/>
+<meta property="og:title" content="Developer Docs | Alkebuleum"/>
+<meta property="og:description" content="Technical documentation for building on Alkebuleum — Africa's sovereign Layer 1 blockchain."/>
+<meta property="og:url" content="https://docs.alkebuleum.org"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://alkebuleum.org/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Developer Docs | Alkebuleum"/>
+<meta name="twitter:description" content="Technical documentation for building on Alkebuleum — Africa's sovereign Layer 1 blockchain."/>
+<meta name="twitter:image" content="https://alkebuleum.org/og-image.png"/>
+<link rel="icon" href="https://alkebuleum.org/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#0c0b0a;
+  --ink-2:#2e2d2b;
+  --ink-3:#6b6a66;
+  --ink-4:#9a9994;
+  --bg:#faf8f4;
+  --bg-2:#f4f0e8;
+  --bg-dark:#0c0b0a;
+  --purple:#6b52e8;
+  --purple-2:#4f3ac0;
+  --accent:#c6b6ff;
+  --gold:#b08a2e;
+  --gold-2:#d4a940;
+  --green:#1e8a5e;
+  --green-2:#e6f5ef;
+  --rule:rgba(12,11,10,.1);
+  --rule-2:rgba(12,11,10,.18);
+  --code-bg:#1a1917;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'DM Sans',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;font-size:16px;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+img{display:block;max-width:100%}
+
+/* ── LAYOUT ── */
+.page{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+.sidebar{
+  position:sticky;top:0;height:100vh;
+  background:var(--bg-dark);color:#fff;
+  padding:36px 24px;
+  display:flex;flex-direction:column;
+  gap:0;
+  overflow-y:auto;
+  z-index:10;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.12) transparent;
+}
+.main{min-width:0}
+
+/* ── SIDEBAR ── */
+.sb-brand{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:32px;padding-bottom:24px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.sb-brand svg{width:22px;height:26px;color:#fff;flex-shrink:0}
+.sb-brand-word{
+  font-family:'DM Sans',sans-serif;font-size:13.5px;
+  font-variant:small-caps;letter-spacing:.12em;line-height:1.2;
+}
+.sb-brand-word strong{font-weight:600;display:block}
+.sb-brand-sub{
+  font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(198,182,255,.7);margin-top:2px;
+}
+
+.sb-version{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'DM Mono',monospace;font-size:9.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  background:rgba(107,82,232,.25);color:var(--accent);
+  padding:4px 10px;border-radius:999px;margin-bottom:28px;
+  border:1px solid rgba(107,82,232,.3);
+  width:fit-content;
+}
+.sb-version::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);display:block}
+
+.sb-label{
+  font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+  margin-bottom:8px;margin-top:24px;padding-left:4px;
+}
+.sb-nav{list-style:none;display:flex;flex-direction:column;gap:1px;margin-bottom:4px}
+.sb-nav a{
+  display:flex;align-items:center;gap:8px;
+  padding:6px 10px;border-radius:5px;
+  font-size:13px;color:rgba(255,255,255,.65);
+  transition:all .15s;line-height:1.35;
+}
+.sb-nav a svg{width:14px;height:14px;opacity:.5;flex-shrink:0;transition:opacity .15s}
+.sb-nav a:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.9)}
+.sb-nav a:hover svg{opacity:.8}
+.sb-nav a.active{background:rgba(107,82,232,.22);color:var(--accent)}
+.sb-nav a.active svg{opacity:1;color:var(--accent)}
+
+/* sub-items */
+.sb-nav-sub{list-style:none;display:flex;flex-direction:column;gap:1px;margin:2px 0 4px 22px}
+.sb-nav-sub a{
+  display:block;padding:4px 8px;border-radius:4px;
+  font-size:12px;color:rgba(255,255,255,.45);
+  transition:all .15s;
+  border-left:1px solid rgba(255,255,255,.1);
+  padding-left:12px;margin-left:0;
+}
+.sb-nav-sub a:hover{color:rgba(255,255,255,.8);border-color:rgba(255,255,255,.3)}
+.sb-nav-sub a.active{color:var(--accent);border-color:var(--purple)}
+
+.sb-bottom{
+  margin-top:auto;padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.sb-bottom a{
+  display:flex;align-items:center;gap:7px;
+  font-size:12px;color:rgba(255,255,255,.45);
+  padding:5px 4px;transition:color .15s;
+}
+.sb-bottom a svg{width:13px;height:13px}
+.sb-bottom a:hover{color:rgba(255,255,255,.8)}
+
+/* ── HERO BAND ── */
+.hero-band{
+  background:var(--bg-dark);color:#fff;
+  padding:56px 64px;
+  position:relative;overflow:hidden;
+}
+.hero-band::before{
+  content:"";position:absolute;
+  right:-80px;top:-80px;
+  width:480px;height:480px;border-radius:50%;
+  background:radial-gradient(circle,rgba(107,82,232,.35),transparent 60%);
+  filter:blur(60px);pointer-events:none;
+}
+.hero-band::after{
+  content:"";position:absolute;
+  inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:24px 24px;
+  mask-image:radial-gradient(ellipse at 80% 50%,#000 20%,transparent 70%);
+  -webkit-mask-image:radial-gradient(ellipse at 80% 50%,#000 20%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:2}
+.hero-eyebrow{
+  font-family:'DM Mono',monospace;font-size:11px;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(198,182,255,.9);font-weight:500;
+  margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.hero-eyebrow::before{content:"";width:24px;height:1px;background:rgba(198,182,255,.6)}
+.hero-band h1{
+  font-family:'Playfair Display',serif;font-weight:400;
+  font-size:clamp(32px,4vw,52px);line-height:1.08;
+  letter-spacing:-.025em;color:#fff;
+  margin-bottom:18px;max-width:680px;
+}
+.hero-band h1 em{font-style:italic;color:var(--accent)}
+.hero-band p{
+  font-size:16.5px;line-height:1.6;
+  color:rgba(255,255,255,.7);max-width:560px;
+  margin-bottom:32px;
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 22px;border-radius:999px;
+  font-size:13px;font-weight:500;
+  border:1px solid;transition:all .2s;cursor:pointer;
+  font-family:'DM Sans',sans-serif;
+}
+.btn-white{background:#fff;color:var(--ink);border-color:#fff}
+.btn-white:hover{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.btn-ghost-white{background:transparent;color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.3)}
+.btn-ghost-white:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.6)}
+
+/* quick-start strip */
+.qs-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-bottom:1px solid var(--rule);
+}
+.qs-card{
+  padding:28px 32px;border-right:1px solid var(--rule);
+  transition:background .15s;
+  cursor:pointer;
+}
+.qs-card:last-child{border-right:none}
+.qs-card:hover{background:var(--bg-2)}
+.qs-card-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:linear-gradient(135deg,rgba(107,82,232,.12),rgba(107,82,232,.06));
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;
+  border:1px solid rgba(107,82,232,.15);
+}
+.qs-card-icon svg{width:18px;height:18px;color:var(--purple)}
+.qs-card-title{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.qs-card-desc{font-size:12.5px;color:var(--ink-3);line-height:1.5}
+
+/* ── DOC SECTIONS ── */
+.doc-sec{
+  padding:64px 64px;
+  border-bottom:1px solid var(--rule);
+}
+.doc-sec:last-child{border-bottom:none}
+
+/* chapter marker */
+.ch{
+  font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--purple);font-weight:500;
+  margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.ch::before{content:"";width:28px;height:1px;background:var(--purple)}
+
+h2.sec-title{
+  font-family:'Playfair Display',serif;font-weight:400;
+  font-size:clamp(26px,2.8vw,38px);line-height:1.12;
+  letter-spacing:-.02em;color:var(--ink);
+  margin-bottom:10px;
+}
+h2.sec-title em{font-style:italic;color:var(--purple)}
+.sec-deck{
+  font-size:15px;line-height:1.6;color:var(--ink-3);
+  max-width:620px;margin-bottom:36px;
+}
+
+/* ── NETWORK TABLE ── */
+.net-table{width:100%;border-collapse:collapse;font-size:14px;max-width:800px}
+.net-table tr{border-bottom:1px solid var(--rule)}
+.net-table tr:last-child{border-bottom:none}
+.net-table td{padding:13px 16px;vertical-align:top}
+.net-table td:first-child{
+  font-family:'DM Mono',monospace;font-size:11.5px;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;width:220px;
+  white-space:nowrap;
+}
+.net-table td:last-child{color:var(--ink-2);font-size:14.5px}
+.net-table code{
+  font-family:'DM Mono',monospace;font-size:13px;
+  background:var(--bg-2);padding:2px 7px;border-radius:4px;
+  color:var(--purple);
+}
+.net-table a{color:var(--purple)}
+.net-table a:hover{text-decoration:underline}
+
+/* ── CODE BLOCK ── */
+.code-wrap{
+  background:var(--code-bg);border-radius:10px;
+  overflow:hidden;margin:20px 0;
+  border:1px solid rgba(255,255,255,.06);
+}
+.code-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 16px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);
+}
+.code-lang{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+}
+.code-copy{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);background:none;border:none;cursor:pointer;
+  transition:color .15s;padding:0;
+  display:flex;align-items:center;gap:5px;
+}
+.code-copy:hover{color:rgba(255,255,255,.7)}
+.code-copy.copied{color:var(--accent)}
+pre{
+  font-family:'DM Mono',monospace;font-size:13px;
+  line-height:1.65;color:rgba(255,255,255,.82);
+  padding:20px 22px;overflow-x:auto;
+  white-space:pre;
+}
+pre .kw{color:#c792ea}
+pre .str{color:#c3e88d}
+pre .num{color:#f78c6c}
+pre .fn{color:#82aaff}
+pre .cm{color:rgba(255,255,255,.35);font-style:italic}
+pre .val{color:var(--accent)}
+pre .prop{color:#ffcb6b}
+
+/* ── CALLOUT ── */
+.callout{
+  display:flex;gap:14px;
+  padding:16px 20px;border-radius:8px;
+  margin:20px 0;font-size:14.5px;line-height:1.6;
+}
+.callout svg{width:18px;height:18px;flex-shrink:0;margin-top:2px}
+.callout.info{background:#eff4ff;border-left:3px solid var(--purple);color:var(--ink-2)}
+.callout.info svg{color:var(--purple)}
+.callout.tip{background:var(--green-2);border-left:3px solid var(--green);color:var(--ink-2)}
+.callout.tip svg{color:var(--green)}
+.callout.warn{background:#fff8e6;border-left:3px solid var(--gold-2);color:var(--ink-2)}
+.callout.warn svg{color:var(--gold-2)}
+
+/* ── STEP LIST ── */
+.steps{counter-reset:step;display:flex;flex-direction:column;gap:0;max-width:760px}
+.step{
+  display:grid;grid-template-columns:40px 1fr;
+  gap:0 20px;
+  padding:24px 0;
+  border-bottom:1px solid var(--rule);
+}
+.step:last-child{border-bottom:none}
+.step-num{
+  font-family:'DM Mono',monospace;font-size:12px;
+  letter-spacing:.1em;color:var(--purple);font-weight:500;
+  padding-top:2px;
+}
+.step-title{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.step-body{font-size:14.5px;line-height:1.65;color:var(--ink-2)}
+.step-body code{
+  font-family:'DM Mono',monospace;font-size:12.5px;
+  background:var(--bg-2);padding:2px 6px;border-radius:3px;
+  color:var(--purple);
+}
+
+/* ── ENDPOINT CARD ── */
+.endpoints{display:flex;flex-direction:column;gap:12px;max-width:840px}
+.ep-card{
+  border:1px solid var(--rule);border-radius:8px;
+  overflow:hidden;
+  transition:border-color .2s;
+}
+.ep-card:hover{border-color:var(--rule-2)}
+.ep-head{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 18px;background:var(--bg);
+  cursor:pointer;
+  user-select:none;
+}
+.ep-method{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.12em;font-weight:500;
+  padding:3px 9px;border-radius:4px;
+  text-transform:uppercase;flex-shrink:0;
+}
+.ep-method.get{background:#e6f5ef;color:var(--green)}
+.ep-method.post{background:#eff4ff;color:var(--purple)}
+.ep-method.eth{background:rgba(107,82,232,.1);color:var(--purple)}
+.ep-path{
+  font-family:'DM Mono',monospace;font-size:13px;
+  color:var(--ink);flex:1;
+}
+.ep-desc{font-size:13px;color:var(--ink-3)}
+.ep-body{
+  padding:16px 18px;
+  border-top:1px solid var(--rule);
+  background:var(--bg-2);
+  font-size:13.5px;line-height:1.65;color:var(--ink-2);
+  display:none;
+}
+.ep-card.open .ep-body{display:block}
+.ep-chevron{margin-left:auto;color:var(--ink-4);transition:transform .2s;flex-shrink:0}
+.ep-card.open .ep-chevron{transform:rotate(180deg)}
+
+/* ── SPEC GRID ── */
+.spec-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:14px;max-width:900px;margin-bottom:28px;
+}
+.spec-card{
+  padding:20px 22px;
+  border:1px solid var(--rule);border-radius:8px;
+  background:var(--bg);
+  transition:border-color .2s,background .15s;
+}
+.spec-card:hover{border-color:var(--rule-2);background:var(--bg-2)}
+.spec-label{
+  font-family:'DM Mono',monospace;font-size:9.5px;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-4);margin-bottom:6px;
+}
+.spec-value{font-size:22px;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:4px}
+.spec-sub{font-size:12.5px;color:var(--ink-3);line-height:1.4}
+
+/* ── ECOSYSTEM TABLE ── */
+.eco-table{width:100%;border-collapse:collapse;font-size:14px}
+.eco-table thead tr{border-bottom:2px solid var(--rule-2)}
+.eco-table th{
+  text-align:left;padding:10px 14px;
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;
+}
+.eco-table tbody tr{border-bottom:1px solid var(--rule);transition:background .15s}
+.eco-table tbody tr:hover{background:var(--bg-2)}
+.eco-table td{padding:14px 14px;vertical-align:top}
+.eco-table td:first-child{font-weight:600;font-size:13.5px;color:var(--ink);white-space:nowrap}
+.eco-table td:nth-child(2){font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--purple)}
+.eco-table td:nth-child(3){color:var(--ink-2);line-height:1.5;font-size:13.5px}
+.eco-table a{color:var(--purple);font-family:'DM Mono',monospace;font-size:11px}
+.eco-table a:hover{text-decoration:underline}
+.badge{
+  display:inline-block;font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:2px 8px;border-radius:3px;margin-left:6px;
+  vertical-align:middle;
+}
+.badge.live{background:var(--green-2);color:var(--green)}
+.badge.soon{background:var(--bg-2);color:var(--ink-4)}
+
+/* ── SEARCH BAR (decorative) ── */
+.doc-search{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:8px;padding:8px 14px;
+  margin-bottom:24px;cursor:text;
+  max-width:360px;
+}
+.doc-search svg{width:14px;height:14px;color:rgba(255,255,255,.35);flex-shrink:0}
+.doc-search span{
+  font-family:'DM Sans',sans-serif;font-size:13px;
+  color:rgba(255,255,255,.3);
+}
+.doc-search kbd{
+  margin-left:auto;font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:.06em;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  padding:2px 6px;border-radius:4px;color:rgba(255,255,255,.3);
+}
+
+/* ── INLINE CODE ── */
+code.inline{
+  font-family:'DM Mono',monospace;font-size:13px;
+  background:var(--bg-2);padding:2px 7px;border-radius:4px;
+  color:var(--purple);
+}
+
+/* ── MOBILE NAV TOGGLE ── */
+.mob-menu-btn{display:none}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(107,82,232,.3);border-radius:3px}
+
+@media(max-width:900px){
+  .page{grid-template-columns:1fr}
+  .sidebar{display:none;position:fixed;inset:0;height:100dvh;z-index:100}
+  .sidebar.open{display:flex}
+  .mob-menu-btn{
+    display:flex;align-items:center;gap:8px;
+    position:fixed;bottom:20px;right:20px;z-index:99;
+    background:var(--purple);color:#fff;
+    padding:10px 18px;border-radius:999px;border:none;cursor:pointer;
+    font-family:'DM Sans',sans-serif;font-size:13.5px;font-weight:500;
+    box-shadow:0 4px 20px rgba(107,82,232,.4);
+  }
+  .doc-sec{padding:40px 24px}
+  .hero-band{padding:40px 24px}
+  .qs-strip{grid-template-columns:repeat(2,1fr)}
+  .spec-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════
+     SVG MARK (inline — shared)
+═══════════════════════════════ -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="mark" viewBox="0 0 56 64">
+      <polygon points="28,2 54,17 54,47 28,62 2,47 2,17"
+               fill="none" stroke="currentColor" stroke-width="3.5"
+               stroke-linejoin="round"/>
+      <polygon points="28,14 42,22 42,38 28,46 14,38 14,22"
+               fill="currentColor" opacity=".18"/>
+      <circle cx="28" cy="30" r="5" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="page">
+
+  <!-- ═══════════════════════════
+       SIDEBAR
+  ═══════════════════════════ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-brand">
+      <svg><use href="#mark"/></svg>
+      <div>
+        <div class="sb-brand-word"><strong>Alkebuleum</strong></div>
+        <div class="sb-brand-sub">Developer Docs</div>
+      </div>
+    </div>
+
+    <div class="doc-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Search docs…</span>
+      <kbd>⌘K</kbd>
+    </div>
+
+    <div class="sb-version">v1.0 · Mainnet</div>
+
+    <p class="sb-label">Getting Started</p>
+    <ul class="sb-nav">
+      <li><a href="#overview" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Overview
+      </a></li>
+      <li><a href="#quickstart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Quick Start
+      </a></li>
+      <li><a href="#network">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+        Network Config
+      </a></li>
+    </ul>
+
+    <p class="sb-label">Core Concepts</p>
+    <ul class="sb-nav">
+      <li><a href="#pora">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        PORA Consensus
+      </a></li>
+      <li><a href="#alkecoin">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Alkecoin (ALKE)
+      </a></li>
+      <li><a href="#identity">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Identity Layer
+      </a></li>
+    </ul>
+
+    <p class="sb-label">Build</p>
+    <ul class="sb-nav">
+      <li><a href="#rpc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        RPC Reference
+      </a></li>
+      <li><a href="#contracts">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        Core Protocol
+      </a></li>
+    </ul>
+    <ul class="sb-nav-sub">
+      <li><a href="#ain-registry">AINRegistry v1.4</a></li>
+      <li><a href="#ain-registrar">AINRegistrar v1.1</a></li>
+      <li><a href="#ans-registry">ANSRegistryV2</a></li>
+    </ul>
+    <ul class="sb-nav">
+      <li><a href="#ecosystem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Ecosystem SDKs
+      </a></li>
+    </ul>
+
+    <div class="sb-bottom">
+      <a href="https://alkebuleum.org" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+        alkebuleum.org
+      </a>
+      <a href="https://github.com/alkebuleum" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+      <a href="mailto:dev@alkebuleum.org">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        dev@alkebuleum.org
+      </a>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════ -->
+  <main class="main">
+
+    <!-- ── HERO ── -->
+    <div class="hero-band" id="overview">
+      <div class="hero-inner">
+        <div class="hero-eyebrow">Developer Documentation</div>
+        <h1>Build on <em>Africa's</em><br/>sovereign blockchain</h1>
+        <p>Alkebuleum is an EVM-compatible Layer 1 designed for identity, documents, payments, and trusted records across Africa and the diaspora. Everything you need to connect, deploy, and integrate.</p>
+        <div class="hero-actions">
+          <a href="#quickstart" class="btn btn-white">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Quick Start
+          </a>
+          <a href="#rpc" class="btn btn-ghost-white">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            RPC Reference
+          </a>
+          <a href="https://explorer.alkebuleum.com" target="_blank" rel="noopener" class="btn btn-ghost-white">
+            Block Explorer ↗
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── QUICK-START CARDS ── -->
+    <div class="qs-strip">
+      <a href="#network" class="qs-card">
+        <div class="qs-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+        </div>
+        <div class="qs-card-title">Add to Wallet</div>
+        <div class="qs-card-desc">One-click MetaMask / EVM config for Alkebuleum Mainnet</div>
+      </a>
+      <a href="#contracts" class="qs-card">
+        <div class="qs-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div class="qs-card-title">Deploy a Contract</div>
+        <div class="qs-card-desc">Solidity + Hardhat guide for Alkebuleum's EVM environment</div>
+      </a>
+      <a href="#identity" class="qs-card">
+        <div class="qs-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="qs-card-title">Identity &amp; AfPass</div>
+        <div class="qs-card-desc">Integrate Africa's decentralised identity passport into your app</div>
+      </a>
+      <a href="#ecosystem" class="qs-card">
+        <div class="qs-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="qs-card-title">Ecosystem SDKs</div>
+        <div class="qs-card-desc">Connect to DRIS, Amvault, JollofSwap, and Nuru AI</div>
+      </a>
+    </div>
+
+    <!-- ══════════════════════════
+         QUICK START
+    ══════════════════════════ -->
+    <section class="doc-sec" id="quickstart">
+      <div class="ch">01 · Getting Started</div>
+      <h2 class="sec-title">Quick <em>Start</em></h2>
+      <p class="sec-deck">Connect to Alkebuleum in under five minutes. The network is fully EVM-compatible — any Ethereum tooling (ethers.js, viem, Hardhat, Foundry, Remix) works out of the box.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div>
+            <div class="step-title">Add the network to MetaMask</div>
+            <div class="step-body">Open MetaMask → Settings → Networks → Add a network. Enter the values from the Network Config section below, or click <strong>Add to MetaMask</strong> from <a href="https://alkebuleum.org/network" style="color:var(--purple)">alkebuleum.org/network</a>.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div>
+            <div class="step-title">Install a JavaScript client</div>
+            <div class="step-body">Use any standard Ethereum library. <code>ethers</code> v6 or <code>viem</code> are recommended.</div>
+            <div class="code-wrap" style="margin-top:12px">
+              <div class="code-header">
+                <span class="code-lang">bash</span>
+                <button class="code-copy" onclick="copyCode(this)">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  Copy
+                </button>
+              </div>
+              <pre>npm install ethers   <span class="cm"># or: npm install viem</span></pre>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div>
+            <div class="step-title">Connect to the RPC</div>
+            <div class="step-body">Point your provider at <code>https://rpc.alkebuleum.com</code> and start querying.</div>
+            <div class="code-wrap" style="margin-top:12px">
+              <div class="code-header">
+                <span class="code-lang">javascript</span>
+                <button class="code-copy" onclick="copyCode(this)">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  Copy
+                </button>
+              </div>
+              <pre><span class="kw">import</span> { JsonRpcProvider } <span class="kw">from</span> <span class="str">"ethers"</span>;
+
+<span class="kw">const</span> <span class="val">provider</span> = <span class="kw">new</span> <span class="fn">JsonRpcProvider</span>(<span class="str">"https://rpc.alkebuleum.com"</span>);
+
+<span class="cm">// Verify connection</span>
+<span class="kw">const</span> <span class="val">block</span> = <span class="kw">await</span> provider.<span class="fn">getBlockNumber</span>();
+console.<span class="fn">log</span>(<span class="str">"Latest block:"</span>, block);</pre>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div>
+            <div class="step-title">Deploy your first contract</div>
+            <div class="step-body">Compile with Hardhat (or Foundry), set the Alkebuleum RPC as your network, and deploy. See <a href="#contracts" style="color:var(--purple)">Smart Contracts</a> for a full guide.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         NETWORK CONFIG
+    ══════════════════════════ -->
+    <section class="doc-sec" id="network">
+      <div class="ch">02 · Network Configuration</div>
+      <h2 class="sec-title">Network <em>Config</em></h2>
+      <p class="sec-deck">All parameters needed to add Alkebuleum Mainnet to any EVM wallet or toolchain.</p>
+
+      <div class="spec-grid">
+        <div class="spec-card">
+          <div class="spec-label">Chain ID</div>
+          <div class="spec-value">237422</div>
+          <div class="spec-sub">Unique identifier for Alkebuleum Mainnet</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-label">Block Time</div>
+          <div class="spec-value">~5 s</div>
+          <div class="spec-sub">Average block production time</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-label">Consensus</div>
+          <div class="spec-value" style="font-size:18px">PORA</div>
+          <div class="spec-sub">Proof of Reputable Authority</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-label">EVM Version</div>
+          <div class="spec-value" style="font-size:18px">EIP-1559</div>
+          <div class="spec-sub">Full EVM compatibility</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-label">Native Token</div>
+          <div class="spec-value">ALKE</div>
+          <div class="spec-sub">Alkecoin — 18 decimals</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-label">Total Supply</div>
+          <div class="spec-value" style="font-size:16px">1 B ALKE</div>
+          <div class="spec-sub">Genesis supply, no ICO</div>
+        </div>
+      </div>
+
+      <table class="net-table">
+        <tr><td>Network name</td><td>Alkebuleum Mainnet</td></tr>
+        <tr><td>RPC endpoint</td><td><code>https://rpc.alkebuleum.com</code></td></tr>
+        <tr><td>Chain ID</td><td><code>237422</code></td></tr>
+        <tr><td>Currency symbol</td><td><code>ALKE</code></td></tr>
+        <tr><td>Decimals</td><td><code>18</code></td></tr>
+        <tr><td>Block explorer</td><td><a href="https://explorer.alkebuleum.com" target="_blank" rel="noopener">explorer.alkebuleum.com ↗</a></td></tr>
+        <tr><td>WebSocket RPC</td><td><code>wss://rpc.alkebuleum.com</code></td></tr>
+        <tr><td>EIP-1559</td><td>Supported</td></tr>
+      </table>
+
+      <div class="callout info" style="margin-top:24px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <div>Alkebuleum is fully EVM-compatible. Contracts written for Ethereum, Polygon, or any EVM chain compile and deploy on Alkebuleum without modification. Use <code class="inline">chainId: 237422</code> in your Hardhat or Foundry config.</div>
+      </div>
+
+      <div class="code-wrap" style="margin-top:28px">
+        <div class="code-header">
+          <span class="code-lang">hardhat.config.js</span>
+          <button class="code-copy" onclick="copyCode(this)">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+        <pre><span class="kw">module</span>.<span class="prop">exports</span> = {
+  <span class="prop">networks</span>: {
+    <span class="prop">alkebuleum</span>: {
+      <span class="prop">url</span>: <span class="str">"https://rpc.alkebuleum.com"</span>,
+      <span class="prop">chainId</span>: <span class="num">237422</span>,
+      <span class="prop">accounts</span>: [process.<span class="fn">env</span>.<span class="val">PRIVATE_KEY</span>]
+    }
+  },
+  <span class="prop">solidity</span>: <span class="str">"0.8.24"</span>
+};</pre>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         PORA CONSENSUS
+    ══════════════════════════ -->
+    <section class="doc-sec" id="pora">
+      <div class="ch">03 · Core Concepts</div>
+      <h2 class="sec-title">PORA <em>Consensus</em></h2>
+      <p class="sec-deck">Proof of Reputable Authority (PORA) is Alkebuleum's bespoke consensus mechanism — designed for institutional trust, African governance structures, and long-term network integrity.</p>
+
+      <div class="callout tip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <div><strong>Developer note:</strong> PORA produces deterministic ~5-second blocks. For most application use-cases, finality can be assumed after 2 block confirmations (~10 seconds). For high-value institutional transactions, wait for 6 confirmations.</div>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif;font-weight:500;font-size:20px;margin:28px 0 12px;color:var(--ink)">How PORA works</h3>
+      <p style="font-size:15px;line-height:1.7;color:var(--ink-2);max-width:720px;margin-bottom:16px">PORA validators are permissioned participants — governments, foundations, universities, and registered institutions — who stake ALKE and are voted in by the Alkebuleum Council. Unlike proof-of-work, PORA produces no wasted computation. Unlike proof-of-stake, validator selection is bounded by real-world reputation, reducing sybil risk in African institutional contexts.</p>
+
+      <table class="net-table" style="max-width:700px;margin-top:20px">
+        <tr><td>Validator type</td><td>Permissioned institutional authority</td></tr>
+        <tr><td>Validator onboarding</td><td>Council vote + ALKE stake</td></tr>
+        <tr><td>Block time</td><td>~5 seconds</td></tr>
+        <tr><td>Soft finality</td><td>2 confirmations (~10 s)</td></tr>
+        <tr><td>Hard finality</td><td>6 confirmations (~30 s)</td></tr>
+        <tr><td>Slashing</td><td>Yes — stake at risk for double-signing</td></tr>
+      </table>
+    </section>
+
+    <!-- ══════════════════════════
+         ALKECOIN
+    ══════════════════════════ -->
+    <section class="doc-sec" id="alkecoin">
+      <div class="ch">04 · Alkecoin (ALKE)</div>
+      <h2 class="sec-title">Working with <em>ALKE</em></h2>
+      <p class="sec-deck">ALKE is the native utility token of Alkebuleum. It is used for transaction fees, smart contract gas, validator staking, governance votes, and network access. There was no ICO or presale.</p>
+
+      <table class="net-table" style="max-width:700px;margin-bottom:24px">
+        <tr><td>Token name</td><td>Alkecoin</td></tr>
+        <tr><td>Primary ticker</td><td><code>ALKE</code></td></tr>
+        <tr><td>Alias</td><td><code>AKE</code></td></tr>
+        <tr><td>Type</td><td>Native utility token — not a security</td></tr>
+        <tr><td>Total genesis supply</td><td><code>1,000,000,000 ALKE</code></td></tr>
+        <tr><td>Decimals</td><td><code>18</code></td></tr>
+        <tr><td>ICO / presale</td><td>None</td></tr>
+        <tr><td>Uses</td><td>Gas, staking, governance, network access</td></tr>
+      </table>
+
+      <div class="code-wrap">
+        <div class="code-header">
+          <span class="code-lang">javascript — send ALKE</span>
+          <button class="code-copy" onclick="copyCode(this)">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+        <pre><span class="kw">import</span> { Wallet, parseEther } <span class="kw">from</span> <span class="str">"ethers"</span>;
+
+<span class="kw">const</span> <span class="val">wallet</span> = <span class="kw">new</span> <span class="fn">Wallet</span>(privateKey, provider);
+
+<span class="kw">const</span> <span class="val">tx</span> = <span class="kw">await</span> wallet.<span class="fn">sendTransaction</span>({
+  <span class="prop">to</span>: <span class="str">"0xRecipientAddress"</span>,
+  <span class="prop">value</span>: <span class="fn">parseEther</span>(<span class="str">"10"</span>),  <span class="cm">// 10 ALKE</span>
+});
+
+<span class="kw">await</span> tx.<span class="fn">wait</span>(<span class="num">2</span>);  <span class="cm">// wait 2 confirmations</span>
+console.<span class="fn">log</span>(<span class="str">"Transfer confirmed:"</span>, tx.<span class="val">hash</span>);</pre>
+      </div>
+
+      <div class="callout warn" style="margin-top:16px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <div>ALKE is a utility token used to pay for gas on Alkebuleum. It is not a financial instrument or investment product. See <a href="https://alkebuleum.org/alkecoin" style="color:var(--gold)">alkebuleum.org/alkecoin</a> for exchange listing details.</div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         IDENTITY LAYER
+    ══════════════════════════ -->
+    <section class="doc-sec" id="identity">
+      <div class="ch">05 · Identity Layer</div>
+      <h2 class="sec-title">Identity &amp; <em>AfPass</em></h2>
+      <p class="sec-deck">Alkebuleum is built around sovereign digital identity. AfPass is the decentralised identity passport layer. DRIS handles institutional document signing and registry. Together they form the trust infrastructure for the network.</p>
+
+      <div class="callout info" style="margin-bottom:28px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <div>Full AfPass SDK and DID specification docs are at <a href="https://afpass.org" style="color:var(--purple)">afpass.org</a>. The overview below covers on-chain identity primitives available to any builder on Alkebuleum.</div>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif;font-weight:500;font-size:19px;margin:0 0 12px;color:var(--ink)">On-chain DID format</h3>
+      <p style="font-size:15px;line-height:1.7;color:var(--ink-2);max-width:680px;margin-bottom:16px">Alkebuleum uses the <code class="inline">did:alke:</code> method. Each DID maps to an Alkebuleum address and a verifiable credential document anchored on-chain.</p>
+
+      <div class="code-wrap">
+        <div class="code-header">
+          <span class="code-lang">DID format</span>
+          <button class="code-copy" onclick="copyCode(this)">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+        <pre><span class="cm"># Alkebuleum DID method</span>
+did:alke:<span class="val">0xYourAlkebuleumAddress</span>
+
+<span class="cm"># Example</span>
+did:alke:<span class="str">0x3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b</span></pre>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif;font-weight:500;font-size:19px;margin:28px 0 12px;color:var(--ink)">DRIS — Document Registry</h3>
+      <p style="font-size:15px;line-height:1.7;color:var(--ink-2);max-width:680px;margin-bottom:16px">DRIS enables governments, universities, and institutions to register, sign, and verify documents on-chain. Verification is fully permissionless — any app can call the DRIS contract to confirm a document's authenticity.</p>
+
+      <div class="code-wrap">
+        <div class="code-header">
+          <span class="code-lang">solidity — verify a document hash</span>
+          <button class="code-copy" onclick="copyCode(this)">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+        <pre><span class="kw">interface</span> <span class="fn">IDRIS</span> {
+    <span class="kw">function</span> <span class="fn">verify</span>(<span class="val">bytes32</span> documentHash)
+        <span class="kw">external</span> <span class="kw">view</span>
+        <span class="kw">returns</span> (<span class="val">bool</span> valid, <span class="val">address</span> issuer, <span class="val">uint256</span> timestamp);
+
+    <span class="kw">function</span> <span class="fn">register</span>(<span class="val">bytes32</span> documentHash, <span class="val">string</span> <span class="kw">calldata</span> metadata)
+        <span class="kw">external</span>;
+}</pre>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         RPC REFERENCE
+    ══════════════════════════ -->
+    <section class="doc-sec" id="rpc">
+      <div class="ch">06 · RPC Reference</div>
+      <h2 class="sec-title">RPC <em>Reference</em></h2>
+      <p class="sec-deck">Alkebuleum exposes a standard JSON-RPC 2.0 interface compatible with all Ethereum tooling. The endpoint supports both HTTP and WebSocket connections.</p>
+
+      <table class="net-table" style="max-width:640px;margin-bottom:28px">
+        <tr><td>HTTP RPC</td><td><code>https://rpc.alkebuleum.com</code></td></tr>
+        <tr><td>WebSocket</td><td><code>wss://rpc.alkebuleum.com</code></td></tr>
+        <tr><td>Rate limit</td><td>100 req/s (public) · contact for higher limits</td></tr>
+        <tr><td>Auth</td><td>None required for public endpoints</td></tr>
+      </table>
+
+      <div class="endpoints">
+
+        <div class="ep-card" onclick="toggleEp(this)">
+          <div class="ep-head">
+            <span class="ep-method eth">ETH</span>
+            <span class="ep-path">eth_blockNumber</span>
+            <span class="ep-desc">Returns the latest block number</span>
+            <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="ep-body">
+            <div class="code-wrap" style="margin:0">
+              <div class="code-header"><span class="code-lang">JSON-RPC</span></div>
+              <pre>{ <span class="prop">"jsonrpc"</span>: <span class="str">"2.0"</span>, <span class="prop">"method"</span>: <span class="str">"eth_blockNumber"</span>, <span class="prop">"params"</span>: [], <span class="prop">"id"</span>: <span class="num">1</span> }
+<span class="cm">// Response: { "result": "0x1a4f6" }</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ep-card" onclick="toggleEp(this)">
+          <div class="ep-head">
+            <span class="ep-method eth">ETH</span>
+            <span class="ep-path">eth_getBalance</span>
+            <span class="ep-desc">Returns ALKE balance for an address</span>
+            <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="ep-body">
+            <div class="code-wrap" style="margin:0">
+              <div class="code-header"><span class="code-lang">JSON-RPC</span></div>
+              <pre>{ <span class="prop">"jsonrpc"</span>: <span class="str">"2.0"</span>, <span class="prop">"method"</span>: <span class="str">"eth_getBalance"</span>,
+  <span class="prop">"params"</span>: [<span class="str">"0xYourAddress"</span>, <span class="str">"latest"</span>], <span class="prop">"id"</span>: <span class="num">1</span> }
+<span class="cm">// Response: { "result": "0x8AC7230489E80000" } (10 ALKE in wei)</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="ep-card" onclick="toggleEp(this)">
+          <div class="ep-head">
+            <span class="ep-method eth">ETH</span>
+            <span class="ep-path">eth_sendRawTransaction</span>
+            <span class="ep-desc">Broadcasts a signed transaction</span>
+            <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="ep-body">
+            <p style="font-size:14px;color:var(--ink-2)">Submit a signed and RLP-encoded transaction. Returns the transaction hash. Sign the transaction using your wallet or <code class="inline">ethers.Wallet.signTransaction()</code>.</p>
+          </div>
+        </div>
+
+        <div class="ep-card" onclick="toggleEp(this)">
+          <div class="ep-head">
+            <span class="ep-method eth">ETH</span>
+            <span class="ep-path">eth_call</span>
+            <span class="ep-desc">Execute a read-only contract call</span>
+            <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="ep-body">
+            <p style="font-size:14px;color:var(--ink-2)">Executes a contract function without creating a transaction. Used for reading state from smart contracts (balances, identities, document hashes). Standard Ethereum ABI encoding applies.</p>
+          </div>
+        </div>
+
+        <div class="ep-card" onclick="toggleEp(this)">
+          <div class="ep-head">
+            <span class="ep-method eth">ETH</span>
+            <span class="ep-path">eth_getLogs</span>
+            <span class="ep-desc">Query event logs with filters</span>
+            <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="ep-body">
+            <p style="font-size:14px;color:var(--ink-2)">Filter events by contract address, topic, and block range. Maximum block range per query: 10,000 blocks. Use <code class="inline">fromBlock</code> and <code class="inline">toBlock</code> to paginate.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="callout tip" style="margin-top:24px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <div>All standard Ethereum JSON-RPC methods (<code class="inline">eth_*</code>, <code class="inline">net_*</code>, <code class="inline">web3_*</code>) are supported. Refer to the <a href="https://eips.ethereum.org/EIPS/eip-1474" style="color:var(--green)">EIP-1474 spec</a> for the full method list.</div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         CORE PROTOCOL CONTRACTS
+    ══════════════════════════ -->
+    <section class="doc-sec" id="contracts">
+      <div class="ch">07 · Core Protocol</div>
+      <h2 class="sec-title">Core Protocol <em>Contracts</em></h2>
+      <p class="sec-deck">Alkebuleum ships a set of sovereign identity and naming contracts that any developer can read from, integrate with, or build on top of. These are not third-party libraries — they are the live on-chain infrastructure of the network.</p>
+
+      <!-- Contract index cards -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:40px">
+        <a href="#ain-registry" style="display:block;padding:20px;border:1px solid var(--rule);border-radius:8px;transition:all .15s;text-decoration:none" onmouseover="this.style.borderColor='var(--purple)';this.style.background='#f7f4ff'" onmouseout="this.style.borderColor='var(--rule)';this.style.background='transparent'">
+          <div style="font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--purple);margin-bottom:8px">v1.4.0</div>
+          <div style="font-weight:600;font-size:14px;color:var(--ink);margin-bottom:4px">AINRegistry</div>
+          <div style="font-size:12.5px;color:var(--ink-3);line-height:1.5">Identity records, controller rotation, address roles, modules, primary identity</div>
+        </a>
+        <a href="#ain-registrar" style="display:block;padding:20px;border:1px solid var(--rule);border-radius:8px;transition:all .15s;text-decoration:none" onmouseover="this.style.borderColor='var(--purple)';this.style.background='#f7f4ff'" onmouseout="this.style.borderColor='var(--rule)';this.style.background='transparent'">
+          <div style="font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--purple);margin-bottom:8px">v1.1.0</div>
+          <div style="font-weight:600;font-size:14px;color:var(--ink);margin-bottom:4px">AINRegistrar</div>
+          <div style="font-size:12.5px;color:var(--ink-3);line-height:1.5">Authorised entry-point for registering all five identity types on-chain</div>
+        </a>
+        <a href="#ans-registry" style="display:block;padding:20px;border:1px solid var(--rule);border-radius:8px;transition:all .15s;text-decoration:none" onmouseover="this.style.borderColor='var(--purple)';this.style.background='#f7f4ff'" onmouseout="this.style.borderColor='var(--rule)';this.style.background='transparent'">
+          <div style="font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--purple);margin-bottom:8px">v2.0</div>
+          <div style="font-weight:600;font-size:14px;color:var(--ink);margin-bottom:4px">ANSRegistryV2</div>
+          <div style="font-size:12.5px;color:var(--ink-3);line-height:1.5">Multi-extension Alkebuleum Name Service — register <code class="inline">name.alke</code> and custom namespaces</div>
+        </a>
+      </div>
+
+      <!-- ── AINRegistry ── -->
+      <div id="ain-registry" style="margin-bottom:52px">
+        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:6px">
+          <h3 style="font-family:'Playfair Display',serif;font-weight:500;font-size:22px;color:var(--ink)">AINRegistry</h3>
+          <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);background:rgba(107,82,232,.1);padding:3px 9px;border-radius:4px">v1.4.0</span>
+        </div>
+        <p style="font-size:15px;line-height:1.7;color:var(--ink-2);max-width:720px;margin-bottom:20px">The canonical on-chain phone book for Alkebuleum. Stores identity records (type, controller, custodian, status, metadata) and manages address link roles. Every AIN — Human, AI Agent, DAO, Device, or Service — lives here.</p>
+
+        <div class="callout info" style="margin-bottom:20px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <div><strong>AIN format:</strong> <code class="inline">[2 letters][8 digits]</code> — e.g. <code class="inline">AA00000001</code> to <code class="inline">ZZ99999999</code>. 67.6 billion unique slots. Left-aligned in <code class="inline">bytes32</code>. Derived deterministically from <code class="inline">keccak256(type, controller, chainId, salt)</code>.</div>
+        </div>
+
+        <!-- Identity types -->
+        <h4 style="font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:12px;letter-spacing:.01em">Identity Types</h4>
+        <table class="net-table" style="max-width:760px;margin-bottom:28px">
+          <tr><td style="width:140px"><code>HUMAN</code> <span style="font-size:11px;color:var(--ink-4)">(0)</span></td><td>Individual user. Self-sovereign — no custodian required.</td></tr>
+          <tr><td><code>AI_AGENT</code> <span style="font-size:11px;color:var(--ink-4)">(1)</span></td><td>Autonomous AI agent. <strong>Requires</strong> a HUMAN or DAO custodian for on-chain accountability.</td></tr>
+          <tr><td><code>DAO</code> <span style="font-size:11px;color:var(--ink-4)">(2)</span></td><td>Decentralised organisation. Controller is typically a multisig or governor contract.</td></tr>
+          <tr><td><code>DEVICE</code> <span style="font-size:11px;color:var(--ink-4)">(3)</span></td><td>IoT or hardware node. Requires a custodian.</td></tr>
+          <tr><td><code>SERVICE</code> <span style="font-size:11px;color:var(--ink-4)">(4)</span></td><td>Off-chain API or protocol endpoint. Requires a custodian.</td></tr>
+        </table>
+
+        <!-- Address link roles -->
+        <h4 style="font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:12px">Address Link Roles</h4>
+        <p style="font-size:14px;line-height:1.6;color:var(--ink-2);max-width:680px;margin-bottom:14px">Each AIN can link multiple addresses to named roles. Roles are <code class="inline">bytes32</code> constants — compute them as <code class="inline">keccak256("ALKE_ROLE_&lt;NAME&gt;")</code>. One address per role per AIN.</p>
+        <table class="net-table" style="max-width:760px;margin-bottom:28px">
+          <tr><td style="width:200px"><code>ROLE_RECOVERY</code></td><td>Cold key or multisig for account recovery.</td></tr>
+          <tr><td><code>ROLE_DELEGATE</code></td><td>Hot session key for dApp interaction. <strong>Default login role.</strong></td></tr>
+          <tr><td><code>ROLE_AUTHENTICATOR</code></td><td>Explicit login key for primary identity claim. <strong>Default login role.</strong></td></tr>
+          <tr><td><code>ROLE_AA_WALLET</code></td><td>ERC-4337 smart contract wallet address.</td></tr>
+          <tr><td><code>ROLE_GUARDIAN</code></td><td>Trusted party for social recovery or oversight.</td></tr>
+          <tr><td><code>ROLE_BENEFICIARY</code></td><td>Designated recipient (inheritance, DAO payouts).</td></tr>
+          <tr><td><code>ROLE_OPERATOR</code></td><td>Delegated operator for protocol actions.</td></tr>
+          <tr><td><code>ROLE_CUSTODIAN</code></td><td>Address mirror of the custodianAIN controller.</td></tr>
+          <tr><td><code>ROLE_CUSTOM</code></td><td>Fallback for custom roles. Or use <code>keccak256("YOUR_ROLE")</code> directly.</td></tr>
+        </table>
+
+        <!-- Key read functions -->
+        <h4 style="font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:12px">Key Read Functions</h4>
+        <div class="endpoints" style="margin-bottom:24px">
+
+          <div class="ep-card" onclick="toggleEp(this)">
+            <div class="ep-head">
+              <span class="ep-method get">VIEW</span>
+              <span class="ep-path">getRecord(bytes32 ain)</span>
+              <span class="ep-desc">Returns the full IdentityRecord struct</span>
+              <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="ep-body">
+              <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:12px">Returns <code class="inline">IdentityRecord</code> containing: <code class="inline">itype</code>, <code class="inline">owner</code> (immutable original), <code class="inline">controller</code> (current key), <code class="inline">custodianAIN</code>, <code class="inline">registeredAt</code>, <code class="inline">status</code>, <code class="inline">metadataDigest</code>, <code class="inline">controllerNonce</code>.</p>
+              <div class="code-wrap" style="margin:0"><div class="code-header"><span class="code-lang">javascript</span><button class="code-copy" onclick="copyCode(this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button></div>
+<pre><span class="kw">const</span> <span class="val">record</span> = <span class="kw">await</span> registry.<span class="fn">getRecord</span>(<span class="str">"AA00000001"</span>);
+<span class="cm">// { itype: 0, owner: "0x...", controller: "0x...",</span>
+<span class="cm">//   custodianAIN: "0x00...", status: 0, ... }</span></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ep-card" onclick="toggleEp(this)">
+            <div class="ep-head">
+              <span class="ep-method get">VIEW</span>
+              <span class="ep-path">isActive(bytes32 ain)</span>
+              <span class="ep-desc">Returns true if AIN exists and status is Active</span>
+              <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="ep-body">
+              <p style="font-size:13.5px;color:var(--ink-2)">The most common read you'll make. Use this to gate access to any feature that requires an active Alkebuleum identity. Returns <code class="inline">false</code> for Suspended, Deprecated, or Compromised AIns.</p>
+            </div>
+          </div>
+
+          <div class="ep-card" onclick="toggleEp(this)">
+            <div class="ep-head">
+              <span class="ep-method get">VIEW</span>
+              <span class="ep-path">getLinkedAddress(bytes32 ain, bytes32 role)</span>
+              <span class="ep-desc">Returns the address linked to a role</span>
+              <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="ep-body">
+              <div class="code-wrap" style="margin:0"><div class="code-header"><span class="code-lang">javascript</span><button class="code-copy" onclick="copyCode(this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button></div>
+<pre><span class="kw">const</span> <span class="val">ROLE_DELEGATE</span> = ethers.<span class="fn">id</span>(<span class="str">"ALKE_ROLE_DELEGATE"</span>);
+<span class="kw">const</span> <span class="val">delegate</span> = <span class="kw">await</span> registry.<span class="fn">getLinkedAddress</span>(ain, ROLE_DELEGATE);</pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ep-card" onclick="toggleEp(this)">
+            <div class="ep-head">
+              <span class="ep-method get">VIEW</span>
+              <span class="ep-path">resolvePrimaryIdentity(address addr)</span>
+              <span class="ep-desc">Returns the AIN and validity for a wallet address</span>
+              <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="ep-body">
+              <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:12px">v1.4.0 login resolution. Returns <code class="inline">(bytes32 ain, bool valid)</code>. If <code class="inline">valid=false</code>, the key no longer holds a qualifying login role and the user must re-claim. Use this as the first step in any sign-in flow.</p>
+              <div class="code-wrap" style="margin:0"><div class="code-header"><span class="code-lang">javascript</span><button class="code-copy" onclick="copyCode(this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button></div>
+<pre><span class="kw">const</span> [ain, valid] = <span class="kw">await</span> registry.<span class="fn">resolvePrimaryIdentity</span>(walletAddress);
+<span class="kw">if</span> (!valid) <span class="fn">promptRelink</span>();</pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ep-card" onclick="toggleEp(this)">
+            <div class="ep-head">
+              <span class="ep-method get">VIEW</span>
+              <span class="ep-path">findFreeAIN(type, controller, startSalt)</span>
+              <span class="ep-desc">Preview the AIN that would be minted — zero gas</span>
+              <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="ep-body">
+              <p style="font-size:13.5px;color:var(--ink-2)">Returns <code class="inline">(bytes32 ain, uint256 effectiveSalt)</code>. Use in your UI to show users their AIN before they sign. Pass the returned salt back to the registrar's registration call.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Minimal integration example -->
+        <h4 style="font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:12px">Gating your app with AIN</h4>
+        <div class="code-wrap">
+          <div class="code-header"><span class="code-lang">solidity — identity gate pattern</span><button class="code-copy" onclick="copyCode(this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button></div>
+<pre><span class="kw">interface</span> <span class="fn">IAINRegistry</span> {
+    <span class="kw">function</span> <span class="fn">isActive</span>(<span class="val">bytes32</span> ain) <span class="kw">external</span> <span class="kw">view</span> <span class="kw">returns</span> (<span class="val">bool</span>);
+    <span class="kw">function</span> <span class="fn">controllerToAIN</span>(<span class="val">address</span> ctrl) <span class="kw">external</span> <span class="kw">view</span> <span class="kw">returns</span> (<span class="val">bytes32</span>);
+}
+
+<span class="kw">contract</span> <span class="fn">MyAlkeApp</span> {
+    IAINRegistry <span class="kw">public immutable</span> registry;
+
+    <span class="kw">constructor</span>(<span class="val">address</span> _registry) { registry = IAINRegistry(_registry); }
+
+    <span class="kw">modifier</span> <span class="fn">onlyVerifiedIdentity</span>() {
+        <span class="val">bytes32</span> ain = registry.<span class="fn">controllerToAIN</span>(msg.sender);
+        <span class="kw">require</span>(ain != <span class="val">bytes32</span>(<span class="num">0</span>), <span class="str">"No AIN"</span>);
+        <span class="kw">require</span>(registry.<span class="fn">isActive</span>(ain), <span class="str">"AIN not active"</span>);
+        _;
+    }
+
+    <span class="kw">function</span> <span class="fn">doSomething</span>() <span class="kw">external</span> <span class="fn">onlyVerifiedIdentity</span> {
+        <span class="cm">// caller is a verified, active Alkebuleum identity</span>
+    }
+}</pre>
+        </div>
+      </div>
+
+      <!-- ── AINRegistrar ── -->
+      <div id="ain-registrar" style="margin-bottom:52px;padding-top:32px;border-top:1px solid var(--rule)">
+        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:6px">
+          <h3 style="font-family:'Playfair Display',serif;font-weight:500;font-size:22px;color:var(--ink)">AINRegistrar</h3>
+          <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);background:rgba(107,82,232,.1);padding:3px 9px;border-radius:4px">v1.1.0</span>
+        </div>
+        <p style="font-size:15px;line-height:1.7;color:var(--ink-2);max-width:720px;margin-bottom:20px">The authorised entry-point for creating new identities. Sits in front of AINRegistry and handles per-type registration logic, custodian validation, and per-type gates. You call the Registrar — it calls the Registry.</p>
+
+        <div class="callout warn" style="margin-bottom:24px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div><strong>v1.1.0 breaking change:</strong> The separate <code class="inline">referrerAIN</code> parameter has been removed from all registration functions. Use <code class="inline">custodianAIN</code> instead — it is written permanently into the identity record at mint time and serves as the on-chain lineage/referral record. Pass <code class="inline">bytes32(0)</code> for self-sovereign with no referrer.</div>
+        </div>
+
+        <!-- Registration functions -->
+        <h4 style="font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:12px">Registration Functions</h4>
+        <div class="endpoints" style="margin-bottom:28px">
+
+          <div class="ep-card" onclick="toggleEp(this)">
+            <div class="ep-head">
+              <span class="ep-method post">WRITE</span>
+              <span class="ep-path">registerHuman(controller, metadataDigest, salt, custodianAIN)</span>
+              <span class="ep-desc">Register a HUMAN identity</span>
+              <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="ep-body">
+              <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:12px"><code class="inline">custodianAIN</code> is optional for humans — pass <code class="inline">bytes32(0)</code> for self-sovereign. If provided, the custodian must be Active. Returns <code class="inline">bytes32 ain</code>.</p>
+              <div class="code-wrap" style="margin:0"><div class="code-header"><span class="code-lang">javascript</span><button class="code-copy" onclick="copyCode(this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button></div>
+<pre><span class="cm">// 1. Preview the AIN first (no gas)</span>
+<span class="kw">const</span> [previewAIN, salt] = <span class="kw">await</span> registry.<span class="fn">findFreeAIN</span>(<span class="num">0</span>, userAddress, <span class="num">0</span>);
+
+<span class="cm">// 2. Register</span>
+<span class="kw">const</span> tx = <span class="kw">await</span> registrar.<span class="fn">registerHuman</span>(
+  userAddress,   <span class="cm">// controller</span>
+  <span class="val">ethers.ZeroHash</span>, <span class="cm">// metadataDigest (0 = skip)</span>
+  salt,          <span class="cm">// from findFreeAIN</span>
+  <span class="val">ethers.ZeroHash</span>  <span class="cm">// custodianAIN (0 = self-sovereign)</span>
+);
+<span class="kw">const</span> receipt = <span class="kw">await</span> tx.<span class="fn">wait</span>();</pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ep-card" onclick="toggleEp(this)">
+            <div class="ep-head">
+              <span class="ep-method post">WRITE</span>
+              <span class="ep-path">registerAIAgent(agentController, custodianAIN, metadataDigest, salt)</span>
+              <span class="ep-desc">Register an AI_AGENT — custodian required</span>
+              <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="ep-body">
+              <p style="font-size:13.5px;color:var(--ink-2)">AI agents <strong>must</strong> have a custodian that is a registered, Active identity of type HUMAN or DAO. This enforces on-chain accountability for every AI deployed on the network. Passing <code class="inline">bytes32(0)</code> reverts with <code class="inline">CustodianRequired</code>.</p>
+            </div>
+          </div>
+
+          <div class="ep-card" onclick="toggleEp(this)">
+            <div class="ep-head">
+              <span class="ep-method get">VIEW</span>
+              <span class="ep-path">previewAIN(itype, controller, startSalt)</span>
+              <span class="ep-desc">Show the user their AIN before they sign</span>
+              <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="ep-body">
+              <p style="font-size:13.5px;color:var(--ink-2)">Zero-gas static call. Returns <code class="inline">(bytes32 ain, uint256 effectiveSalt)</code>. Display the AIN in your onboarding UI, then pass <code class="inline">effectiveSalt</code> back to the registration call.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Custodian rules summary -->
+        <h4 style="font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:12px">Custodian Rules by Type</h4>
+        <table class="net-table" style="max-width:720px;margin-bottom:8px">
+          <tr><td style="width:120px"><code>HUMAN</code></td><td>Optional. bytes32(0) for self-sovereign.</td></tr>
+          <tr><td><code>AI_AGENT</code></td><td>Required. Must be HUMAN or DAO type. Must be Active.</td></tr>
+          <tr><td><code>DAO</code></td><td>Optional. bytes32(0) for self-sovereign.</td></tr>
+          <tr><td><code>DEVICE</code></td><td>Required. Any Active AIN accepted as custodian.</td></tr>
+          <tr><td><code>SERVICE</code></td><td>Required. Any Active AIN accepted as custodian.</td></tr>
+        </table>
+        <p style="font-size:13px;color:var(--ink-4);margin-bottom:0">Setup note: after deploying the Registrar, call <code class="inline">registry.setRegistrar(registrarAddr, true)</code> — otherwise all registration calls revert with <code class="inline">NotRegistrar</code>.</p>
+      </div>
+
+      <!-- ── ANSRegistryV2 ── -->
+      <div id="ans-registry" style="padding-top:32px;border-top:1px solid var(--rule)">
+        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:6px">
+          <h3 style="font-family:'Playfair Display',serif;font-weight:500;font-size:22px;color:var(--ink)">ANSRegistryV2</h3>
+          <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);background:rgba(107,82,232,.1);padding:3px 9px;border-radius:4px">v2.0</span>
+        </div>
+        <p style="font-size:15px;line-height:1.7;color:var(--ink-2);max-width:720px;margin-bottom:20px">Multi-extension Alkebuleum Name Service. Registers human-readable names like <code class="inline">satoshi.alke</code> and links them to an AIN. Third parties can create custom extensions (e.g. <code class="inline">name.yourorg</code>) by paying the extension creation fee. Names are ERC-721 NFTs.</p>
+
+        <div class="callout info" style="margin-bottom:24px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <div><strong>Node derivation:</strong> <code class="inline">node = keccak256(abi.encode(extHash, labelHash))</code> where <code class="inline">extHash = keccak256("alke")</code> and <code class="inline">labelHash = keccak256(label)</code>. All functions accept plain strings — the contract hashes them internally. Use the <code class="inline">getNode(label, ext)</code> pure helper to derive a node off-chain.</div>
+        </div>
+
+        <h4 style="font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:12px">Registration Tiers</h4>
+        <table class="net-table" style="max-width:640px;margin-bottom:28px">
+          <tr><td style="width:120px"><code>ANNUAL</code></td><td>Yearly subscription. Renew with <code class="inline">renewWithExtension()</code> before expiry + 30-day grace period.</td></tr>
+          <tr><td><code>FIVE_YEAR</code></td><td>5-year subscription. Cheaper per-year rate.</td></tr>
+          <tr><td><code>LIFETIME</code></td><td>Permanent. Never expires. Higher one-time fee.</td></tr>
+        </table>
+
+        <h4 style="font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:12px">Key Functions</h4>
+        <div class="endpoints" style="margin-bottom:28px">
+
+          <div class="ep-card" onclick="toggleEp(this)">
+            <div class="ep-head">
+              <span class="ep-method post">WRITE</span>
+              <span class="ep-path">registerForWithExtension(label, ext, tier, ain, recipient)</span>
+              <span class="ep-desc">Register a name — supports sponsored registration</span>
+              <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="ep-body">
+              <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:12px">Payable. Pass <code class="inline">ext = "alke"</code> for the default namespace. <code class="inline">recipient</code> receives the NFT. If <code class="inline">ain</code> is provided it must be controlled by <code class="inline">recipient</code> (not <code class="inline">msg.sender</code>) — this prevents sponsors from linking AIns without consent. Pass <code class="inline">ain = bytes32(0)</code> to link later.</p>
+              <div class="code-wrap" style="margin:0"><div class="code-header"><span class="code-lang">javascript</span><button class="code-copy" onclick="copyCode(this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button></div>
+<pre><span class="kw">const</span> price = <span class="kw">await</span> ans.<span class="fn">quoteInExtension</span>(<span class="str">"alke"</span>, <span class="num">0</span> <span class="cm">/*ANNUAL*/</span>, <span class="num">1</span>);
+
+<span class="kw">await</span> ans.<span class="fn">registerForWithExtension</span>(
+  <span class="str">"satoshi"</span>,       <span class="cm">// label</span>
+  <span class="str">"alke"</span>,          <span class="cm">// extension</span>
+  <span class="num">0</span>,               <span class="cm">// Tier.ANNUAL</span>
+  ain,             <span class="cm">// AIN to link (bytes32(0) to skip)</span>
+  userAddress,     <span class="cm">// recipient — owns the NFT</span>
+  { value: price }
+);</pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ep-card" onclick="toggleEp(this)">
+            <div class="ep-head">
+              <span class="ep-method get">VIEW</span>
+              <span class="ep-path">resolveWithExtension(label, ext)</span>
+              <span class="ep-desc">Resolve a name → AIN</span>
+              <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="ep-body">
+              <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:12px">Returns the <code class="inline">bytes32</code> AIN linked to the name, or <code class="inline">bytes32(0)</code> if the name has expired or has no AIN. Also checks that the linked AIN is still Active in the registry.</p>
+              <div class="code-wrap" style="margin:0"><div class="code-header"><span class="code-lang">javascript</span><button class="code-copy" onclick="copyCode(this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button></div>
+<pre><span class="kw">const</span> ain = <span class="kw">await</span> ans.<span class="fn">resolveWithExtension</span>(<span class="str">"satoshi"</span>, <span class="str">"alke"</span>);
+<span class="kw">if</span> (ain === ethers.ZeroHash) <span class="fn">handleNotFound</span>();</pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="ep-card" onclick="toggleEp(this)">
+            <div class="ep-head">
+              <span class="ep-method get">VIEW</span>
+              <span class="ep-path">isAvailableInExtension(label, ext)</span>
+              <span class="ep-desc">Check if a name is available to register</span>
+              <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="ep-body">
+              <p style="font-size:13.5px;color:var(--ink-2)">Returns <code class="inline">false</code> if the name is active, in grace period, reserved, or the extension doesn't exist. Only returns <code class="inline">true</code> if the name is genuinely claimable right now.</p>
+            </div>
+          </div>
+
+          <div class="ep-card" onclick="toggleEp(this)">
+            <div class="ep-head">
+              <span class="ep-method post">WRITE</span>
+              <span class="ep-path">setRecordWithExtension(label, ext, key, value)</span>
+              <span class="ep-desc">Set a text record on a name</span>
+              <svg class="ep-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="ep-body">
+              <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:12px">Store arbitrary key-value text records on a name (website, avatar, email, etc). <code class="inline">key</code> is <code class="inline">bytes32</code> — compute as <code class="inline">keccak256("KEY_NAME")</code> client-side. Records are epoch-versioned: they are automatically invalidated on name transfer or re-registration.</p>
+              <div class="code-wrap" style="margin:0"><div class="code-header"><span class="code-lang">javascript</span><button class="code-copy" onclick="copyCode(this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button></div>
+<pre><span class="kw">const</span> KEY_WEBSITE = ethers.<span class="fn">id</span>(<span class="str">"KEY_WEBSITE"</span>);
+<span class="kw">await</span> ans.<span class="fn">setRecordWithExtension</span>(<span class="str">"satoshi"</span>, <span class="str">"alke"</span>, KEY_WEBSITE, <span class="str">"https://mysite.com"</span>);</pre>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="code-wrap">
+          <div class="code-header"><span class="code-lang">javascript — full name lookup flow</span><button class="code-copy" onclick="copyCode(this)"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button></div>
+<pre><span class="cm">// Resolve a .alke name to an identity record</span>
+<span class="kw">const</span> ain = <span class="kw">await</span> ans.<span class="fn">resolveWithExtension</span>(<span class="str">"satoshi"</span>, <span class="str">"alke"</span>);
+
+<span class="kw">if</span> (ain !== ethers.ZeroHash) {
+  <span class="kw">const</span> record = <span class="kw">await</span> registry.<span class="fn">getRecord</span>(ain);
+  console.<span class="fn">log</span>(<span class="str">"Type:"</span>,       record.itype);      <span class="cm">// 0 = HUMAN</span>
+  console.<span class="fn">log</span>(<span class="str">"Controller:"</span>, record.controller);
+  console.<span class="fn">log</span>(<span class="str">"Status:"</span>,     record.status);     <span class="cm">// 0 = Active</span>
+}</pre>
+        </div>
+
+        <!-- Deploy flow -->
+        <div class="callout tip" style="margin-top:24px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <div><strong>Deploy order:</strong> (1) Deploy <code class="inline">AINRegistry</code>, (2) Deploy <code class="inline">AINRegistrar(registryAddr)</code>, (3) Call <code class="inline">registry.setRegistrar(registrarAddr, true)</code>, (4) Deploy <code class="inline">ANSRegistryV2(admin, treasury, registryAddr, ...prices)</code>. ANS reads the registry directly — no extra setup required.</div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════
+         ECOSYSTEM SDKs
+    ══════════════════════════ -->
+    <section class="doc-sec" id="ecosystem">
+      <div class="ch">08 · Ecosystem</div>
+      <h2 class="sec-title">Ecosystem <em>SDKs</em></h2>
+      <p class="sec-deck">Alkebuleum's ecosystem products each provide their own SDK and documentation. All run on Alkebuleum and accept ALKE for gas.</p>
+
+      <table class="eco-table" style="margin-bottom:28px">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Ticker / ID</th>
+            <th>Description</th>
+            <th>Docs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nuru AI <span class="badge live">Live</span></td>
+            <td>nuruai.org</td>
+            <td>Sovereign AI assistant for identity and finance on Alkebuleum. Provides AI-powered document analysis and identity verification.</td>
+            <td><a href="https://nuruai.org" target="_blank" rel="noopener">nuruai.org ↗</a></td>
+          </tr>
+          <tr>
+            <td>AfPass <span class="badge live">Live</span></td>
+            <td>afpass.org</td>
+            <td>Decentralised identity passport for Africa. DID issuance, verifiable credentials, and biometric binding on-chain.</td>
+            <td><a href="https://afpass.org" target="_blank" rel="noopener">afpass.org ↗</a></td>
+          </tr>
+          <tr>
+            <td>DRIS <span class="badge live">Live</span></td>
+            <td>dris.cc</td>
+            <td>Document registry and institutional signing on-chain. Issue, anchor, and verify official documents with government-grade trust.</td>
+            <td><a href="https://dris.cc" target="_blank" rel="noopener">dris.cc ↗</a></td>
+          </tr>
+          <tr>
+            <td>Amvault <span class="badge live">Live</span></td>
+            <td>amvault.net</td>
+            <td>Self-custodial wallet and identity hub. The primary end-user wallet for Alkebuleum and ecosystem apps.</td>
+            <td><a href="https://amvault.net" target="_blank" rel="noopener">amvault.net ↗</a></td>
+          </tr>
+          <tr>
+            <td>JollofSwap <span class="badge live">Live</span></td>
+            <td>JSWAP</td>
+            <td>Native decentralised exchange built on Alkebuleum. Swap ALKE and ecosystem tokens with on-chain liquidity pools.</td>
+            <td><a href="https://jollofswap.com" target="_blank" rel="noopener">jollofswap.com ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout tip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <div>Building an integration? Each ecosystem product exposes its own REST or on-chain interface. Start with <a href="https://afpass.org" style="color:var(--green)">AfPass</a> for identity primitives and <a href="https://dris.cc" style="color:var(--green)">DRIS</a> for document trust. For developer support, reach out to <a href="mailto:dev@alkebuleum.org" style="color:var(--green)">dev@alkebuleum.org</a>.</div>
+      </div>
+
+      <!-- Footer strip -->
+      <div style="margin-top:56px;padding-top:32px;border-top:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <svg style="color:var(--purple);width:20px;height:22px"><use href="#mark"/></svg>
+          <span style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)">docs.alkebuleum.org</span>
+        </div>
+        <div style="display:flex;gap:20px;flex-wrap:wrap">
+          <a href="https://alkebuleum.org" style="font-size:13px;color:var(--ink-3)" target="_blank" rel="noopener">alkebuleum.org</a>
+          <a href="https://explorer.alkebuleum.com" style="font-size:13px;color:var(--ink-3)" target="_blank" rel="noopener">Block Explorer</a>
+          <a href="https://github.com/alkebuleum" style="font-size:13px;color:var(--ink-3)" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:dev@alkebuleum.org" style="font-size:13px;color:var(--ink-3)">dev@alkebuleum.org</a>
+        </div>
+        <div style="font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4)">© 2025 Alkebuleum Foundation</div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Mobile menu button -->
+<button class="mob-menu-btn" onclick="toggleSidebar()">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  Menu
+</button>
+
+
+<script>
+/* ── Sidebar active tracking ── */
+const sections = document.querySelectorAll('section[id], .hero-band[id]');
+const navLinks = document.querySelectorAll('.sb-nav a');
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      const id = e.target.id;
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+},{threshold:.25});
+sections.forEach(s => s.id && obs.observe(s));
+
+/* ── Endpoint accordion ── */
+function toggleEp(card){
+  card.classList.toggle('open');
+}
+
+/* ── Copy code ── */
+function copyCode(btn){
+  const pre = btn.closest('.code-wrap').querySelector('pre');
+  const text = pre.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.classList.add('copied');
+    btn.innerHTML = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied`;
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy`;
+    }, 2500);
+  });
+}
+
+/* ── Mobile sidebar ── */
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.getElementById('sidebar').addEventListener('click', function(e){
+  if(e.target.tagName === 'A' && window.innerWidth < 900){
+    this.classList.remove('open');
+  }
+});
+</script>
+
+</body>
+</html>

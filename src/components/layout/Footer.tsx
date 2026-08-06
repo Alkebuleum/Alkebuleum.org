@@ -47,7 +47,7 @@ export default function Footer() {
           <div className="foot-col">
             <h5>Build</h5>
             <ul>
-              <li><a href="https://docs.alkebuleum.com" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+              <li><a href="https://docs.alkebuleum.org" target="_blank" rel="noopener noreferrer">Documentation</a></li>
               <li><a href="https://github.com/alkebuleum" target="_blank" rel="noopener noreferrer">SDKs</a></li>
               <li><a href="https://github.com/alkebuleum" target="_blank" rel="noopener noreferrer">Smart contracts</a></li>
               <li><Link to="/grants">Grants</Link></li>
@@ -66,13 +66,13 @@ export default function Footer() {
             </ul>
           </div>
           <div className="foot-col">
-            <h5>Resources</h5>
+            <h5>Docs</h5>
             <ul>
-              <li><Link to="/resources">Resources</Link></li>
+              <li><a href="https://docs.alkebuleum.org" target="_blank" rel="noopener">Developer Docs</a></li>
               <li><a href="/whitepaper.html" target="_blank" rel="noopener">Whitepaper</a></li>
               <li><Link to="/grants">Grants</Link></li>
               <li><Link to="/apps">Apps</Link></li>
-              <li><a href="/brand">Brand assets</a></li>
+              <li><a href="/brand/index.html">Brand assets</a></li>
               <li><a href="/media/">Media Kit</a></li>
             </ul>
           </div>
@@ -82,7 +82,7 @@ export default function Footer() {
           <div className="foot-links">
             <Link to="/privacy">Privacy</Link>
             <Link to="/terms">Terms</Link>
-            <a href="/brand">Brand</a>
+            <a href="/brand/index.html">Brand</a>
           </div>
         </div>
       </div>

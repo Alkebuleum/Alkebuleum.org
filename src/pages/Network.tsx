@@ -24,7 +24,7 @@ const DETAILS = [
   { label: 'Block time', value: '~5 seconds' },
   { label: 'Consensus', value: 'PORA (Proof of Reputable Authority)' },
   { label: 'EVM compatible', value: 'Yes (EIP-1559 fee model)' },
-  { label: 'Developer docs', value: 'https://docs.alkebuleum.com', href: 'https://docs.alkebuleum.com' },
+  { label: 'Developer docs', value: 'https://docs.alkebuleum.org', href: 'https://docs.alkebuleum.org' },
 ]
 
 export default function Network() {
@@ -150,7 +150,7 @@ export default function Network() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 16 }}>
             {[
               { title: 'Block Explorer', href: 'https://explorer.alkebuleum.com', desc: 'Browse blocks, transactions, and addresses' },
-              { title: 'Developer Docs', href: 'https://docs.alkebuleum.com', desc: 'Guides, APIs, and SDK references' },
+              { title: 'Developer Docs', href: 'https://docs.alkebuleum.org', desc: 'Guides, APIs, and SDK references' },
               { title: 'GitHub', href: 'https://github.com/alkebuleum', desc: 'Open source contracts and tooling' },
               { title: 'ALKE (Native Asset)', href: '/alkecoin', desc: 'Native asset details for exchange listings' },
             ].map(r => (

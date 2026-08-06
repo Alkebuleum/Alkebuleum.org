@@ -4,12 +4,12 @@ import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 
 const ASSETS = [
-  { label: 'Primary logo', desc: 'The official Alkebuleum wordmark and logomark for light and dark backgrounds.', link: '/brand', linkText: 'View brand center →' },
-  { label: 'Brand colors', desc: 'Official primary and secondary color palette with hex, RGB, and CMYK values.', link: '/brand', linkText: 'View brand center →' },
-  { label: 'Typography', desc: 'Official typefaces and type scale used across all Alkebuleum communications.', link: '/brand', linkText: 'View brand center →' },
-  { label: 'Social graphics', desc: 'Official cover images, profile photos, and social media assets for all platforms.', link: '/brand', linkText: 'View brand center →' },
-  { label: 'Media resources', desc: 'Press kit, factsheets, and institutional media assets for editorial and partner use.', link: '/brand', linkText: 'View brand center →' },
-  { label: 'Usage guidance', desc: 'Brand usage rules — what is permitted and what is not — for partners, press, and the community.', link: '/brand', linkText: 'View brand center →' },
+  { label: 'Primary logo', desc: 'The official Alkebuleum wordmark and logomark for light and dark backgrounds.', link: '/media/index.html#logos', linkText: 'Download logos →' },
+  { label: 'Brand colors', desc: 'Official primary and secondary color palette with hex, RGB, and CMYK values.', link: 'mailto:info@alkebuleum.org', linkText: 'Request brand guide →' },
+  { label: 'Typography', desc: 'Official typefaces and type scale used across all Alkebuleum communications.', link: 'mailto:info@alkebuleum.org', linkText: 'Request brand guide →' },
+  { label: 'Social graphics', desc: 'Official cover images, profile photos, and social media assets for all platforms.', link: '/media/index.html', linkText: 'View media kit →' },
+  { label: 'Media resources', desc: 'Press kit, factsheets, and institutional media assets for editorial and partner use.', link: '/alkebuleum-press-kit.zip', linkText: 'Download press kit →' },
+  { label: 'Usage guidance', desc: 'Brand usage rules — what is permitted and what is not — for partners, press, and the community.', link: 'mailto:info@alkebuleum.org', linkText: 'Contact for guidelines →' },
 ]
 
 export default function BrandAssets() {
@@ -40,8 +40,8 @@ export default function BrandAssets() {
             Official Alkebuleum brand assets — logos, colors, typography, and media resources for press, partners, and the community.
           </p>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 32 }}>
-            <a className="btn btn-primary" href="/brand">Open brand center →</a>
-            <Link className="btn btn-dark" to="/resources">All resources →</Link>
+            <a className="btn btn-primary" href="/media/index.html">Open media kit →</a>
+            <a className="btn btn-dark" href="/alkebuleum-press-kit.zip">Download press kit →</a>
           </div>
         </div>
       </section>
@@ -73,7 +73,7 @@ export default function BrandAssets() {
             For specific press inquiries, partnership media requests, or custom usage that falls outside standard guidelines, contact us directly.
           </p>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <a className="btn btn-primary" href="/brand">Brand center →</a>
+            <a className="btn btn-primary" href="/media/index.html">Open media kit →</a>
             <a className="btn btn-dark" href="mailto:info@alkebuleum.org">Media enquiries →</a>
           </div>
         </div>
