@@ -26,7 +26,7 @@ git push origin main
 ```
 
   git add -A
-  git commit -m "media page added"
+  git commit -m "updated alke coin logo"
   git push
 
 > **Important:** The remote also has a `master` branch, but the GitHub Actions deploy workflow only watches `main`. Pushing to `master` will NOT trigger a deployment. The local `main` branch is configured to track `origin/main`, so a plain `git push` is all that's needed.
