@@ -20,7 +20,8 @@ const DOCS = [
     category: 'Developer resources',
     items: [
       { title: 'Developer documentation', desc: 'Technical documentation for building on the Alkebuleum network — RPC, smart contracts, SDKs, and APIs.', href: 'https://docs.alkebuleum.org', external: true },
-      { title: 'Block explorer', desc: 'Explore transactions, blocks, and addresses on the Alkebuleum mainnet.', href: 'https://explorer.alkebuleum.com', external: true },
+      { title: 'AlkeScan explorer', desc: 'Explore transactions, blocks, tokens and verified contracts on the Alkebuleum mainnet.', href: 'https://alkescan.com', external: true },
+      { title: 'Register tokens & verify contracts', desc: 'Step-by-step guide to listing your token and publishing verified contract source code on AlkeScan.', href: '/developers/alkescan', external: false },
       { title: 'GitHub', desc: 'Open-source repositories for the Alkebuleum network, tools, and ecosystem projects.', href: 'https://github.com/alkebuleum', external: true },
     ]
   },

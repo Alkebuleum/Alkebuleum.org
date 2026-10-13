@@ -15,7 +15,7 @@ const TOKEN_FACTS = [
   { label: 'Consensus', value: 'PORA (Proof of Reputable Authority)' },
   { label: 'Target block time', value: '~5 seconds' },
   { label: 'ICO / presale', value: 'None' },
-  { label: 'Explorer', value: 'explorer.alkebuleum.com', href: 'https://explorer.alkebuleum.com' },
+  { label: 'Explorer', value: 'alkescan.com', href: 'https://alkescan.com' },
   { label: 'RPC endpoint', value: 'https://rpc.alkebuleum.com', href: 'https://rpc.alkebuleum.com' },
 ]
 

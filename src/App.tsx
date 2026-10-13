@@ -16,6 +16,7 @@ import AlkePay from './pages/AlkePay'
 import AlkeID from './pages/AlkeID'
 import AlkeCredit from './pages/AlkeCredit'
 import Resources from './pages/Resources'
+import AlkeScanGuide from './pages/AlkeScanGuide'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -53,6 +54,7 @@ export default function App() {
         <Route path="/alkecredit" element={<AlkeCredit />} />
         <Route path="/alkecoin" element={<Alkecoin />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/developers/alkescan" element={<AlkeScanGuide />} />
         <Route path="/brand-assets" element={<RedirectToStatic to="/media/index.html" />} />
 
         {/* Existing pages */}

@@ -41,13 +41,14 @@ export default function Footer() {
               <li><Link to="/network">Network details</Link></li>
               <li><Link to="/alkecoin">ALKE</Link></li>
               <li><Link to="/tokenomics">Tokenomics</Link></li>
-              <li><a href="https://explorer.alkebuleum.com" target="_blank" rel="noopener noreferrer">Explorer</a></li>
+              <li><a href="https://alkescan.com" target="_blank" rel="noopener noreferrer">Explorer</a></li>
             </ul>
           </div>
           <div className="foot-col">
             <h5>Build</h5>
             <ul>
               <li><a href="https://docs.alkebuleum.org" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+              <li><Link to="/developers/alkescan">Register tokens &amp; verify contracts</Link></li>
               <li><a href="https://github.com/alkebuleum" target="_blank" rel="noopener noreferrer">SDKs</a></li>
               <li><a href="https://github.com/alkebuleum" target="_blank" rel="noopener noreferrer">Smart contracts</a></li>
               <li><Link to="/grants">Grants</Link></li>
@@ -69,6 +70,7 @@ export default function Footer() {
             <h5>Docs</h5>
             <ul>
               <li><a href="https://docs.alkebuleum.org" target="_blank" rel="noopener">Developer Docs</a></li>
+              <li><Link to="/developers/alkescan">AlkeScan guide</Link></li>
               <li><a href="/whitepaper.html" target="_blank" rel="noopener">Whitepaper</a></li>
               <li><Link to="/grants">Grants</Link></li>
               <li><Link to="/apps">Apps</Link></li>

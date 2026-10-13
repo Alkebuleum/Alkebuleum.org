@@ -9,7 +9,7 @@ const NETWORK_PARAMS = {
   chainIdDecimal: 237422,
   nativeCurrency: { name: 'ALKE', symbol: 'ALKE', decimals: 18 },
   rpcUrls: ['https://rpc.alkebuleum.com'],
-  blockExplorerUrls: ['https://explorer.alkebuleum.com'],
+  blockExplorerUrls: ['https://alkescan.com'],
 }
 
 const DETAILS = [
@@ -20,7 +20,7 @@ const DETAILS = [
   { label: 'Currency name', value: 'ALKE' },
   { label: 'Decimals', value: '18' },
   { label: 'RPC endpoint', value: 'https://rpc.alkebuleum.com', href: 'https://rpc.alkebuleum.com' },
-  { label: 'Block explorer', value: 'https://explorer.alkebuleum.com', href: 'https://explorer.alkebuleum.com' },
+  { label: 'Block explorer', value: 'https://alkescan.com', href: 'https://alkescan.com' },
   { label: 'Block time', value: '~5 seconds' },
   { label: 'Consensus', value: 'PORA (Proof of Reputable Authority)' },
   { label: 'EVM compatible', value: 'Yes (EIP-1559 fee model)' },
@@ -87,7 +87,7 @@ export default function Network() {
             <button className="btn btn-primary" onClick={addToMetaMask}>
               {added ? 'Added to MetaMask ✓' : 'Add to MetaMask'}
             </button>
-            <a className="btn btn-dark" href="https://explorer.alkebuleum.com" target="_blank" rel="noopener noreferrer">Open Explorer →</a>
+            <a className="btn btn-dark" href="https://alkescan.com" target="_blank" rel="noopener noreferrer">Open AlkeScan →</a>
           </div>
         </div>
       </section>
@@ -137,7 +137,7 @@ export default function Network() {
             <div><span style={{ color: '#94a3b8' }}>RPC URL:       </span><span style={{ color: '#86efac' }}>https://rpc.alkebuleum.com</span></div>
             <div><span style={{ color: '#94a3b8' }}>Chain ID:      </span><span style={{ color: '#c084fc' }}>237422</span></div>
             <div><span style={{ color: '#94a3b8' }}>Symbol:        </span><span style={{ color: '#fbbf24' }}>ALKE</span></div>
-            <div><span style={{ color: '#94a3b8' }}>Explorer:      </span><span style={{ color: '#86efac' }}>https://explorer.alkebuleum.com</span></div>
+            <div><span style={{ color: '#94a3b8' }}>Explorer:      </span><span style={{ color: '#86efac' }}>https://alkescan.com</span></div>
           </div>
         </div>
       </section>
@@ -149,8 +149,9 @@ export default function Network() {
           <h2 style={{ fontFamily: "'Space Grotesk',sans-serif", fontWeight: 500, letterSpacing: '-.025em', marginBottom: 32 }}>Developer resources</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 16 }}>
             {[
-              { title: 'Block Explorer', href: 'https://explorer.alkebuleum.com', desc: 'Browse blocks, transactions, and addresses' },
+              { title: 'AlkeScan explorer', href: 'https://alkescan.com', desc: 'Browse blocks, transactions, tokens and verified contracts' },
               { title: 'Developer Docs', href: 'https://docs.alkebuleum.org', desc: 'Guides, APIs, and SDK references' },
+              { title: 'Register & verify', href: '/developers/alkescan', desc: 'List your token or publish verified contract source on AlkeScan' },
               { title: 'GitHub', href: 'https://github.com/alkebuleum', desc: 'Open source contracts and tooling' },
               { title: 'ALKE (Native Asset)', href: '/alkecoin', desc: 'Native asset details for exchange listings' },
             ].map(r => (
